@@ -44,7 +44,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#local-repository-setup-🎃">Local Repository Setup</a></li>
+        <li><a href="#local-repository-setup-👾">Local Repository Setup</a></li>
         <li><a href="#running-the-project">Running the project</a></li>
       </ul>
     </li>
