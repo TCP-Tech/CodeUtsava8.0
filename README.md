@@ -12,21 +12,21 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/TCP-Tech/CodeUtsava7.0">
+  <a href="https://github.com/TCP-Tech/CodeUtsava8.0">
     <img src="/src/assets/images/codeutsavaTitle3d.webp" alt="Logo" width="400">
   </a>
 
-  <h3 align="center">CodeUtsava 7.0</h3>
+  <h3 align="center">CodeUtsava 8.0</h3>
 
   <p align="center">
-    The Official Repository for the website of CodeUtsava 7.0
+    The Official Repository for the website of CodeUtsava 8.0
     <br />
     <br />
     <a href="https://codeutsava7.netlify.app/">View Live</a>
     ·
-    <a href="https://github.com/TCP-Tech/CodeUtsava7.0/issues">Report Bugs</a>
+    <a href="https://github.com/TCP-Tech/CodeUtsava8.0/issues">Report Bugs</a>
     .
-    <a href="https://github.com/TCP-Tech/CodeUtsava7.0/issues">Add Features</a>
+    <a href="https://github.com/TCP-Tech/CodeUtsava8.0/issues">Add Features</a>
   </p>
 </p>
 
@@ -129,7 +129,7 @@ Please refer to the project's style and contribution guidelines for submitting p
 
 <!-- NOTE 1: Please abide by the [Contributing Guidelines](https://github.com/dscnitrourkela/project-guava-web/blob/master/CONTRIBUTING.md). -->
 
-NOTE : Please abide by the [Code of Conduct](https://github.com/TCP-Tech/CodeUtsava7.0/CODE_OF_CONDUCT.md).
+NOTE : Please abide by the [Code of Conduct](https://github.com/TCP-Tech/CodeUtsava8.0/CODE_OF_CONDUCT.md).
 
 ### Running the project.
 
@@ -170,20 +170,20 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Starware
 
-TCP-Tech/CodeUtsava7.0 is Starware.
+TCP-Tech/CodeUtsava8.0 is Starware.
 This means you're free to use the project, as long as you star its GitHub repository.
 Your appreciation makes us grow and glow up. ⭐
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/TCP-Tech/CodeUtsava7.0?style=for-the-badge
-[contributors-url]: https://github.com/TCP-Tech/CodeUtsava7.0/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TCP-Tech/CodeUtsava7.0?style=for-the-badge
-[forks-url]: https://github.com/TCP-Tech/CodeUtsava7.0/network/members
-[stars-shield]: https://img.shields.io/github/stars/TCP-Tech/CodeUtsava7.0?style=for-the-badge
-[stars-url]: https://github.com/TCP-Tech/CodeUtsava7.0/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TCP-Tech/CodeUtsava7.0?style=for-the-badge
-[issues-url]: https://github.com/TCP-Tech/CodeUtsava7.0/issues
-[license-shield]: https://img.shields.io/github/license/TCP-Tech/CodeUtsava7.0?style=for-the-badge
-[license-url]: https://github.com/TCP-Tech/CodeUtsava7.0/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/TCP-Tech/CodeUtsava8.0?style=for-the-badge
+[contributors-url]: https://github.com/TCP-Tech/CodeUtsava8.0/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TCP-Tech/CodeUtsava8.0?style=for-the-badge
+[forks-url]: https://github.com/TCP-Tech/CodeUtsava8.0/network/members
+[stars-shield]: https://img.shields.io/github/stars/TCP-Tech/CodeUtsava8.0?style=for-the-badge
+[stars-url]: https://github.com/TCP-Tech/CodeUtsava8.0/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TCP-Tech/CodeUtsava8.0?style=for-the-badge
+[issues-url]: https://github.com/TCP-Tech/CodeUtsava8.0/issues
+[license-shield]: https://img.shields.io/github/license/TCP-Tech/CodeUtsava8.0?style=for-the-badge
+[license-url]: https://github.com/TCP-Tech/CodeUtsava8.0/LICENSE
 [product-screenshot]: images/Compose.png
 [tcp]: src/assets/images/tcpName.png
