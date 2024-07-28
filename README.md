@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/TCP-Tech/CodeUtsava8.0">
-    <img src="/src/assets/images/codeutsavaTitle3d.webp" alt="Logo" width="400">
+    <img src="/src/assets/images/logo1.png" alt="Logo" width="400">
   </a>
 
   <h3 align="center">CodeUtsava 8.0</h3>
@@ -62,8 +62,8 @@ CodeUtsava is an event being organized by Turing Club of Programmers, the Offici
 
 Following technologies and libraries are used for the development of this website
 
-- [React]()
-- [Django]()
+- [ViteJS]()
+- [Javascript]()
 - [Netlify]()
 
 ## Getting Started

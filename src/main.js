@@ -1,5 +1,5 @@
 import '../style.css';
-import sprite from '../assets/spritesheet.png';
+import sprite from './assets/images/spritesheet.png';
 import { gameLoop } from './game/gameLoop.js';
 import { keyDownListener, keyUpListener } from './game/keyListeners.js';
 import { FACING_DOWN } from './game/constants.js';
