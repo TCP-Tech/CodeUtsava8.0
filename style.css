@@ -11,6 +11,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-bg: #000000;
+  --primary-c: #7f00a6;
+  --secondary-c: #b200ee;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+}
+
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -36,6 +56,7 @@ h1 {
 }
 
 #app {
+  display: none;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -101,3 +122,4 @@ canvas {
     border: 1px solid black;
   }
 }
+  
