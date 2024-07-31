@@ -8,7 +8,7 @@ function loadComponent(id, url) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('navbar-container', 'components/navbar.html');
-    loadComponent('main-container', 'components/main.html');
-    loadComponent('footer-container', 'components/footer.html');
+    loadComponent('navbar-container', '/src/components/Navbar/navbar.html');
+    loadComponent('main-container', '/src/components/Hero Section/main.html');
+    loadComponent('footer-container', '/src/components/Footer/footer.html');
 });
