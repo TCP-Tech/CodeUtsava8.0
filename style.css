@@ -11,6 +11,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-bg: #000000;
+  --primary-c: #7f00a6;
+  --secondary-c: #b200ee;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+}
+
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -102,6 +122,7 @@ canvas {
     border: 1px solid black;
   }
 }
+<<<<<<< HEAD
 
 /* Intro Section */
 .intro-container {
@@ -220,3 +241,6 @@ canvas {
     visibility: visible;
   }
 }
+=======
+  
+>>>>>>> f30e57d732c2b3b13375eed6bc5276f84512bcad
