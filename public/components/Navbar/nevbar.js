@@ -14,7 +14,6 @@ const closeList = `
 `;
 document.addEventListener('DOMContentLoaded', () => {
   const toggleSection = document.getElementById('toggleCrossOpen');
-  console.log(toggleSection);
   toggleSection.innerHTML = openList;
   toggleMenu();
 });
