@@ -12,21 +12,35 @@ const closeList = `
       <line x1="0" y1="0" x2="100" y2="100" stroke-width="10" stroke="white"/>
     </svg>
 `;
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggleSection = document.getElementById('toggleCrossOpen');
+  toggleSection.classList.add('transition-svg');
   toggleSection.innerHTML = openList;
-  toggleMenu();
+  toggleSection.classList.add('show-svg');
 });
+
 function toggleMenu() {
   const menu = document.getElementById('hamburgerMenu');
   const toggleSection = document.getElementById('toggleCrossOpen');
-  
-  // Toggle between showing and hiding the list and switching SVGs
   if (menu.style.display === 'none' || menu.style.display === '') {
-    menu.style.display = 'block'; // Show the list
-    toggleSection.innerHTML = closeList; 
+    menu.style.display = 'block';
+    toggleSection.classList.remove('show-svg');
+    toggleSection.classList.add('remove-svg'); 
+    setTimeout(() => {
+      toggleSection.innerHTML = closeList;
+      toggleSection.classList.remove('remove-svg');
+      toggleSection.classList.add('show-svg');
+    }, 350);
   } else {
-    menu.style.display = 'none'; // Hide the list
-    toggleSection.innerHTML = openList;// Show cross SVG
+    toggleSection.classList.remove('show-svg');
+    toggleSection.classList.add('remove-svg'); 
+    setTimeout(() => {
+      toggleSection.innerHTML = openList; 
+      toggleSection.classList.remove('remove-svg');
+      toggleSection.classList.add('show-svg');
+    }, 350);
+    
+    menu.style.display = 'none';
   }
 }

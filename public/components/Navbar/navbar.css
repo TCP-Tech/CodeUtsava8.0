@@ -345,3 +345,37 @@
     top: 20px;
     left: 40px;
   }  
+  /* Define base transition effects */
+.transition-svg {
+  transition: opacity 0.35s ease-in-out; /* Ensure this matches animation duration */
+  opacity: 0;
+}
+
+/* Keyframes for opacity transitions */
+@keyframes increaseopacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes decreaseopacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Class to hide SVG */
+.remove-svg {
+  animation: decreaseopacity 0.35s ease-in-out forwards;
+}
+
+/* Class to show SVG */
+.show-svg {
+  animation: increaseopacity 0.35s ease-in-out forwards;
+}
