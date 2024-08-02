@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(`Error loading component from ${url}:`, error);
     }
   };
-
   loadComponent('navbar-container', '/components/Navbar/navbar.html');
   loadComponent('main-container', '/components/Hero Section/main.html');
   loadComponent('footer-container', '/components/Footer/footer.html');
 });
+

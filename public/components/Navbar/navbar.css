@@ -85,6 +85,8 @@
   }
   .codeutsava__navbar-hamburger-brochure_feedback-button {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
   
   .codeutsava__navbar-hamburger-brochure-button {
