@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  loadComponent('intro-screen-container', '/components/Intro Screen/introScreen.html');
   loadComponent('navbar-container', '/components/Navbar/navbar.html');
   loadComponent('main-container', '/components/Hero Section/main.html');
   loadComponent('footer-container', '/components/Footer/footer.html');
