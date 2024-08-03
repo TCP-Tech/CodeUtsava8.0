@@ -11,34 +11,34 @@
   top: 0px;
 }
 
-.codeutsava__footer-container{
+.codeutsava__footer-container {
   width: 100%;
-  background-color: rgba(32,32,32,1);
+  background-color: rgba(32, 32, 32, 1);
   margin-top: 10rem;
   overflow-x: hidden;
 }
-.codeutsava__navbar-container{
+.codeutsava__navbar-container {
   position: fixed !important;
 }
-#main-container{
+#main-container {
   margin-top: 72px !important;
 }
 
 /* Intro Screen Css starts here */
 
 @font-face {
-  font-family: 'FFFFORWA';
-  src: url('/assets/fonts/FFFFORWA.TTF') format('truetype');
+  font-family: "FFFFORWA";
+  src: url("/assets/fonts/FFFFORWA.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: '8bitlim';
-  src: url('/assets/fonts/8bitlim.ttf') format('truetype');
+  font-family: "8bitlim";
+  src: url("/assets/fonts/8bitlim.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'joystix monospace';
-  src: url('/assets/fonts/joystix monospace.ttf') format('truetype');
+  font-family: "joystix monospace";
+  src: url("/assets/fonts/joystix monospace.ttf") format("truetype");
 }
 
 .intro-screen {
@@ -63,35 +63,73 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: none;
+  /* animation: none; */
 }
 
-.intro-button-container .intro-button {
+.intro-button {
   user-select: none;
   cursor: pointer;
-  font-family: 'joystix monospace';
-  color: black;
+  font-family: "Carter One", "joystix monospace", sans-serif;
+  color: #fff !important;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: x-large;
+  font-size: 20px;
   letter-spacing: 3px;
   height: 60px;
   width: 50vw;
-  background-color: rgb(184, 184, 184);
-  border: 5px solid black;
-  box-shadow: inset -3px -3px 0 4px rgb(118, 118, 118);
-  transition: all 0.05s ease-in-out;
+  background: repeating-linear-gradient(
+    45deg,
+    #3ebbf7,
+    #3ebbf7 5px,
+    #45b1f4 5px,
+    #45b1f4 10px
+  );
+  border: 5px solid #3ebbf7;
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2,
+    -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2,
+    0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
 }
 
-.intro-button-container .intro-button:active, 
+.intro-button-container .intro-button:hover {
+  top: 2px;
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
+    0 13px 1px 6px rgba(0, 0, 0, 0.3);
+  border-color: white;
+}
+
+.intro-button-container .intro-button:active,
 .intro-button-container .intro-button:focus {
   box-shadow: none;
 }
 
-.intro-button-container .intro-button:hover {
-  border-color: white;
+.intro-button::before {
+  content: "";
+  height: 10%;
+  position: absolute;
+  width: 40%;
+  background: #fff;
+  right: 13%;
+  top: -3%;
+  border-radius: 99px;
+}
+
+.intro-button::after {
+  content: "";
+  height: 10%;
+  position: absolute;
+  width: 5%;
+  background: #fff;
+  right: 5%;
+  top: -3%;
+  border-radius: 99px;
 }
 
 .pixel-corners {
@@ -142,45 +180,44 @@
   }
 } */
 
-
 @keyframes leftCloud {
   0% {
-      left: -500%;
+    left: -500%;
   }
   100% {
-      left: 0;
+    left: 0;
   }
 }
 
 @keyframes rightCloud {
   0% {
-      right: -500%;
+    right: -500%;
   }
   100% {
-      right: 0;
+    right: 0;
   }
 }
 
 @keyframes leftCloudReverse {
   0% {
-      left: 0;
+    left: 0;
   }
   100% {
-      left: -500%;
+    left: -500%;
   }
 }
 
 @keyframes rightCloudReverse {
   0% {
-      right: 0;
+    right: 0;
   }
   100% {
-      right: -500%;
+    right: -500%;
   }
 }
 
 .clouds-container.hidden .cloud {
-  animation: none; 
+  animation: none;
 }
 
 .clouds-container.show .cloud:first-child {
@@ -198,5 +235,3 @@
 .clouds-container.hide .cloud:last-child {
   animation: rightCloudReverse 3s ease-in-out forwards;
 }
-
-  
