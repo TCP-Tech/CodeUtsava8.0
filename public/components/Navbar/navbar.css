@@ -83,6 +83,9 @@
   .codeutsava__navbar-brochure-button:hover img {
     filter: invert(0%);
   }
+  .codeutsava__navbar-brochure-button:hover a {
+    color: black;
+  }
   .codeutsava__navbar-hamburger-brochure_feedback-button {
     display: flex;
   }
@@ -129,6 +132,9 @@
   
   .codeutsava__navbar-brochure-button.feedback-button:hover img {
     filter: invert(0%);
+  }
+  .codeutsava__navbar-brochure-button.feedback-button:hover a {
+    color: black;
   }
   
   .codeutsava__navbar-hamburger-logo {
