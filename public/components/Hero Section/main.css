@@ -31,6 +31,15 @@
     margin: 1rem 0;
     height: 65px;
   }
+  .codeutsava__section1-menu h1{
+    /* margin: 1rem 0;
+    height: 65px; */
+    color: var(--primary-c);
+    font: var(--font-family);
+    text-align: center;
+    font-size: 3.4rem;
+    margin: 0 1rem;
+  }
   
   .codeutsava__section1-subheading {
     font-family: var(--font-family1);
@@ -38,14 +47,14 @@
     font-size: 36px;
     line-height: 82px;
     letter-spacing: 4px;
-    color: var(--secondary-c);
+    color: var(--primary-c);
     text-transform: uppercase;
   }
   
   .codeutsava__section1-para {
-    font-family: "Poppins";
+    font-family: var(--font-family1)"Poppins";
     font-weight: 300;
-    font-size: 24px;
+    font-size: 1.25rem;
     letter-spacing: 1px;
     color: white;
     text-align: center;
@@ -73,7 +82,7 @@
   
   .codeutsava__section1-button {
     align-items: center;
-    background-color: #f3f6fb;
+    background-color: var(--primary-c);;
     border-radius: 4px;
     border: 2px solid transparent;
     color: #000;
@@ -127,6 +136,7 @@
   
   .codeutsava__section1-register-link {
     text-align: center;
+    color: black !important;
   }
   
   .codeutsava__section1-side-links {
@@ -263,6 +273,10 @@
     }
     .codeutsava__section1-para {
       font-size: 18px;
+    }
+    .codeutsava__section1-menu h1{
+      font-size: 24px;
+      margin: 0 2rem;
     }
     .codeutsava__section1-image {
       margin-bottom: 1rem;

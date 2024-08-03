@@ -3,21 +3,26 @@
   src: url(./font.otf);
 }
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: pixelled, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --color-bg: #000000;
-  --primary-c: #7f00a6;
-  --secondary-c: #b200ee;
+  --primary-c: rgb(232, 157, 60);
+  --secondary-c: rgb(211, 138, 43);
+}
+
+body {
+  background-image: url("/public/assets/images/bg.gif");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
@@ -31,7 +36,6 @@
   width: 100%;
 }
 
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -39,11 +43,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: black;
 }
 
 body {
@@ -52,11 +56,14 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  color: rgba(255, 255, 255, 0.87);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--primary-c);
 }
 
 #app {
@@ -74,18 +81,21 @@ h1 {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--primary-c));
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+  filter: drop-shadow(0 0 2em var(--secondary-c));
 }
 
 .card {
   padding: 2em;
+  background-color: rgba(232, 157, 60, 0.1);
+  border: 1px solid var(--primary-c);
+  border-radius: 8px;
 }
 
 .read-the-docs {
-  color: #888;
+  color: rgba(232, 157, 60, 0.8);
 }
 
 button {
@@ -95,12 +105,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--secondary-c);
+  color: #fff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--primary-c);
 }
 button:focus,
 button:focus-visible {
@@ -108,7 +119,7 @@ button:focus-visible {
 }
 
 canvas {
-  border: 1px solid white;
+  border: 1px solid var(--primary-c);
 }
 
 @media (prefers-color-scheme: light) {
@@ -117,13 +128,13 @@ canvas {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--secondary-c);
   }
   button {
     background-color: #f9f9f9;
+    color: var(--primary-c);
   }
   canvas {
-    border: 1px solid black;
+    border: 1px solid #000;
   }
 }
-  
