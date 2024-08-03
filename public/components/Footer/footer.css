@@ -1,10 +1,14 @@
 .codeutsava__footer {
   font-family: var(--font-family3);
-  color: white;
   width: 91.6667%;
   max-width: 80rem;
   margin: 0px auto;
   overflow-y: hidden;
+}
+.codeutsava__footer-container{
+  width: 100%;
+  margin-top: 10rem;
+  overflow-x: hidden;
 }
 
 .codeutsava__footer-container1 {
