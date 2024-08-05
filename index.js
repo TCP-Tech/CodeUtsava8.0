@@ -23,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const introScreen = document.querySelector('.intro-screen');
   const cloudsContainer = document.querySelector('.clouds-container');
   const mainContent = document.getElementById('main-content');
-  const cloudSound = new Audio('public/assets/sounds/swoosh-6428.mp3');
-  const backgroundMusic = new Audio('public/assets/sounds/bgm.wav');
-  const buttonHoverSound = new Audio('public/assets/sounds/mousehover.mp3');
+  
+  // Accessing audio elements by their ID
+  const cloudSound = document.getElementById('cloudSound');
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const buttonHoverSound = document.getElementById('buttonHoverSound');
   const playPauseButton = document.getElementById('playPauseButton');
   const playButtonImage = document.getElementById('play-button-image');
   const enterButton = document.getElementById('intro-btn');
@@ -80,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   enterButton.addEventListener('click', handleEnterButtonClick);
+
   function handlePlayPause() {
     if (backgroundMusic.paused) {
       backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
@@ -89,8 +92,5 @@ document.addEventListener('DOMContentLoaded', () => {
       playButtonImage.setAttribute('src', 'public/assets/images/mute.svg');
     }
   }
-
-  backgroundMusic.loop = true;
-  // backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
   playPauseButton.addEventListener('click', handlePlayPause);
 });
