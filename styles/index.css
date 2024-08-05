@@ -195,4 +195,81 @@
   animation: rightCloudReverse 3s ease-in-out forwards;
 }
 
-  
+.mute-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2000002;
+  height: 50px;
+  width: 50px;
+  scale: 1.1;
+  background-color: var(--primary-c);
+  border-radius: 100%;
+}
+
+.mute-button-image{
+  height: 20px;
+}
+
+.play-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  right: 1rem;
+  /* bottom: 80px; */
+  bottom: 1rem;
+  z-index: 2000002;
+  height: 50px;
+  width: 50px;
+  scale: 1.1;
+  background-color: var(--primary-c);
+  border-radius: 100%;
+  /* box-shadow: 2.85px 2.85px black; */
+  clip-path: polygon(
+    0px calc(100% - 25px),
+    5px calc(100% - 25px),
+    5px calc(100% - 15px),
+    10px calc(100% - 15px),
+    10px calc(100% - 10px),
+    15px calc(100% - 10px),
+    15px calc(100% - 5px),
+    25px calc(100% - 5px),
+    25px 100%,
+    calc(100% - 25px) 100%,
+    calc(100% - 25px) calc(100% - 5px),
+    calc(100% - 15px) calc(100% - 5px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 15px),
+    calc(100% - 5px) calc(100% - 15px),
+    calc(100% - 5px) calc(100% - 25px),
+    100% calc(100% - 25px),
+    100% 25px,
+    calc(100% - 5px) 25px,
+    calc(100% - 5px) 15px,
+    calc(100% - 10px) 15px,
+    calc(100% - 10px) 10px,
+    calc(100% - 15px) 10px,
+    calc(100% - 15px) 5px,
+    calc(100% - 25px) 5px,
+    calc(100% - 25px) 0px,
+    25px 0px,
+    25px 5px,
+    15px 5px,
+    15px 10px,
+    10px 10px,
+    10px 15px,
+    5px 15px,
+    5px 25px,
+    0px 25px
+  );
+}
+.play-button-image{
+  height: 20px;
+}

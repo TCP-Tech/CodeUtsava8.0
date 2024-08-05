@@ -41,6 +41,10 @@
     margin: 0 1rem;
   }
   
+  .text-contrast{
+    text-shadow: 2.85px 2.85px 0.532px black;
+  }
+
   .codeutsava__section1-subheading {
     font-family: var(--font-family1);
     font-weight: 500;
