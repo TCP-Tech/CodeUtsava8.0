@@ -73,11 +73,14 @@ const muteButtonImage = document.getElementById('mute-button-image');
 const buttonHoverSound = new Audio('public/assets/sounds/mousehover.mp3');
 const enterButton = document.getElementById('intro-btn');
 
-enterButton.addEventListener('mouseenter',function(){
+enterButton.addEventListener('click',function(){
   if(buttonHoverSound.paused){
     console.log('played the buttonSound');
     buttonHoverSound.currentTime = 0;
     buttonHoverSound.play();
+    setTimeout(()=>{
+      backgroundMusic.play();
+    },3000)
   }
 })
 
