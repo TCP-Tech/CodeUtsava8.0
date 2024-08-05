@@ -16,11 +16,10 @@
   <body>
     <!-- <audio id="bgm" src="public/assets/sounds/bgm.wav" autoplay loop></audio> -->
      <!-- <div class="mute-button" id="mute"><img src="public/assets/images/playing.svg" alt="UNMUTED" class="mute-button-image" id="mute-button-image"></div> -->
-     <button id="playPauseButton" class="play-button"><img src="public/assets/images/playing.svg" alt="PLAY" class="play-button-image" id="play-button-image"></button>
-    <div id="app"></div>
-    <div class="intro-screen">
-      <div class="clouds-container hidden">
-        <img src="/assets/images/cloud2.png" alt="cloud" class="cloud" id="leftCloud">
+     <div id="app"></div>
+     <div class="intro-screen">
+       <div class="clouds-container hidden">
+         <img src="/assets/images/cloud2.png" alt="cloud" class="cloud" id="leftCloud">
         <img src="/assets/images/cloud2.png" alt="cloud" class="cloud" id="rightCloud">
       </div>
       <div class="image-cont">
@@ -31,12 +30,13 @@
       </div>
     </div>
     <div class="homepage" id = "main-content" style="display: none;">
+      <button id="playPauseButton" class="play-button"><img src="public/assets/images/playing.svg" alt="PLAY" class="play-button-image" id="play-button-image"></button>
       <div id="navbar-container"></div>
       <div id="main-container"></div>
       <div id="footer-container"></div>
     </div>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="index.js"></script>
-    <script src="./public/components/Navbar/nevbar.js"></script>
+    <script type="module" src="./public/components/Navbar/navbar.js"></script>
   </body>
 </html>
