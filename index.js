@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function handlePlayPause() {
     if (backgroundMusic.paused) {
       backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
-      playButtonImage.setAttribute('src', 'public/assets/images/playing.svg');
+      playButtonImage.setAttribute('src', '/assets/images/playing.svg');
     } else {
       backgroundMusic.pause();
-      playButtonImage.setAttribute('src', 'public/assets/images/mute.svg');
+      playButtonImage.setAttribute('src', '/assets/images/mute.svg');
     }
   }
   playPauseButton.addEventListener('click', handlePlayPause);
