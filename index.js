@@ -23,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const introScreen = document.querySelector('.intro-screen');
   const cloudsContainer = document.querySelector('.clouds-container');
   const mainContent = document.getElementById('main-content');
-  const cloudSound = new Audio('public/assets/sounds/swoosh-6428.mp3');
-  const backgroundMusic = new Audio('public/assets/sounds/bgm.wav');
-  const buttonHoverSound = new Audio('public/assets/sounds/mousehover.mp3');
+  
+  // Accessing audio elements by their ID
+  const cloudSound = document.getElementById('cloudSound');
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const buttonHoverSound = document.getElementById('buttonHoverSound');
   const playPauseButton = document.getElementById('playPauseButton');
   const playButtonImage = document.getElementById('play-button-image');
   const enterButton = document.getElementById('intro-btn');
@@ -61,36 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  async function playCloudSound() {
-    await cloudSound.play().catch(error => console.error('Error playing cloud sound:', error));
+  function playCloudSound() {
+    cloudSound.play().catch(error => console.error('Error playing cloud sound:', error));
   }
 
-  async function handleEnterButtonClick() {
+  function handleEnterButtonClick() {
     console.log(buttonHoverSound);
     console.log(cloudSound);
     console.log(backgroundMusic);
     if (buttonHoverSound.paused) {
       buttonHoverSound.currentTime = 0;
-      await buttonHoverSound.play().catch(error => console.error('Error playing button sound:', error));
-      setTimeout(async () => {
-        await backgroundMusic.play().catch(error => console.error('Error playing background music:', error));
+      buttonHoverSound.play().catch(error => console.error('Error playing button sound:', error));
+      setTimeout(() => {
+        backgroundMusic.play().catch(error => console.error('Error playing background music:', error));
       }, 3000);
     }
     setTimeout(playCloudSound, 1500);
   }
 
   enterButton.addEventListener('click', handleEnterButtonClick);
-  async function handlePlayPause() {
+
+  function handlePlayPause() {
     if (backgroundMusic.paused) {
-      await backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
+      backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
       playButtonImage.setAttribute('src', 'public/assets/images/playing.svg');
     } else {
       backgroundMusic.pause();
       playButtonImage.setAttribute('src', 'public/assets/images/mute.svg');
     }
   }
-
-  backgroundMusic.loop = true;
-  // backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
   playPauseButton.addEventListener('click', handlePlayPause);
 });
