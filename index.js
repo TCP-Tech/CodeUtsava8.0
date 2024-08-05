@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cloudsContainer = document.querySelector('.clouds-container');
   const mainContent = document.getElementById('main-content');
   const cloudSound = new Audio('public/assets/sounds/swoosh-6428.mp3');
-  const backgroundMusic = new Audio('public/assets/sounds/bgm.wav');
+  // const backgroundMusic = new Audio('public/assets/sounds/bgm.wav');
+  const backgroundMusic = new Audio('public/assets/sounds/intro-music.mp3');
   const buttonHoverSound = new Audio('public/assets/sounds/mousehover.mp3');
   const playPauseButton = document.getElementById('playPauseButton');
   const playButtonImage = document.getElementById('play-button-image');
@@ -66,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleEnterButtonClick() {
+    console.log(buttonHoverSound);
+    console.log(cloudSound);
+    console.log(backgroundMusic);
     if (buttonHoverSound.paused) {
       buttonHoverSound.currentTime = 0;
       buttonHoverSound.play().catch(error => console.error('Error playing button sound:', error));
