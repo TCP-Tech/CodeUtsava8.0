@@ -61,28 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function playCloudSound() {
-    cloudSound.play().catch(error => console.error('Error playing cloud sound:', error));
+  async function playCloudSound() {
+    await cloudSound.play().catch(error => console.error('Error playing cloud sound:', error));
   }
 
-  function handleEnterButtonClick() {
+  async function handleEnterButtonClick() {
     console.log(buttonHoverSound);
     console.log(cloudSound);
     console.log(backgroundMusic);
     if (buttonHoverSound.paused) {
       buttonHoverSound.currentTime = 0;
-      buttonHoverSound.play().catch(error => console.error('Error playing button sound:', error));
-      setTimeout(() => {
-        backgroundMusic.play().catch(error => console.error('Error playing background music:', error));
+      await buttonHoverSound.play().catch(error => console.error('Error playing button sound:', error));
+      setTimeout(async () => {
+        await backgroundMusic.play().catch(error => console.error('Error playing background music:', error));
       }, 3000);
     }
     setTimeout(playCloudSound, 1500);
   }
 
   enterButton.addEventListener('click', handleEnterButtonClick);
-  function handlePlayPause() {
+  async function handlePlayPause() {
     if (backgroundMusic.paused) {
-      backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
+      await backgroundMusic.play().catch(error => console.error('Error starting background music:', error));
       playButtonImage.setAttribute('src', 'public/assets/images/playing.svg');
     } else {
       backgroundMusic.pause();
