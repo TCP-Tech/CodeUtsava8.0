@@ -1,5 +1,5 @@
 .codeutsava__section1 {
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-bottom: 7rem;
     display: flex;
     align-items: center;
@@ -26,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
   }
   .codeutsava__section1-heading {
     margin: 1rem 0;
@@ -37,8 +38,9 @@
     color: var(--primary-c);
     font: var(--font-family);
     text-align: center;
-    font-size: 3.4rem;
+    font-size: 3.2rem;
     margin: 0 1rem;
+    word-spacing: 0%;
   }
   
   .text-contrast{
@@ -47,10 +49,10 @@
 
   .codeutsava__section1-subheading {
     font-family: var(--font-family1);
-    font-weight: 500;
     font-size: 36px;
-    line-height: 82px;
-    letter-spacing: 4px;
+    line-height: 40px;
+    word-spacing: -20px;
+    letter-spacing: 0px;
     color: var(--primary-c);
     text-transform: uppercase;
   }
@@ -69,10 +71,11 @@
     z-index: 1;
     display: flex;
     justify-content: center;
+    margin-bottom: 80px;
   }
   
   .codeutsava__section1-image img{
-    height: 100px;
+    height: 90px;
   }
   
   .codeutsava__section1-button-container {
@@ -107,7 +110,19 @@
     width: 24px;
     margin-right: 8px;
   }
-  
+  .codeutsava__section1-apply-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    background-color: #f3f6fb;
+    padding: 13px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 14px;
+    width: max-content;
+    text-align: center;
+  }
   .codeutsava__section1-discord {
     display: flex;
     justify-content: left;
@@ -118,6 +133,7 @@
     margin-left: 14px;
     cursor: pointer;
   }
+  
   
   .codeutsava__section1-discord-link img {
     height: 25px;
@@ -140,9 +156,20 @@
   
   .codeutsava__section1-register-link {
     text-align: center;
+    font-size: small;
+    word-spacing: -5px;
     color: black !important;
   }
-  
+  .codeutsava__section1-apply-button-link {
+    text-align: center;
+    font-size: small;
+    word-spacing: -5px;
+    color: black !important;
+  }
+  .codeutsava__section1-apply-discord{
+    display: flex;
+    gap: 8px;
+  }
   .codeutsava__section1-side-links {
     position: absolute;
     left: 48px;
@@ -245,7 +272,8 @@
     }
   }
   
-  @media screen and (max-width: 650px) {
+
+  @media screen and (max-width:850px) {
     .codeutsava__section1-discord, .codeutsava__section1-register{
       margin-left: 0;
     }
@@ -258,16 +286,13 @@
     }
     .codeutsava__section1-image img{
       margin-bottom: 1.5rem;
-      height: 40px;
+      height: 75px;
     }
-    .codeutsava__section1-body {
+    /* .codeutsava__section1-body {
       max-width: 300px;
-    }
+    } */
     
-    .codeutsava__section1-heading {
-      margin: 1rem 0;
-      height: 30px;
-    }
+   
   
     .codeutsava__section1-subheading {
       font-size: 24px;
@@ -287,8 +312,34 @@
     }
     .codeutsava__section1-button-container {
       width: 100%;
-      flex-direction: column;
+      /* flex-direction: column; */
       gap: 0.5rem;
+    }
+    .codeutsava__section1-menu {
+      gap: 10px;
     }
   }
   
+
+  @media screen and (max-width: 650px) {
+    .codeutsava__section1-image img{
+      margin-bottom: 1.5rem;
+      height: 38px;
+    }
+    .codeutsava__section1-apply-discord{
+      flex-direction: row;
+      gap: 8px;
+    }
+    .codeutsava__section1-button-container{
+      
+      flex-direction: column;
+    }
+    .codeutsava__section1-subheading{
+      font-size: 17px;
+    }
+    .codeutsava__section1-para{
+      font-size: 1rem;
+    }
+ 
+    
+  }
