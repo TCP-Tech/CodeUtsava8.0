@@ -352,12 +352,6 @@ button.codeutsava__section1-intro-audio-btn {
   margin-top: -50px;
 }
 
-@media only screen and (max-width: 1100px) {
-  .codeutsava_main-start-btn-section {
-    display: none;
-  }
-}
-
 .codeutsava_main-start-btn {
   cursor: pointer;
   text-align: center;
@@ -377,8 +371,25 @@ button.codeutsava__section1-intro-audio-btn {
   border-radius: 7px;
   box-shadow: 0 0.2em gray;
 }
+
 .codeutsava_main-start-btn:active {
   box-shadow: none;
   position: relative;
   top: 0.2em;
+}
+.mobile-message {
+  display: none;
+}
+@media screen and (max-width: 650px) {
+  .mobile-message {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: white;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  .codeutsava_main-start-btn-section {
+    display: none;
+  }
 }

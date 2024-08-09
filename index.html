@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles/index.css" />
-  <link rel="stylesheet" href="/components/Intro Screen/introScreen.css">
-  <link rel="stylesheet" href="/components/Navbar/navbar.css" />
-  <link rel="stylesheet" href="/components/Hero Section/main.css" />
-  <link rel="stylesheet" href="/components/Footer/footer.css">
-  <link rel="stylesheet" href="/styles/loadScriptFixes.css">
-  <title>Codeutsava8.0</title>
-</head>
-<body>
-  <audio id="cloudSound" src="/assets/sounds/swoosh-6428.mp3"></audio>
-  <audio id="backgroundMusic" src="/assets/sounds/bgm.wav" loop></audio>
-  <audio id="buttonHoverSound" src="/assets/sounds/mousehover.mp3"></audio>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/components/Intro Screen/introScreen.css" />
+    <link rel="stylesheet" href="/components/Navbar/navbar.css" />
+    <link rel="stylesheet" href="/components/Hero Section/main.css" />
+    <link rel="stylesheet" href="/components/Footer/footer.css" />
+    <link rel="stylesheet" href="/styles/loadScriptFixes.css" />
+    <title>Codeutsava8.0</title>
+  </head>
+  <body>
+    <audio id="cloudSound" src="/assets/sounds/swoosh-6428.mp3"></audio>
+    <audio id="backgroundMusic" src="/assets/sounds/bgm.wav" loop></audio>
+    <audio id="buttonHoverSound" src="/assets/sounds/mousehover.mp3"></audio>
 
-  <div id="app"></div>
-  <div class="intro-screen">
-    <div class="clouds-container hidden">
-      <img src="/assets/images/cloud2.png" alt="cloud" class="cloud" id="leftCloud">
-      <img src="/assets/images/cloud2.png" alt="cloud" class="cloud" id="rightCloud">
+    <div id="app"></div>
+    <div class="intro-screen">
+      <div class="clouds-container hidden">
+        <img
+          src="/assets/images/cloud2.png"
+          alt="cloud"
+          class="cloud"
+          id="leftCloud"
+        />
+        <img
+          src="/assets/images/cloud2.png"
+          alt="cloud"
+          class="cloud"
+          id="rightCloud"
+        />
+      </div>
+      <div class="image-cont">
+        <img src="/assets/images/bg.gif" alt="Waterfall" />
+      </div>
+      <div class="intro-button-container">
+        <div class="intro-button pixel-corners" id="intro-btn">Enter</div>
+      </div>
     </div>
-    <div class="image-cont">
-      <img src="/assets/images/bg.gif" alt="Waterfall">
+    <div class="homepage" id="main-content" style="display: none">
+      <button id="playPauseButton" class="play-button">
+        <img
+          src="/assets/images/playing.svg"
+          alt="PLAY"
+          class="play-button-image"
+          id="play-button-image"
+        />
+      </button>
+      <div id="navbar-container"></div>
+      <div id="main-container"></div>
+      <div id="footer-container"></div>
     </div>
-    <div class="intro-button-container">
-      <div class="intro-button pixel-corners" id="intro-btn">Enter</div>
-    </div>
-  </div>
-  <div class="homepage" id="main-content" style="display: none;">
-    <button id="playPauseButton" class="play-button">
-      <img src="/assets/images/playing.svg" alt="PLAY" class="play-button-image" id="play-button-image">
-    </button>
-    <div id="navbar-container"></div>
-    <div id="main-container"></div>
-    <div id="footer-container"></div>
-  </div>
-  <script type="module" src="index.js"></script>
-  <script type="module" src="/src/main.js"></script>
-  <script type="module" src="/components/Navbar/navbar.js"></script>
-</body>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/components/Navbar/navbar.js"></script>
+  </body>
 </html>
