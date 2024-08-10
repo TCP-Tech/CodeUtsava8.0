@@ -1,345 +1,395 @@
 .codeutsava__section1 {
-    padding-top: 5rem;
-    padding-bottom: 7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .codeutsava__section1-bg-canvas{
-    display: block !important;
-    width: 100%; 
-    height: 900px;
-    aspect-ratio: auto;
-    position: absolute;
-    z-index: -100;
-  }
-  
-  .codeutsava__section1-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .codeutsava__section1-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .codeutsava__section1-heading {
-    margin: 1rem 0;
-    height: 65px;
-  }
-  .codeutsava__section1-menu h1{
-    /* margin: 1rem 0;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codeutsava__section1-bg-canvas {
+  display: block !important;
+  width: 100%;
+  height: 900px;
+  aspect-ratio: auto;
+  position: absolute;
+  z-index: -100;
+}
+
+.codeutsava__section1-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.codeutsava__section1-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.codeutsava__section1-heading {
+  margin: 1rem 0;
+  height: 65px;
+}
+.codeutsava__section1-menu h1 {
+  /* margin: 1rem 0;
     height: 65px; */
-    color: var(--primary-c);
-    font: var(--font-family);
-    text-align: center;
-    font-size: 3.2rem;
-    margin: 0 1rem;
-    word-spacing: 0%;
-  }
-  
-  .text-contrast{
-    text-shadow: 2.85px 2.85px 0.532px black;
-  }
+  color: var(--primary-c);
+  font: var(--font-family);
+  text-align: center;
+  font-size: 3.2rem;
+  margin: 0 1rem;
+  word-spacing: 0%;
+}
 
-  .codeutsava__section1-subheading {
-    font-family: var(--font-family1);
-    font-size: 36px;
-    line-height: 40px;
-    word-spacing: -20px;
-    letter-spacing: 0px;
-    color: var(--primary-c);
-    text-transform: uppercase;
+.text-contrast {
+  text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.codeutsava__section1-subheading {
+  font-family: var(--font-family1);
+  font-size: 36px;
+  line-height: 40px;
+  word-spacing: -20px;
+  letter-spacing: 0px;
+  color: var(--primary-c);
+  text-transform: uppercase;
+}
+
+.codeutsava__section1-para {
+  font-family: var(--font-family1) "Poppins";
+  font-weight: 300;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+}
+
+.codeutsava__section1-image {
+  width: 7%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.codeutsava__section1-image img {
+  height: 90px;
+}
+
+.codeutsava__section1-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  width: max-content;
+  margin-bottom: 4rem;
+}
+
+.codeutsava__section1-button {
+  align-items: center;
+  background-color: var(--primary-c);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  color: #000;
+  display: flex;
+  font-size: 20px;
+  font-weight: 300;
+  height: 44px;
+  justify-content: center;
+  outline: none;
+  padding: 0 32px;
+  white-space: nowrap;
+  width: 100%;
+  cursor: pointer;
+}
+
+.codeutsava__section1-devfolio {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+.codeutsava__section1-apply-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #f3f6fb;
+  padding: 13px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 14px;
+  width: max-content;
+  text-align: center;
+}
+.codeutsava__section1-discord {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #f3f6fb;
+  padding: 7.7px 12px;
+  border-radius: 4px;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
+.codeutsava__section1-discord-link img {
+  height: 25px;
+  width: auto;
+}
+
+.codeutsava__section1-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #f3f6fb;
+  padding: 13px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 14px;
+  width: max-content;
+  text-align: center;
+}
+
+.codeutsava__section1-register-link {
+  text-align: center;
+  font-size: small;
+  word-spacing: -5px;
+  color: black !important;
+}
+.codeutsava__section1-apply-button-link {
+  text-align: center;
+  font-size: small;
+  word-spacing: -5px;
+  color: black !important;
+}
+.codeutsava__section1-apply-discord {
+  display: flex;
+  gap: 8px;
+}
+.codeutsava__section1-side-links {
+  position: absolute;
+  left: 48px;
+  bottom: 4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.codeutsava__section1-side-links::before {
+  display: block;
+  content: "";
+  width: 2px;
+  height: 42px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+}
+
+.codeutsava__section1-side-links a svg:hover {
+  fill: var(--secondary-c);
+  transition: all 0.2s ease-in-out;
+}
+/* Change the background color when hovering over the button */
+.codeutsava__section1-side-links::before {
+  display: block;
+  content: "";
+  background-color: "";
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+}
+.codeutsava__section1-intro-audio-div {
+  margin-top: 10px;
+}
+button.codeutsava__section1-intro-audio-btn {
+  background-color: rgb(244, 117, 21);
+  border-radius: 4px;
+  padding: 2px;
+  padding-top: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.codeutsava__section1-side-links li button:hover {
+  list-style: none;
+  outline: none;
+  background-color: var(--secondary-c);
+  transition: all 0.1s ease-in-out;
+}
+
+.codeutsava__section1-scrollDown {
+  color: white;
+  position: absolute;
+  bottom: 6rem;
+  right: 2.5rem;
+  transform-origin: right top 0;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: bounce 4s infinite;
+  animation-delay: 2s;
+}
+
+.codeutsava__section1-scrollDown a {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: #ffffff;
+  writing-mode: vertical-lr;
+  background: transparent;
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+.codeutsava__section1-scrollDown a:hover {
+  color: var(--secondary-c);
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
   }
-  
-  .codeutsava__section1-para {
-    font-family: var(--font-family1)"Poppins";
-    font-weight: 300;
-    font-size: 1.25rem;
-    letter-spacing: 1px;
-    color: white;
-    text-align: center;
+  40% {
+    transform: translateY(-20px);
   }
-  
-  .codeutsava__section1-image {
-    width: 7%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 80px;
+  60% {
+    transform: translateY(-15px);
   }
-  
-  .codeutsava__section1-image img{
-    height: 90px;
-  }
-  
-  .codeutsava__section1-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-    width: max-content;
-    margin-bottom: 4rem;
-  }
-  
-  .codeutsava__section1-button {
-    align-items: center;
-    background-color: var(--primary-c);;
-    border-radius: 4px;
-    border: 2px solid transparent;
-    color: #000;
-    display: flex;
-    font-size: 20px;
-    font-weight: 300;
-    height: 44px;
-    justify-content: center;
-    outline: none;
-    padding: 0 32px;
-    white-space: nowrap;
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  .codeutsava__section1-devfolio {
-    height: 24px;
-    width: 24px;
-    margin-right: 8px;
-  }
-  .codeutsava__section1-apply-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-family);
-    background-color: #f3f6fb;
-    padding: 13px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 14px;
-    width: max-content;
-    text-align: center;
-  }
-  .codeutsava__section1-discord {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    background-color: #f3f6fb;
-    padding: 7.7px 12px;
-    border-radius: 4px;
-    margin-left: 14px;
-    cursor: pointer;
-  }
-  
-  
-  .codeutsava__section1-discord-link img {
-    height: 25px;
-    width: auto;
-  }
-  
-  .codeutsava__section1-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-family);
-    background-color: #f3f6fb;
-    padding: 13px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 14px;
-    width: max-content;
-    text-align: center;
-  }
-  
-  .codeutsava__section1-register-link {
-    text-align: center;
-    font-size: small;
-    word-spacing: -5px;
-    color: black !important;
-  }
-  .codeutsava__section1-apply-button-link {
-    text-align: center;
-    font-size: small;
-    word-spacing: -5px;
-    color: black !important;
-  }
-  .codeutsava__section1-apply-discord{
-    display: flex;
-    gap: 8px;
-  }
+}
+
+@media screen and (max-width: 1000px) {
+  .codeutsava__section1-scrollDown,
   .codeutsava__section1-side-links {
-    position: absolute;
-    left: 48px;
-    bottom: 4rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 2.5rem;
-    text-align: center;
+    display: none;
   }
-  
-  .codeutsava__section1-side-links::before {
-    display: block;
-    content: "";
-    width: 2px;
-    height: 42px;
-    background-color: rgba(255, 255, 255, 0.4);
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 12px;
+  .codeutsava__section1-bg-canvas {
+    display: none !important;
   }
-  
-  .codeutsava__section1-side-links a svg:hover{
-    fill: var(--secondary-c);
-    transition: all 0.2s ease-in-out;
-  }
-  /* Change the background color when hovering over the button */
-  .codeutsava__section1-side-links::before {
-    display: block;
-    content: "";
-    background-color:"";
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 12px;
-  }
-  .codeutsava__section1-intro-audio-div{
-    margin-top: 10px;
-  }
-  button.codeutsava__section1-intro-audio-btn {
-    background-color: rgb(244, 117, 21);
-    border-radius: 4px;
-    padding: 2px;
-    padding-top:4px ;
-    border: none;
-    outline: none;
-    cursor: pointer
-  }
-  .codeutsava__section1-side-links li button:hover {
-    list-style: none;
-    outline: none;
-     background-color: var(--secondary-c);
-    transition: all 0.1s ease-in-out;
-  }
-  
-  .codeutsava__section1-scrollDown{
-    color: white;
-    position: absolute;
-    bottom: 6rem;
-    right: 2.5rem;
-    transform-origin: right top 0;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    animation: bounce 4s infinite;
-    animation-delay: 2s;
-  }
-  
-  .codeutsava__section1-scrollDown a{
-    display: inline-block;
-    font-family: var(--font-family);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3rem;
-    color: #ffffff;
-    writing-mode: vertical-lr;
-    background: transparent;
-    position: relative;
-    margin-bottom: 0.6rem;
-  }
-  
-  .codeutsava__section1-scrollDown a:hover{
-    color: var(--secondary-c);
-    transition: all 0.2s ease-in-out;
-  }
-  
-  @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-20px);}
-      60% {transform: translateY(-15px);}
-  }
-  
-  @media screen and (max-width: 1000px) {
-    .codeutsava__section1-scrollDown, .codeutsava__section1-side-links{
-      display: none;
-    }
-    .codeutsava__section1-bg-canvas{
-      display: none !important;
-    }
-  }
-  
+}
 
-  @media screen and (max-width:850px) {
-    .codeutsava__section1-discord, .codeutsava__section1-register{
-      margin-left: 0;
-    }
-    .codeutsava__section1-bg-canvas{
-      display: none !important;
-    }
-    .codeutsava__section1 {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-    .codeutsava__section1-image img{
-      margin-bottom: 1.5rem;
-      height: 75px;
-    }
-    /* .codeutsava__section1-body {
+@media screen and (max-width: 850px) {
+  .codeutsava__section1-discord,
+  .codeutsava__section1-register {
+    margin-left: 0;
+  }
+  .codeutsava__section1-bg-canvas {
+    display: none !important;
+  }
+  .codeutsava__section1 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .codeutsava__section1-image img {
+    margin-bottom: 1.5rem;
+    height: 75px;
+  }
+  /* .codeutsava__section1-body {
       max-width: 300px;
     } */
-    
-   
-  
-    .codeutsava__section1-subheading {
-      font-size: 24px;
-      letter-spacing: 0;
-      line-height: 20px;
-      margin-bottom: 2rem;
-    }
-    .codeutsava__section1-para {
-      font-size: 18px;
-    }
-    .codeutsava__section1-menu h1{
-      font-size: 24px;
-      margin: 0 2rem;
-    }
-    .codeutsava__section1-image {
-      margin-bottom: 1rem;
-    }
-    .codeutsava__section1-button-container {
-      width: 100%;
-      /* flex-direction: column; */
-      gap: 0.5rem;
-    }
-    .codeutsava__section1-menu {
-      gap: 10px;
-    }
-  }
-  
 
-  @media screen and (max-width: 650px) {
-    .codeutsava__section1-image img{
-      margin-bottom: 1.5rem;
-      height: 38px;
-    }
-    .codeutsava__section1-apply-discord{
-      flex-direction: row;
-      gap: 8px;
-    }
-    .codeutsava__section1-button-container{
-      
-      flex-direction: column;
-    }
-    .codeutsava__section1-subheading{
-      font-size: 17px;
-    }
-    .codeutsava__section1-para{
-      font-size: 1rem;
-    }
- 
-    
+  .codeutsava__section1-subheading {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 2rem;
   }
+  .codeutsava__section1-para {
+    font-size: 18px;
+  }
+  .codeutsava__section1-menu h1 {
+    font-size: 24px;
+    margin: 0 2rem;
+  }
+  .codeutsava__section1-image {
+    margin-bottom: 1rem;
+  }
+  .codeutsava__section1-button-container {
+    width: 100%;
+    /* flex-direction: column; */
+    gap: 0.5rem;
+  }
+  .codeutsava__section1-menu {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .codeutsava__section1-image img {
+    margin-bottom: 1.5rem;
+    height: 38px;
+  }
+  .codeutsava__section1-apply-discord {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .codeutsava__section1-button-container {
+    flex-direction: column;
+  }
+  .codeutsava__section1-subheading {
+    font-size: 17px;
+  }
+  .codeutsava__section1-para {
+    font-size: 1rem;
+  }
+}
+
+.codeutsava_main-start-btn-section {
+  margin-top: -50px;
+}
+
+.codeutsava_main-start-btn {
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+}
+
+.codeutsava_main-start-btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+.mobile-message {
+  display: none;
+}
+@media screen and (max-width: 650px) {
+  .mobile-message {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: white;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  .codeutsava_main-start-btn-section {
+    display: none;
+  }
+}
