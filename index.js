@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cloudsContainer = document.querySelector('.clouds-container');
   const mainContent = document.getElementById('main-content');
   
-  // Accessing audio elements by their ID
+
   const cloudSound = document.getElementById('cloudSound');
   const backgroundMusic = document.getElementById('backgroundMusic');
   const buttonHoverSound = document.getElementById('buttonHoverSound');

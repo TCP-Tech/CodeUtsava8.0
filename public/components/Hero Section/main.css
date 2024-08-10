@@ -51,6 +51,7 @@
   font-family: var(--font-family1);
   font-size: 36px;
   line-height: 40px;
+  text-align: center;
   word-spacing: -20px;
   letter-spacing: 0px;
   color: var(--primary-c);
@@ -341,7 +342,7 @@ button.codeutsava__section1-intro-audio-btn {
     flex-direction: column;
   }
   .codeutsava__section1-subheading {
-    font-size: 17px;
+    font-size: 20px;
   }
   .codeutsava__section1-para {
     font-size: 1rem;
