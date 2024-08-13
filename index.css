@@ -3,6 +3,21 @@
   height: 100vh;
 }
 
+.homepage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.homepage > * {
+  z-index: 2;
+}
+
 .codeutsava__navbar-container {
   z-index: 9999;
   width: 100%;
@@ -10,31 +25,31 @@
   top: 0px;
   position: fixed !important;
 }
-#footer-container{
+#footer-container {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   overflow-x: hidden;
 }
 
-#main-container{
+#main-container {
   margin-top: 72px !important;
 }
 
 /* Intro Screen Css starts here */
 
 @font-face {
-  font-family: 'FFFFORWA';
-  src: url('/assets/fonts/FFFFORWA.TTF') format('truetype');
+  font-family: "FFFFORWA";
+  src: url("/assets/fonts/FFFFORWA.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: '8bitlim';
-  src: url('/assets/fonts/8bitlim.ttf') format('truetype');
+  font-family: "8bitlim";
+  src: url("/assets/fonts/8bitlim.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'joystix monospace';
-  src: url('/assets/fonts/joystix monospace.ttf') format('truetype');
+  font-family: "joystix monospace";
+  src: url("/assets/fonts/joystix monospace.ttf") format("truetype");
 }
 
 .intro-screen {
@@ -51,6 +66,21 @@
   object-fit: cover;
 }
 
+.image-cont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.image-cont > * {
+  z-index: 2;
+}
+
 .intro-button-container {
   height: 100%;
   width: 100%;
@@ -65,7 +95,7 @@
 .intro-button-container .intro-button {
   user-select: none;
   cursor: pointer;
-  font-family: 'joystix monospace';
+  font-family: "joystix monospace";
   color: black;
   text-transform: uppercase;
   display: flex;
@@ -81,7 +111,7 @@
   transition: all 0.05s ease-in-out;
 }
 
-.intro-button-container .intro-button:active, 
+.intro-button-container .intro-button:active,
 .intro-button-container .intro-button:focus {
   box-shadow: none;
 }
@@ -138,45 +168,44 @@
   }
 } */
 
-
 @keyframes leftCloud {
   0% {
-      left: -500%;
+    left: -500%;
   }
   100% {
-      left: 0;
+    left: 0;
   }
 }
 
 @keyframes rightCloud {
   0% {
-      right: -500%;
+    right: -500%;
   }
   100% {
-      right: 0;
+    right: 0;
   }
 }
 
 @keyframes leftCloudReverse {
   0% {
-      left: 0;
+    left: 0;
   }
   100% {
-      left: -500%;
+    left: -500%;
   }
 }
 
 @keyframes rightCloudReverse {
   0% {
-      right: 0;
+    right: 0;
   }
   100% {
-      right: -500%;
+    right: -500%;
   }
 }
 
 .clouds-container.hidden .cloud {
-  animation: none; 
+  animation: none;
 }
 
 .clouds-container.show .cloud:first-child {
@@ -195,7 +224,7 @@
   animation: rightCloudReverse 3s ease-in-out forwards;
 }
 
-.mute-button{
+.mute-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,11 +240,11 @@
   border-radius: 100%;
 }
 
-.mute-button-image{
+.mute-button-image {
   height: 20px;
 }
 
-.play-button{
+.play-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,6 +299,6 @@
     0px 25px
   );
 }
-.play-button-image{
+.play-button-image {
   height: 20px;
 }
