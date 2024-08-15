@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - dev
+      
+env:
+  CI: false
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build --force
+      env:
+        CI: false
+      
+    - name: Generate PEM
+      run: echo "$PEM" >> tcp.pem && chmod 400 tcp.pem
+      env:
+        PEM: ${{secrets.PEM}}
+        
+    - name: Doing the magic now
+      run: sudo scp -o StrictHostKeyChecking=no -i tcp.pem -r build/* root@142.93.212.1:/home/CodeUtsava8.0/build
+
+    - name: LIVE!!!
+      run: echo "Site is Live!🚀🚀🚀"
