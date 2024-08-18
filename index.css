@@ -87,9 +87,11 @@
   position: absolute;
   z-index: 20000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   animation: none;
+  transition: all 0.05s ease-in-out;
 }
 
 .intro-button-container .intro-button {
@@ -301,4 +303,9 @@
 }
 .play-button-image {
   height: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .intro-cu8-banner{
+    width: 90vw;
+  }
 }
