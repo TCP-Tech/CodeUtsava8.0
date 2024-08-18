@@ -88,12 +88,13 @@
   position: absolute;
   z-index: 20000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   animation: none;
 }
 
-.intro-button-container .intro-button {
+/* .intro-button-container .intro-button {
   user-select: none;
   cursor: pointer;
   font-family: "joystix monospace";
@@ -136,8 +137,71 @@
     5px 5px,
     0px 5px
   );
+} */
+.intro-button {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  width: 500px;
+  margin-top: 30px;
 }
 
+.intro-button:hover .border {
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 1);
+}
+
+.intro-button:hover .border .left-plane,
+.intro-button:hover .border .right-plane {
+  transform: translateX(0%);
+}
+
+.intro-button:hover .text {
+  color: #121212;
+}
+
+.intro-button .border {
+  border: 1px solid white;
+  transform: skewX(-20deg);
+  height: 32px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.1s ease-out;
+}
+
+.intro-button .border .left-plane,
+.intro-button .border .right-plane {
+  position: absolute;
+  background: white;
+  height: 32px;
+  width: 350px;
+  transition: 0.15s ease-out;
+}
+
+.intro-button .border .left-plane {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.intro-button .border .right-plane {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.intro-button .text {
+  position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.15s ease-out;
+    color: white;
+    font-weight: bold;
+
+}
 .clouds-container {
   width: 100vw;
   height: 100vh;
@@ -302,4 +366,14 @@
 }
 .play-button-image {
   height: 20px;
+}
+
+@media screen and (max-width: 650px){
+      .intro-title-image{
+        width: 280px;
+      }
+
+      .intro-button{
+        width: 280px;
+      }
 }
