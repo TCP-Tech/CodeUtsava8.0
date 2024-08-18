@@ -139,7 +139,7 @@
   );
 } */
 .intro-button {
-	font-family: "Poppins", sans-serif;
+	font-family: var(--font-family1);
 	position: relative;
 	cursor: pointer;
 	display: inline-block;
