@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const introButton = document.querySelector(".intro-button");
+  const introtitle = document.querySelector(".intro-title");
   const introBG = document.querySelector(".image-cont");
   const introScreen = document.querySelector(".intro-screen");
   const cloudsContainer = document.querySelector(".clouds-container");
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         introButton.style.display = "none";
         introBG.style.display = "none";
+        introtitle.style.display="none";
       }, 0);
       setTimeout(() => {
         introScreen.style.display = "none";
