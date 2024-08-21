@@ -18,13 +18,6 @@
   --secondary-c: rgb(211, 138, 43);
 }
 
-body {
-  background-image: url("/public/assets/images/bg.gif");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -120,6 +113,7 @@ button:focus-visible {
 
 canvas {
   border: 1px solid var(--primary-c);
+  z-index: -1;
 }
 
 @media (prefers-color-scheme: light) {

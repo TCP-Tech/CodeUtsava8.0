@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  console.log('DOMContentLoaded event triggered');
+
   function toggleMenu() {
     const hamburger = document.querySelector(".ham");
     const menu = document.getElementById("hamburgerMenu");
@@ -6,17 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.toggle("activeMenu");
   }
 
-  const loadComponent = (url, targetId) => {
+  function loadComponent(url, targetId) {
     fetch(url)
       .then((response) => response.text())
       .then((data) => {
         const target = document.getElementById(targetId);
         if (target) {
           target.innerHTML = data;
+          console.log(`Loaded component into ${targetId}`);
+          if (targetId === "main-container") {
+            const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
+            console.log('Game start button:', gameStartButton);
+            if (gameStartButton) {
+              gameStartButton.addEventListener("click", handleStartButtonClick);
+            }
+          }
         }
       })
       .catch((error) => console.error("Error loading component:", error));
-  };
+  }
 
   const introButton = document.querySelector(".intro-button");
   const introtitle = document.querySelector(".intro-title");
@@ -31,6 +41,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const playPauseButton = document.getElementById("playPauseButton");
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
+  
+  function handleStartButtonClick() {
+    console.log('Start button clicked');
+    cloudsContainer.classList.remove("hidden");
+    cloudsContainer.classList.add("show");
+    setTimeout(() => {
+      mainContent.style.display = "none";
+      backgroundMusic.pause();
+      const canvasContainer = document.querySelector("#app");
+      if (canvasContainer) {
+        canvasContainer.style.display = 'block';
+      }
+      setTimeout(() => {
+        cloudsContainer.classList.remove("show");
+        cloudsContainer.classList.add("hide");
+      }, 1000); 
+    }, 0);
+  }
+
 
   function loadContents() {
     cloudsContainer.classList.add("show");
@@ -50,12 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 0);
       setTimeout(() => {
         introScreen.style.display = "none";
-      }, 3000);
+      }, 900);
     }, 3000);
 
     setTimeout(() => {
       const hamburg = document.querySelector(".hamburger");
-      hamburg.addEventListener("click", toggleMenu);
+      if (hamburg) {
+        hamburg.addEventListener("click", toggleMenu);
+      }
     }, 3500);
   }
 
@@ -76,9 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleEnterButtonClick() {
-    console.log(buttonHoverSound);
-    console.log(cloudSound);
-    console.log(backgroundMusic);
     if (buttonHoverSound.paused) {
       buttonHoverSound.currentTime = 0;
       buttonHoverSound

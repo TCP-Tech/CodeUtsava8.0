@@ -2,8 +2,14 @@ import { drawFrame } from './sprite.js';
 import { moveCharacter } from './movement.js';
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED } from './constants.js';
 
-export function gameLoop(ctx, canvas, img, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount) {
+export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (bgImg.complete) {
+    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+  } else {
+    console.log('Background image not loaded yet');
+  }
 
   let hasMoved = false;
 
