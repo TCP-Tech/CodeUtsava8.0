@@ -1,6 +1,60 @@
 import { drawFrame } from './sprite.js';
 import { moveCharacter } from './movement.js';
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED } from './constants.js';
+import { cccCollisions } from '../gameData/cccCollisions.js';
+
+let collisionMap = [];
+const yOffset = -20;
+const xOffset = -15;
+for (let i = 0; i < cccCollisions.length; i += 100) {
+  collisionMap.push(cccCollisions.slice(i, 100 + i));
+}
+
+class Boundary {
+  static width = 12;
+  static height = 12;
+
+  constructor({ position }) {
+    this.position = position;
+    this.width = Boundary.width;
+    this.height = Boundary.height;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = "red";
+    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+
+  collidesWith(x, y) {
+    return (
+      x < this.position.x + this.width &&
+      x + Boundary.width > this.position.x &&
+      y < this.position.y + this.height &&
+      y + Boundary.height > this.position.y
+    );
+  }
+}
+
+const boundaries = [];
+
+collisionMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 14689) { 
+      boundaries.push(
+        new Boundary({
+          position: {
+            x: j * Boundary.width + xOffset,
+            y: i * Boundary.height + yOffset,
+          }
+        })
+      );
+    }
+  });
+});
+
+function isColliding(positionX, positionY) {
+  return boundaries.some(boundary => boundary.collidesWith(positionX, positionY));
+}
 
 export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -11,22 +65,40 @@ export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positio
     console.log('Background image not loaded yet');
   }
 
+  let newPositionX = positionX;
+  let newPositionY = positionY;
   let hasMoved = false;
 
   if (keyPresses.w || keyPresses.ArrowUp) {
-    ({ positionX, positionY, currentDirection } = moveCharacter(0, -MOVEMENT_SPEED, FACING_UP, positionX, positionY, canvas));
-    hasMoved = true;
+    const potentialNewY = newPositionY - MOVEMENT_SPEED;
+    if (!isColliding(newPositionX, potentialNewY)) {
+      newPositionY = potentialNewY;
+      currentDirection = FACING_UP;
+      hasMoved = true;
+    }
   } else if (keyPresses.s || keyPresses.ArrowDown) {
-    ({ positionX, positionY, currentDirection } = moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN, positionX, positionY, canvas));
-    hasMoved = true;
+    const potentialNewY = newPositionY + MOVEMENT_SPEED;
+    if (!isColliding(newPositionX, potentialNewY)) {
+      newPositionY = potentialNewY;
+      currentDirection = FACING_DOWN;
+      hasMoved = true;
+    }
   }
 
   if (keyPresses.a || keyPresses.ArrowLeft) {
-    ({ positionX, positionY, currentDirection } = moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT, positionX, positionY, canvas));
-    hasMoved = true;
+    const potentialNewX = newPositionX - MOVEMENT_SPEED;
+    if (!isColliding(potentialNewX, newPositionY)) {
+      newPositionX = potentialNewX;
+      currentDirection = FACING_LEFT;
+      hasMoved = true;
+    }
   } else if (keyPresses.d || keyPresses.ArrowRight) {
-    ({ positionX, positionY, currentDirection } = moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT, positionX, positionY, canvas));
-    hasMoved = true;
+    const potentialNewX = newPositionX + MOVEMENT_SPEED;
+    if (!isColliding(potentialNewX, newPositionY)) {
+      newPositionX = potentialNewX;
+      currentDirection = FACING_RIGHT;
+      hasMoved = true;
+    }
   }
 
   if (hasMoved) {
@@ -42,7 +114,8 @@ export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positio
     currentLoopIndex = 0;
   }
 
-  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY);
+  // boundaries.forEach(boundary => boundary.draw(ctx));
+  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, newPositionX, newPositionY);
 
-  return { positionX, positionY, currentDirection, currentLoopIndex, frameCount };
+  return { positionX: newPositionX, positionY: newPositionY, currentDirection, currentLoopIndex, frameCount };
 }

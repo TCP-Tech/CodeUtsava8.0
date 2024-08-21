@@ -1,6 +1,6 @@
 import '../style.css';
 import character from './gameAssets/character.png';
-import backgroundMap from './gameAssets/CCCEnter.png';
+import backgroundMap from './gameAssets/CCCstart.png';
 import { gameLoop } from './game/gameLoop.js';
 import { keyDownListener, keyUpListener } from './game/keyListeners.js';
 import { FACING_DOWN } from './game/constants.js';
@@ -12,12 +12,10 @@ function resizeCanvas() {
 const appDiv = document.querySelector("#app");
 const canvas = document.createElement("canvas");
 canvas.width = 1200; 
-canvas.height = 650;  
+canvas.height = 600;  
 appDiv.appendChild(canvas);
 
-// let canvas = document.querySelector("canvas");
 let ctx = canvas.getContext("2d");
-// resizeCanvas();
 
 window.addEventListener("resize", resizeCanvas); 
 

@@ -14,8 +14,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --color-bg: #000000;
-  --primary-c: rgb(232, 157, 60);
-  --secondary-c: rgb(211, 138, 43);
+  --primary-c: #FFCE45;
+  --secondary-c: #D4AC2B;
 }
 
 * {
