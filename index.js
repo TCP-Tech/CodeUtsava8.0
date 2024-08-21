@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 0);
       setTimeout(() => {
         introScreen.style.display = "none";
-      }, 200);
+      }, 900);
     }, 3000);
 
     setTimeout(() => {
