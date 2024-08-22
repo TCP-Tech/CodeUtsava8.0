@@ -39,7 +39,7 @@ const boundaries = [];
 
 collisionMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
-    if (symbol === 14689) { 
+    if (symbol === 11901) { 
       boundaries.push(
         new Boundary({
           position: {
