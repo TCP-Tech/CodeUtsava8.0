@@ -23,6 +23,7 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  cursor: url('./public/assets/images/pointer2.png'),pointer;
 }
 
 .container {
