@@ -1,37 +1,34 @@
 import { drawFrame } from './sprite.js';
 import { moveCharacter } from './movement.js';
-import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED } from './constants.js';
-import { cccCollisions } from '../gameData/cccCollisions.js';
+import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT } from './constants.js';
+import { cccBoundaries } from '../gameData/cccBoundaries.js';
 
 let collisionMap = [];
-const yOffset = -20;
-const xOffset = -15;
-for (let i = 0; i < cccCollisions.length; i += 100) {
-  collisionMap.push(cccCollisions.slice(i, 100 + i));
+const offset = {
+  x: 480,
+  y: 450
+};
+
+for (let i = 0; i < cccBoundaries.length; i += 70) {
+  collisionMap.push(cccBoundaries.slice(i, 70 + i));
 }
 
 class Boundary {
-  static width = 12;
-  static height = 12;
+  static width = 12 * 3;
+  static height = 12 * 3;
 
   constructor({ position }) {
-    this.position = position;
+    this.position = {
+      x: position.x,
+      y: position.y
+    };
     this.width = Boundary.width;
     this.height = Boundary.height;
   }
 
-  draw(ctx) {
-    ctx.fillStyle = "red";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
-  }
-
-  collidesWith(x, y) {
-    return (
-      x < this.position.x + this.width &&
-      x + Boundary.width > this.position.x &&
-      y < this.position.y + this.height &&
-      y + Boundary.height > this.position.y
-    );
+  draw(ctx, bgX, bgY) {
+    ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+    ctx.fillRect(this.position.x - bgX, this.position.y - bgY, this.width, this.height);
   }
 }
 
@@ -39,12 +36,12 @@ const boundaries = [];
 
 collisionMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
-    if (symbol === 11901) { 
+    if (symbol === 2731) {
       boundaries.push(
         new Boundary({
           position: {
-            x: j * Boundary.width + xOffset,
-            y: i * Boundary.height + yOffset,
+            x: j * Boundary.width ,
+            y: i * Boundary.height 
           }
         })
       );
@@ -52,70 +49,88 @@ collisionMap.forEach((row, i) => {
   });
 });
 
-function isColliding(positionX, positionY) {
-  return boundaries.some(boundary => boundary.collidesWith(positionX, positionY));
+function rectangularCollision({ rectangle1, rectangle2 }) {
+  return (
+    rectangle1.position.x + rectangle1.width > rectangle2.position.x &&
+    rectangle1.position.x < rectangle2.position.x + rectangle2.width &&
+    rectangle1.position.y + rectangle1.height > rectangle2.position.y &&
+    rectangle1.position.y < rectangle2.position.y + rectangle2.height
+  );
 }
 
 export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (bgImg.complete) {
-    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
-  } else {
-    console.log('Background image not loaded yet');
+  const bgX = positionX;
+  const bgY = positionY;
+
+  ctx.drawImage(bgImg, -bgX, -bgY);
+
+  let deltaX = 0;
+  let deltaY = 0;
+  let moving = false;
+
+  if (keyPresses['ArrowUp']) {
+    deltaY = -MOVEMENT_SPEED;
+    currentDirection = FACING_UP;
+    moving = true;
+  }
+  if (keyPresses['ArrowDown']) {
+    deltaY = MOVEMENT_SPEED;
+    currentDirection = FACING_DOWN;
+    moving = true;
+  }
+  if (keyPresses['ArrowLeft']) {
+    deltaX = -MOVEMENT_SPEED;
+    currentDirection = FACING_LEFT;
+    moving = true;
+  }
+  if (keyPresses['ArrowRight']) {
+    deltaX = MOVEMENT_SPEED;
+    currentDirection = FACING_RIGHT;
+    moving = true;
+  }
+  const playerRect = {
+    position: { x: canvas.width / 2 - SCALED_WIDTH / 2, y: canvas.height / 2 - SCALED_HEIGHT / 2 },
+    width: SCALED_WIDTH,
+    height: SCALED_HEIGHT
+  };
+
+ 
+  const collision = boundaries.some(boundary => 
+    rectangularCollision({
+      rectangle1: playerRect,
+      rectangle2: {
+        position: {
+          x: boundary.position.x - bgX - deltaX,
+          y: boundary.position.y - bgY - deltaY
+        },
+        width: boundary.width,
+        height: boundary.height
+      }
+    })
+  );
+
+  if (!collision) {
+    positionX += deltaX;
+    positionY += deltaY;
   }
 
-  let newPositionX = positionX;
-  let newPositionY = positionY;
-  let hasMoved = false;
-
-  if (keyPresses.w || keyPresses.ArrowUp) {
-    const potentialNewY = newPositionY - MOVEMENT_SPEED;
-    if (!isColliding(newPositionX, potentialNewY)) {
-      newPositionY = potentialNewY;
-      currentDirection = FACING_UP;
-      hasMoved = true;
-    }
-  } else if (keyPresses.s || keyPresses.ArrowDown) {
-    const potentialNewY = newPositionY + MOVEMENT_SPEED;
-    if (!isColliding(newPositionX, potentialNewY)) {
-      newPositionY = potentialNewY;
-      currentDirection = FACING_DOWN;
-      hasMoved = true;
-    }
-  }
-
-  if (keyPresses.a || keyPresses.ArrowLeft) {
-    const potentialNewX = newPositionX - MOVEMENT_SPEED;
-    if (!isColliding(potentialNewX, newPositionY)) {
-      newPositionX = potentialNewX;
-      currentDirection = FACING_LEFT;
-      hasMoved = true;
-    }
-  } else if (keyPresses.d || keyPresses.ArrowRight) {
-    const potentialNewX = newPositionX + MOVEMENT_SPEED;
-    if (!isColliding(potentialNewX, newPositionY)) {
-      newPositionX = potentialNewX;
-      currentDirection = FACING_RIGHT;
-      hasMoved = true;
-    }
-  }
-
-  if (hasMoved) {
+  if (moving) {
     frameCount++;
     if (frameCount >= FRAME_LIMIT) {
       frameCount = 0;
-      currentLoopIndex++;
-      if (currentLoopIndex >= CYCLE_LOOP.length) {
-        currentLoopIndex = 0;
-      }
+      currentLoopIndex = (currentLoopIndex + 1) % CYCLE_LOOP.length;
     }
   } else {
-    currentLoopIndex = 0;
+    currentLoopIndex = 0; 
   }
 
-  // boundaries.forEach(boundary => boundary.draw(ctx));
-  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, newPositionX, newPositionY);
+  // boundaries.forEach(boundary => {
+  //   boundary.draw(ctx, bgX, bgY);
+  // });
 
-  return { positionX: newPositionX, positionY: newPositionY, currentDirection, currentLoopIndex, frameCount };
+  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width / 2 - SCALED_WIDTH / 2, canvas.height / 2 - SCALED_HEIGHT / 2);
+
+  return { positionX, positionY, currentDirection, currentLoopIndex, frameCount };
 }
