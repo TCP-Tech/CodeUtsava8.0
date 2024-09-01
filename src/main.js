@@ -18,7 +18,7 @@ appDiv.appendChild(canvas);
 
 let ctx = canvas.getContext("2d");
 
-window.addEventListener("resize", resizeCanvas); 
+// window.addEventListener("resize", resizeCanvas); 
 
 let keyPresses = {};
 let currentDirection = FACING_DOWN;
