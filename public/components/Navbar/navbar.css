@@ -3,8 +3,8 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: relative;
-  padding: 0px;
   z-index: 1;
 }
 
