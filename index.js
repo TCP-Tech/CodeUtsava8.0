@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mainContent.style.display = "block";
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
+      loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
       loadComponent("/components/Hero Section/main.html", "main-container");
     }, 0);
     setTimeout(() => {

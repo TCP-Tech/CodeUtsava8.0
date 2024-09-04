@@ -1,0 +1,57 @@
+.codeutsava__sponsers-carousel-container {
+  background-color: rgba(125, 125, 125, 0.265);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  overflow: hidden;
+  /* padding-bottom: 2.5rem; */
+  display:inline-block;
+  background-image: url("../../assets/images/grass.png");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.codeutsava__sponsers-carousel {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 800%;
+
+  animation: scrollInfinite 40s linear infinite;
+}
+
+.codeutsava__sponsers-carousel:hover {
+  animation-play-state: paused;
+}
+
+.codeutsava__sponsers-carousel-item {
+  display: inline-block;
+  margin: 2rem 3rem;
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+
+}
+
+.codeutsava__sponsers-carousel-item img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  object-fit: cover;
+}
+
+.codeutsava__sponsers-carousel-item-block{
+    margin: 0px 20vw;
+    display: inline-block;
+}
+
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 30));
+  }
+}
