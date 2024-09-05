@@ -1,53 +1,5 @@
 import { drawFrame } from './sprite.js';
-import { moveCharacter } from './movement.js';
-import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT } from './constants.js';
-import { cccBoundaries } from '../gameData/cccBoundaries.js';
-
-let collisionMap = [];
-const offset = {
-  x: 480,
-  y: 450
-};
-
-for (let i = 0; i < cccBoundaries.length; i += 70) {
-  collisionMap.push(cccBoundaries.slice(i, 70 + i));
-}
-
-class Boundary {
-  static width = 12 * 3;
-  static height = 12 * 3;
-
-  constructor({ position }) {
-    this.position = {
-      x: position.x,
-      y: position.y
-    };
-    this.width = Boundary.width;
-    this.height = Boundary.height;
-  }
-
-  draw(ctx, bgX, bgY) {
-    ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
-    ctx.fillRect(this.position.x - bgX, this.position.y - bgY, this.width, this.height);
-  }
-}
-
-const boundaries = [];
-
-collisionMap.forEach((row, i) => {
-  row.forEach((symbol, j) => {
-    if (symbol === 2731) {
-      boundaries.push(
-        new Boundary({
-          position: {
-            x: j * Boundary.width ,
-            y: i * Boundary.height 
-          }
-        })
-      );
-    }
-  });
-});
+import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
   return (
@@ -58,13 +10,9 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount) {
+export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const bgX = positionX;
-  const bgY = positionY;
-
-  ctx.drawImage(bgImg, -bgX, -bgY);
+  ctx.drawImage(bgImg, -positionX, -positionY);
 
   let deltaX = 0;
   let deltaY = 0;
@@ -90,26 +38,55 @@ export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positio
     currentDirection = FACING_RIGHT;
     moving = true;
   }
+
   const playerRect = {
-    position: { x: canvas.width / 2 - SCALED_WIDTH / 2, y: canvas.height / 2 - SCALED_HEIGHT / 2 },
+    position: { x: canvas.width / 2 - SCALED_WIDTH / 2 + 50, y: canvas.height / 2 - SCALED_HEIGHT / 2 + 150 },
     width: SCALED_WIDTH,
     height: SCALED_HEIGHT
   };
 
- 
-  const collision = boundaries.some(boundary => 
+  const collision = currentMap.boundaries.some(boundary => 
     rectangularCollision({
       rectangle1: playerRect,
       rectangle2: {
         position: {
-          x: boundary.position.x - bgX - deltaX,
-          y: boundary.position.y - bgY - deltaY
+          x: boundary.position.x - positionX - deltaX,
+          y: boundary.position.y - positionY - deltaY
         },
         width: boundary.width,
         height: boundary.height
       }
     })
   );
+
+  const doorCollisionDetected = currentMap.doorCollisions.some(door => 
+    rectangularCollision({
+      rectangle1: playerRect,
+      rectangle2: {
+        position: {
+          x: door.position.x - positionX - deltaX,
+          y: door.position.y - positionY - deltaY
+        },
+        width: door.width,
+        height: door.height
+      }
+    })
+  );
+
+  if (doorCollisionDetected && fadeOutProgress === 0) {
+    gsap.to(canvas, {
+      duration: 0.8, 
+      opacity: 0,
+      onComplete: () => {
+        gameInstance.loadMap("map2");
+        gsap.to(canvas, {
+          duration: 0.8, 
+          opacity: 1
+        });
+      }
+    });
+    return { positionX, positionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress: 1 };
+  }
 
   if (!collision) {
     positionX += deltaX;
@@ -123,14 +100,11 @@ export function gameLoop(ctx, canvas, img, bgImg, keyPresses, positionX, positio
       currentLoopIndex = (currentLoopIndex + 1) % CYCLE_LOOP.length;
     }
   } else {
-    currentLoopIndex = 0; 
+    currentLoopIndex = 0;
   }
 
-  // boundaries.forEach(boundary => {
-  //   boundary.draw(ctx, bgX, bgY);
-  // });
 
-  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width / 2 - SCALED_WIDTH / 2, canvas.height / 2 - SCALED_HEIGHT / 2);
+  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width / 2 - SCALED_WIDTH / 2 + 50, canvas.height / 2 - SCALED_HEIGHT / 2 + 150);
 
-  return { positionX, positionY, currentDirection, currentLoopIndex, frameCount };
+  return { positionX, positionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
 }
