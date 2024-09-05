@@ -1,3 +1,8 @@
+body{
+	/* cursor: url('./public/assets/images/Arrows/Arrow1.png'),pointer; */
+	/* cursor: url('./public/assets/images/Arrows/Arrow2.png'),pointer; */
+	cursor: url('./public/assets/images/pointer2.png'),pointer;
+}
 /* cursor */
 .custom_cursor{
 	width: 12px;
@@ -6,6 +11,40 @@
 	z-index: 1000;
 	position: absolute;
 }
+
+#app canvas{
+	image-rendering: pixelated;
+	overflow: hidden;
+}
+.message-box {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	width: 400px;
+	text-align: center;
+	z-index: 10;
+  }
+  
+  .message-box .next-button {
+	margin-top: 10px;
+	padding: 8px 12px;
+	background-color: #f1c40f;
+	color: #000;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+  
+  
+  /* .hidden {
+	display: none;
+  } */
+  
 
 .homepage {
 	width: 100%;
@@ -392,9 +431,4 @@
 	.intro-button {
 		width: 280px;
 	}
-}
-body{
-	/* cursor: url('./public/assets/images/Arrows/Arrow1.png'),pointer; */
-	/* cursor: url('./public/assets/images/Arrows/Arrow2.png'),pointer; */
-	cursor: url('./public/assets/images/pointer2.png'),pointer;
 }

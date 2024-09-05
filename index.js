@@ -1,6 +1,7 @@
+import { Game } from "./src/main";
 document.addEventListener("DOMContentLoaded", () => {
   console.log('DOMContentLoaded event triggered');
-
+  loadContents();
   function toggleMenu() {
     const hamburger = document.querySelector(".ham");
     const menu = document.getElementById("hamburgerMenu");
@@ -41,46 +42,63 @@ document.addEventListener("DOMContentLoaded", () => {
   const playPauseButton = document.getElementById("playPauseButton");
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
-  
+
   function handleStartButtonClick() {
-    console.log('Start button clicked');
-    cloudsContainer.classList.remove("hidden");
-    cloudsContainer.classList.add("show");
+    window.history.pushState({}, '', '/game');
+    showGameCanvas();
+    if (!window.gameInstance) {
+      window.gameInstance = new Game();
+    }
+  }
+
+  function showGameCanvas() {
     setTimeout(() => {
       mainContent.style.display = "none";
+      introScreen.style.display = "none"
       backgroundMusic.pause();
       const canvasContainer = document.querySelector("#app");
+      console.log(canvasContainer)
       if (canvasContainer) {
         canvasContainer.style.display = 'block';
       }
-      setTimeout(() => {
-        cloudsContainer.classList.remove("show");
-        cloudsContainer.classList.add("hide");
-      }, 1000); 
     }, 0);
   }
 
+  function hideGameCanvas() {
+    const canvasContainer = document.querySelector("#app");
+    
+    // introScreen.style.display = "block"; 
+    // introButton.style.display = "block"
+    if (canvasContainer) {
+      canvasContainer.style.display = 'none';
+    }
+    mainContent.style.display = "block"; 
+    // loadContents()
+    // console.log(introScreen.style.display)
+  }
+
+  function handleRouteChange() {
+  const currentPath = window.location.pathname; 
+  console.log(currentPath)
+
+  if (currentPath === '/game') {
+    showGameCanvas();
+    if (!window.gameInstance) {
+      window.gameInstance = new Game();
+    }
+  } else if(currentPath === '/') {
+    hideGameCanvas();  
+  }
+}
 
   function loadContents() {
-    cloudsContainer.classList.add("show");
+
     setTimeout(() => {
       mainContent.style.display = "block";
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
       loadComponent("/components/Hero Section/main.html", "main-container");
     }, 0);
-    setTimeout(() => {
-      cloudsContainer.classList.remove("show");
-      cloudsContainer.classList.add("hide");
-      setTimeout(() => {
-        introButton.style.display = "none";
-        introBG.style.display = "none";
-        introtitle.style.display="none";
-      }, 0);
-      setTimeout(() => {
-        introScreen.style.display = "none";
-      }, 900);
-    }, 3000);
 
     setTimeout(() => {
       const hamburg = document.querySelector(".hamburger");
@@ -90,10 +108,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
   }
 
-  introButton.addEventListener("click", loadContents);
+  introButton.addEventListener("click", () => {
+    // loadContents();
+    cloudsContainer.classList.add("show");
+    setTimeout(() => {
+      cloudsContainer.classList.remove("show");
+      cloudsContainer.classList.add("hide");
+      setTimeout(() => {
+        introButton.style.display = "none";
+        introBG.style.display = "none";
+        introtitle.style.display = "none";
+      }, 0);
+      setTimeout(() => {
+        introScreen.style.display = "none";
+      }, 900);
+    }, 3000);
+    window.history.pushState({}, '', '/');
+  });
+
   document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       loadContents();
+      window.history.pushState({}, '', '/');
     }
     if (event.key === "M" || event.key == "m") {
       handlePlayPause();
@@ -138,5 +174,11 @@ document.addEventListener("DOMContentLoaded", () => {
       playButtonImage.setAttribute("src", "/assets/images/mute.svg");
     }
   }
+
   playPauseButton.addEventListener("click", handlePlayPause);
+
+  // initial checking for route
+  handleRouteChange();
+
+  window.addEventListener('popstate', handleRouteChange);
 });
