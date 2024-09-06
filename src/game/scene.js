@@ -17,7 +17,7 @@ for (let i = 0; i < doorCollision.length; i += 70) {
   cccEntryGateCollisionMap.push(doorCollision.slice(i, 70 + i));
 }
 for (let i = 0; i < groundFloorCollisions.length; i += 70) {
-  cccEntryCollisionMap.push(cccGroundFloorCollisionMap.slice(i, 70 + i));
+  cccGroundFloorCollisionMap.push(groundFloorCollisions.slice(i, 70 + i));
 }
 // for (let i = 0; i < cccGroundFloorDoorCollisionMap.length; i += 70) {
 //   cccEntryGateCollisionMap.push(cccGroundFloorDoorCollisionMap.slice(i, 70 + i));
@@ -67,6 +67,22 @@ cccEntryGateCollisionMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
     if (symbol === 123) { 
       cccEntryGateCollision.push(
+        new Boundary({
+          position: {
+            x: j * Boundary.width,
+            y: i * Boundary.height
+          }
+        })
+      );
+    }
+  });
+});
+
+// console.log("dnd",cccGroundFloorCollisionMap)
+cccGroundFloorCollisionMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 14599) { 
+      cccGroundFloorCollision.push(
         new Boundary({
           position: {
             x: j * Boundary.width,

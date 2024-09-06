@@ -45,6 +45,8 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
     height: SCALED_HEIGHT
   };
 
+  // console.log(currentMap.boundaries)
+
   const collision = currentMap.boundaries.some(boundary => 
     rectangularCollision({
       rectangle1: playerRect,
