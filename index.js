@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       mainContent.style.display = "block";
+      loadComponent('/components/Participation/participation.html','participation');
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
       loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
