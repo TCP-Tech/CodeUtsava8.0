@@ -1,16 +1,26 @@
+.codeutsava_sponsers_heading{
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  color: var(--primary-c);
+  text-shadow: 2.85px 2.85px 0.532px black;
+  margin-top: 0.5em;
+  margin-bottom: 1.25em;
+
+}
 .codeutsava__sponsers-carousel-container {
   background-color: rgba(125, 125, 125, 0.265);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 100%;
   overflow: hidden;
-  /* padding-bottom: 2.5rem; */
+  /*padding-bottom: 2.5rem;*/
   display:inline-block;
   background-image: url("../../assets/images/grass.png");
   background-position: bottom;
   background-repeat: repeat-x;
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 175px;
 }
 
 .codeutsava__sponsers-carousel {
