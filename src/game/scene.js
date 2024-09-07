@@ -1,20 +1,26 @@
 // mapData.js
-import { cccBoundaries } from '../gameData/cccBoundaries.js';
-import { doorCollision } from '../gameData/mainEntranceCollision.js';
+import { cccEntranceCollisionArray } from '../gameData/cccEntrance/cccEntranceMapCollisionBoundary.js';
+import { cccEntranceGuideMapCollisionArray } from '../gameData/cccEntrance/guideMapCollisionBoundary.js';
+import { cccEntryGateCollisionArray } from '../gameData/cccEntrance/cccEntranceGateCollisionBoundary.js';
+// import { doorCollision } from '../gameData/mainEntranceCollision.js';
 import { groundFloorCollisions } from '../gameData/groundFloorCollisions.js';
 import cccMap from "../gameAssets/cccfinal.png"
 import groundFloor from "../gameAssets/Ground.png"
 
 let cccEntryCollisionMap = [];
 let cccEntryGateCollisionMap = [];
+let cccEntranceGuideMapCollisionMap = [];
 let cccGroundFloorCollisionMap = [];
 let cccGroundFloorDoorCollisionMap = [];
 
-for (let i = 0; i < cccBoundaries.length; i += 70) {
-  cccEntryCollisionMap.push(cccBoundaries.slice(i, 70 + i));
+for (let i = 0; i < cccEntranceCollisionArray.length; i += 70) {
+  cccEntryCollisionMap.push(cccEntranceCollisionArray.slice(i, 70 + i));
 }
-for (let i = 0; i < doorCollision.length; i += 70) {
-  cccEntryGateCollisionMap.push(doorCollision.slice(i, 70 + i));
+for (let i = 0; i < cccEntryGateCollisionArray.length; i += 70) {
+  cccEntryGateCollisionMap.push(cccEntryGateCollisionArray.slice(i, 70 + i));
+}
+for (let i = 0; i < cccEntranceGuideMapCollisionArray.length; i += 70) {
+  cccEntranceGuideMapCollisionMap.push(cccEntranceGuideMapCollisionArray.slice(i, 70 + i));
 }
 for (let i = 0; i < groundFloorCollisions.length; i += 70) {
   cccGroundFloorCollisionMap.push(groundFloorCollisions.slice(i, 70 + i));
@@ -44,12 +50,13 @@ class Boundary {
 
 const cccEntryCollision = [];
 const cccEntryGateCollision = [];
+const cccEntryGuideMapCollision = [];
 const cccGroundFloorCollision = [];
 const cccGroundFloorDoorCollision = [];
 
 cccEntryCollisionMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
-    if (symbol === 2731) {
+    if (symbol === 3591) {
       cccEntryCollision.push(
         new Boundary({
           position: {
@@ -65,8 +72,22 @@ cccEntryCollisionMap.forEach((row, i) => {
 
 cccEntryGateCollisionMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
-    if (symbol === 123) { 
+    if (symbol === 1234) { 
       cccEntryGateCollision.push(
+        new Boundary({
+          position: {
+            x: j * Boundary.width,
+            y: i * Boundary.height
+          }
+        })
+      );
+    }
+  });
+});
+cccEntranceGuideMapCollisionMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 1935) { 
+      cccEntryGuideMapCollision.push(
         new Boundary({
           position: {
             x: j * Boundary.width,
@@ -94,10 +115,13 @@ cccGroundFloorCollisionMap.forEach((row, i) => {
   });
 });
 
+console.log("hddj" ,cccEntryGuideMapCollision)
+
 export const maps = {
   map1: {
     backgroundMap: cccMap,
     boundaries: cccEntryCollision,
+    obstacleBoundary : cccEntryGuideMapCollision,
     doorCollisions: cccEntryGateCollision,
     textTrigger:[ {
       trigger: true,
@@ -111,13 +135,20 @@ export const maps = {
       duration: 1500,
       hasShown: false
     }],
-    spawnPoint: { x: 480, y: 450 }
+    transitioningFrom : "",
+    transitioningTo : "map2",
+    spawnPoint: { x: 50, y: 190 },
+    mapPosition : {x:480 , y:450}
   },
   map2: {
     backgroundMap: groundFloor,
     boundaries: cccGroundFloorCollision,
+    obstacleBoundary : [],
     doorCollisions: cccEntryGateCollision,
+    transitioningFrom : "map1",
+    transitioningTo : "map3",
     textTrigger:{trigger:false},
-    spawnPoint: { x: 480, y: 450 }
+    spawnPoint: { x: 50, y: 190 },
+    mapPosition : {x:480 , y:970}
   },
 };

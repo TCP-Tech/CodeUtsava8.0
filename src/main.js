@@ -21,6 +21,8 @@ export class Game {
     this.frameCount = 0;  //current framecount
     this.positionX = 480; // position where image to be drawn
     this.positionY = 450;
+    this.mapPositionX = 480;
+    this.mapPositionY = 450;
     this.messageContainer = null; 
     this.currentMessageIndex = 0;
     this.isTyping = false; // for message container to halt the next message untill current one is written completely
@@ -32,7 +34,7 @@ export class Game {
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
     window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
     
-    this.loadMap('map1');
+    this.loadMap('map1', this.mapPositionX , this.mapPositionY);
   }
 
   resizeCanvas() {
@@ -41,10 +43,12 @@ export class Game {
   }
 
    // loads different maps dynamically
-  loadMap(map) {
+  loadMap(map , postionX , positionY) {
     this.currentMap = maps[map];
     this.bgImg.src = this.currentMap.backgroundMap;
     this.img.src = character;
+    this.mapPositionX = postionX; 
+    this.mapPositionY = positionY;
 
     const imagesLoaded = new Promise((resolve, reject) => {
       let imagesToLoad = 2;
@@ -145,9 +149,8 @@ export class Game {
       }
     }
   }
-  
-
   //main game loop
+  
   startGameLoop() {
     const gameLoopWrapper = () => {
       // If a message is visible, halt the game until the player dismisses it
@@ -155,6 +158,8 @@ export class Game {
         ({
           positionX: this.positionX,
           positionY: this.positionY,
+          mapPositionX: this.mapPositionX,
+          mapPositionY: this.mapPositionY,
           currentDirection: this.currentDirection,
           currentLoopIndex: this.currentLoopIndex,
           frameCount: this.frameCount,
@@ -169,6 +174,8 @@ export class Game {
           this.keyPresses, 
           this.positionX, 
           this.positionY, 
+          this.mapPositionX,
+          this.mapPositionY,
           this.currentDirection, 
           this.currentLoopIndex, 
           this.frameCount, 
