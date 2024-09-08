@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="/components/Navbar/navbar.css" />
     <link rel="stylesheet" href="/components/Hero Section/main.css" />
     <link rel="stylesheet" href="/components/Footer/footer.css" />
+    <link rel="stylesheet" href="/public/components/Cursor/cursor.css">
     <title>Codeutsava8.0</title>
   </head>
   <body>
     <audio id="cloudSound" src="/assets/sounds/swoosh-6428.mp3"></audio>
     <audio id="backgroundMusic" src="/assets/sounds/bgm.wav" loop></audio>
     <audio id="buttonHoverSound" src="/assets/sounds/mousehover.mp3"></audio>
+
+    <div class="cursor" id="cursor" data-cursor-outline></div>
+    <div class="cursor-dot" id="cursor-dot" data-cursor-dot></div>
 
     <div id="app"></div>
     <div class="intro-screen">
@@ -36,11 +40,11 @@
         <img src="/assets/images/bg.gif" alt="Waterfall" />
       </div>
       <div class="intro-button-container">
-        <div class="intro-button pixel-corners" id="intro-btn">Enter</div>
+        <div class="intro-button pixel-corners button" id="intro-btn">Enter</div>
       </div>
     </div>
     <div class="homepage" id="main-content" style="display: none">
-      <button id="playPauseButton" class="play-button">
+      <button id="playPauseButton" class="play-button button">
         <img
           src="/assets/images/playing.svg"
           alt="PLAY"
@@ -54,6 +58,7 @@
     </div>
     <script type="module" src="index.js"></script>
     <script type="module" src="/src/main.js"></script>
+    <script src="/public/components/Cursor/cursor.js"></script>
     <!-- <script type="module" src="/components/Navbar/navbar.js"></script> -->
   </body>
 </html>
