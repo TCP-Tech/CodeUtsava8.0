@@ -1,33 +1,188 @@
 import '../style.css';
-import sprite from '../public/assets/images/spritesheet.png';
+import character from './gameAssets/character.png';
+import backgroundMap from './gameAssets/cccfinal.png';
 import { gameLoop } from './game/gameLoop.js';
 import { keyDownListener, keyUpListener } from './game/keyListeners.js';
 import { FACING_DOWN } from './game/constants.js';
+import { maps } from './game/scene.js';
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <canvas width="800" height="500"></canvas>
-  </div>
-`;
+export class Game {
+  constructor() {
+    this.canvas = document.createElement("canvas");
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    document.querySelector("#app").appendChild(this.canvas);
+    this.ctx = this.canvas.getContext("2d");
 
-let canvas = document.querySelector("canvas");
-let ctx = canvas.getContext("2d");
-let keyPresses = {};
-let currentDirection = FACING_DOWN;
-let currentLoopIndex = 0;
-let frameCount = 0;
-let positionX = 0;
-let positionY = 0;
-let img = new Image();
+    this.keyPresses = {};
+    this.currentDirection = FACING_DOWN;
+    this.currentLoopIndex = 0;
+    this.fadeOutProgress = 0;
+    this.frameCount = 0;
+    this.positionX = 480;
+    this.positionY = 450;
+    this.mapPositionX = 480;
+    this.mapPositionY = 450;
+    this.messageContainer = document.getElementById("messageContainer");
+    this.messageTextElement = document.getElementById("messageText");
+    this.nextButton = document.getElementById("nextButton");
+    this.modal = document.getElementById("modal");
+    this.modalText = document.getElementById("modal-text");
+    this.currentMessageIndex = 0;
+    this.isTyping = false;
+    this.isMessageVisible = false;
+    this.img = new Image();
+    this.bgImg = new Image();
+    this.currentMap = maps.map1;
+    this.messageText = "";
+    this.currentCharacterIndex = 0;
 
-window.addEventListener("keydown", (event) => keyDownListener(event, keyPresses));
-window.addEventListener("keyup", (event) => keyUpListener(event, keyPresses));
+    window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
+    window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
 
-img.src = sprite;
-img.onload = function () {
-  function gameLoopWrapper() {
-    ({ positionX, positionY, currentDirection, currentLoopIndex, frameCount } = gameLoop(ctx, canvas, img, keyPresses, positionX, positionY, currentDirection, currentLoopIndex, frameCount));
+    this.loadMap('map1', this.positionX, this.positionY, this.mapPositionX, this.mapPositionY);
+    if (this.modal) {
+      const closeButton = this.modal.querySelector(".close");
+      closeButton.onclick = () => {
+        this.modal.style.display = "none";
+      };
+    }
+  }
+
+  resizeCanvas() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+
+  loadMap(map, positionX, positionY, mapPositionX, mapPositionY) {
+    this.currentMap = maps[map];
+    this.bgImg.src = this.currentMap.backgroundMap;
+    this.img.src = character;
+    this.mapPositionX = mapPositionX;
+    this.mapPositionY = mapPositionY;
+    this.positionX = positionX;
+    this.positionY = positionY;
+
+    const imagesLoaded = new Promise((resolve, reject) => {
+      let imagesToLoad = 2;
+      const onLoad = () => {
+        imagesToLoad -= 1;
+        if (imagesToLoad === 0) {
+          resolve();
+        }
+      };
+
+      this.bgImg.onload = onLoad;
+      this.bgImg.onerror = () => reject('Failed to load background image');
+      
+      this.img.onload = onLoad;
+      this.img.onerror = () => reject('Failed to load character image');
+    });
+
+    imagesLoaded
+      .then(() => {
+        console.log('All images loaded');
+        this.startGameLoop();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  showMessage(messages, isCollisionMessage = false) {
+    this.isMessageVisible = true;
+    this.messageText = messages[this.currentMessageIndex]; 
+    this.messageContainer.style.display = "block";
+    this.messageTextElement.innerHTML = ""; 
+    this.nextButton.style.display = "block"; 
+    this.nextButton.disabled = true; 
+    this.typeText(this.messageText);
+    this.nextButton.onclick = () => {
+      if (!this.isTyping) { 
+        this.currentMessageIndex++;
+        if (this.currentMessageIndex < messages.length) {
+          this.showMessage(messages);
+        } else {
+          this.hideMessage();
+        }
+      }
+    };
+  }
+  typeText(message) {
+    this.isTyping = true;
+    this.currentCharacterIndex = 0;
+    this.messageTextElement.innerHTML = ""; 
+
+    const interval = setInterval(() => {
+      if (this.currentCharacterIndex < message.length) {
+        this.messageTextElement.innerHTML += message.charAt(this.currentCharacterIndex);
+        this.currentCharacterIndex++;
+      } else {
+        clearInterval(interval);
+        this.isTyping = false;
+        this.nextButton.disabled = false; 
+      }
+    }, 50); 
+  }
+
+  hideMessage() {
+    if (this.messageContainer) {
+      this.messageContainer.style.display = "none";
+    }
+    this.isMessageVisible = false;
+    this.currentMessageIndex = 0;
+    this.nextButton.style.display = "none"; 
+  }
+  showModal(htmlContent) {
+    if (this.modal) {
+      this.modalText.innerHTML = htmlContent; 
+      this.modal.style.display = "block"; 
+    }
+  }
+  checkForMessage() {
+    const loadTextTriggers = this.currentMap.mapLoadTextTriggers;
+    loadTextTriggers.forEach(trigger => {
+      if (!trigger.hasShown) {
+        this.showMessage(trigger.message);
+        console.log(trigger.message);
+        trigger.hasShown = true;
+      }
+    });
+  }
+
+  startGameLoop() {
+    const gameLoopWrapper = () => {
+      ({
+        positionX: this.positionX,
+        positionY: this.positionY,
+        mapPositionX: this.mapPositionX,
+        mapPositionY: this.mapPositionY,
+        currentDirection: this.currentDirection,
+        currentLoopIndex: this.currentLoopIndex,
+        frameCount: this.frameCount,
+        fadeOutProgress: this.fadeOutProgress
+      } = gameLoop(
+        this, 
+        this.ctx, 
+        this.canvas, 
+        this.currentMap, 
+        this.img, 
+        this.bgImg, 
+        this.keyPresses, 
+        this.positionX, 
+        this.positionY, 
+        this.mapPositionX,
+        this.mapPositionY,
+        this.currentDirection, 
+        this.currentLoopIndex, 
+        this.frameCount, 
+        this.fadeOutProgress
+      ));
+
+      this.checkForMessage();
+      window.requestAnimationFrame(gameLoopWrapper);
+    };
+
     window.requestAnimationFrame(gameLoopWrapper);
   }
-  window.requestAnimationFrame(gameLoopWrapper);
-};
+}

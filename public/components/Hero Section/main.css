@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .codeutsava__section1-bg-canvas {
   display: block !important;
   width: 100%;
@@ -106,24 +105,6 @@
   cursor: pointer;
 }
 
-.codeutsava__section1-devfolio {
-  height: 24px;
-  width: 24px;
-  margin-right: 8px;
-}
-.codeutsava__section1-apply-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--font-family);
-  background-color: #f3f6fb;
-  padding: 13px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 14px;
-  width: max-content;
-  text-align: center;
-}
 .codeutsava__section1-discord {
   display: flex;
   justify-content: left;
@@ -155,12 +136,6 @@
 }
 
 .codeutsava__section1-register-link {
-  text-align: center;
-  font-size: small;
-  word-spacing: -5px;
-  color: black !important;
-}
-.codeutsava__section1-apply-button-link {
   text-align: center;
   font-size: small;
   word-spacing: -5px;

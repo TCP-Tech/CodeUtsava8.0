@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/index.css" />
-    <link rel="stylesheet" href="/components/Intro Screen/introScreen.css" />
     <link rel="stylesheet" href="/components/Navbar/navbar.css" />
     <link rel="stylesheet" href="/components/Hero Section/main.css" />
     <link rel="stylesheet" href="/components/Footer/footer.css" />
     <link rel="stylesheet" href="/public/components/Cursor/cursor.css">
+    <link rel="stylesheet" href="/components/InfiniteCarousel/infiniteCarousel.css" />
     <title>Codeutsava8.0</title>
   </head>
   <body>
@@ -20,7 +20,18 @@
     <div class="cursor" id="cursor" data-cursor-outline></div>
     <div class="cursor-dot" id="cursor-dot" data-cursor-dot></div>
 
-    <div id="app"></div>
+    <div id="app">
+      <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-text"></p>
+        </div>
+        </div>
+      <div id="messageContainer" style="display:none;">
+        <p id="messageText"></p>
+        <button id="nextButton" style="display:none;">Next</button>
+      </div>
+    </div>
     <div class="intro-screen">
       <div class="clouds-container hidden">
         <img
@@ -40,7 +51,20 @@
         <img src="/assets/images/bg.gif" alt="Waterfall" />
       </div>
       <div class="intro-button-container">
-        <div class="intro-button pixel-corners button" id="intro-btn">Enter</div>
+        <div class="intro-title">
+          <img
+            class="intro-title-image"
+            src="/assets/images/codeutsavaIntroTitle.svg"
+            alt=""
+          />
+        </div>
+        <div class="intro-button button" id="intro-btn">
+          <div class="border">
+            <div class="left-plane"></div>
+            <div class="right-plane"></div>
+          </div>
+          <div class="text">Enter</div>
+        </div>
       </div>
     </div>
     <div class="homepage" id="main-content" style="display: none">
@@ -54,11 +78,15 @@
       </button>
       <div id="navbar-container"></div>
       <div id="main-container"></div>
+      <div id="codeutsava__sponsers-carousel-container"></div>
       <div id="footer-container"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script type="module" src="index.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script src="/public/components/Cursor/cursor.js"></script>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+
     <!-- <script type="module" src="/components/Navbar/navbar.js"></script> -->
   </body>
 </html>
