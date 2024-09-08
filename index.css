@@ -12,7 +12,7 @@ body{
 	position: absolute;
 }
 
-#app canvas{
+#app{
 	image-rendering: pixelated;
 	overflow: hidden;
 }
