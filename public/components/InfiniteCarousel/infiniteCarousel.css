@@ -1,7 +1,8 @@
 .codeutsava_sponsors_image{
-  width: 80px;
-  height: 100px;
+  height: 80px;
+  width: auto;
   transform: rotate(20deg);
+  margin-right: 0.5em;
 }
 .codeutsava_sponsors_subheading{
   font-size: 20px;
@@ -14,12 +15,12 @@
 
 }
 .codeutsava_sponsers_heading{
-  font-size: 70px;
+  font-size: 3em;
   display: flex;
   justify-content: center;
   color: var(--primary-c);
   text-shadow: 2.85px 2.85px 0.532px black;
-  margin-top: 0.5em;
+  margin-top: 2em;
   
 
 }
@@ -35,7 +36,7 @@
   background-position: bottom;
   background-repeat: repeat-x;
   margin-top: 2em;
-  margin-bottom: 175px;
+  margin-bottom: 2em;
 }
 
 .codeutsava__sponsers-carousel {
