@@ -1,0 +1,66 @@
+* {
+    cursor: none !important;
+}
+body {
+    cursor: none;
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 99999999999;
+    background-color: transparent;
+    background: 
+        linear-gradient(to right, black 6px, transparent 6px) 0 0,
+        linear-gradient(to right, black 6px, transparent 6px) 0 100%,
+        linear-gradient(to left, black 6px, transparent 6px) 100% 0,
+        linear-gradient(to left, black 6px, transparent 6px) 100% 100%,
+        linear-gradient(to bottom, black 6px, transparent 6px) 0 0,
+        linear-gradient(to bottom, black 6px, transparent 6px) 100% 0,
+        linear-gradient(to top, black 6px, transparent 6px) 0 100%,
+        linear-gradient(to top, black 6px, transparent 6px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 99999999999;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 5px white;
+    pointer-events: none;
+}
+
+.button {
+    pointer-events: all;
+}
+
+.animate-pulse{
+    animation: pulse 1s infinite ease-in-out;
+    animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+        /* transform: scaleY(1); */
+    }
+    50%{
+        transform: scale(1.02);
+        /* transform: scaleY(1.02); */
+
+    }
+    100%{
+        transform: scale(1);
+        /* transform: scaleY(1); */
+    }
+}
