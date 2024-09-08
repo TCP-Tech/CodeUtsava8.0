@@ -9,5 +9,5 @@ export const FACING_UP = 3;
 export const FACING_LEFT = 1;
 export const FACING_RIGHT = 2;
 export const FRAME_LIMIT = 12;
-export const MOVEMENT_SPEED = 3.5;
+export const MOVEMENT_SPEED = 8;
 export const FADE_OUT_SPEED = 0.05;

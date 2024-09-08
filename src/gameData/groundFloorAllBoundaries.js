@@ -165,4 +165,4 @@ const groundFloorLiftBoundary=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
-        export { groundFloorBoundary,groundFloorGateBoundary, groundFloorLiftBoundary, groundFloorTableBoundary };
+ export { groundFloorBoundary,groundFloorGateBoundary, groundFloorLiftBoundary, groundFloorTableBoundary };
