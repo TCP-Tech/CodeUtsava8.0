@@ -13,7 +13,7 @@ function loadanimation() {
         clearInterval(updateCounter);
       }
       counterElement.textContent = currentValue;
-    }, 20); // Adjust interval duration for speed
+    }, 10); // Adjust interval duration for speed
   }
 
   function handleIntersection(entries) {
@@ -21,9 +21,10 @@ function loadanimation() {
       if (entry.isIntersecting) {
         const countersInView = entry.target.querySelectorAll(".participation-container_box1");
         countersInView.forEach(counter => {
+          // Reset the counter before starting it again
+          counter.textContent = "0";
           startCounter(counter);
         });
-        observer.unobserve(entry.target); // Unobserve after animation starts
       }
     });
   }
