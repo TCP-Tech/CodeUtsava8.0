@@ -85,7 +85,7 @@ export const maps = {
     transitioningFrom: "",
     transitioningTo: "map2",
     spawnPoint: { x: 800, y: 500 },
-    mapPosition: { x: 480, y: 450 },
+    mapPosition: { x: 480, y: 700 },
   },
   map2: {
     backgroundMap: groundFloor,
@@ -122,6 +122,6 @@ export const maps = {
     transitioningFrom: "map1",
     transitioningTo: "map3",
     spawnPoint: { x: 150, y: 50 },
-    mapPosition: { x: 480, y: 100 },
+    mapPosition: { x: 480, y: 800 },
   },
 };
