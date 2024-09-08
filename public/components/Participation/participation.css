@@ -18,7 +18,7 @@
   }
   /* CSS for Participation Section */
   .participation_codeutsava__sponsers-carousel-container1 {
-    background-color: rgba(181, 197, 238, 0.265);
+    background-color: rgba(125, 125, 125, 0.265);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     /* padding-bottom: 2.5rem; */
@@ -30,9 +30,9 @@
   }
 .participation-header {
     text-align: center;
-    font-size: 35px;
+    font-size: 3em;
     font-weight: 600;
-    color: rgb(255, 225, 0);
+    color: var(--primary-c);
     text-shadow: 1px 1px 5px black;
   }
   
