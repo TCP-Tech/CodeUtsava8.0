@@ -11,7 +11,7 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, positionX, positionY, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress) {
+export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(bgImg, -mapPositionX, -mapPositionY); 
   let deltaX = 0;
@@ -121,12 +121,8 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
       opacity: 0,
       onComplete: () => {
         const nextMap = currentMap.transitioningTo;
-        gameInstance.loadMap(nextMap, maps[nextMap].spawnPoint.x, maps[nextMap].spawnPoint.y, maps[nextMap].mapPosition.x, maps[nextMap].mapPosition.y);
-           fadeOutProgress = 1; 
-            positionX = maps[nextMap].spawnPoint.x;
-            positionY = maps[nextMap].spawnPoint.y;
-            mapPositionX = maps[nextMap].mapPosition.x;
-            mapPositionY = maps[nextMap].mapPosition.y;
+        gameInstance.loadMap(nextMap, maps[nextMap].mapPosition.x, maps[nextMap].mapPosition.y);
+           fadeOutProgress = 1;
             deltaX = 0;
             deltaY = 0;
             frameCount = 0;
@@ -142,7 +138,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
         }
     });
 
-    return { positionX, positionY, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
 }
   if (doorLeadingToPrevMapCollisionDetected && fadeOutProgress === 0) {
     
@@ -151,12 +147,8 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
       opacity: 0,
       onComplete: () => {
         const previousMap = currentMap.transitioningFrom;
-        gameInstance.loadMap(previousMap, maps[previousMap].spawnPoint.x, maps[previousMap].spawnPoint.y, maps[previousMap].mapPosition.x, maps[previousMap].mapPosition.y);
+        gameInstance.loadMap(previousMap, maps[previousMap].mapPosition.x, maps[previousMap].mapPosition.y);
            fadeOutProgress = 1; 
-            positionX = maps[previousMap].spawnPoint.x;
-            positionY = maps[previousMap].spawnPoint.y;
-            mapPositionX = maps[previousMap].mapPosition.x;
-            mapPositionY = maps[previousMap].mapPosition.y;
             deltaX = 0;
             deltaY = 0;
             frameCount = 0;
@@ -172,12 +164,10 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
         }
     });
 
-    return { positionX, positionY, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
 }
 
   if (!boundaryCollision && !doorLeadingToNextMapCollisionDetected && !obstacleCollisionDetected && !doorLeadingToPrevMapCollisionDetected) {
-    positionX += deltaX;
-    positionY += deltaY;
     mapPositionX += deltaX;
     mapPositionY += deltaY;
   }
@@ -194,15 +184,5 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
   }
   drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width/2 - SCALED_WIDTH / 2, canvas.height/2 - SCALED_HEIGHT / 2 + 100);
 
-  // console.log('Current Map:', currentMap);
-  // console.log('Player Position:', positionX, positionY);
-  // console.log('Map Position:', mapPositionX, mapPositionY);
-  // console.log('Delta X:', deltaX);
-  // console.log('Delta Y:', deltaY);
-  // console.log('Fade Out Progress:', fadeOutProgress);
-  // console.log('Frame Count:', frameCount);
-  // console.log('Current Loop Index:', currentLoopIndex);
-  // console.log('MOVEMENT_SPEED:', MOVEMENT_SPEED);
-
-  return { positionX, positionY, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+  return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
 }

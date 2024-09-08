@@ -19,10 +19,9 @@ export class Game {
     this.currentLoopIndex = 0;
     this.fadeOutProgress = 0;
     this.frameCount = 0;
-    this.positionX = 480;
-    this.positionY = 450;
-    this.mapPositionX = 480;
-    this.mapPositionY = 450;
+    this.currentMap = maps.map1;
+    this.mapPositionX = this.currentMap.mapPosition.x;
+    this.mapPositionY = this.currentMap.mapPosition.y;
     this.messageContainer = document.getElementById("messageContainer");
     this.messageTextElement = document.getElementById("messageText");
     this.nextButton = document.getElementById("nextButton");
@@ -33,14 +32,14 @@ export class Game {
     this.isMessageVisible = false;
     this.img = new Image();
     this.bgImg = new Image();
-    this.currentMap = maps.map1;
+    this.img.src = character;
     this.messageText = "";
     this.currentCharacterIndex = 0;
 
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
     window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
 
-    this.loadMap('map1', this.positionX, this.positionY, this.mapPositionX, this.mapPositionY);
+    this.loadMap('map1',  this.mapPositionX, this.mapPositionY);
     if (this.modal) {
       const closeButton = this.modal.querySelector(".close");
       closeButton.onclick = () => {
@@ -54,14 +53,11 @@ export class Game {
     this.canvas.height = window.innerHeight;
   }
 
-  loadMap(map, positionX, positionY, mapPositionX, mapPositionY) {
+  loadMap(map,mapPositionX, mapPositionY) {
     this.currentMap = maps[map];
-    this.bgImg.src = this.currentMap.backgroundMap;
-    this.img.src = character;
     this.mapPositionX = mapPositionX;
     this.mapPositionY = mapPositionY;
-    this.positionX = positionX;
-    this.positionY = positionY;
+    this.bgImg.src = this.currentMap.backgroundMap;
 
     const imagesLoaded = new Promise((resolve, reject) => {
       let imagesToLoad = 2;
@@ -153,8 +149,6 @@ export class Game {
   startGameLoop() {
     const gameLoopWrapper = () => {
       ({
-        positionX: this.positionX,
-        positionY: this.positionY,
         mapPositionX: this.mapPositionX,
         mapPositionY: this.mapPositionY,
         currentDirection: this.currentDirection,
@@ -169,8 +163,6 @@ export class Game {
         this.img, 
         this.bgImg, 
         this.keyPresses, 
-        this.positionX, 
-        this.positionY, 
         this.mapPositionX,
         this.mapPositionY,
         this.currentDirection, 
