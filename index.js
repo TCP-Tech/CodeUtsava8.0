@@ -1,4 +1,5 @@
 import { Game } from "./src/main";
+import loadanimation from "./public/components/Participation/participation";
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -20,6 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (target) {
           target.innerHTML = data;
           console.log(`Loaded component into ${targetId}`);
+          if (targetId === "participation") {
+            const participationBoxes = document.querySelectorAll(".participation-container_box1");
+            console.log(participationBoxes);
+            if (participationBoxes.length > 0) {
+              loadanimation();
+            }
+            participationBoxes.forEach((box) => {
+              console.log(box.innerText);
+            });
+          }
+  
           if (targetId === "main-container") {
             const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
             console.log('Game start button:', gameStartButton);
@@ -31,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error loading component:", error));
   }
+  
 
   const introButton = document.querySelector(".intro-button");
   const introtitle = document.querySelector(".intro-title");
@@ -98,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       mainContent.style.display = "block";
+      loadComponent('/components/Participation/participation.html','participation');
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
       loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
