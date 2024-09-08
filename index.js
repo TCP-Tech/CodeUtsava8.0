@@ -1,7 +1,10 @@
 import { Game } from "./src/main";
 document.addEventListener("DOMContentLoaded", () => {
+
+
   console.log('DOMContentLoaded event triggered');
   loadContents();
+
   function toggleMenu() {
     const hamburger = document.querySelector(".ham");
     const menu = document.getElementById("hamburgerMenu");
@@ -99,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
       loadComponent("/components/Footer/footer.html", "footer-container");
       loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
       loadComponent("/components/Hero Section/main.html", "main-container");
+
+      const contentLoadedEvent = new Event("contentsLoaded");
+      document.dispatchEvent(contentLoadedEvent);
     }, 0);
 
     setTimeout(() => {
