@@ -81,3 +81,18 @@
     transform: translateX(calc(-250px * 30));
   }
 }
+
+@media (max-width: 768px) {
+  .participation-header {
+    font-size: 2.8em; 
+  }
+}
+
+@media (max-width: 480px) {
+  .codeutsava_sponsers_heading {
+    font-size: 2.5em; 
+  }
+  .codeutsava_sponsors_image{
+    height: 70px;
+  }
+}

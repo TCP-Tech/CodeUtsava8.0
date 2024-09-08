@@ -30,10 +30,10 @@
   }
 .participation-header {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 600;
     color: var(--primary-c);
-    text-shadow: 1px 1px 5px black;
+    text-shadow: 2.85px 2.85px 0.532px black;
   }
   
   .participation-container {
@@ -58,6 +58,17 @@
   }
   
   .participation-container_box2 {
-   font-size: 23px;/* Green color with transparency */
+   font-size: 23px;
   }
   
+@media (max-width: 768px) {
+  .participation-header {
+    font-size: 1.8em; 
+  }
+}
+
+@media (max-width: 480px) {
+  .participation-header {
+    font-size: 1.5em; 
+  }
+}
