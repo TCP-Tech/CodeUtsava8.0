@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="/components/Navbar/navbar.css" />
     <link rel="stylesheet" href="/components/Hero Section/main.css" />
     <link rel="stylesheet" href="/components/Footer/footer.css" />
+    <link rel="stylesheet" href="/public/components/Cursor/cursor.css">
     <link rel="stylesheet" href="/components/InfiniteCarousel/infiniteCarousel.css" />
+    <link rel="stylesheet" href="/components/Participation/participation.css"/>
     <title>Codeutsava8.0</title>
   </head>
   <body>
     <audio id="cloudSound" src="/assets/sounds/swoosh-6428.mp3"></audio>
     <audio id="backgroundMusic" src="/assets/sounds/bgm.wav" loop></audio>
     <audio id="buttonHoverSound" src="/assets/sounds/mousehover.mp3"></audio>
+
+    <div class="cursor" id="cursor" data-cursor-outline></div>
+    <div class="cursor-dot" id="cursor-dot" data-cursor-dot></div>
+
     <div id="app">
       <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
@@ -53,7 +59,7 @@
             alt=""
           />
         </div>
-        <div class="intro-button" id="intro-btn">
+        <div class="intro-button button" id="intro-btn">
           <div class="border">
             <div class="left-plane"></div>
             <div class="right-plane"></div>
@@ -63,7 +69,7 @@
       </div>
     </div>
     <div class="homepage" id="main-content" style="display: none">
-      <button id="playPauseButton" class="play-button">
+      <button id="playPauseButton" class="play-button button">
         <img
           src="/assets/images/playing.svg"
           alt="PLAY"
@@ -73,14 +79,15 @@
       </button>
       <div id="navbar-container"></div>
       <div id="main-container"></div>
+      <div id="participation"></div>
       <div id="codeutsava__sponsers-carousel-container"></div>
       <div id="footer-container"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script type="module" src="index.js"></script>
     <script type="module" src="/src/main.js"></script>
+    <script src="/public/components/Cursor/cursor.js"></script>
     <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
-
     <!-- <script type="module" src="/components/Navbar/navbar.js"></script> -->
   </body>
 </html>
