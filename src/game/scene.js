@@ -1,27 +1,35 @@
-// mapData.js
-import { cccBoundaries } from '../gameData/cccBoundaries.js';
-import { doorCollision } from '../gameData/mainEntranceCollision.js';
+import { cccEntranceCollisionArray } from '../gameData/cccEntrance/cccEntranceMapCollisionBoundary.js';
+import { cccEntranceGuideMapCollisionArray } from '../gameData/cccEntrance/guideMapCollisionBoundary.js';
+import { cccEntryGateCollisionArray } from '../gameData/cccEntrance/cccEntranceGateCollisionBoundary.js';
+import { groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/groundFloorAllBoundaries.js';
 import { groundFloorCollisions } from '../gameData/groundFloorCollisions.js';
-import cccMap from "../gameAssets/cccfinal.png"
-import groundFloor from "../gameAssets/Ground.png"
+import cccMap from "../gameAssets/cccfinal.png";
+import groundFloor from "../gameAssets/groundFloor.png";
 
-let cccEntryCollisionMap = [];
-let cccEntryGateCollisionMap = [];
-let cccGroundFloorCollisionMap = [];
-let cccGroundFloorDoorCollisionMap = [];
+function generateBoundaries(boundary, key) {
+  let collisionMatrix = [];
+  for (let i = 0; i < boundary.length; i += 70) {
+    collisionMatrix.push(boundary.slice(i, 70 + i));
+  }
 
-for (let i = 0; i < cccBoundaries.length; i += 70) {
-  cccEntryCollisionMap.push(cccBoundaries.slice(i, 70 + i));
+  const collisionMap = [];
+  collisionMatrix.forEach((row, i) => {
+    row.forEach((symbol, j) => {
+      if (symbol === key) {
+        collisionMap.push(
+          new Boundary({
+            position: {
+              x: j * Boundary.width,
+              y: i * Boundary.height
+            }
+          })
+        );
+      }
+    });
+  });
+
+  return collisionMap;
 }
-for (let i = 0; i < doorCollision.length; i += 70) {
-  cccEntryGateCollisionMap.push(doorCollision.slice(i, 70 + i));
-}
-for (let i = 0; i < groundFloorCollisions.length; i += 70) {
-  cccGroundFloorCollisionMap.push(groundFloorCollisions.slice(i, 70 + i));
-}
-// for (let i = 0; i < cccGroundFloorDoorCollisionMap.length; i += 70) {
-//   cccEntryGateCollisionMap.push(cccGroundFloorDoorCollisionMap.slice(i, 70 + i));
-// }
 
 class Boundary {
   static width = 12 * 3;
@@ -42,82 +50,78 @@ class Boundary {
   }
 }
 
-const cccEntryCollision = [];
-const cccEntryGateCollision = [];
-const cccGroundFloorCollision = [];
-const cccGroundFloorDoorCollision = [];
-
-cccEntryCollisionMap.forEach((row, i) => {
-  row.forEach((symbol, j) => {
-    if (symbol === 2731) {
-      cccEntryCollision.push(
-        new Boundary({
-          position: {
-            x: j * Boundary.width ,
-            y: i * Boundary.height 
-          }
-        })
-      );
-    }
-  });
-});
-
-
-cccEntryGateCollisionMap.forEach((row, i) => {
-  row.forEach((symbol, j) => {
-    if (symbol === 123) { 
-      cccEntryGateCollision.push(
-        new Boundary({
-          position: {
-            x: j * Boundary.width,
-            y: i * Boundary.height
-          }
-        })
-      );
-    }
-  });
-});
-
-// console.log("dnd",cccGroundFloorCollisionMap)
-cccGroundFloorCollisionMap.forEach((row, i) => {
-  row.forEach((symbol, j) => {
-    if (symbol === 14599) { 
-      cccGroundFloorCollision.push(
-        new Boundary({
-          position: {
-            x: j * Boundary.width,
-            y: i * Boundary.height
-          }
-        })
-      );
-    }
-  });
-});
-
 export const maps = {
   map1: {
     backgroundMap: cccMap,
-    boundaries: cccEntryCollision,
-    doorCollisions: cccEntryGateCollision,
-    textTrigger:[ {
-      trigger: true,
-      message: "Well Well look who's here......",
-      duration: 1500,
-      hasShown: false
+    boundaries: generateBoundaries(cccEntranceCollisionArray, 3591),
+    obstacleBoundary: generateBoundaries(cccEntranceGuideMapCollisionArray, 1935),
+    doorCollisions: {
+      leadsToPrev: [],
+      leadsToNext: generateBoundaries(cccEntryGateCollisionArray, 1234),
     },
-    {
-      trigger: true,
-      message: "message 2.....",
-      duration: 1500,
-      hasShown: false
-    }],
-    spawnPoint: { x: 480, y: 450 }
+    mapLoadTextTriggers: [
+      {
+        message: ["Well well look who's here...", "You made it to the entrance!"],
+        hasShown: false,
+      },
+    ],
+    collisionTextTriggers: [
+      {
+        obstacleType: 'guidePost',
+        message: ["You've collided into the guide post.."],
+        hasShown: false,
+        element: `
+          <div>
+            <h2>Guide Post Information</h2>
+            <p>This is the guide post located at the entrance. It provides information about various sections on this floor.</p>
+            <ul>
+              <li><strong>Floor 1:</strong> Introduction and Overview</li>
+              <li><strong>Floor 2:</strong> Developer Meet and Greet</li>
+            </ul>
+          </div>
+        `
+      },
+    ],
+    transitioningFrom: "",
+    transitioningTo: "map2",
+    spawnPoint: { x: 800, y: 500 },
+    mapPosition: { x: 480, y: 450 },
   },
   map2: {
     backgroundMap: groundFloor,
-    boundaries: cccGroundFloorCollision,
-    doorCollisions: cccEntryGateCollision,
-    textTrigger:{trigger:false},
-    spawnPoint: { x: 480, y: 450 }
+    boundaries: generateBoundaries(groundFloorCollisions, 14599),
+    obstacleBoundary: generateBoundaries(groundFloorTableBoundary, 14599),
+    doorCollisions: {
+      leadsToPrev: generateBoundaries(groundFloorGateBoundary, 14599),
+      leadsToNext: generateBoundaries(groundFloorLiftBoundary, 14599),
+    },
+    mapLoadTextTriggers: [
+      {
+        trigger: true,
+        message: ["You've reached ground floor"],
+        hasShown: false,
+      }
+    ],
+    collisionTextTriggers: [
+      {
+        obstacleType: 'reception',
+        message: ["Welcome to Central Computer Center!"],
+        hasShown: false,
+        element: `
+          <div>
+            <h2>Reception Information</h2>
+            <p>Welcome to the reception of the Central Computer Center. Here you can find information and FAQs about Codeutsava.</p>
+            <ul>
+              <li><strong>General Info:</strong> Details about the event.</li>
+              <li><strong>Help Desk:</strong> Assistance and support.</li>
+            </ul>
+          </div>
+        `
+      },
+    ],
+    transitioningFrom: "map1",
+    transitioningTo: "map3",
+    spawnPoint: { x: 150, y: 50 },
+    mapPosition: { x: 480, y: 100 },
   },
 };
