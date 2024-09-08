@@ -328,6 +328,11 @@ button.codeutsava__section1-intro-audio-btn {
   margin-top: -50px;
 }
 
+.codeutsava_main-start-btn h4 {
+  color: #f3f6fb;
+  font-size: 12px;
+  font-weight: 500;
+}
 .codeutsava_main-start-btn {
   cursor: pointer;
   text-align: center;
@@ -338,14 +343,23 @@ button.codeutsava__section1-intro-audio-btn {
   padding-right: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0);
   text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
+  color: var(--primary-c);
+  border: 2px solid;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
-  box-shadow: 0 0.2em gray;
+  font-size: xx-large;
+  flex-direction: row;
+  backdrop-filter: blur(3px);
+  /* box-shadow: 0 0.2em gray; */
+  transition: all 0.2s ease-in-out;
+}
+
+.codeutsava_main-start-btn:hover {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
 }
 
 .codeutsava_main-start-btn:active {
