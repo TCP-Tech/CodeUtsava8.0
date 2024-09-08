@@ -18,6 +18,7 @@
   }
   /* CSS for Participation Section */
 .participation-header {
+  padding-top: 100px;
     text-align: center;
     font-size: 35px;
     font-weight: 600;
@@ -29,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 100px;
   }
   
   .participation-box {
