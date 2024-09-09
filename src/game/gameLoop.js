@@ -11,14 +11,14 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress) {
+export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress, isTyping, isMessageVisible) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(bgImg, -mapPositionX, -mapPositionY); 
   let deltaX = 0;
   let deltaY = 0;
   let moving = false;
 
-  if (fadeOutProgress === 0) {
+  if (fadeOutProgress === 0 && !isMessageVisible) {
     if (keyPresses['ArrowUp']) {
       deltaY = -MOVEMENT_SPEED;
       currentDirection = FACING_UP;
@@ -105,7 +105,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
     const collisionTriggers = currentMap.collisionTextTriggers;
     collisionTriggers.forEach(trigger => {
       gameInstance.showModal(trigger.element);
-      if (!trigger.hasShown) { 
+      if (!isTyping) { 
         gameInstance.showMessage(trigger.message);
         trigger.hasShown = true; 
       }
@@ -127,6 +127,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
             deltaY = 0;
             frameCount = 0;
             currentLoopIndex = 0;
+            currentMap.mapLoadTextTriggers[0].hasShown = false; 
             gsap.to(canvas, {
                 duration: 0.8,
                 opacity: 1,
@@ -153,6 +154,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
             deltaY = 0;
             frameCount = 0;
             currentLoopIndex = 0;
+            currentMap.mapLoadTextTriggers[0].hasShown = false; 
             gsap.to(canvas, {
                 duration: 0.8,
                 opacity: 1,
