@@ -1,6 +1,5 @@
 import '../style.css';
 import character from './gameAssets/character.png';
-import backgroundMap from './gameAssets/cccfinal.png';
 import { gameLoop } from './game/gameLoop.js';
 import { keyDownListener, keyUpListener } from './game/keyListeners.js';
 import { FACING_DOWN } from './game/constants.js';
@@ -30,6 +29,7 @@ export class Game {
     this.currentMessageIndex = 0;
     this.isTyping = false;
     this.isMessageVisible = false;
+    this.hasShownMessagge = this.currentMap.mapLoadTextTriggers.hasShown;
     this.img = new Image();
     this.bgImg = new Image();
     this.img.src = character;
@@ -39,12 +39,14 @@ export class Game {
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
     window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
 
-    this.loadMap('map1',  this.mapPositionX, this.mapPositionY);
+    this.loadMap('map1', this.mapPositionX, this.mapPositionY);
+
     if (this.modal) {
       const closeButton = this.modal.querySelector(".close");
       closeButton.onclick = () => {
-        this.modal.style.display = "none";
+        this.hideModal(); 
       };
+      this.hideMessage(); 
     }
   }
 
@@ -53,7 +55,7 @@ export class Game {
     this.canvas.height = window.innerHeight;
   }
 
-  loadMap(map,mapPositionX, mapPositionY) {
+  loadMap(map, mapPositionX, mapPositionY) {
     this.currentMap = maps[map];
     this.mapPositionX = mapPositionX;
     this.mapPositionY = mapPositionY;
@@ -83,6 +85,7 @@ export class Game {
       .catch(error => {
         console.error(error);
       });
+      // if(this.currentMap.mapLoadTextTriggers[0].hasShown) this.currentMap.mapLoadTextTriggers[0].hasShown = false; 
   }
 
   showMessage(messages, isCollisionMessage = false) {
@@ -99,11 +102,12 @@ export class Game {
         if (this.currentMessageIndex < messages.length) {
           this.showMessage(messages);
         } else {
-          this.hideMessage();
+          this.hideMessage(); 
         }
       }
     };
   }
+
   typeText(message) {
     this.isTyping = true;
     this.currentCharacterIndex = 0;
@@ -127,20 +131,31 @@ export class Game {
     }
     this.isMessageVisible = false;
     this.currentMessageIndex = 0;
-    this.nextButton.style.display = "none"; 
+    this.nextButton.style.display = "none";
+    this.hideModal();
   }
+
   showModal(htmlContent) {
     if (this.modal) {
       this.modalText.innerHTML = htmlContent; 
       this.modal.style.display = "block"; 
     }
   }
+
+  hideModal() {
+    if (this.modal) {
+      this.modal.style.display = "none";
+      if (this.isMessageVisible) {
+        this.hideMessage();
+      }
+    }
+  }
+
   checkForMessage() {
     const loadTextTriggers = this.currentMap.mapLoadTextTriggers;
     loadTextTriggers.forEach(trigger => {
       if (!trigger.hasShown) {
         this.showMessage(trigger.message);
-        console.log(trigger.message);
         trigger.hasShown = true;
       }
     });
@@ -156,19 +171,21 @@ export class Game {
         frameCount: this.frameCount,
         fadeOutProgress: this.fadeOutProgress
       } = gameLoop(
-        this, 
-        this.ctx, 
-        this.canvas, 
-        this.currentMap, 
-        this.img, 
-        this.bgImg, 
-        this.keyPresses, 
+        this,
+        this.ctx,
+        this.canvas,
+        this.currentMap,
+        this.img,
+        this.bgImg,
+        this.keyPresses,
         this.mapPositionX,
         this.mapPositionY,
-        this.currentDirection, 
-        this.currentLoopIndex, 
-        this.frameCount, 
-        this.fadeOutProgress
+        this.currentDirection,
+        this.currentLoopIndex,
+        this.frameCount,
+        this.fadeOutProgress,
+        this.isTyping,
+        this.isMessageVisible
       ));
 
       this.checkForMessage();
