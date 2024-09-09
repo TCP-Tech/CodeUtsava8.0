@@ -1,9 +1,7 @@
 import { Game } from "./src/main";
 import loadanimation from "./public/components/Participation/participation";
 document.addEventListener("DOMContentLoaded", () => {
-
-
-  console.log('DOMContentLoaded event triggered');
+  console.log("DOMContentLoaded event triggered");
   loadContents();
 
   function toggleMenu() {
@@ -22,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
           target.innerHTML = data;
           console.log(`Loaded component into ${targetId}`);
           if (targetId === "participation") {
-            const participationBoxes = document.querySelectorAll(".participation-container_box1");
+            const participationBoxes = document.querySelectorAll(
+              ".participation-container_box1"
+            );
             console.log(participationBoxes);
             if (participationBoxes.length > 0) {
               loadanimation();
@@ -31,10 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
               console.log(box.innerText);
             });
           }
-  
+
           if (targetId === "main-container") {
-            const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
-            console.log('Game start button:', gameStartButton);
+            const gameStartButton = document.querySelector(
+              ".codeutsava_main-start-btn"
+            );
+            console.log("Game start button:", gameStartButton);
             if (gameStartButton) {
               gameStartButton.addEventListener("click", handleStartButtonClick);
             }
@@ -43,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error loading component:", error));
   }
-  
 
   const introButton = document.querySelector(".intro-button");
   const introtitle = document.querySelector(".intro-title");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const enterButton = document.getElementById("intro-btn");
 
   function handleStartButtonClick() {
-    window.history.pushState({}, '', '/game');
+    window.history.pushState({}, "", "/game");
     showGameCanvas();
     if (!window.gameInstance) {
       window.gameInstance = new Game();
@@ -70,52 +71,58 @@ document.addEventListener("DOMContentLoaded", () => {
   function showGameCanvas() {
     setTimeout(() => {
       mainContent.style.display = "none";
-      introScreen.style.display = "none"
+      introScreen.style.display = "none";
       backgroundMusic.pause();
       const canvasContainer = document.querySelector("#app");
-      console.log(canvasContainer)
+      console.log(canvasContainer);
       if (canvasContainer) {
-        canvasContainer.style.display = 'block';
+        canvasContainer.style.display = "block";
       }
     }, 0);
   }
 
   function hideGameCanvas() {
     const canvasContainer = document.querySelector("#app");
-    
-    // introScreen.style.display = "block"; 
+
+    // introScreen.style.display = "block";
     // introButton.style.display = "block"
     if (canvasContainer) {
-      canvasContainer.style.display = 'none';
+      canvasContainer.style.display = "none";
     }
-    mainContent.style.display = "block"; 
+    mainContent.style.display = "block";
     // loadContents()
     // console.log(introScreen.style.display)
   }
 
   function handleRouteChange() {
-  const currentPath = window.location.pathname; 
-  console.log(currentPath)
+    const currentPath = window.location.pathname;
+    console.log(currentPath);
 
-  if (currentPath === '/game') {
-    showGameCanvas();
-    if (!window.gameInstance) {
-      window.gameInstance = new Game();
+    if (currentPath === "/game") {
+      showGameCanvas();
+      if (!window.gameInstance) {
+        window.gameInstance = new Game();
+      }
+    } else if (currentPath === "/") {
+      hideGameCanvas();
     }
-  } else if(currentPath === '/') {
-    hideGameCanvas();  
   }
-}
 
   function loadContents() {
-
     setTimeout(() => {
       mainContent.style.display = "block";
-      loadComponent('/components/Participation/participation.html','participation');
+      loadComponent(
+        "/components/Participation/participation.html",
+        "participation"
+      );
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
-      loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
+      loadComponent(
+        "/components/InfiniteCarousel/infiniteCarousel.html",
+        "codeutsava__sponsers-carousel-container"
+      );
       loadComponent("/components/Hero Section/main.html", "main-container");
+      loadComponent("/components/About Us/aboutUs.html", "about-us-container");
 
       const contentLoadedEvent = new Event("contentsLoaded");
       document.dispatchEvent(contentLoadedEvent);
@@ -126,6 +133,42 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hamburg) {
         hamburg.addEventListener("click", toggleMenu);
       }
+    }, 3500);
+
+    setTimeout(() => {
+      const descriptions = document.querySelectorAll(".description-text");
+
+      function typeWriterEffect(text, element, duration) {
+        let i = 0;
+        element.innerHTML = ""; // Clear the content before typing starts
+        const totalCharacters = text.length;
+        const timePerChar = duration / totalCharacters; // Calculate time per character to complete in duration
+
+        const interval = setInterval(() => {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, timePerChar);
+      }
+
+      document.querySelectorAll(".icon-heading").forEach((item) => {
+        item.addEventListener("mouseenter", function () {
+          const descText = this.querySelector(".description-text");
+          const text = descText.dataset.fulltext;
+          const duration = 500; // Duration is set to 0.5 seconds (500ms)
+          typeWriterEffect(text, descText, duration);
+          descText.style.display = "block"; // Show the description on hover
+        });
+
+        item.addEventListener("mouseleave", function () {
+          const descText = this.querySelector(".description-text");
+          descText.innerHTML = ""; // Clear the text
+          descText.style.display = "none"; // Hide the description when not hovering
+        });
+      });
     }, 3500);
   }
 
@@ -144,13 +187,13 @@ document.addEventListener("DOMContentLoaded", () => {
         introScreen.style.display = "none";
       }, 900);
     }, 3000);
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, "", "/");
   });
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       loadContents();
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, "", "/");
     }
     if (event.key === "M" || event.key == "m") {
       handlePlayPause();
@@ -201,5 +244,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // initial checking for route
   handleRouteChange();
 
-  window.addEventListener('popstate', handleRouteChange);
+  window.addEventListener("popstate", handleRouteChange);
 });
