@@ -93,6 +93,65 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(introScreen.style.display)
   }
 
+  var merchan = document.querySelector("#cu-merchandise");
+  merchan.style.display = 'none';
+
+  function handleMerchRoute(event) {
+    event.preventDefault();
+    const participants = document.querySelector("#participation");
+    const carousel = document.querySelector("#codeutsava__sponsers-carousel-container");
+    const main = document.querySelector("#main-container");
+    
+    merchan.style.display = 'block';
+    if(participants){
+      participants.style.display = 'none';
+    }
+    if(carousel){
+      carousel.style.display = 'none';
+    }
+    if(main){
+      main.style.display = 'none';
+    }
+    
+  }
+  function changeImage(event){
+    var mainImage = document.getElementById("4");
+    var t=event.target.id;
+    mainImage.src = "/public/assets/images/merch" + t + ".png";
+  }
+
+  function handleBackRoute(event) {
+    event.preventDefault();
+    merchan.style.display = 'none';
+    const participants = document.querySelector("#participation");
+    const carousel = document.querySelector("#codeutsava__sponsers-carousel-container");
+    const main = document.querySelector("#main-container");
+    if(participants){
+      participants.style.display = 'block';
+    }
+    if(carousel){
+      carousel.style.display = 'block';
+    }
+    if(main){
+      main.style.display = 'block';
+    }
+    
+  }
+
+  function handleRouteChange() {
+  const currentPath = window.location.pathname; 
+  console.log(currentPath)
+
+  if (currentPath === '/game') {
+    showGameCanvas();
+    if (!window.gameInstance) {
+      window.gameInstance = new Game();
+    }
+  } else if(currentPath === '/') {
+    hideGameCanvas();  
+  }
+}
+
   function handleRouteChange() {
   const currentPath = window.location.pathname; 
   console.log(currentPath)
@@ -115,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadComponent("/components/Navbar/navbar.html", "navbar-container");
       loadComponent("/components/Footer/footer.html", "footer-container");
       loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
+      loadComponent("/public/components/Merchandise/merchandise.html","cu-merchandise");
       loadComponent("/components/Hero Section/main.html", "main-container");
 
       const contentLoadedEvent = new Event("contentsLoaded");
@@ -127,7 +187,45 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburg.addEventListener("click", toggleMenu);
       }
     }, 3500);
+
+    setTimeout(() => {
+      const merch = document.querySelector(".merch-cu");
+      if(merch){
+        merch.addEventListener("click", handleMerchRoute);
+    
+      }
+      
+    }, 3500);
+    setTimeout(() => {
+      const back = document.querySelector(".back-cu");
+      if(back){
+        back.addEventListener("click", handleBackRoute);
+    
+      }
+      
+    }, 3500);
+
+    setTimeout(() => {
+      const merchImage1 = document.getElementById("1");
+      const merchImage2 = document.getElementById("2");
+      const merchImage3 = document.getElementById("3");
+      if(merchImage1){
+        merchImage1.addEventListener("click", changeImage);
+    
+      }
+      if(merchImage2){
+        merchImage2.addEventListener("click", changeImage);
+    
+      }
+      if(merchImage3){
+        merchImage3.addEventListener("click", changeImage);
+    
+      }
+      
+    }, 3500);
+
   }
+
 
   introButton.addEventListener("click", () => {
     // loadContents();
