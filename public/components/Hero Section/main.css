@@ -37,7 +37,7 @@
   color: var(--primary-c);
   font: var(--font-family);
   text-align: center;
-  font-size: 3.2rem;
+  font-size: 3rem;
   margin: 0 1rem;
   word-spacing: 0%;
 }
@@ -53,7 +53,8 @@
   text-align: center;
   word-spacing: -20px;
   letter-spacing: 0px;
-  color: var(--primary-c);
+  /* color: var(--primary-c); */
+  color:   #dad5d4;
   text-transform: uppercase;
 }
 
@@ -232,6 +233,52 @@ button.codeutsava__section1-intro-audio-btn {
   transition: all 0.2s ease-in-out;
 }
 
+
+.codeutsava_main-start-btn-section {
+  margin-top: -50px;
+}
+
+.codeutsava_main-start-btn p {
+  color: #f3f6fb;
+  font-size: 12px;
+  font-weight: 100;
+}
+.codeutsava_main-start-btn {
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  margin-bottom:30px;
+  font-weight: bold;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(211, 211, 211, 0);
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: var(--primary-c);
+  border: 2px solid;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  font-size: xx-large;
+  flex-direction: row;
+  backdrop-filter: blur(3px);
+  /* box-shadow: 0 0.2em gray; */
+  transition: all 0.2s ease-in-out;
+}
+
+.codeutsava_main-start-btn:hover {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+}
+
+.codeutsava_main-start-btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -324,35 +371,6 @@ button.codeutsava__section1-intro-audio-btn {
   }
 }
 
-.codeutsava_main-start-btn-section {
-  margin-top: -50px;
-}
-
-.codeutsava_main-start-btn {
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  margin: 5px;
-  font-weight: bold;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -o-border-radius: 7px;
-  border-radius: 7px;
-  box-shadow: 0 0.2em gray;
-}
-
-.codeutsava_main-start-btn:active {
-  box-shadow: none;
-  position: relative;
-  top: 0.2em;
-}
 .mobile-message {
   display: none;
 }

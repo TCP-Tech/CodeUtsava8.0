@@ -1,15 +1,15 @@
-import { cccEntranceCollisionArray } from '../gameData/cccEntrance/cccEntranceMapCollisionBoundary.js';
-import { cccEntranceGuideMapCollisionArray } from '../gameData/cccEntrance/guideMapCollisionBoundary.js';
-import { cccEntryGateCollisionArray } from '../gameData/cccEntrance/cccEntranceGateCollisionBoundary.js';
-import { groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/groundFloorAllBoundaries.js';
-import { groundFloorCollisions } from '../gameData/groundFloorCollisions.js';
-import cccMap from "../gameAssets/cccfinal.png";
-import groundFloor from "../gameAssets/groundFloor.png";
+import { cccEntranceCollisionArray , cccEntranceGuideMapCollisionArray ,  cccEntryGateCollisionArray } from '../gameData/cccEntranceBoundaries/cccAllBoundary.js';
+// import { cccEntranceGuideMapCollisionArray } from '../gameData/cccEntrance/guideMapCollisionBoundary.js';
+// import { cccEntryGateCollisionArray } from '../gameData/cccEntrance/cccEntranceGateCollisionBoundary.js';
+import { groundFloorCollisions,groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/cccGroundFloorBoundaries/gfAllBoundary.js';
+// import { groundFloorCollisions } from '../gameData/groundFloorCollisions.js';
+import cccMap from "../gameAssets/FinalCCC.png";
+import groundFloor from "../gameAssets/FinalGroundFloor.png";
 
 function generateBoundaries(boundary, key) {
   let collisionMatrix = [];
-  for (let i = 0; i < boundary.length; i += 70) {
-    collisionMatrix.push(boundary.slice(i, 70 + i));
+  for (let i = 0; i < boundary.length; i += 130) {
+    collisionMatrix.push(boundary.slice(i, 130 + i));
   }
 
   const collisionMap = [];
@@ -32,8 +32,8 @@ function generateBoundaries(boundary, key) {
 }
 
 class Boundary {
-  static width = 12 * 3;
-  static height = 12 * 3;
+  static width = 12 * 2;
+  static height = 12 * 2;
 
   constructor({ position }) {
     this.position = {
@@ -53,15 +53,15 @@ class Boundary {
 export const maps = {
   map1: {
     backgroundMap: cccMap,
-    boundaries: generateBoundaries(cccEntranceCollisionArray, 3591),
-    obstacleBoundary: generateBoundaries(cccEntranceGuideMapCollisionArray, 1935),
+    boundaries: generateBoundaries(cccEntranceCollisionArray, 3579),
+    obstacleBoundary: generateBoundaries(cccEntranceGuideMapCollisionArray, 3579),
     doorCollisions: {
       leadsToPrev: [],
-      leadsToNext: generateBoundaries(cccEntryGateCollisionArray, 1234),
+      leadsToNext: generateBoundaries(cccEntryGateCollisionArray, 3579),
     },
     mapLoadTextTriggers: [
       {
-        message: ["Well well look who's here...", "You made it to the entrance!"],
+        message: ["You've made it to the entrance of Central Computer Center!!"],
         hasShown: false,
       },
     ],
@@ -85,15 +85,15 @@ export const maps = {
     transitioningFrom: "",
     transitioningTo: "map2",
     spawnPoint: { x: 800, y: 500 },
-    mapPosition: { x: 480, y: 450 },
+    mapPosition: { x: 780, y: 980 },
   },
   map2: {
     backgroundMap: groundFloor,
-    boundaries: generateBoundaries(groundFloorCollisions, 14599),
-    obstacleBoundary: generateBoundaries(groundFloorTableBoundary, 14599),
+    boundaries: generateBoundaries(groundFloorCollisions, 14463),
+    obstacleBoundary: generateBoundaries(groundFloorTableBoundary, 14463),
     doorCollisions: {
-      leadsToPrev: generateBoundaries(groundFloorGateBoundary, 14599),
-      leadsToNext: generateBoundaries(groundFloorLiftBoundary, 14599),
+      leadsToPrev: generateBoundaries(groundFloorGateBoundary, 14463),
+      leadsToNext: generateBoundaries(groundFloorLiftBoundary, 14463),
     },
     mapLoadTextTriggers: [
       {
@@ -105,7 +105,7 @@ export const maps = {
     collisionTextTriggers: [
       {
         obstacleType: 'reception',
-        message: ["Welcome to Central Computer Center!"],
+        message: ["Welcome to Central Computer Center!" , "Here  are some FAQS about CodeUtsava"],
         hasShown: false,
         element: `
           <div>
@@ -122,6 +122,6 @@ export const maps = {
     transitioningFrom: "map1",
     transitioningTo: "map3",
     spawnPoint: { x: 150, y: 50 },
-    mapPosition: { x: 480, y: 100 },
+    mapPosition: { x: 780, y: 1050 },
   },
 };

@@ -1,4 +1,4 @@
-export const SCALE = 2;
+export const SCALE = 3.2;
 export const WIDTH = 32;
 export const HEIGHT = 32;
 export const SCALED_WIDTH = SCALE * WIDTH;
