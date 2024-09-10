@@ -1,16 +1,13 @@
-body{
-	/* cursor: url('./public/assets/images/Arrows/Arrow1.png'),pointer; */
-	/* cursor: url('./public/assets/images/Arrows/Arrow2.png'),pointer; */
+/* body{
 	cursor: url('./public/assets/images/pointer2.png'),pointer;
 }
-/* cursor */
 .custom_cursor{
 	width: 12px;
 	height: 12px;
 	background-color: #121212;
 	z-index: 1000;
 	position: absolute;
-}
+} */
 
 #app{
 	image-rendering: pixelated;

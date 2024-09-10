@@ -2,7 +2,6 @@ import { Game } from "./src/main";
 import loadanimation from "./public/components/Participation/participation";
 document.addEventListener("DOMContentLoaded", () => {
 
-
   console.log('DOMContentLoaded event triggered');
   loadContents();
 
@@ -14,36 +13,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadComponent(url, targetId) {
-    fetch(url)
-      .then((response) => response.text())
-      .then((data) => {
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.innerHTML = data;
-          console.log(`Loaded component into ${targetId}`);
-          if (targetId === "participation") {
-            const participationBoxes = document.querySelectorAll(".participation-container_box1");
-            console.log(participationBoxes);
-            if (participationBoxes.length > 0) {
-              loadanimation();
-            }
-            participationBoxes.forEach((box) => {
-              console.log(box.innerText);
-            });
-          }
+    return new Promise((resolve, reject) => {
+      fetch(url)
+        .then((response) => response.text())
+        .then((data) => {
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.innerHTML = data;
+            console.log(`Loaded component into ${targetId}`);
   
-          if (targetId === "main-container") {
-            const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
-            console.log('Game start button:', gameStartButton);
-            if (gameStartButton) {
-              gameStartButton.addEventListener("click", handleStartButtonClick);
+            if (targetId === "participation") {
+              const participationBoxes = document.querySelectorAll(".participation-container_box1");
+              console.log(participationBoxes);
+              if (participationBoxes.length > 0) {
+                loadanimation();
+              }
             }
+  
+            if (targetId === "main-container") {
+              const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
+              console.log('Game start button:', gameStartButton);
+              if (gameStartButton) {
+                gameStartButton.addEventListener("click", handleStartButtonClick);
+              }
+            }
+  
+            resolve(); 
+          } else {
+            reject(new Error(`Target element with ID ${targetId} not found`));
           }
-        }
-      })
-      .catch((error) => console.error("Error loading component:", error));
+        })
+        .catch((error) => {
+          console.error("Error loading component:", error);
+          reject(error); 
+        });
+    });
   }
   
+  
+ 
 
   const introButton = document.querySelector(".intro-button");
   const introtitle = document.querySelector(".intro-title");
@@ -58,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const playPauseButton = document.getElementById("playPauseButton");
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
+
+ 
 
   function handleStartButtonClick() {
     window.history.pushState({}, '', '/game');
@@ -107,30 +117,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
-  function loadContents() {
-
-    setTimeout(() => {
-      mainContent.style.display = "block";
-      loadComponent('/components/Participation/participation.html','participation');
-      loadComponent("/components/Navbar/navbar.html", "navbar-container");
-      loadComponent("/components/Footer/footer.html", "footer-container");
-      loadComponent("/components/InfiniteCarousel/infiniteCarousel.html", "codeutsava__sponsers-carousel-container");
-      loadComponent("/components/Hero Section/main.html", "main-container");
-
+function loadContents() {
+  const mainContent = document.getElementById("main-content");
+  setTimeout(() => {
+    mainContent.style.display = "block";
+    Promise.all([
+      loadComponent('/components/Participation/participation.html', 'participation'),
+      loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
+      loadComponent('/components/Footer/footer.html', 'footer-container'),
+      loadComponent('/components/InfiniteCarousel/infiniteCarousel.html', 'codeutsava__sponsers-carousel-container'),
+      loadComponent('/components/Hero Section/main.html', 'main-container')
+    ]).then(() => {
       const contentLoadedEvent = new Event("contentsLoaded");
       document.dispatchEvent(contentLoadedEvent);
-    }, 0);
+    }).catch(error => console.error('Error loading components:', error));
+  }, 0);
 
-    setTimeout(() => {
-      const hamburg = document.querySelector(".hamburger");
-      if (hamburg) {
-        hamburg.addEventListener("click", toggleMenu);
-      }
-    }, 3500);
-  }
+  setTimeout(() => {
+    const hamburg = document.querySelector(".hamburger");
+    if (hamburg) {
+      hamburg.addEventListener("click", toggleMenu);
+    }
+  }, 3500);
+}
+
 
   introButton.addEventListener("click", () => {
-    // loadContents();
     cloudsContainer.classList.add("show");
     setTimeout(() => {
       cloudsContainer.classList.remove("show");
