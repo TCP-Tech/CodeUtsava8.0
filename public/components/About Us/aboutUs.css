@@ -1,0 +1,132 @@
+.about-us-section {
+  background-color: rgba(127, 145, 189, 0.265);
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.grand-title {
+  text-align: center;
+}
+
+.grand-title h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fede63;
+}
+
+.icon-heading.el-1 {
+  min-width: 32%; /* Minimum width for first row elements */
+  height: 300px; /* Fixed height for all cells */
+}
+
+.icon-heading.el-2 {
+  min-width: 48%; /* Minimum width for second row elements */
+  height: 300px; /* Fixed height for all cells */
+}
+
+.icon-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* Fixed height */
+  transition: all 0.3s ease;
+  border: 2px solid transparent; /* Default border to avoid layout shift */
+}
+
+.icon {
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fede63;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.indicator {
+  font-size: 24px;
+  color: #fede63;
+}
+
+.description {
+  display: none;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #e8e9ec;
+  font-weight: 700;
+  white-space: normal;
+  width: 100%; /* Make sure it fills the container */
+}
+
+.description-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: inline-block; /* Allow content to flow and wrap */
+}
+
+.icon-heading:hover .heading,
+.icon-heading:hover .icon {
+  font-size: 18px;
+  transform: translateY(-10px);
+}
+
+.icon-heading:hover .indicator {
+  display: none;
+}
+
+.icon-heading:hover .description {
+  display: block;
+  animation: typewriter 0.5s ease-in;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* One column layout */
+    grid-template-rows: repeat(
+      5,
+      auto
+    ); /* Adjust the number of rows according to the number of cells */
+  }
+
+  .flex {
+    display: block; /* Remove the flex layout in the mobile view */
+  }
+
+  .icon-heading {
+    min-width: auto; /* Remove minimum width constraints */
+    border-width: 2px; /* Ensure border is visible on hover */
+  }
+
+  .icon-heading:hover {
+    height: 500px;
+  }
+}
