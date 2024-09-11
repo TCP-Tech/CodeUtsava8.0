@@ -3,6 +3,7 @@
   width: auto;
   transform: rotate(20deg);
   margin-right: 0.5em;
+  display: none;
 }
 .codeutsava_sponsors_subheading{
   font-size: 20px;
@@ -82,13 +83,13 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .participation-header {
     font-size: 2.8em; 
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .codeutsava_sponsers_heading {
     font-size: 2.5em; 
   }
