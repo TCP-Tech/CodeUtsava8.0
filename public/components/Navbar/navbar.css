@@ -27,6 +27,8 @@
   align-items: center;
   top: 0px;
   padding: 0px;
+  height: 72px;
+  box-sizing: border-box;
 }
 
 .codeutsava__navbar-hamburger-body {
@@ -34,6 +36,7 @@
   max-width: 80rem;
   margin: 0px auto;
   padding: 0;
+  
 }
 
 .codeutsava__navbar-logo {
@@ -179,11 +182,14 @@
   margin: 1.5rem 1.1rem;
   color: #b0b0b0;
   cursor: pointer;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
-.codeutsava__navbar-menu-heading:hover {
-  color: white;
+.codeutsava__navbar-navitem:hover > a > .codeutsava__navbar-menu-heading {
+  color: white !important;
 }
+
 
 .codeutsava__navbar-menu-heading:after {
   margin-top: 4px;
