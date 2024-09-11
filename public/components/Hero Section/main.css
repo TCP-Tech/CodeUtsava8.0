@@ -155,6 +155,22 @@
   list-style: none;
   font-size: 2.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.codeutsava__section1-side-links li{
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+}
+
+.codeutsava__section1-side-links li a{
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .codeutsava__section1-side-links::before {
