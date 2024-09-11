@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadContents() {
     setTimeout(() => {
-      mainContent.style.display = "block";
+      // mainContent.style.display = "block";
       Promise.all([
         loadComponent('/components/Participation/participation.html', 'participation'),
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   introButton.addEventListener("click", () => {
+    // loadContents();
     cloudsContainer.classList.add("show");
     setTimeout(() => {
       cloudsContainer.classList.remove("show");
@@ -102,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 900);
     }, 3000);
     window.history.pushState({}, '', '/');
+    mainContent.style.display = "block";
   });
 
   document.addEventListener("keydown", function (event) {
