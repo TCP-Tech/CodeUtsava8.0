@@ -1,8 +1,8 @@
-import { Game } from "./src/main";
+import { handleRouteChange, handleStartButtonClick } from './router';
 import loadanimation from "./public/components/Participation/participation";
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  console.log('DOMContentLoaded event triggered');
   loadContents();
 
   function toggleMenu() {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (target) {
             target.innerHTML = data;
             console.log(`Loaded component into ${targetId}`);
-  
+
             if (targetId === "participation") {
               const participationBoxes = document.querySelectorAll(".participation-container_box1");
               console.log(participationBoxes);
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 loadanimation();
               }
             }
-  
+
             if (targetId === "main-container") {
               const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
               console.log('Game start button:', gameStartButton);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gameStartButton.addEventListener("click", handleStartButtonClick);
               }
             }
-  
+
             resolve(); 
           } else {
             reject(new Error(`Target element with ID ${targetId} not found`));
@@ -49,9 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
-  
-  
- 
 
   const introButton = document.querySelector(".intro-button");
   const introtitle = document.querySelector(".intro-title");
@@ -67,80 +64,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
 
- 
-
-  function handleStartButtonClick() {
-    window.history.pushState({}, '', '/game');
-    showGameCanvas();
-    if (!window.gameInstance) {
-      window.gameInstance = new Game();
-    }
-  }
-
-  function showGameCanvas() {
+  function loadContents() {
     setTimeout(() => {
-      mainContent.style.display = "none";
-      introScreen.style.display = "none"
-      backgroundMusic.pause();
-      const canvasContainer = document.querySelector("#app");
-      console.log(canvasContainer)
-      if (canvasContainer) {
-        canvasContainer.style.display = 'block';
-      }
+      mainContent.style.display = "block";
+      Promise.all([
+        loadComponent('/components/Participation/participation.html', 'participation'),
+        loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
+        loadComponent('/components/Footer/footer.html', 'footer-container'),
+        loadComponent('/components/InfiniteCarousel/infiniteCarousel.html', 'codeutsava__sponsers-carousel-container'),
+        loadComponent('/components/Hero Section/main.html', 'main-container')
+      ]).then(() => {
+        const contentLoadedEvent = new Event("contentsLoaded");
+        document.dispatchEvent(contentLoadedEvent);
+      }).catch(error => console.error('Error loading components:', error));
     }, 0);
+
+    setTimeout(() => {
+      const hamburg = document.querySelector(".hamburger");
+      if (hamburg) {
+        hamburg.addEventListener("click", toggleMenu);
+      }
+    }, 3500);
   }
-
-  function hideGameCanvas() {
-    const canvasContainer = document.querySelector("#app");
-    
-    // introScreen.style.display = "block"; 
-    // introButton.style.display = "block"
-    if (canvasContainer) {
-      canvasContainer.style.display = 'none';
-    }
-    mainContent.style.display = "block"; 
-    // loadContents()
-    // console.log(introScreen.style.display)
-  }
-
-  function handleRouteChange() {
-  const currentPath = window.location.pathname; 
-  console.log(currentPath)
-
-  if (currentPath === '/game') {
-    showGameCanvas();
-    if (!window.gameInstance) {
-      window.gameInstance = new Game();
-    }
-  } else if(currentPath === '/') {
-    hideGameCanvas();  
-  }
-}
-
-function loadContents() {
-  const mainContent = document.getElementById("main-content");
-  setTimeout(() => {
-    mainContent.style.display = "block";
-    Promise.all([
-      loadComponent('/components/Participation/participation.html', 'participation'),
-      loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
-      loadComponent('/components/Footer/footer.html', 'footer-container'),
-      loadComponent('/components/InfiniteCarousel/infiniteCarousel.html', 'codeutsava__sponsers-carousel-container'),
-      loadComponent('/components/Hero Section/main.html', 'main-container')
-    ]).then(() => {
-      const contentLoadedEvent = new Event("contentsLoaded");
-      document.dispatchEvent(contentLoadedEvent);
-    }).catch(error => console.error('Error loading components:', error));
-  }, 0);
-
-  setTimeout(() => {
-    const hamburg = document.querySelector(".hamburger");
-    if (hamburg) {
-      hamburg.addEventListener("click", toggleMenu);
-    }
-  }, 3500);
-}
-
 
   introButton.addEventListener("click", () => {
     cloudsContainer.classList.add("show");
@@ -164,16 +109,10 @@ function loadContents() {
       loadContents();
       window.history.pushState({}, '', '/');
     }
-    if (event.key === "M" || event.key == "m") {
+    if (event.key === "M" || event.key === "m") {
       handlePlayPause();
     }
   });
-
-  function playCloudSound() {
-    cloudSound
-      .play()
-      .catch((error) => console.error("Error playing cloud sound:", error));
-  }
 
   function handleEnterButtonClick() {
     if (buttonHoverSound.paused) {
@@ -194,6 +133,12 @@ function loadContents() {
 
   enterButton.addEventListener("click", handleEnterButtonClick);
 
+  function playCloudSound() {
+    cloudSound
+      .play()
+      .catch((error) => console.error("Error playing cloud sound:", error));
+  }
+
   function handlePlayPause() {
     if (backgroundMusic.paused) {
       backgroundMusic
@@ -210,7 +155,7 @@ function loadContents() {
 
   playPauseButton.addEventListener("click", handlePlayPause);
 
-  // initial checking for route
+  // Initial route check
   handleRouteChange();
 
   window.addEventListener('popstate', handleRouteChange);
