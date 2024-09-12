@@ -1,10 +1,10 @@
 import { cccEntranceCollisionArray , cccEntranceGuideMapCollisionArray ,  cccEntryGateCollisionArray } from '../gameData/cccEntranceBoundaries/cccAllBoundary.js';
-// import { cccEntranceGuideMapCollisionArray } from '../gameData/cccEntrance/guideMapCollisionBoundary.js';
-// import { cccEntryGateCollisionArray } from '../gameData/cccEntrance/cccEntranceGateCollisionBoundary.js';
 import { groundFloorCollisions,groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/cccGroundFloorBoundaries/gfAllBoundary.js';
-// import { groundFloorCollisions } from '../gameData/groundFloorCollisions.js';
+import { lift , firstFloorCollisions , interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
+import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
 import groundFloor from "../gameAssets/FinalGroundFloor.png";
+import firstFloor from "../gameAssets/FirstFloorFinal.png"
 
 function generateBoundaries(boundary, key) {
   let collisionMatrix = [];
@@ -58,6 +58,8 @@ export const maps = {
     doorCollisions: {
       leadsToPrev: [],
       leadsToNext: generateBoundaries(cccEntryGateCollisionArray, 3579),
+      directionOnNextMap:FACING_UP,
+      directionOnPrevMap:FACING_DOWN,
     },
     mapLoadTextTriggers: [
       {
@@ -84,8 +86,10 @@ export const maps = {
     ],
     transitioningFrom: "",
     transitioningTo: "map2",
-    spawnPoint: { x: 800, y: 500 },
-    mapPosition: { x: 780, y: 980 },
+    mapPosition: {
+      nextMapsPosition: { x: 780, y: 1050 },
+      prevMapPosition: { x: 780, y: 980 }
+    },
   },
   map2: {
     backgroundMap: groundFloor,
@@ -94,6 +98,8 @@ export const maps = {
     doorCollisions: {
       leadsToPrev: generateBoundaries(groundFloorGateBoundary, 14463),
       leadsToNext: generateBoundaries(groundFloorLiftBoundary, 14463),
+      directionOnNextMap:FACING_DOWN,
+      directionOnPrevMap:FACING_DOWN,
     },
     mapLoadTextTriggers: [
       {
@@ -121,7 +127,36 @@ export const maps = {
     ],
     transitioningFrom: "map1",
     transitioningTo: "map3",
-    spawnPoint: { x: 150, y: 50 },
-    mapPosition: { x: 780, y: 1050 },
+    mapPosition: { 
+      nextMapsPosition : { x: 1380, y: 1050 },
+      prevMapPosition  :  { x: 780, y: 980 }
+     },
+  },
+
+  
+  map3: {
+    backgroundMap: firstFloor,
+    boundaries: generateBoundaries(firstFloorCollisions, 9497),
+    obstacleBoundary: [],
+    doorCollisions: {
+      leadsToPrev: generateBoundaries(lift, 9497),
+      leadsToNext: generateBoundaries(interaction, 9497),
+      directionOnNextMap:FACING_LEFT,
+      directionOnPrevMap:FACING_DOWN,
+    },
+    mapLoadTextTriggers: [
+      {
+        trigger: true,
+        message: ["You've reached first floor"],
+        hasShown: false,
+      }
+    ],
+    collisionTextTriggers: [],
+    transitioningFrom: "map2",
+    transitioningTo: "map4",
+    mapPosition: { 
+      nextMapsPosition : { x: 1380, y: 1050 },
+      prevMapPosition  :{x: 1180, y: 600}
+     },
   },
 };
