@@ -1,4 +1,4 @@
-import { handleRouteChange, handleStartButtonClick } from './router';
+import { handleRouteChange, handleStartButtonClick, handleMerchButtonClick } from './router';
 import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.toggle("active");
     menu.classList.toggle("activeMenu");
   }
+
+  
+
+  function changeImage(event){
+    var mainImage = document.getElementById("4");
+    var t=event.target.id;
+    mainImage.src = "/public/assets/images/merch" + t + ".png";
+  }
+
 
   function loadComponent(url, targetId) {
     return new Promise((resolve, reject) => {
@@ -64,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
 
+
   function loadContents() {
     setTimeout(() => {
       // mainContent.style.display = "block";
@@ -71,8 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent('/components/Participation/participation.html', 'participation'),
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
         loadComponent('/components/Footer/footer.html', 'footer-container'),
+        loadComponent('/components/Footer/footer.html', 'footer-routing-container'),
         loadComponent('/components/InfiniteCarousel/infiniteCarousel.html', 'codeutsava__sponsers-carousel-container'),
-        loadComponent('/components/Hero Section/main.html', 'main-container')
+        loadComponent('/components/Hero Section/main.html', 'main-container'),
+        loadComponent("/public/components/Merchandise/merchandise.html","cu-merchandise"),
+        loadComponent("/public/components/team/team.html","team"),
+        loadComponent("/public/components/team HC/teamhc.html","team-hc")
       ]).then(() => {
         const contentLoadedEvent = new Event("contentsLoaded");
         document.dispatchEvent(contentLoadedEvent);
@@ -84,6 +98,34 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hamburg) {
         hamburg.addEventListener("click", toggleMenu);
       }
+    }, 3500);
+
+    setTimeout(() => {
+      const merch = document.querySelector(".merch-cu");
+      if(merch){
+        merch.addEventListener("click", handleMerchButtonClick);
+    
+      }
+      
+    }, 1000);
+
+    setTimeout(() => {
+      const merchImage1 = document.getElementById("1");
+      const merchImage2 = document.getElementById("2");
+      const merchImage3 = document.getElementById("3");
+      if(merchImage1){
+        merchImage1.addEventListener("click", changeImage);
+    
+      }
+      if(merchImage2){
+        merchImage2.addEventListener("click", changeImage);
+    
+      }
+      if(merchImage3){
+        merchImage3.addEventListener("click", changeImage);
+    
+      }
+      
     }, 3500);
   }
 

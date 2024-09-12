@@ -1,0 +1,189 @@
+.hc-codeutsava__team-card3 {
+  background-image: url("../../assets/images/greencard.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 250px;
+  margin: 30px;
+  height: 400px;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--primary-c);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.hc-team-main-container {
+  border: solid;
+  border-color: black;
+  background-size: cover;
+  height: 160vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hc-codeutsava__team-card3-content {
+  color: var(--primary-c);
+  text-shadow: 1px 1px 5px black;
+}
+.hc-team-position{
+  text-align: center;
+}
+.hc-codeutsava__team-card3-spider {
+  position: relative;
+  top: -30px;
+  left: 8px;
+  transition: all 2s ease;
+}
+
+.hc-codeutsava__team-card3-spider-img {
+  width: 30px;
+  height: 30px;
+}
+
+.hc-codeutsava__team-card3:hover .hc-codeutsava__team-card3-spider {
+  top: 100px;
+}
+
+.hc-codeutsava__team-card3-avatar-holder {
+  position: absolute;
+  margin: auto;
+  top:140px;
+  right: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  transform: scale(1.1);
+}
+
+.overall {
+  transform: translateY(-50px); /* Adjust the translateY value as needed */
+}
+
+.normal{
+  transform: translateY(10px);
+}
+
+.hc-codeutsava__team-card3-avatar-holder-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 0 0 14px #f7f5ec;
+}
+
+.hc-codeutsava__team-card3-content {
+  position: relative;
+  margin: auto;
+  top: 150px;
+  text-align: center;
+  transition: all 2s ease;
+}
+
+.hc-codeutsava__team-card3-pumpkin {
+  position: absolute;
+  top: 30px;
+  right: 8px;
+}
+.hc-codeutsava__team-card3-pumpkin-img {
+  height: 30px;
+  width: 30px;
+  transition: all .2s ease-in;
+}
+.hc-codeutsava__team-card3:hover .hc-codeutsava__team-card3-pumpkin-img {
+  height: 40px;
+  width: 40px;
+}
+
+.hc-codeutsava__team-card3-social {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  bottom: -15%;
+  width: 100%;
+  background-color: var(--primary-c);
+  transition: all .5s ease-in;
+}
+.hc-codeutsava__team-card3-social a:hover{
+  color: white;
+}
+.hc-codeutsava__team-card3-social a {
+  color: #060606;
+  display: block;
+  font-size: 25px;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.hc-codeutsava__team-card3:hover .hc-codeutsava__team-card3-social {
+  bottom: 0%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  50% {
+    top: 145px;
+  }
+  100% {
+    opacity: 1;
+    top: 120px;
+  }
+}
+
+@keyframes mvTop {
+  0% {
+    top: -150px;
+    transform: scale(0);
+  }
+
+  100% {
+    top: 40px;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes dsTop {
+  0% {
+    top: -150px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+ @media (max-width: 768px) {
+  .normal{
+    transform: translateY(10px);
+    order: 2;
+  }
+  .hc-codeutsava__team-card3 {
+    flex-direction: column; 
+  }
+
+  .hc-codeutsava__team-card3.normal {
+    transform: translateY(10px); 
+  }
+
+  .hc-codeutsava__team-card3.overall {
+    transform: none; 
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .normal{
+    order: 2;
+  }
+  .overall{
+    transform: translateY(10px);
+  }
+  .hc-codeutsava__team-card3 {
+    flex-direction: row; /* Reset flex direction to row for tablets */
+  }
+} 

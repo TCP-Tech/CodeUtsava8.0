@@ -131,6 +131,12 @@
 	overflow-x: hidden;
 }
 
+#footer-routing-container {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	overflow-x: hidden;
+}
+
 #main-container {
 	margin-top: 72px !important;
 }
@@ -388,6 +394,16 @@
 	animation: rightCloudReverse 3s ease-in-out forwards;
 }
 
+.codeutsava__routing_container{
+	background-image: url("/assets/images/bg.gif");
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+}
 .mute-button {
 	display: flex;
 	justify-content: center;
