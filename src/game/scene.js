@@ -4,7 +4,7 @@ import { lift , firstFloorCollisions , interaction } from '../gameData/firstFloo
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
 import groundFloor from "../gameAssets/FinalGroundFloor.png";
-import firstFloor from "../gameAssets/FirstFloor.png"
+import firstFloor from "../gameAssets/FirstFloorFinal.png"
 
 function generateBoundaries(boundary, key) {
   let collisionMatrix = [];
