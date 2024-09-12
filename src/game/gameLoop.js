@@ -1,5 +1,15 @@
 import { drawFrame } from './sprite.js';
-import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
+import {
+  CYCLE_LOOP,
+  FRAME_LIMIT,
+  FACING_UP,
+  FACING_DOWN,
+  FACING_LEFT,
+  FACING_RIGHT,
+  MOVEMENT_SPEED,
+  SCALED_WIDTH,
+  SCALED_HEIGHT
+} from './constants.js';
 import { maps } from '../game/scene.js';
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
@@ -11,9 +21,44 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyPresses, mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress, isTyping, isMessageVisible) {
+function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directionChange, mapPosition, onComplete) {
+  gsap.to(canvas, {
+    duration: 0.8,
+    opacity: 0,
+    onComplete: () => {
+      gameInstance.loadMap(nextMap, mapPosition.x, mapPosition.y, directionChange);
+      currentMap.mapLoadTextTriggers[0].hasShown = false;
+      gsap.to(canvas, {
+        duration: 0.8,
+        opacity: 1,
+        onComplete: () => {
+          onComplete();
+        }
+      });
+    }
+  });
+}
+
+export function gameLoop(
+  gameInstance, 
+  ctx, 
+  canvas, 
+  currentMap, 
+  img, 
+  bgImg, 
+  keyPresses, 
+  mapPositionX, 
+  mapPositionY, 
+  currentDirection, 
+  currentLoopIndex, 
+  frameCount, 
+  fadeOutProgress, 
+  isTyping, 
+  isMessageVisible
+) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(bgImg, -mapPositionX, -mapPositionY); 
+  ctx.drawImage(bgImg, -mapPositionX, -mapPositionY);
+  
   let deltaX = 0;
   let deltaY = 0;
   let moving = false;
@@ -42,7 +87,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
   }
 
   const playerRect = {
-    position: { x: canvas.width / 2 - SCALED_WIDTH / 2, y: canvas.height / 2+100 - SCALED_HEIGHT / 2 },
+    position: { x: canvas.width / 2 - SCALED_WIDTH / 2, y: canvas.height / 2 + 100 - SCALED_HEIGHT / 2 },
     width: SCALED_WIDTH,
     height: SCALED_HEIGHT
   };
@@ -88,6 +133,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
       }
     })
   );
+
   const doorLeadingToPrevMapCollisionDetected = currentMap.doorCollisions.leadsToPrev.some(door => 
     rectangularCollision({
       rectangle1: playerRect,
@@ -101,6 +147,7 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
       }
     })
   );
+
   if (obstacleCollisionDetected) {
     const collisionTriggers = currentMap.collisionTextTriggers;
     collisionTriggers.forEach(trigger => {
@@ -111,69 +158,41 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
       }
     });
   }
-
-  
   
   if (doorLeadingToNextMapCollisionDetected && fadeOutProgress === 0) {
-    
-    gsap.to(canvas, {
-      duration: 0.8,
-      opacity: 0,
-      onComplete: () => {
-        const nextMap = currentMap.transitioningTo;
-        gameInstance.loadMap(nextMap, maps[nextMap].mapPosition.x, maps[nextMap].mapPosition.y);
-           fadeOutProgress = 1;
-            deltaX = 0;
-            deltaY = 0;
-            frameCount = 0;
-            currentLoopIndex = 0;
-            currentMap.mapLoadTextTriggers[0].hasShown = false; 
-            gsap.to(canvas, {
-                duration: 0.8,
-                opacity: 1,
-                onComplete: () => {
-                    fadeOutProgress = 0; 
-                    console.log('Transition complete:', frameCount);
-                }
-            });
-        }
-    });
-
+    handleMapTransition(
+      canvas,
+      currentMap.transitioningTo,
+      currentMap,
+      gameInstance,
+      currentMap.doorCollisions.directionOnNextMap, 
+      currentMap.mapPosition.nextMapsPosition,
+      () => {
+        fadeOutProgress = 0;
+      }
+    );
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
-}
+  }
+  
   if (doorLeadingToPrevMapCollisionDetected && fadeOutProgress === 0) {
-    
-    gsap.to(canvas, {
-      duration: 0.8,
-      opacity: 0,
-      onComplete: () => {
-        const previousMap = currentMap.transitioningFrom;
-        gameInstance.loadMap(previousMap, maps[previousMap].mapPosition.x, maps[previousMap].mapPosition.y);
-           fadeOutProgress = 1; 
-            deltaX = 0;
-            deltaY = 0;
-            frameCount = 0;
-            currentLoopIndex = 0;
-            currentMap.mapLoadTextTriggers[0].hasShown = false; 
-            gsap.to(canvas, {
-                duration: 0.8,
-                opacity: 1,
-                onComplete: () => {
-                    fadeOutProgress = 0; 
-                    console.log('Transition complete:', frameCount);
-                }
-            });
-        }
-    });
-
+    handleMapTransition(
+      canvas,
+      currentMap.transitioningFrom,
+      currentMap,
+      gameInstance,
+      currentMap.doorCollisions.directionOnPrevMap,
+      currentMap.mapPosition.prevMapPosition,
+      () => { 
+        fadeOutProgress = 0;
+      }
+    );
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
-}
+  }
 
   if (!boundaryCollision && !doorLeadingToNextMapCollisionDetected && !obstacleCollisionDetected && !doorLeadingToPrevMapCollisionDetected) {
     mapPositionX += deltaX;
     mapPositionY += deltaY;
   }
-
 
   if (moving) {
     frameCount++;
@@ -184,7 +203,8 @@ export function gameLoop(gameInstance, ctx, canvas, currentMap, img, bgImg, keyP
   } else {
     currentLoopIndex = 0;
   }
-  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width/2 - SCALED_WIDTH / 2, canvas.height/2 - SCALED_HEIGHT / 2 + 100);
+
+  drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width / 2 - SCALED_WIDTH / 2, canvas.height / 2 - SCALED_HEIGHT / 2 + 100);
 
   return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
 }

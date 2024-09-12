@@ -19,8 +19,8 @@ export class Game {
     this.fadeOutProgress = 0;
     this.frameCount = 0;
     this.currentMap = maps.map1;
-    this.mapPositionX = this.currentMap.mapPosition.x;
-    this.mapPositionY = this.currentMap.mapPosition.y;
+    this.mapPositionX = 780;
+    this.mapPositionY = 980;
     this.messageContainer = document.getElementById("messageContainer");
     this.messageTextElement = document.getElementById("messageText");
     this.nextButton = document.getElementById("nextButton");
@@ -39,7 +39,7 @@ export class Game {
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
     window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
 
-    this.loadMap('map1', this.mapPositionX, this.mapPositionY);
+    this.loadMap('map1', this.mapPositionX, this.mapPositionY, this.currentDirection);
 
     if (this.modal) {
       const closeButton = this.modal.querySelector(".close");
@@ -55,11 +55,12 @@ export class Game {
     this.canvas.height = window.innerHeight;
   }
 
-  loadMap(map, mapPositionX, mapPositionY) {
+  loadMap(map, mapPositionX, mapPositionY,directionChange) {
     this.currentMap = maps[map];
     this.mapPositionX = mapPositionX;
     this.mapPositionY = mapPositionY;
     this.bgImg.src = this.currentMap.backgroundMap;
+    this.currentDirection = directionChange;
 
     const imagesLoaded = new Promise((resolve, reject) => {
       let imagesToLoad = 2;
