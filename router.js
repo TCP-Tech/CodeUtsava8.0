@@ -4,6 +4,7 @@ const introScreen = document.querySelector(".intro-screen");
 const mainContent = document.getElementById("main-content");
 const dynamicContentContainer = document.getElementById("codeutsava_dynamic_content");
 const backgroundMusic = document.getElementById("backgroundMusic");
+const merch = document.getElementById("cu-merchandise");
 const gameCanvas = document.querySelector("#app");
 
 function loadContentIntoContainer(url) {
@@ -49,6 +50,13 @@ function handleStartButtonClick(event) {
     }
 }
 
+function handleMerchButtonClick(event) {
+    event.preventDefault();
+    window.history.pushState({}, '', '/merch');
+    showMerch();
+    
+}
+
 function showGameCanvas() {
     setTimeout(() => {
         mainContent.style.display = "none";
@@ -68,6 +76,36 @@ function hideGameCanvas() {
     }
 }
 
+function showMerch() {
+    setTimeout(() => {
+      mainContent.style.display = "none";
+      introScreen.style.display = "none"
+        backgroundMusic.pause();
+      const dynamicContent = document.querySelector(".codeutsava__routing_container");
+      if(dynamicContent){
+        dynamicContent.style.display = 'block';
+  
+      }
+      merch.style.display = "block";
+      
+    }, 0);
+    
+  }
+  
+  function hideMerch() {
+  
+    setTimeout(() => {
+      merch.style.display = "none";
+      const dynamicContent = document.querySelector(".codeutsava__routing_container");
+      if(dynamicContent){
+        dynamicContent.style.display = 'none';
+  
+      }
+      
+    }, 0);
+    
+  }
+
 function handleRouteChange() {
     const currentPath = window.location.pathname;
     if (currentPath === "/game") {
@@ -76,6 +114,7 @@ function handleRouteChange() {
             window.gameInstance = new Game();
         }
     } else if (currentPath === "/") {
+        hideMerch();
         showMainContent();
         hideGameCanvas();
     } else if (currentPath === "/test") {
@@ -88,7 +127,10 @@ function handleRouteChange() {
             }
         }, 0);
         loadContentIntoContainer("/src/gameComponents/test.html");
-    }
+    } else if(currentPath === "/merch"){
+        showMerch();
+        console.log("done");
+      }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -96,4 +138,4 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('popstate', handleRouteChange);
 });
 
-export { handleRouteChange, handleStartButtonClick };
+export { handleRouteChange, handleStartButtonClick, handleMerchButtonClick };
