@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function changeImage(event){
     var mainImage = document.getElementById("4");
     var t=event.target.id;
-    mainImage.src = "/public/assets/images/merch" + t + ".png";
+    mainImage.src = "/assets/images/merch" + t + ".png";
   }
 
   function loadComponent(url, targetId) {
@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent('/components/Footer/footer.html', 'footer-container'),
         loadComponent('/components/SponsorsSection/sponsorsSection.html', 'codeutsava__sponsers-carousel-container'),
         loadComponent('/components/Hero Section/main.html', 'main-container'),
-        loadComponent("/public/components/Merchandise/merchandise.html","cu-merchandise"),
-        loadComponent('/components/Footer/footer.html', 'footer-routing-container')
+        loadComponent("/components/Merchandise/merchandise.html","cu-merchandise"),
+        loadComponent('/components/Footer/footer.html', 'footer-routing-container'),
 
 
       ]).then(() => {

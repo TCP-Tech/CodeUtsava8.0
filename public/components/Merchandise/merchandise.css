@@ -7,7 +7,7 @@
     justify-content: center;
     background-attachment: fixed;
     padding-top: 70px;
-    cursor: url('./public/assets/images/pointer2.png'),pointer;
+    cursor: url('./assets/images/pointer2.png'),pointer;
 }
 
 .gameconsole{
