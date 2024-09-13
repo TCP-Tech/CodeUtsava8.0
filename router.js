@@ -50,7 +50,8 @@ function handleStartButtonClick(event) {
     }
 }
 
-function handleMerchButtonClick() {
+function handleMerchButtonClick(event) {
+    event.preventDefault();
     window.history.pushState({}, '', '/merch');
     showMerch();
     

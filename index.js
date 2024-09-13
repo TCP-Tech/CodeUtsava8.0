@@ -100,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const merch = document.querySelector(".merch-cu");
       if(merch){
         merch.addEventListener("click", handleMerchButtonClick);
-    
       }
       
     }, 1000);
