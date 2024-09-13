@@ -153,13 +153,15 @@ export class Game {
   }
 
   checkForMessage() {
-    const loadTextTriggers = this.currentMap.mapLoadTextTriggers;
-    loadTextTriggers.forEach(trigger => {
-      if (!trigger.hasShown) {
-        this.showMessage(trigger.message);
-        trigger.hasShown = true;
-      }
-    });
+    if(this.currentMap.mapLoadTextTriggers.length > 0){
+      const loadTextTriggers = this.currentMap.mapLoadTextTriggers;
+      loadTextTriggers.forEach(trigger => {
+        if (!trigger.hasShown) {
+          this.showMessage(trigger.message);
+          trigger.hasShown = true;
+        }
+      });
+    }
   }
 
   startGameLoop() {

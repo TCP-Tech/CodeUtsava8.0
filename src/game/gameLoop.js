@@ -16,6 +16,7 @@ let liftOption = '';
 async function initializeLiftOptions() {
   for (const trigger of maps.liftCollision) {
     const collision = await trigger.getElement();
+    if(!collision) break;
     liftOption = collision;
   }
 }
@@ -35,7 +36,7 @@ function getMapForFloor(floor) {
   const mapsByFloor = {
     '0': 'map2',
     '1': 'map3',
-    '2': 'map4'
+    '2': 'map6'
   };
   return mapsByFloor[floor] || null;
 }
@@ -80,7 +81,7 @@ function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directio
     opacity: 0,
     onComplete: () => {
       gameInstance.loadMap(nextMap, mapPosition.x, mapPosition.y, directionChange);
-      currentMap.mapLoadTextTriggers[0].hasShown = false;
+      if(currentMap.mapLoadTextTriggers.length > 0) currentMap.mapLoadTextTriggers[0].hasShown = false;
       gsap.to(canvas, {
         duration: 0.8,
         opacity: 1,
@@ -205,7 +206,7 @@ export function gameLoop(
     const collisionTriggers = currentMap.collisionTextTriggers;
     collisionTriggers.forEach(async(trigger) => {
       const elem = await trigger.getElement();
-      gameInstance.showModal(elem);
+      if(elem.length > 0) gameInstance.showModal(elem);
       if (!isTyping) { 
         gameInstance.showMessage(trigger.message);
         trigger.hasShown = true; 
@@ -261,7 +262,20 @@ export function gameLoop(
           }
         );
       });
-    } else {
+    } else if(currentMap.entryExitSame){
+      handleMapTransition(
+        canvas,
+        currentMap.transitioningFrom,
+        currentMap,
+        gameInstance,
+        currentMap.doorCollisions.directionOnPrevMap, 
+        maps[currentMap.transitioningFrom].mapPosition.enterFromLiftPosition,
+        () => {
+          fadeOutProgress = 0;
+        }
+      );
+    }
+    else {
       handleMapTransition(
         canvas,
         currentMap.transitioningFrom,
