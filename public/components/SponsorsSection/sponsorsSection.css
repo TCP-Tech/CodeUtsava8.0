@@ -3,7 +3,7 @@
   width: auto;
   transform: rotate(20deg);
   margin-right: 0.5em;
-  display: none;
+  /* display: none; */
 }
 
 .codeutsava_sponsors_subheading {
@@ -15,7 +15,6 @@
   margin-left: 50px;
   margin-right: 50px;
 }
-
 .codeutsava_sponsers_heading {
   font-size: 3em;
   display: flex;
@@ -24,25 +23,27 @@
   text-shadow: 2.85px 2.85px 0.532px black;
   margin-top: 2em;
 }
+
 .codeutsava__sponsers-carousel-container {
   background-color: rgba(125, 125, 125, 0.265);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 100%;
   overflow: hidden;
-  display: inline-block;
+  display: block; 
   background-image: url("../../assets/images/grass.png");
   background-position: bottom;
   background-repeat: repeat-x;
   margin-top: 2em;
   margin-bottom: 2em;
+  height: auto;
 }
 
 .codeutsava__sponsers-carousel {
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-  width: 205%; 
+  width: 225%; 
   animation: scrollInfinite 40s linear infinite;
 }
 
@@ -62,23 +63,17 @@
   display: inline-block;
   vertical-align: middle;
   width: 150px;
-  object-fit: cover;
+  object-fit: cover; 
 }
-
-.codeutsava__sponsers-carousel::after {
-  content: '';
-  display: inline-block;
-  width: 100%; 
-}
-
 @keyframes scrollInfinite {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%); 
+    transform: translateX(-100%);
   }
 }
+
 @media screen and (max-width: 768px) {
   .codeutsava_sponsers_heading {
     font-size: 2.5em;
@@ -91,11 +86,11 @@
   }
 
   .codeutsava__sponsers-carousel {
-    animation-duration: 30s;
+    animation-duration: 30s; 
   }
 
   .codeutsava__sponsers-carousel-item img {
-    width: 130px;
+    width: 130px; 
   }
 
   .codeutsava_sponsors_image {
@@ -115,12 +110,12 @@
   }
 
   .codeutsava__sponsers-carousel {
-    animation-duration: 20s;
-    width: 225%; 
+    width: 240%; 
+    animation-duration: 25s; 
   }
 
   .codeutsava__sponsers-carousel-item {
-    margin: 1rem 1.5rem;
+    margin: 1rem 1rem; 
     height: 60px;
   }
 
