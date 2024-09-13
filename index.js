@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const introButton = document.querySelector(".intro-button");
-  const introtitle = document.querySelector(".intro-title");
-  const introBG = document.querySelector(".image-cont");
-  const introScreen = document.querySelector(".intro-screen");
-  const cloudsContainer = document.querySelector(".clouds-container");
+  // const introButton = document.querySelector(".intro-button");
+  // const introtitle = document.querySelector(".intro-title");
+  // const introBG = document.querySelector(".image-cont");
+  // const introScreen = document.querySelector(".intro-screen");
+  // const cloudsContainer = document.querySelector(".clouds-container");
   const mainContent = document.getElementById("main-content");
 
   const cloudSound = document.getElementById("cloudSound");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttonHoverSound = document.getElementById("buttonHoverSound");
   const playPauseButton = document.getElementById("playPauseButton");
   const playButtonImage = document.getElementById("play-button-image");
-  const enterButton = document.getElementById("intro-btn");
+  // const enterButton = document.getElementById("intro-btn");
 
   function loadContents() {
     setTimeout(() => {
