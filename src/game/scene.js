@@ -1,10 +1,14 @@
 import { cccEntranceCollisionArray, cccEntranceGuideMapCollisionArray, cccEntryGateCollisionArray } from '../gameData/cccEntranceBoundaries/cccAllBoundary.js';
 import { groundFloorCollisions, groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/cccGroundFloorBoundaries/gfAllBoundary.js';
 import { lift, firstFloorCollisions, interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
+import { firstFloorCorridorCollision,firstFloorCorridorExitCollision, firstFloorLabEntryDoorCollision } from '../gameData/firstFloorCorridorBoundaries/firstFloorCorridorAllBoundaries.js';
+import {  firstFloorLabTable,firstFloorLabCollision, firstFloorLabExit } from '../gameData/firstFloorLabBoundaries/firstFloorLabAllBoundaries.js';
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
 import groundFloor from "../gameAssets/FinalGroundFloor.png";
 import firstFloor from "../gameAssets/FirstFloorFinal.png";
+import firstFloorCorridor from "../gameAssets/firstFloorCorridor.png";
+import firstFloorLab from "../gameAssets/firstFloorLab.png";
 
 async function fetchHTML(filePath) {
   const response = await fetch(filePath);
@@ -76,6 +80,16 @@ const collisionTextTriggers = {
       hasShown: false,
       async getElement() {
         return await fetchHTML('../../gameCollisionComponents/groundFloor/page.html');
+      }
+    }
+  ],
+  map5: [
+    {
+      obstacleType: 'reception',
+      message: ["Are you ready for intense coding challenges??"],
+      hasShown: false,
+      async getElement() {
+        return "";
       }
     }
   ]
@@ -180,7 +194,68 @@ export const maps = {
     transitioningFrom: "map2",
     transitioningTo: "map4",
     mapPosition: { 
-      enterFromFrontPosition : {x:1380,y:1050},
+      enterFromFrontPosition : {x:280,y:700},
+      enterFromLiftPosition : {x:1380 , y:1050}
+      // nextMapsPosition: { x: 1380, y: 1050 },
+      // prevMapPosition: { x: 1180, y: 600 }
+    },
+  },
+  map4: {
+    backgroundMap: firstFloorCorridor,
+    boundaries: generateBoundaries(firstFloorCorridorCollision, 62005),
+    obstacleBoundary: [],
+    doorCollisions: {
+      leadsToPrev:{ 
+        hasLift: false,
+        boundary:generateBoundaries(firstFloorCorridorExitCollision, 62005),
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:generateBoundaries(firstFloorLabEntryDoorCollision, 62005),
+      },
+      directionOnNextMap: FACING_DOWN,
+      directionOnPrevMap: FACING_RIGHT,
+    },
+    mapLoadTextTriggers: [],
+    collisionTextTriggers: [],
+    transitioningFrom: "map3",
+    transitioningTo: "map5",
+    mapPosition: { 
+      enterFromFrontPosition : {x:1380,y:400},
+      enterFromLiftPosition : {x:950 , y:400}
+      // nextMapsPosition: { x: 1380, y: 1050 },
+      // prevMapPosition: { x: 1180, y: 600 }
+    },
+  },
+  map5: {
+    backgroundMap: firstFloorLab,
+    boundaries: generateBoundaries(firstFloorLabCollision, 9044),
+    obstacleBoundary: generateBoundaries(firstFloorLabTable, 9044),
+    entryExitSame:true,
+    doorCollisions: {
+      leadsToPrev:{ 
+        hasLift: false,
+        boundary:generateBoundaries(firstFloorLabExit, 9044),
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:[],
+      },
+      directionOnNextMap: FACING_LEFT,
+      directionOnPrevMap: FACING_UP,
+    },
+    mapLoadTextTriggers: [
+      {
+        trigger: true,
+        message: ["You've reached computer lab"],
+        hasShown: false,
+      }
+    ],
+    collisionTextTriggers: collisionTextTriggers.map5,
+    transitioningFrom: "map4",
+    transitioningTo: "map4",
+    mapPosition: { 
+      enterFromFrontPosition : {x:920,y:390},
       enterFromLiftPosition : {x:1380 , y:1050}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
