@@ -1,0 +1,238 @@
+
+.cu-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: justify-evenly;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    padding-top: 70px;
+    cursor: url('./assets/images/pointer2.png'),pointer;
+}
+
+.gameconsole{
+    height: 80px;
+    width: 80px;;
+
+
+}
+
+.heading{
+    font-size: 50px;
+    margin: 25px;
+    font-family: pixelled;
+    color: var(--primary-c);
+    text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.cu_main {
+    
+    font-family: "poppins";
+    color: white;
+    height: 80vh;
+    width: 90vw;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.cu_container {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 50px;
+    width: 100%;
+    max-width: 1200px;
+    
+}
+.cu-maintext{
+    font-size: 35px;
+    font-weight: 600;
+    text-shadow: 2.85px 2.85px 0.532px black;
+    color: var(--primary-c);
+
+}
+.cu-subtext{
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.cu-left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.cu-merch-image {
+    width: 75px;
+    margin-bottom: 10px;
+    padding-bottom: 25px;
+    margin-right: 15px;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+    
+}
+.cu-merch-image:hover{
+    transform: scale(1.2,1.2);
+}
+.cu-main-image{
+    width: 380px;
+    height: 430px;
+    border-radius: 20px;
+}
+.cu-right-section {
+
+    max-width: 800px;;
+    
+}
+
+h1 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.cu-price-section p {
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.cu-price-list1{
+
+    margin-bottom: 5px;
+
+}
+
+.cu-special-text{
+    font-size: 25px;
+    font-weight: 600;
+    text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.cu-price-list2{
+    margin-top: 5px;
+}
+
+.cu-special-offer {
+    margin: 20px 0;
+}
+
+.cu-special-offer h2 {
+    font-size: 20px;
+    
+    
+}
+
+.cu-special-offer ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.cu-special-offer ul li {
+    margin-bottom: 5px;
+}
+.cu-sizes{
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: 600;;
+}
+span{
+    color:var(--primary-c);
+}
+button {
+    background-color: var(--primary-c);
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+.cu-disclaimer {
+    margin-top: 10px;
+    font-size: 15px;
+    color: white;;
+}
+
+@font-face {
+    font-family: "pixelled";
+    src: url(/font.otf);
+}
+
+@media (max-width: 1200px){
+    .cu_main{
+        height: auto;
+    }
+    .cu-right-section{
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 829px) {
+    .cu-left-section{
+        order: 2;
+    }
+    .cu-main-image{
+        order: 1;
+    }
+    .cu-right-section{
+        order: 3;
+    }
+
+    .cu-main-image{
+        height: auto;
+    }
+
+    .gameconsole{
+        display: none;
+    }
+    
+    .cu_container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cu-maintext, .cu-subtext {
+        font-size: 4vw;
+    }
+
+    .cu-main-image {
+        width: 70vw;
+    }
+
+    .heading {
+        font-size: 8vw;
+    }
+
+    .cu-left-section {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    ul{
+        text-align: center;
+    }
+    .cu-right-section{
+        text-align: center;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
