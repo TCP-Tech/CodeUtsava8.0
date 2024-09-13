@@ -175,16 +175,22 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".icon-heading").forEach((item) => {
         item.addEventListener("mouseenter", function () {
           const descText = this.querySelector(".description-text");
+          const overview = this.querySelector(".overview-text");
           const text = descText.dataset.fulltext;
           const duration = 500; // Duration is set to 0.5 seconds (500ms)
+
+          overview.style.display = "none"; // Hide the initial 10 words on hover
+          descText.style.display = "block"; // Show the full text on hover
           typeWriterEffect(text, descText, duration);
-          descText.style.display = "block"; // Show the description on hover
         });
 
         item.addEventListener("mouseleave", function () {
           const descText = this.querySelector(".description-text");
-          descText.innerHTML = ""; // Clear the text
-          descText.style.display = "none"; // Hide the description when not hovering
+          const overview = this.querySelector(".overview-text");
+
+          descText.innerHTML = ""; // Clear the full text
+          descText.style.display = "none"; // Hide the full text when not hovering
+          overview.style.display = "inline"; // Show the initial 10 words after hover ends
         });
       });
     }, 3500);

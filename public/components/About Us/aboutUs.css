@@ -5,13 +5,9 @@
   padding: 20px;
   overflow: hidden;
 }
-
-.grid-container {
-  display: grid;
-  grid-template-rows: auto auto;
-  gap: 20px;
+.grand-title {
+  margin-bottom: 100px;
 }
-
 .flex {
   display: flex;
   justify-content: space-around;
@@ -28,14 +24,9 @@
   color: #fede63;
 }
 
-.icon-heading.el-1 {
-  min-width: 32%; /* Minimum width for first row elements */
-  height: 300px; /* Fixed height for all cells */
-}
-
 .icon-heading.el-2 {
-  min-width: 48%; /* Minimum width for second row elements */
-  height: 300px; /* Fixed height for all cells */
+  min-width: 48%;
+  height: 300px;
 }
 
 .icon-heading {
@@ -45,9 +36,9 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 300px; /* Fixed height */
+  height: 300px;
   transition: all 0.3s ease;
-  border: 2px solid transparent; /* Default border to avoid layout shift */
+  border: 2px solid transparent;
 }
 
 .icon {
@@ -68,20 +59,24 @@
 }
 
 .description {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 10px;
   font-size: 18px;
   color: #e8e9ec;
   font-weight: 700;
-  white-space: normal;
-  width: 100%; /* Make sure it fills the container */
+  overflow: hidden;
+  width: 100%;
+}
+
+.overview-text {
+  display: block;
 }
 
 .description-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: none;
   white-space: normal;
-  display: inline-block; /* Allow content to flow and wrap */
 }
 
 .icon-heading:hover .heading,
@@ -94,7 +89,11 @@
   display: none;
 }
 
-.icon-heading:hover .description {
+.icon-heading:hover .description .overview-text {
+  display: none;
+}
+
+.icon-heading:hover .description .description-text {
   display: block;
   animation: typewriter 0.5s ease-in;
 }
@@ -108,25 +107,55 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* One column layout */
-    grid-template-rows: repeat(
-      5,
-      auto
-    ); /* Adjust the number of rows according to the number of cells */
+/* Media Query for widths less than 1500px */
+@media screen and (max-width: 1500px) {
+  .icon-heading.el-1,
+  .icon-heading.el-2 {
+    min-width: 45%;
+    height: 250px; /* Adjust height for smaller viewports */
   }
 
-  .flex {
-    display: block; /* Remove the flex layout in the mobile view */
+  .grand-title h1 {
+    font-size: 36px; /* Adjust font size for better fit */
+  }
+
+  .heading {
+    font-size: 20px; /* Adjust font size for better fit */
+  }
+
+  .indicator {
+    font-size: 20px; /* Adjust font size for better fit */
+  }
+
+  .description {
+    font-size: 16px; /* Adjust font size for better fit */
   }
 
   .icon-heading {
-    min-width: auto; /* Remove minimum width constraints */
-    border-width: 2px; /* Ensure border is visible on hover */
+    height: 250px; /* Adjust height for smaller viewports */
   }
 
   .icon-heading:hover {
-    height: 500px;
+    height: 350px; /* Adjust height on hover for smaller viewports */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .flex {
+    display: block;
+  }
+
+  .icon-heading {
+    min-width: auto;
+    border-width: 2px;
+  }
+
+  .icon-heading:hover {
+    height: 400px;
   }
 }
