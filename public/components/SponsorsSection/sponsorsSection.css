@@ -1,10 +1,12 @@
-.codeutsava_sponsors_image{
+.codeutsava_sponsors_image {
   height: 80px;
   width: auto;
   transform: rotate(20deg);
   margin-right: 0.5em;
+  /* display: none; */
 }
-.codeutsava_sponsors_subheading{
+
+.codeutsava_sponsors_subheading {
   font-size: 20px;
   text-align: center;
   text-shadow: 2.85px 2.85px 0.532px black;
@@ -12,39 +14,36 @@
   margin-top: 40px;
   margin-left: 50px;
   margin-right: 50px;
-
 }
-.codeutsava_sponsers_heading{
+.codeutsava_sponsers_heading {
   font-size: 3em;
   display: flex;
   justify-content: center;
   color: var(--primary-c);
   text-shadow: 2.85px 2.85px 0.532px black;
   margin-top: 2em;
-  
-
 }
+
 .codeutsava__sponsers-carousel-container {
   background-color: rgba(125, 125, 125, 0.265);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 100%;
   overflow: hidden;
-  /*padding-bottom: 2.5rem;*/
-  display:inline-block;
+  display: block; 
   background-image: url("../../assets/images/grass.png");
   background-position: bottom;
   background-repeat: repeat-x;
   margin-top: 2em;
   margin-bottom: 2em;
+  height: auto;
 }
 
 .codeutsava__sponsers-carousel {
-  display: inline-block;
+  display: flex;
   overflow: hidden;
   white-space: nowrap;
-  width: 800%;
-
+  width: 225%; 
   animation: scrollInfinite 40s linear infinite;
 }
 
@@ -53,46 +52,78 @@
 }
 
 .codeutsava__sponsers-carousel-item {
-  display: inline-block;
+  display: inline-block !important;
   margin: 2rem 3rem;
   height: 75px;
   width: auto;
   object-fit: contain;
-
 }
 
 .codeutsava__sponsers-carousel-item img {
   display: inline-block;
   vertical-align: middle;
-  width: 200px;
-  object-fit: cover;
+  width: 150px;
+  object-fit: cover; 
 }
-
-.codeutsava__sponsers-carousel-item-block{
-    margin: 0px 20vw;
-    display: inline-block;
-}
-
 @keyframes scrollInfinite {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 30));
+    transform: translateX(-100%);
   }
 }
 
-@media (max-width: 768px) {
-  .participation-header {
-    font-size: 2.8em; 
-  }
-}
-
-@media (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .codeutsava_sponsers_heading {
-    font-size: 2.5em; 
+    font-size: 2.5em;
+    margin-top: 1.5em;
   }
-  .codeutsava_sponsors_image{
-    height: 70px;
+
+  .codeutsava_sponsors_subheading {
+    font-size: 1.5em;
+    margin: 20px 30px;
+  }
+
+  .codeutsava__sponsers-carousel {
+    animation-duration: 30s; 
+  }
+
+  .codeutsava__sponsers-carousel-item img {
+    width: 130px; 
+  }
+
+  .codeutsava_sponsors_image {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .codeutsava_sponsers_heading {
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  .codeutsava_sponsors_subheading {
+    font-size: 1.2em;
+    margin: 15px 20px;
+  }
+
+  .codeutsava__sponsers-carousel {
+    width: 240%; 
+    animation-duration: 25s; 
+  }
+
+  .codeutsava__sponsers-carousel-item {
+    margin: 1rem 1rem; 
+    height: 60px;
+  }
+
+  .codeutsava__sponsers-carousel-item img {
+    width: 100px;
+  }
+
+  .codeutsava_sponsors_image {
+    height: 50px;
   }
 }

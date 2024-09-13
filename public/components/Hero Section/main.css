@@ -54,7 +54,7 @@
   word-spacing: -20px;
   letter-spacing: 0px;
   /* color: var(--primary-c); */
-  color:   #dad5d4;
+  color: #dad5d4;
   text-transform: uppercase;
 }
 
@@ -155,6 +155,22 @@
   list-style: none;
   font-size: 2.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.codeutsava__section1-side-links li{
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+}
+
+.codeutsava__section1-side-links li a{
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .codeutsava__section1-side-links::before {
@@ -233,7 +249,6 @@ button.codeutsava__section1-intro-audio-btn {
   transition: all 0.2s ease-in-out;
 }
 
-
 .codeutsava_main-start-btn-section {
   margin-top: -50px;
 }
@@ -248,7 +263,7 @@ button.codeutsava__section1-intro-audio-btn {
   text-align: center;
   display: inline-block;
   margin: 5px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   font-weight: bold;
   padding-left: 40px;
   padding-right: 40px;
@@ -374,7 +389,7 @@ button.codeutsava__section1-intro-audio-btn {
 .mobile-message {
   display: none;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
   .mobile-message {
     display: block;
     text-align: center;

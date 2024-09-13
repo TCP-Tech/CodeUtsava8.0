@@ -1,7 +1,11 @@
-import { Game } from "./src/main";
+import {
+  handleRouteChange,
+  handleStartButtonClick,
+  handleMerchButtonClick,
+} from "./router";
 import loadanimation from "./public/components/Participation/participation";
+
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOMContentLoaded event triggered");
   loadContents();
 
   function toggleMenu() {
@@ -9,6 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.getElementById("hamburgerMenu");
     hamburger.classList.toggle("active");
     menu.classList.toggle("activeMenu");
+  }
+
+  function changeImage(event) {
+    var mainImage = document.getElementById("4");
+    var t = event.target.id;
+    mainImage.src = "/assets/images/merch" + t + ".png";
   }
 
   function loadComponent(url, targetId) {
@@ -70,58 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const playButtonImage = document.getElementById("play-button-image");
   const enterButton = document.getElementById("intro-btn");
 
-  function handleStartButtonClick() {
-    window.history.pushState({}, "", "/game");
-    showGameCanvas();
-    if (!window.gameInstance) {
-      window.gameInstance = new Game();
-    }
-  }
-
-  function showGameCanvas() {
-    setTimeout(() => {
-      mainContent.style.display = "none";
-      introScreen.style.display = "none";
-      backgroundMusic.pause();
-      const canvasContainer = document.querySelector("#app");
-      console.log(canvasContainer);
-      if (canvasContainer) {
-        canvasContainer.style.display = "block";
-      }
-    }, 0);
-  }
-
-  function hideGameCanvas() {
-    const canvasContainer = document.querySelector("#app");
-
-    // introScreen.style.display = "block";
-    // introButton.style.display = "block"
-    if (canvasContainer) {
-      canvasContainer.style.display = "none";
-    }
-    mainContent.style.display = "block";
-    // loadContents()
-    // console.log(introScreen.style.display)
-  }
-
-  function handleRouteChange() {
-    const currentPath = window.location.pathname;
-    console.log(currentPath);
-
-    if (currentPath === "/game") {
-      showGameCanvas();
-      if (!window.gameInstance) {
-        window.gameInstance = new Game();
-      }
-    } else if (currentPath === "/") {
-      hideGameCanvas();
-    }
-  }
-
   function loadContents() {
-    const mainContent = document.getElementById("main-content");
     setTimeout(() => {
-      mainContent.style.display = "block";
       Promise.all([
         loadComponent(
           "/components/Participation/participation.html",
@@ -130,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent("/components/Navbar/navbar.html", "navbar-container"),
         loadComponent("/components/Footer/footer.html", "footer-container"),
         loadComponent(
-          "/components/InfiniteCarousel/infiniteCarousel.html",
+          "/components/SponsorsSection/sponsorsSection.html",
           "codeutsava__sponsers-carousel-container"
         ),
         loadComponent("/components/Hero Section/main.html", "main-container"),
@@ -138,10 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/About Us/aboutUs.html",
           "about-us-container"
         ),
+        loadComponent(
+          "/components/Merchandise/merchandise.html",
+          "cu-merchandise"
+        ),
+        loadComponent(
+          "/components/Footer/footer.html",
+          "footer-routing-container"
+        ),
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
           document.dispatchEvent(contentLoadedEvent);
+          document.body.offsetHeight;
         })
         .catch((error) => console.error("Error loading components:", error));
     }, 0);
@@ -150,6 +119,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const hamburg = document.querySelector(".hamburger");
       if (hamburg) {
         hamburg.addEventListener("click", toggleMenu);
+      }
+    }, 3500);
+
+    setTimeout(() => {
+      const merch = document.querySelector(".merch-cu");
+      if (merch) {
+        merch.addEventListener("click", handleMerchButtonClick);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      const merchImage1 = document.getElementById("1");
+      const merchImage2 = document.getElementById("2");
+      const merchImage3 = document.getElementById("3");
+      if (merchImage1) {
+        merchImage1.addEventListener("click", changeImage);
+      }
+      if (merchImage2) {
+        merchImage2.addEventListener("click", changeImage);
+      }
+      if (merchImage3) {
+        merchImage3.addEventListener("click", changeImage);
       }
     }, 3500);
 
@@ -197,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   introButton.addEventListener("click", () => {
+    // loadContents();
     cloudsContainer.classList.add("show");
     setTimeout(() => {
       cloudsContainer.classList.remove("show");
@@ -211,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 900);
     }, 3000);
     window.history.pushState({}, "", "/");
+    mainContent.style.display = "block";
   });
 
   document.addEventListener("keydown", function (event) {
@@ -218,16 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
       loadContents();
       window.history.pushState({}, "", "/");
     }
-    if (event.key === "M" || event.key == "m") {
+    if (event.key === "M" || event.key === "m") {
       handlePlayPause();
     }
   });
-
-  function playCloudSound() {
-    cloudSound
-      .play()
-      .catch((error) => console.error("Error playing cloud sound:", error));
-  }
 
   function handleEnterButtonClick() {
     if (buttonHoverSound.paused) {
@@ -248,6 +235,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   enterButton.addEventListener("click", handleEnterButtonClick);
 
+  function playCloudSound() {
+    cloudSound
+      .play()
+      .catch((error) => console.error("Error playing cloud sound:", error));
+  }
+
   function handlePlayPause() {
     if (backgroundMusic.paused) {
       backgroundMusic
@@ -264,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playPauseButton.addEventListener("click", handlePlayPause);
 
-  // initial checking for route
+  // Initial route check
   handleRouteChange();
 
   window.addEventListener("popstate", handleRouteChange);
