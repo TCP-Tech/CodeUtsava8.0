@@ -60,7 +60,7 @@ function handleMerchButtonClick(event) {
 function showGameCanvas() {
     setTimeout(() => {
         mainContent.style.display = "none";
-        introScreen.style.display = "none";
+        // introScreen.style.display = "none";
         backgroundMusic.pause();
         const canvasContainer = document.querySelector("#app");
         if (canvasContainer) {
