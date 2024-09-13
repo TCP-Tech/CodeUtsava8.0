@@ -45,7 +45,7 @@
   margin-bottom: 10px;
 }
 
-.heading {
+.about-us-heading {
   font-size: 24px;
   font-weight: bold;
   color: #fede63;
@@ -72,6 +72,7 @@
 
 .overview-text {
   display: block;
+  color: #e8e9ec;
 }
 
 .description-text {
@@ -79,7 +80,7 @@
   white-space: normal;
 }
 
-.icon-heading:hover .heading,
+.icon-heading:hover .about-us-heading,
 .icon-heading:hover .icon {
   font-size: 18px;
   transform: translateY(-10px);
@@ -119,7 +120,7 @@
     font-size: 36px; /* Adjust font size for better fit */
   }
 
-  .heading {
+  .about-us-heading {
     font-size: 20px; /* Adjust font size for better fit */
   }
 
