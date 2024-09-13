@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]).then(() => {
         const contentLoadedEvent = new Event("contentsLoaded");
         document.dispatchEvent(contentLoadedEvent);
+        document.body.offsetHeight;
       }).catch(error => console.error('Error loading components:', error));
     }, 0);
 
