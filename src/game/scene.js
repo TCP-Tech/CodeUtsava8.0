@@ -1,10 +1,18 @@
-import { cccEntranceCollisionArray , cccEntranceGuideMapCollisionArray ,  cccEntryGateCollisionArray } from '../gameData/cccEntranceBoundaries/cccAllBoundary.js';
-import { groundFloorCollisions,groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/cccGroundFloorBoundaries/gfAllBoundary.js';
-import { lift , firstFloorCollisions , interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
+import { cccEntranceCollisionArray, cccEntranceGuideMapCollisionArray, cccEntryGateCollisionArray } from '../gameData/cccEntranceBoundaries/cccAllBoundary.js';
+import { groundFloorCollisions, groundFloorTableBoundary, groundFloorGateBoundary, groundFloorLiftBoundary } from '../gameData/cccGroundFloorBoundaries/gfAllBoundary.js';
+import { lift, firstFloorCollisions, interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
 import groundFloor from "../gameAssets/FinalGroundFloor.png";
-import firstFloor from "../gameAssets/FirstFloorFinal.png"
+import firstFloor from "../gameAssets/FirstFloorFinal.png";
+
+async function fetchHTML(filePath) {
+  const response = await fetch(filePath);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+  }
+  return await response.text();
+}
 
 function generateBoundaries(boundary, key) {
   let collisionMatrix = [];
@@ -50,16 +58,51 @@ class Boundary {
   }
 }
 
+const collisionTextTriggers = {
+  map1: [
+    {
+      obstacleType: 'guidePost',
+      message: ["You've collided into the guide post.."],
+      hasShown: false,
+      async getElement() {
+        return await fetchHTML('../../gameCollisionComponents/entrance/page.html');
+      }
+    }
+  ],
+  map2: [
+    {
+      obstacleType: 'reception',
+      message: ["Welcome to Central Computer Center!", "Here are some FAQS about CodeUtsava"],
+      hasShown: false,
+      async getElement() {
+        return await fetchHTML('../../gameCollisionComponents/groundFloor/page.html');
+      }
+    }
+  ]
+};
+
+// Maps Configuration
 export const maps = {
+  liftCollision:[{
+    async getElement() {
+      return await fetchHTML('../../gameCollisionComponents/lift/page.html');
+    }
+  }],
   map1: {
     backgroundMap: cccMap,
     boundaries: generateBoundaries(cccEntranceCollisionArray, 3579),
     obstacleBoundary: generateBoundaries(cccEntranceGuideMapCollisionArray, 3579),
     doorCollisions: {
-      leadsToPrev: [],
-      leadsToNext: generateBoundaries(cccEntryGateCollisionArray, 3579),
-      directionOnNextMap:FACING_UP,
-      directionOnPrevMap:FACING_DOWN,
+      leadsToPrev:{
+        hasLift:false,
+        boundary:[],
+      },
+      leadsToNext:{ 
+        hasLift:false,
+        boundary:generateBoundaries(cccEntryGateCollisionArray, 3579),
+      },
+      directionOnNextMap: FACING_UP,
+      directionOnPrevMap: FACING_DOWN,
     },
     mapLoadTextTriggers: [
       {
@@ -67,28 +110,14 @@ export const maps = {
         hasShown: false,
       },
     ],
-    collisionTextTriggers: [
-      {
-        obstacleType: 'guidePost',
-        message: ["You've collided into the guide post.."],
-        hasShown: false,
-        element: `
-          <div>
-            <h2>Guide Post Information</h2>
-            <p>This is the guide post located at the entrance. It provides information about various sections on this floor.</p>
-            <ul>
-              <li><strong>Floor 1:</strong> Introduction and Overview</li>
-              <li><strong>Floor 2:</strong> Developer Meet and Greet</li>
-            </ul>
-          </div>
-        `
-      },
-    ],
+    collisionTextTriggers: collisionTextTriggers.map1,
     transitioningFrom: "",
     transitioningTo: "map2",
     mapPosition: {
-      nextMapsPosition: { x: 780, y: 1050 },
-      prevMapPosition: { x: 780, y: 980 }
+      enterFromFrontPosition : {x:780,y:980},
+      enterFromLiftPosition : {x:780 , y:980}
+      // nextMapsPosition: { x: 780, y: 1050 },
+      // prevMapPosition: { x: 780, y: 980 }
     },
   },
   map2: {
@@ -96,10 +125,16 @@ export const maps = {
     boundaries: generateBoundaries(groundFloorCollisions, 14463),
     obstacleBoundary: generateBoundaries(groundFloorTableBoundary, 14463),
     doorCollisions: {
-      leadsToPrev: generateBoundaries(groundFloorGateBoundary, 14463),
-      leadsToNext: generateBoundaries(groundFloorLiftBoundary, 14463),
-      directionOnNextMap:FACING_DOWN,
-      directionOnPrevMap:FACING_DOWN,
+      leadsToPrev:{ 
+        hasLift:false,
+        boundary:generateBoundaries(groundFloorGateBoundary, 14463),
+      },
+      leadsToNext:{ 
+        hasLift:true,
+        boundary:generateBoundaries(groundFloorLiftBoundary, 14463),
+      },
+      directionOnNextMap: FACING_DOWN,
+      directionOnPrevMap: FACING_DOWN,
     },
     mapLoadTextTriggers: [
       {
@@ -108,41 +143,31 @@ export const maps = {
         hasShown: false,
       }
     ],
-    collisionTextTriggers: [
-      {
-        obstacleType: 'reception',
-        message: ["Welcome to Central Computer Center!" , "Here  are some FAQS about CodeUtsava"],
-        hasShown: false,
-        element: `
-          <div>
-            <h2>Reception Information</h2>
-            <p>Welcome to the reception of the Central Computer Center. Here you can find information and FAQs about Codeutsava.</p>
-            <ul>
-              <li><strong>General Info:</strong> Details about the event.</li>
-              <li><strong>Help Desk:</strong> Assistance and support.</li>
-            </ul>
-          </div>
-        `
-      },
-    ],
+    collisionTextTriggers: collisionTextTriggers.map2,
     transitioningFrom: "map1",
     transitioningTo: "map3",
     mapPosition: { 
-      nextMapsPosition : { x: 1380, y: 1050 },
-      prevMapPosition  :  { x: 780, y: 980 }
-     },
+      enterFromFrontPosition : {x:780,y:1050},
+      enterFromLiftPosition : {x:1180 , y:600}
+      // nextMapsPosition: { x: 1380, y: 1050 },
+      // prevMapPosition: { x: 780, y: 980 }
+    },
   },
-
-  
   map3: {
     backgroundMap: firstFloor,
     boundaries: generateBoundaries(firstFloorCollisions, 9497),
     obstacleBoundary: [],
     doorCollisions: {
-      leadsToPrev: generateBoundaries(lift, 9497),
-      leadsToNext: generateBoundaries(interaction, 9497),
-      directionOnNextMap:FACING_LEFT,
-      directionOnPrevMap:FACING_DOWN,
+      leadsToPrev:{ 
+        hasLift: true,
+        boundary:generateBoundaries(lift, 9497),
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:generateBoundaries(interaction, 9497),
+      },
+      directionOnNextMap: FACING_LEFT,
+      directionOnPrevMap: FACING_DOWN,
     },
     mapLoadTextTriggers: [
       {
@@ -155,8 +180,10 @@ export const maps = {
     transitioningFrom: "map2",
     transitioningTo: "map4",
     mapPosition: { 
-      nextMapsPosition : { x: 1380, y: 1050 },
-      prevMapPosition  :{x: 1180, y: 600}
-     },
+      enterFromFrontPosition : {x:1380,y:1050},
+      enterFromLiftPosition : {x:1380 , y:1050}
+      // nextMapsPosition: { x: 1380, y: 1050 },
+      // prevMapPosition: { x: 1180, y: 600 }
+    },
   },
 };

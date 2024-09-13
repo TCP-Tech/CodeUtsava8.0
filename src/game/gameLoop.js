@@ -10,7 +10,57 @@ import {
   SCALED_WIDTH,
   SCALED_HEIGHT
 } from './constants.js';
-import { maps } from '../game/scene.js';
+import { maps } from './scene.js';
+let liftOption = '';
+
+async function initializeLiftOptions() {
+  for (const trigger of maps.liftCollision) {
+    const collision = await trigger.getElement();
+    liftOption = collision;
+  }
+}
+
+initializeLiftOptions();
+
+function handleButtonClick(event, callback) {
+  const floor = event.target.getAttribute('data-floor');
+  const map = getMapForFloor(floor);
+
+  if (callback) {
+    callback(map);
+  }
+}
+
+function getMapForFloor(floor) {
+  const mapsByFloor = {
+    '0': 'map2',
+    '1': 'map3',
+    '2': 'map4'
+  };
+  return mapsByFloor[floor] || null;
+}
+
+export function showLiftModal(gameInstance, callback) {
+  gameInstance.showModal(liftOption);
+
+  function handleClick(event) {
+    handleButtonClick(event, callback);
+  }
+
+  document.querySelectorAll('.lift-btn').forEach(button => {
+    button.addEventListener('click', handleClick);
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key >= '0' && event.key <= '9') {
+        const floor = event.key;
+        const button = document.querySelector(`.lift-btn[data-floor="${floor}"]`);
+        if (button) {
+            button.click();
+        }
+    }
+  });
+}
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
   return (
@@ -22,6 +72,9 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 }
 
 function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directionChange, mapPosition, onComplete) {
+  if (maps[nextMap] === currentMap) return;
+  if(!maps[nextMap]) return;
+
   gsap.to(canvas, {
     duration: 0.8,
     opacity: 0,
@@ -58,7 +111,7 @@ export function gameLoop(
 ) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(bgImg, -mapPositionX, -mapPositionY);
-  
+
   let deltaX = 0;
   let deltaY = 0;
   let moving = false;
@@ -120,7 +173,7 @@ export function gameLoop(
     })
   );
 
-  const doorLeadingToNextMapCollisionDetected = currentMap.doorCollisions.leadsToNext.some(door => 
+  const doorLeadingToNextMapCollisionDetected = currentMap.doorCollisions.leadsToNext.boundary.some(door => 
     rectangularCollision({
       rectangle1: playerRect,
       rectangle2: {
@@ -134,7 +187,7 @@ export function gameLoop(
     })
   );
 
-  const doorLeadingToPrevMapCollisionDetected = currentMap.doorCollisions.leadsToPrev.some(door => 
+  const doorLeadingToPrevMapCollisionDetected = currentMap.doorCollisions.leadsToPrev.boundary.some(door => 
     rectangularCollision({
       rectangle1: playerRect,
       rectangle2: {
@@ -150,42 +203,77 @@ export function gameLoop(
 
   if (obstacleCollisionDetected) {
     const collisionTriggers = currentMap.collisionTextTriggers;
-    collisionTriggers.forEach(trigger => {
-      gameInstance.showModal(trigger.element);
+    collisionTriggers.forEach(async(trigger) => {
+      const elem = await trigger.getElement();
+      gameInstance.showModal(elem);
       if (!isTyping) { 
         gameInstance.showMessage(trigger.message);
         trigger.hasShown = true; 
       }
     });
   }
-  
+
   if (doorLeadingToNextMapCollisionDetected && fadeOutProgress === 0) {
-    handleMapTransition(
-      canvas,
-      currentMap.transitioningTo,
-      currentMap,
-      gameInstance,
-      currentMap.doorCollisions.directionOnNextMap, 
-      currentMap.mapPosition.nextMapsPosition,
-      () => {
-        fadeOutProgress = 0;
-      }
-    );
+    if (currentMap.doorCollisions.leadsToNext.hasLift) {
+      showLiftModal(gameInstance, (chosenMap) => {
+        if (chosenMap) gameInstance.hideModal();
+        handleMapTransition(
+          canvas,
+          chosenMap,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnNextMap, 
+          maps[chosenMap].mapPosition.enterFromLiftPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      });
+    } else {
+      handleMapTransition(
+        canvas,
+        currentMap.transitioningTo,
+        currentMap,
+        gameInstance,
+        currentMap.doorCollisions.directionOnNextMap, 
+        maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontPosition,
+        () => {
+          fadeOutProgress = 0;
+        }
+      );
+    }
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
   }
-  
+
   if (doorLeadingToPrevMapCollisionDetected && fadeOutProgress === 0) {
-    handleMapTransition(
-      canvas,
-      currentMap.transitioningFrom,
-      currentMap,
-      gameInstance,
-      currentMap.doorCollisions.directionOnPrevMap,
-      currentMap.mapPosition.prevMapPosition,
-      () => { 
-        fadeOutProgress = 0;
-      }
-    );
+    if (currentMap.doorCollisions.leadsToPrev.hasLift) {
+      showLiftModal(gameInstance, (chosenMap) => {
+        if (chosenMap) gameInstance.hideModal();
+        handleMapTransition(
+          canvas,
+          chosenMap,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnPrevMap, 
+          maps[chosenMap].mapPosition.enterFromLiftPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      });
+    } else {
+      handleMapTransition(
+        canvas,
+        currentMap.transitioningFrom,
+        currentMap,
+        gameInstance,
+        currentMap.doorCollisions.directionOnPrevMap, 
+        maps[currentMap.transitioningFrom].mapPosition.enterFromFrontPosition,
+        () => {
+          fadeOutProgress = 0;
+        }
+      );
+    }
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
   }
 

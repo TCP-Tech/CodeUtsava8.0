@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadContents() {
     setTimeout(() => {
-      // mainContent.style.display = "block";
       Promise.all([
         loadComponent('/components/Participation/participation.html', 'participation'),
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
