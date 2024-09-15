@@ -119,7 +119,7 @@ function showMerch() {
     hideMerch();
     setTimeout(() => {
       mainContent.style.display = "none";
-    //   introScreen.style.display = "none"
+      introScreen.style.display = "none"
         backgroundMusic.pause();
       const dynamicContent = document.querySelector(".codeutsava__routing_container");
       if(dynamicContent){
