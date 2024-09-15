@@ -212,7 +212,7 @@
 	animation: none;
 }
 
-/* .intro-button-container .intro-button {
+ /* .intro-button-container .intro-button {
   user-select: none;
   cursor: pointer;
   font-family: "joystix monospace";
@@ -229,7 +229,7 @@
   border: 5px solid black;
   box-shadow: inset -3px -3px 0 4px rgb(118, 118, 118);
   transition: all 0.05s ease-in-out;
-}
+} */
 
 .intro-button-container .intro-button:active,
 .intro-button-container .intro-button:focus {
@@ -255,7 +255,7 @@
     5px 5px,
     0px 5px
   );
-} */
+} 
 .intro-button {
 	font-family: var(--font-family1);
 	position: relative;
@@ -343,12 +343,12 @@
 	transform: rotate(180deg);
 	animation: rightCloud 3s ease-in-out forwards;
 }
-/* 
+
 @media (max-width: 480px) {
   .clouds-container.cloud {
     width: 200px;
   }
-} */
+}
 
 @keyframes leftCloud {
 	0% {

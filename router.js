@@ -1,6 +1,6 @@
 import { Game } from "./src/main";
 
-// const introScreen = document.querySelector(".intro-screen");
+const introScreen = document.querySelector(".intro-screen");
 const mainContent = document.getElementById("main-content");
 const dynamicContentContainer = document.getElementById("codeutsava_dynamic_content");
 const backgroundMusic = document.getElementById("backgroundMusic");
@@ -25,9 +25,9 @@ function hideOtherContent() {
     } else {
         console.error("Main content element not found");
     }
-    // if (introScreen) {
-        // introScreen.style.display = "none";
-    // }
+    if (introScreen) {
+        introScreen.style.display = "none";
+    }
     if (dynamicContentContainer) {
         dynamicContentContainer.style.display = "none";
     }
@@ -68,7 +68,7 @@ function handleFaqButtonClick(event) {
 function showGameCanvas() {
     setTimeout(() => {
         mainContent.style.display = "none";
-        // introScreen.style.display = "none";
+        introScreen.style.display = "none";
         backgroundMusic.pause();
         const canvasContainer = document.querySelector("#app");
         if (canvasContainer) {
@@ -88,7 +88,7 @@ function showMerch() {
     hideFaq();
     setTimeout(() => {
       mainContent.style.display = "none";
-    //   introScreen.style.display = "none"
+      introScreen.style.display = "none"
         backgroundMusic.pause();
       const dynamicContent = document.querySelector(".codeutsava__routing_container");
       if(dynamicContent){
@@ -160,7 +160,7 @@ function handleRouteChange() {
     } else if (currentPath === "/test") {
         setTimeout(() => {
             mainContent.style.display = "none";
-            // introScreen.style.display = "none";
+            introScreen.style.display = "none";
             const canvasContainer = document.querySelector("#app");
             if (canvasContainer) {
                 canvasContainer.style.display = 'none';
