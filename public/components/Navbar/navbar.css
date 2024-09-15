@@ -82,6 +82,7 @@
 .codeutsava__navbar-brochure-button a {
   font-size: 12px;
   margin-left: 8px;
+  padding-right: 3px;
 }
 .codeutsava__navbar-brochure-button:hover img {
   filter: invert(0%);
@@ -131,6 +132,7 @@
 .codeutsava__navbar-brochure-button.feedback-button a {
   font-size: 12px;
   margin-left: 8px;
+  padding-right: 3px;
 }
 
 .codeutsava__navbar-brochure-button.feedback-button:hover img {
@@ -217,9 +219,9 @@
   .codeutsava__navbar {
     display: none;
   }
-  .codeutsava__navbar-brochure-button.feedback-button {
+  /* .codeutsava__navbar-brochure-button.feedback-button {
     margin: 4rem auto;
-  }
+  } */
   .codeutsava__navbar-brochure-button {
     margin: 4rem auto;
   }

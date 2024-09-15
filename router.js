@@ -5,6 +5,7 @@ const mainContent = document.getElementById("main-content");
 const dynamicContentContainer = document.getElementById("codeutsava_dynamic_content");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
+const faq = document.getElementById("cu-faq");
 const gameCanvas = document.querySelector("#app");
 
 function loadContentIntoContainer(url) {
@@ -57,6 +58,13 @@ function handleMerchButtonClick(event) {
     
 }
 
+function handleFaqButtonClick(event) {
+    event.preventDefault();
+    window.history.pushState({}, '', '/faq');
+    showFaq();
+    
+}
+
 function showGameCanvas() {
     setTimeout(() => {
         mainContent.style.display = "none";
@@ -77,6 +85,7 @@ function hideGameCanvas() {
 }
 
 function showMerch() {
+    hideFaq();
     setTimeout(() => {
       mainContent.style.display = "none";
       introScreen.style.display = "none"
@@ -106,6 +115,36 @@ function showMerch() {
     
   }
 
+  function showFaq() {
+    hideMerch();
+    setTimeout(() => {
+      mainContent.style.display = "none";
+    //   introScreen.style.display = "none"
+        backgroundMusic.pause();
+      const dynamicContent = document.querySelector(".codeutsava__routing_container");
+      if(dynamicContent){
+        dynamicContent.style.display = 'block';
+  
+      }
+      faq.style.display = "block";
+      
+    }, 0);
+    
+  }
+  function hideFaq() {
+  
+    setTimeout(() => {
+      faq.style.display = "none";
+      const dynamicContent = document.querySelector(".codeutsava__routing_container");
+      if(dynamicContent){
+        dynamicContent.style.display = 'none';
+  
+      }
+      
+    }, 0);
+    
+  }
+
 function handleRouteChange() {
     const currentPath = window.location.pathname;
     if (currentPath === "/game") {
@@ -115,6 +154,7 @@ function handleRouteChange() {
         }
     } else if (currentPath === "/") {
         hideMerch();
+        hideFaq();
         showMainContent();
         hideGameCanvas();
     } else if (currentPath === "/test") {
@@ -130,6 +170,9 @@ function handleRouteChange() {
     } else if(currentPath === "/merch"){
         showMerch();
         console.log("done");
+      } else if(currentPath === "/faq"){
+        showFaq();
+        console.log("faq done");
       }
 }
 
@@ -138,4 +181,4 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('popstate', handleRouteChange);
 });
 
-export { handleRouteChange, handleStartButtonClick, handleMerchButtonClick };
+export { handleRouteChange, handleStartButtonClick, handleMerchButtonClick, handleFaqButtonClick };
