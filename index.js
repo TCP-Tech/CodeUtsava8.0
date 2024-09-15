@@ -1,4 +1,4 @@
-import { handleRouteChange, handleStartButtonClick, handleMerchButtonClick } from './router';
+import { handleRouteChange, handleStartButtonClick, handleMerchButtonClick, handleFaqButtonClick } from './router';
 import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -74,11 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       Promise.all([
         loadComponent('/components/Participation/participation.html', 'participation'),
+        loadComponent('/components/About Us/aboutUs.html', 'about-us'),
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
         loadComponent('/components/Footer/footer.html', 'footer-container'),
         loadComponent('/components/SponsorsSection/sponsorsSection.html', 'codeutsava__sponsers-carousel-container'),
         loadComponent('/components/Hero Section/main.html', 'main-container'),
         loadComponent("/components/Merchandise/merchandise.html","cu-merchandise"),
+        loadComponent("/components/Faq/faq.html","cu-faq"),
         loadComponent('/components/Footer/footer.html', 'footer-routing-container'),
 
 
@@ -100,6 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const merch = document.querySelector(".merch-cu");
       if(merch){
         merch.addEventListener("click", handleMerchButtonClick);
+      }
+      
+    }, 1000);
+
+    setTimeout(() => {
+      const faq = document.querySelector("#faq-redirect");
+      if(faq){
+        faq.addEventListener("click", handleFaqButtonClick);
       }
       
     }, 1000);
