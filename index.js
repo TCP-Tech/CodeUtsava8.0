@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       Promise.all([
         loadComponent('/components/Participation/participation.html', 'participation'),
+        loadComponent('/components/About Us/aboutUs.html', 'about-us'),
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
         loadComponent('/components/Footer/footer.html', 'footer-container'),
         loadComponent('/components/SponsorsSection/sponsorsSection.html', 'codeutsava__sponsers-carousel-container'),
