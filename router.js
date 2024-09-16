@@ -62,7 +62,7 @@ function handleGoBackToHomePageButtonClicked(event) {
   hideGameCanvas();
   hideMerch();
   hideFaq();
-  backgroundMusic.play();
+  // backgroundMusic.play();
 }
 
 function handleMerchButtonClick(event) {
@@ -106,7 +106,7 @@ function showMerch() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    backgroundMusic.pause();
+    // backgroundMusic.pause();
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );
@@ -134,7 +134,7 @@ function showFaq() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    backgroundMusic.pause();
+    // backgroundMusic.pause();
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );

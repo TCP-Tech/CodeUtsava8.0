@@ -111,6 +111,14 @@
         <button id="nextButton" style="display: none">Next</button>
       </div>
     </div>
+    <button id="playPauseButton" class="play-button button">
+      <img
+        src="/assets/images/playing.svg"
+        alt="PLAY"
+        class="play-button-image"
+        id="play-button-image"
+      />
+    </button>
     <div class="intro-screen">
       <div class="clouds-container hidden">
         <img
@@ -157,14 +165,6 @@
       <!-- <div id="footer-container"></div> -->
     </div>
     <div class="homepage" id="main-content" style="display: none">
-      <button id="playPauseButton" class="play-button button">
-        <img
-          src="/assets/images/playing.svg"
-          alt="PLAY"
-          class="play-button-image"
-          id="play-button-image"
-        />
-      </button>
       <div id="navbar-container"></div>
       <div id="main-container"></div>
       <div id="participation"></div>
@@ -176,13 +176,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script type="module" src="index.js"></script>
     <script src="/components/Cursor/cursor.js"></script>
+    <script src="/components/Navbar/navbar.js"></script>
+    <script src="/components/NavbarTeam/navbarTeam.js"></script>
     <script src="/components/Faq/faq.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="router.js"></script>
     <script type="module" src="/components/About Us/aboutUs.js"></script>
     <script
       type="module"
-      src="/public/components/Timeline/timeline.js"
+      src="/components/Timeline/timeline.js"
     ></script>
     <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
   </body>
