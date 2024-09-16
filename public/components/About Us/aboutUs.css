@@ -83,14 +83,14 @@
 
 .heading-item i {
   font-size: 40px;
-  color: #34c759;
+  color: orange;
   margin-bottom: 10px;
 }
 
 .heading-item h4 {
   font-size: 1.2rem;
   font-weight: bold;
-  color: black;
+  color: #dad5da;
   /* color: white; */
 }
 
