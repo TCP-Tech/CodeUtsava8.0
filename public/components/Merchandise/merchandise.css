@@ -1,4 +1,6 @@
-
+*{
+    font-family: pixelled;
+}
 .cu-main{
     display: flex;
     flex-direction: column;
@@ -26,13 +28,14 @@
 }
 
 .cu_main {
+    background-color: rgba(0, 0, 0, 0.445);
     
     font-family: "poppins";
     color: white;
-    height: 80vh;
+    height: fit-content;
     width: 90vw;
-    padding: 10px;
-    backdrop-filter: blur(10px);
+    padding: 1rem;
+    backdrop-filter: blur(8px);
     border-radius: 15px;
     margin-bottom: 50px;
     display: flex;
@@ -51,23 +54,26 @@
     
 }
 .cu-maintext{
-    font-size: 35px;
+    /* font-size: 35px; */
+    font-size: 1.75rem;
     font-weight: 600;
     text-shadow: 2.85px 2.85px 0.532px black;
     color: var(--primary-c);
 
 }
 .cu-subtext{
-    font-size: 30px;
+    font-size: 1.3rem;
     margin-bottom: 10px;
     font-weight: 600;
     text-shadow: 2.85px 2.85px 0.532px black;
+    margin-top: 2rem;
 }
 
 .cu-left-section {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    margin-right: 2rem;
 }
 
 .cu-merch-image {
@@ -90,6 +96,7 @@
 .cu-right-section {
 
     max-width: 800px;;
+    margin-left: 4rem;
     
 }
 
@@ -167,6 +174,7 @@ button:hover {
     margin-top: 10px;
     font-size: 15px;
     color: white;;
+    margin-bottom: 1.5rem;
 }
 
 @font-face {
@@ -179,11 +187,11 @@ button:hover {
         height: auto;
     }
     .cu-right-section{
-        margin-left: 20px;
+        margin-left: 2rem;
     }
 }
 
-@media (max-width: 829px) {
+@media (max-width: 1000px) {
     .cu-left-section{
         order: 2;
     }
@@ -222,17 +230,18 @@ button:hover {
     .cu-left-section {
         flex-direction: row;
         justify-content: center;
-        margin-top: 30px;
+        margin: 0 auto;
+        margin-top: 2rem;
     }
     ul{
         text-align: center;
     }
     .cu-right-section{
         text-align: center;
+        margin: 0;
     }
 
     button {
         font-size: 16px;
     }
 }
-
