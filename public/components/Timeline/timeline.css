@@ -106,6 +106,7 @@
 
 .cd-timeline-content h2 {
   color: black;
+  color: var(--highlighter-c);
 }
 
 .cd-timeline-content p, .cd-timeline-content .cd-read-more {

@@ -12,10 +12,13 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  
   -moz-osx-font-smoothing: grayscale;
   --color-bg: #000000;
   --primary-c: #FFCE45;
   --secondary-c: #D4AC2B;
+  --highlighter-c: rgb(255, 154, 2);
+  /* --highlighter-c: black; */
 }
 
 * {
