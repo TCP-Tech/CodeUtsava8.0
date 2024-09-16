@@ -1,6 +1,4 @@
-*{
-    font-family: pixelled;
-}
+
 .cu-main{
     display: flex;
     flex-direction: column;
@@ -28,14 +26,13 @@
 }
 
 .cu_main {
-    background-color: rgba(0, 0, 0, 0.445);
     
-    font-family: "poppins";
     color: white;
-    height: fit-content;
+    height: 65vh;
     width: 90vw;
-    padding: 1rem;
-    backdrop-filter: blur(8px);
+    padding: 10px;
+    backdrop-filter: blur(25px);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     margin-bottom: 50px;
     display: flex;
@@ -54,60 +51,57 @@
     
 }
 .cu-maintext{
-    /* font-size: 35px; */
-    font-size: 1.75rem;
+    font-size: 23px;
     font-weight: 600;
     text-shadow: 2.85px 2.85px 0.532px black;
     color: var(--primary-c);
 
 }
 .cu-subtext{
-    font-size: 1.3rem;
+    font-size: 21px;
     margin-bottom: 10px;
     font-weight: 600;
     text-shadow: 2.85px 2.85px 0.532px black;
-    margin-top: 2rem;
 }
 
 .cu-left-section {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    margin-right: 2rem;
 }
 
 .cu-merch-image {
-    width: 75px;
-    margin-bottom: 10px;
-    padding-bottom: 25px;
+    width: 90px;
+    margin-bottom: 8px;
     margin-right: 15px;
     transition-duration: 0.5s;
-    border-radius: 5px;
+    border-radius: 10px;
+
     
 }
 .cu-merch-image:hover{
-    transform: scale(1.2,1.2);
+    transform: scale(1.1,1.1);
 }
 .cu-main-image{
-    width: 380px;
-    height: 430px;
-    border-radius: 20px;
+    width: 450px;
+    height: 400px;
+    margin-right: 50px;
+    border-radius: 15px;
 }
 .cu-right-section {
 
     max-width: 800px;;
-    margin-left: 4rem;
     
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 25px;
     color: #fff;
     margin-bottom: 10px;
 }
 
-.cu-price-section p {
-    font-size: 18px;
+.cu-price-section{
+    font-size: 15px;
     color: white;
     font-weight: 600;
 }
@@ -129,27 +123,29 @@ h1 {
 }
 
 .cu-special-offer {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .cu-special-offer h2 {
-    font-size: 20px;
+    font-size: 18px;
     
     
 }
 
 .cu-special-offer ul {
     list-style: none;
-    margin: 20px 0;
+    margin: 4px 0;
 }
 
 .cu-special-offer ul li {
-    margin-bottom: 5px;
+    margin-bottom: 1px;
+    font-size: 15px;
+    font-weight: 600;
 }
 .cu-sizes{
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 5px;
-    font-weight: 600;;
+    font-weight: 600;
 }
 span{
     color:var(--primary-c);
@@ -172,9 +168,10 @@ button:hover {
 
 .cu-disclaimer {
     margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 15px;
-    color: white;;
-    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 600;
 }
 
 @font-face {
@@ -182,16 +179,21 @@ button:hover {
     src: url(/font.otf);
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1300px){
     .cu_main{
         height: auto;
+        width: auto;
     }
     .cu-right-section{
-        margin-left: 2rem;
+        margin-left: 20px;
     }
 }
 
 @media (max-width: 1000px) {
+    .cu_main{
+        height: auto;
+        width: auto;
+    }
     .cu-left-section{
         order: 2;
     }
@@ -204,6 +206,8 @@ button:hover {
 
     .cu-main-image{
         height: auto;
+        width: auto;
+        margin-right: 0px;
     }
 
     .gameconsole{
@@ -215,33 +219,49 @@ button:hover {
         align-items: center;
     }
     
-    .cu-maintext, .cu-subtext {
-        font-size: 4vw;
-    }
 
     .cu-main-image {
         width: 70vw;
     }
 
     .heading {
-        font-size: 8vw;
+        font-size: 10vw;
     }
 
     .cu-left-section {
         flex-direction: row;
         justify-content: center;
-        margin: 0 auto;
-        margin-top: 2rem;
+        margin-top: 30px;
     }
     ul{
         text-align: center;
     }
     .cu-right-section{
         text-align: center;
-        margin: 0;
     }
 
     button {
         font-size: 16px;
     }
 }
+
+@media (max-width: 515px) {
+
+    .cu-merch-image{
+        width: 40px;
+    }
+    .cu-left-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    button{
+        width: auto;
+
+    }
+    .cu-maintext{
+        font-size: auto;
+    }
+    
+}
+
