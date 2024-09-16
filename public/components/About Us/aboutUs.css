@@ -8,6 +8,12 @@
   text-shadow: 2.85px 2.85px 0.532px black;
 }
 
+.content-wrapper{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .about-us-section {
   position: relative;
   padding: 50px;
@@ -19,6 +25,7 @@
   display: inline-block;
   background-position: bottom;
   background-repeat: repeat-x;
+  width: 100%;
 }
 
 .blurred-overlay {
@@ -238,11 +245,15 @@
   .about-us-content {
       gap: 50px;
   }
+  .text-container{
+    margin-left: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .about-us-content {
       flex-direction: column;
+      padding: 0;
       /* gap: px; */
   }
 
@@ -273,6 +284,11 @@
   .heading-item {
       flex: 1 1 100px;
       margin: 0.5rem;
+  }
+  .text-container{
+    margin-top: 1rem;
+    text-align: justify;
+    margin-left: 0;
   }
 }
 
@@ -305,5 +321,12 @@
 
   .heading-item h4 {
       font-size: 1rem;
+  }
+  .text-container{
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+  .content-wrapper{
+    padding: 0;
   }
 }
