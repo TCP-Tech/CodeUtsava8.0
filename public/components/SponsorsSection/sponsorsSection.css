@@ -33,9 +33,6 @@
   width: 100%;
   overflow: hidden;
   display: block; 
-  background-image: url("../../assets/images/grass.png");
-  background-position: bottom;
-  background-repeat: repeat-x;
   margin-top: 2em;
   margin-bottom: 2em;
   height: auto;

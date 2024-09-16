@@ -285,7 +285,11 @@ button.codeutsava__section1-intro-audio-btn {
 }
 
 .codeutsava_main-start-btn:hover {
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 18px 36px rgba(255, 235, 132, 0.464);
+  /* background-color: #ffcd453f; */
+  background-color: rgba(255, 235, 132, 0.464);
+  border-color: white;
+  content:icon;
 }
 
 .codeutsava_main-start-btn:active {
