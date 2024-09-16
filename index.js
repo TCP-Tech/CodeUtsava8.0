@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
         loadComponent('/components/Footer/footer.html', 'footer-container'),
         loadComponent('/components/SponsorsSection/sponsorsSection.html', 'codeutsava__sponsers-carousel-container'),
+        loadComponent('/components/Timeline/timeline.html', 'codeutsava__timeline'),
         loadComponent('/components/Hero Section/main.html', 'main-container'),
         loadComponent("/components/Merchandise/merchandise.html","cu-merchandise"),
         loadComponent("/components/Faq/faq.html","cu-faq"),
