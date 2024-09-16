@@ -52,18 +52,15 @@
 }
 
 .codeutsava__sponsers-carousel-item {
-  display: inline-block !important;
+  display: flex;
   margin: 2rem 3rem;
   height: 75px;
-  width: auto;
-  object-fit: contain;
 }
 
 .codeutsava__sponsers-carousel-item img {
   display: inline-block;
-  vertical-align: middle;
   width: 150px;
-  object-fit: cover; 
+  object-fit: contain; 
 }
 @keyframes scrollInfinite {
   0% {

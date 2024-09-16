@@ -4,6 +4,7 @@ import {
   handleMerchButtonClick,
   handleFaqButtonClick,
   handleLogoClick,
+  handleGoBackToHomePageButtonClicked
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
@@ -110,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/Footer/footer.html",
           "footer-routing-container"
         ),
+        loadComponent(
+          "/components/NavbarTeam/navbarTeam.html",
+          "navbar-team"
+        ),
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -146,6 +151,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const faq = document.querySelector("#faq-redirect");
       if (faq) {
         faq.addEventListener("click", handleFaqButtonClick);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      const goBackToHomePageButton = document.querySelector(
+        "#goBackToHomePageButton"
+      );
+      if (goBackToHomePageButton) {
+        goBackToHomePageButton.addEventListener(
+          "click",
+          handleGoBackToHomePageButtonClicked
+        );
       }
     }, 1000);
 
