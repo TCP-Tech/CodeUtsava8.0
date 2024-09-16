@@ -128,7 +128,7 @@ export const maps = {
     transitioningFrom: "",
     transitioningTo: "map2",
     mapPosition: {
-      enterFromFrontPosition : {x:780,y:980},
+      enterFromFrontPosition : {x:820,y:1050},
       enterFromLiftPosition : {x:780 , y:980}
       // nextMapsPosition: { x: 780, y: 1050 },
       // prevMapPosition: { x: 780, y: 980 }
