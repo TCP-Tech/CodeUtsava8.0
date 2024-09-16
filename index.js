@@ -11,12 +11,13 @@ import loadanimation from "./public/components/Participation/participation";
 document.addEventListener("DOMContentLoaded", () => {
   loadContents();
 
-  function toggleMenu() {
-    const hamburger = document.querySelector(".ham");
-    const menu = document.getElementById("hamburgerMenu");
-    hamburger.classList.toggle("active");
-    menu.classList.toggle("activeMenu");
-  }
+  // function toggleMenu() {
+  //   console.log("cl")
+  //   const hamburger = document.querySelector(".ham");
+  //   const menu = document.getElementById("hamburgerMenu");
+  //   hamburger.classList.toggle("active");
+  //   menu.classList.toggle("activeMenu");
+  // }
 
   function changeImage(event) {
     var mainImage = document.getElementById("4");
@@ -124,12 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => console.error("Error loading components:", error));
     }, 0);
 
-    setTimeout(() => {
-      const hamburg = document.querySelector(".hamburger");
-      if (hamburg) {
-        hamburg.addEventListener("click", toggleMenu);
-      }
-    }, 3500);
+    // setTimeout(() => {
+    //   const hamburg = document.querySelector(".hamburger");
+    //   if (hamburg) {
+    //     console.log(hamburg);
+    //     hamburg.addEventListener("click", toggleMenu);
+    //   }
+    // },0);
 
     setTimeout(() => {
       const logos = document.querySelectorAll(".link_logo");
