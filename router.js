@@ -55,6 +55,16 @@ function handleStartButtonClick(event) {
   }
 }
 
+function handleGoBackToHomePageButtonClicked(event) {
+  event.preventDefault();
+  window.history.back();
+  showMainContent();
+  hideGameCanvas();
+  hideMerch();
+  hideFaq();
+  backgroundMusic.play();
+}
+
 function handleMerchButtonClick(event) {
   event.preventDefault();
   window.history.pushState({}, "", "/merch");
@@ -188,4 +198,5 @@ export {
   handleMerchButtonClick,
   handleFaqButtonClick,
   handleLogoClick,
+  handleGoBackToHomePageButtonClicked,
 };
