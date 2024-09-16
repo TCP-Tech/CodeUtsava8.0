@@ -19,8 +19,8 @@ export class Game {
     this.fadeOutProgress = 0;
     this.frameCount = 0;
     this.currentMap = maps.map1;
-    this.mapPositionX = 780;
-    this.mapPositionY = 980;
+    this.mapPositionX = 820;
+    this.mapPositionY = 1050;
     this.messageContainer = document.getElementById("messageContainer");
     this.messageTextElement = document.getElementById("messageText");
     this.nextButton = document.getElementById("nextButton");
