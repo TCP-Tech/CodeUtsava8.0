@@ -1,8 +1,14 @@
-import { handleRouteChange, handleStartButtonClick, handleMerchButtonClick, handleFaqButtonClick } from './router';
+import {
+  handleRouteChange,
+  handleStartButtonClick,
+  handleMerchButtonClick,
+  handleFaqButtonClick,
+  handleLogoClick,
+  handleGoBackToHomePageButtonClicked
+} from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
-
   loadContents();
 
   function toggleMenu() {
@@ -12,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.toggle("activeMenu");
   }
 
-  function changeImage(event){
+  function changeImage(event) {
     var mainImage = document.getElementById("4");
-    var t=event.target.id;
+    var t = event.target.id;
     mainImage.src = "/assets/images/merch" + t + ".png";
   }
 
@@ -29,7 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Loaded component into ${targetId}`);
 
             if (targetId === "participation") {
-              const participationBoxes = document.querySelectorAll(".participation-container_box1");
+              const participationBoxes = document.querySelectorAll(
+                ".participation-container_box1"
+              );
               console.log(participationBoxes);
               if (participationBoxes.length > 0) {
                 loadanimation();
@@ -37,21 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (targetId === "main-container") {
-              const gameStartButton = document.querySelector(".codeutsava_main-start-btn");
-              console.log('Game start button:', gameStartButton);
+              const gameStartButton = document.querySelector(
+                ".codeutsava_main-start-btn"
+              );
+              console.log("Game start button:", gameStartButton);
               if (gameStartButton) {
-                gameStartButton.addEventListener("click", handleStartButtonClick);
+                gameStartButton.addEventListener(
+                  "click",
+                  handleStartButtonClick
+                );
               }
             }
 
-            resolve(); 
+            resolve();
           } else {
             reject(new Error(`Target element with ID ${targetId} not found`));
           }
         })
         .catch((error) => {
           console.error("Error loading component:", error);
-          reject(error); 
+          reject(error);
         });
     });
   }
@@ -73,23 +86,42 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadContents() {
     setTimeout(() => {
       Promise.all([
-        loadComponent('/components/Participation/participation.html', 'participation'),
-        loadComponent('/components/About Us/aboutUs.html', 'about-us'),
-        loadComponent('/components/Navbar/navbar.html', 'navbar-container'),
-        loadComponent('/components/Footer/footer.html', 'footer-container'),
-        loadComponent('/components/SponsorsSection/sponsorsSection.html', 'codeutsava__sponsers-carousel-container'),
-        loadComponent('/components/Timeline/timeline.html', 'codeutsava__timeline'),
-        loadComponent('/components/Hero Section/main.html', 'main-container'),
-        loadComponent("/components/Merchandise/merchandise.html","cu-merchandise"),
-        loadComponent("/components/Faq/faq.html","cu-faq"),
-        loadComponent('/components/Footer/footer.html', 'footer-routing-container'),
-
-
-      ]).then(() => {
-        const contentLoadedEvent = new Event("contentsLoaded");
-        document.dispatchEvent(contentLoadedEvent);
-        document.body.offsetHeight;
-      }).catch(error => console.error('Error loading components:', error));
+        loadComponent(
+          "/components/Participation/participation.html",
+          "participation"
+        ),
+        loadComponent("/components/About Us/aboutUs.html", "about-us"),
+        loadComponent("/components/Navbar/navbar.html", "navbar-container"),
+        loadComponent("/components/Footer/footer.html", "footer-container"),
+        loadComponent(
+          "/components/SponsorsSection/sponsorsSection.html",
+          "codeutsava__sponsers-carousel-container"
+        ),
+        loadComponent(
+          "/components/Timeline/timeline.html",
+          "codeutsava__timeline"
+        ),
+        loadComponent("/components/Hero Section/main.html", "main-container"),
+        loadComponent(
+          "/components/Merchandise/merchandise.html",
+          "cu-merchandise"
+        ),
+        loadComponent("/components/Faq/faq.html", "cu-faq"),
+        loadComponent(
+          "/components/Footer/footer.html",
+          "footer-routing-container"
+        ),
+        loadComponent(
+          "/components/NavbarTeam/navbarTeam.html",
+          "navbar-team"
+        ),
+      ])
+        .then(() => {
+          const contentLoadedEvent = new Event("contentsLoaded");
+          document.dispatchEvent(contentLoadedEvent);
+          document.body.offsetHeight;
+        })
+        .catch((error) => console.error("Error loading components:", error));
     }, 0);
 
     setTimeout(() => {
@@ -100,38 +132,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
 
     setTimeout(() => {
+      const logos = document.querySelectorAll(".link_logo");
+      if (logos) {
+        logos.forEach((img) => {
+          img.addEventListener("click", handleLogoClick);
+        });
+      }
+    }, 3500);
+
+    setTimeout(() => {
       const merch = document.querySelector(".merch-cu");
-      if(merch){
+      if (merch) {
         merch.addEventListener("click", handleMerchButtonClick);
       }
-      
     }, 1000);
 
     setTimeout(() => {
       const faq = document.querySelector("#faq-redirect");
-      if(faq){
+      if (faq) {
         faq.addEventListener("click", handleFaqButtonClick);
       }
-      
+    }, 1000);
+
+    setTimeout(() => {
+      const goBackToHomePageButton = document.querySelector(
+        "#goBackToHomePageButton"
+      );
+      if (goBackToHomePageButton) {
+        goBackToHomePageButton.addEventListener(
+          "click",
+          handleGoBackToHomePageButtonClicked
+        );
+      }
     }, 1000);
 
     setTimeout(() => {
       const merchImage1 = document.getElementById("1");
       const merchImage2 = document.getElementById("2");
       const merchImage3 = document.getElementById("3");
-      if(merchImage1){
+      if (merchImage1) {
         merchImage1.addEventListener("click", changeImage);
-    
       }
-      if(merchImage2){
+      if (merchImage2) {
         merchImage2.addEventListener("click", changeImage);
-    
       }
-      if(merchImage3){
+      if (merchImage3) {
         merchImage3.addEventListener("click", changeImage);
-    
       }
-      
     }, 3500);
   }
 
@@ -150,14 +197,14 @@ document.addEventListener("DOMContentLoaded", () => {
         introScreen.style.display = "none";
       }, 900);
     }, 3000);
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, "", "/");
     mainContent.style.display = "block";
   });
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       loadContents();
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, "", "/");
     }
     if (event.key === "M" || event.key === "m") {
       handlePlayPause();
@@ -208,5 +255,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial route check
   handleRouteChange();
 
-  window.addEventListener('popstate', handleRouteChange);
+  window.addEventListener("popstate", handleRouteChange);
 });
