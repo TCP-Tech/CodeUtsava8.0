@@ -66,14 +66,14 @@
 .codeutsava__footer-social-links-container a:hover svg {
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
-  fill: #fff;
+  fill: var(--primary-c);
 }
 
 .codeutsava__footer-social-text {
   text-align: right;
   font-weight: 400;
+  color: white;
   font-size: 16px;
-  color: #999;
 }
 
 .codeutsava__footer-container2 {
@@ -210,6 +210,10 @@
   color: var(--primary-c);
 }
 
+.codeutsava__footer-social-map a:hover{
+  color: var(--primary-c);
+}
+
 .codeutsava__footer-social-map{
   display: flex;
   justify-content: center;
@@ -290,3 +294,6 @@
 .codeutsava__footer-container2-right a:hover{
   color: var(--primary-c);
 }
+
+
+
