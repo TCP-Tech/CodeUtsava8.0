@@ -8,6 +8,7 @@ const dynamicContentContainer = document.getElementById(
 const backgroundMusic = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
 const faq = document.getElementById("cu-faq");
+const contact = document.getElementById("cu-contact");
 const gameCanvas = document.querySelector("#app");
 
 function loadContentIntoContainer(url) {
@@ -156,6 +157,34 @@ function hideFaq() {
   }, 0);
 }
 
+function showContact() {
+  hideMerch();
+  hideFaq();
+  setTimeout(() => {
+    mainContent.style.display = "none";
+    introScreen.style.display = "none";
+    backgroundMusic.pause();
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "block";
+    }
+    contact.style.display = "block";
+  }, 0);
+}
+function hideContact() {
+  setTimeout(() => {
+    contact.style.display = "none";
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "none";
+    }
+  }, 0);
+}
+
 function handleRouteChange() {
   const currentPath = window.location.pathname;
   if (currentPath === "/game") {
@@ -184,9 +213,11 @@ function handleRouteChange() {
   } else if (currentPath === "/faq") {
     showFaq();
     console.log("faq done");
+  } else if (currentPath === "/contact") {
+    showContact();
+    console.log("contact done");
   }
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   handleRouteChange();
   window.addEventListener("popstate", handleRouteChange);
