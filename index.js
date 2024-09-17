@@ -5,6 +5,7 @@ import {
   handleFaqButtonClick,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
+  handleContactUsButtonClicked,
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
@@ -151,6 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
 
+    setTimeout(() => {
+      const contact = document.querySelector("#contact-us");
+      if (contact) {
+        contact.addEventListener("click", handleContactUsButtonClicked);
+      }
+    }, 1000);
     setTimeout(() => {
       const faq = document.querySelector("#faq-redirect");
       if (faq) {

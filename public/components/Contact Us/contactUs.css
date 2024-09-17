@@ -83,7 +83,7 @@
 }
 
 .form-group label {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 8px;
 }
 
@@ -107,6 +107,7 @@ textarea {
   color: white;
   border: none;
   border-radius: 4px;
+  padding: 12px 0 12px 0;
   cursor: pointer;
 }
 
@@ -137,7 +138,7 @@ textarea {
   }
   .contact-us-container {
     width: 100%;
-    padding: 1rem;
+    padding: 3rem 1rem;
   }
   .contact-us-section {
     width: 100%;

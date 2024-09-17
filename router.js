@@ -77,10 +77,16 @@ function handleFaqButtonClick(event) {
   window.history.pushState({}, "", "/faq");
   showFaq();
 }
+function handleContactUsButtonClicked(event) {
+  event.preventDefault();
+  window.history.pushState({}, "", "/contact");
+  showContact();
+}
 
 function handleLogoClick(event) {
-  event.preventDefault();
+  // event.preventDefault();
   window.history.pushState({}, "", "/");
+  // showMainContent();
 }
 
 function showGameCanvas() {
@@ -104,6 +110,7 @@ function hideGameCanvas() {
 
 function showMerch() {
   hideFaq();
+  hideContact();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -132,6 +139,7 @@ function hideMerch() {
 
 function showFaq() {
   hideMerch();
+  hideContact();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -193,10 +201,11 @@ function handleRouteChange() {
       window.gameInstance = new Game();
     }
   } else if (currentPath === "/") {
+    showMainContent();
     hideMerch();
     hideFaq();
-    showMainContent();
     hideGameCanvas();
+    hideContact();
   } else if (currentPath === "/test") {
     setTimeout(() => {
       mainContent.style.display = "none";
@@ -228,6 +237,7 @@ export {
   handleStartButtonClick,
   handleMerchButtonClick,
   handleFaqButtonClick,
+  handleContactUsButtonClicked,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
 };
