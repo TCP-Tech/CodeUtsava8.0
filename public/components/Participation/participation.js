@@ -12,7 +12,7 @@ function loadanimation() {
         currentValue = targetValue;
         clearInterval(updateCounter);
       }
-      counterElement.textContent = currentValue;
+      counterElement.textContent = currentValue + "+";
     }, 10); // Adjust interval duration for speed
   }
 

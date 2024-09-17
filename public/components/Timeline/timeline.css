@@ -103,9 +103,9 @@
   display: table;
   clear: both;
 }
-
 .cd-timeline-content h2 {
   color: black;
+  color: var(--highlighter-c);
 }
 
 .cd-timeline-content p, .cd-timeline-content .cd-read-more {
@@ -220,6 +220,7 @@
     left: 122%;
     top: 6px;
     font-size: 24px;
+    text-shadow: 2.85px 2.85px 0.532px black;
   }
 
   .cd-timeline-block:nth-child(even) .cd-timeline-content {

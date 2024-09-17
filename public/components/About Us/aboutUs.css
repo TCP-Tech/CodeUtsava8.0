@@ -18,7 +18,10 @@
   position: relative;
   padding: 50px;
   overflow: hidden;
-  background-color: rgba(127, 145, 189, 0.265);
+  background-color: rgba(49, 67, 80, 0.215);
+  /* rgb(49 67 80 / 21%) */
+  
+  
   /* background-color: rgba(0, 0, 0, 0.6); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -102,6 +105,7 @@
 }
 
 /* Animation */
+
 .atom {
   position: relative;
   display: flex;

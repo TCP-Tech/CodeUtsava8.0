@@ -20,9 +20,10 @@
 .codeutsava__navbar-body {
   display: flex;
   border-style: solid;
-  border-color: rgba(155, 155, 155, 0.4);
-  border-image: initial;
-  border-width: 0.4px 0px;
+  border-color: rgba(255, 255, 255, 0.5);
+  
+  /* border-image: initial; */
+  border-width: 0px 0px 2px 0px;
   justify-content: space-evenly;
   align-items: center;
   top: 0px;
@@ -184,6 +185,7 @@
   text-transform: capitalize;
   margin: 1.5rem 1.1rem;
   color: #b0b0b0;
+  color: white;
   cursor: pointer;
   padding: 0.5rem;
   box-sizing: border-box;
@@ -207,6 +209,7 @@
 .codeutsava__navbar-menu-heading:hover::after {
   transform: scaleX(0.8);
   border-radius: 4px;
+  color: #b0b0b0;
 }
 
 @media screen and (max-width: 2000px) {
