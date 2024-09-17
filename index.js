@@ -114,6 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "footer-routing-container"
         ),
         loadComponent("/components/NavbarTeam/navbarTeam.html", "navbar-team"),
+        loadComponent(
+          "/components/Guidelines/guidelines.html",
+          "cu-guidelines"
+        )
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
