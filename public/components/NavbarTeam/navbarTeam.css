@@ -45,7 +45,7 @@
   justify-content: center;
 }
 
-.codeutsava__navbar-logo img {
+.codeutsava__navbar-logo a img {
   width: auto;
   height: 50px;
 }
@@ -149,7 +149,7 @@
   justify-content: center;
 }
 
-.codeutsava__navbar-hamburger-logo img {
+.codeutsava__navbar-hamburger-logo a img {
   width: auto;
   height: 50px;
 }
@@ -208,7 +208,7 @@
 }
 
 @media screen and (max-width: 2000px) {
-  .codeutsava__navbar-logo img {
+  .codeutsava__navbar-logo a img {
     max-width: 100%;
     height: auto;
   }
@@ -238,7 +238,7 @@
     width: 40px;
     height: 40px;
   }
-  .codeutsava__navbar-hamburger-logo img {
+  .codeutsava__navbar-hamburger-logo a img {
     max-width: 100%;
     height: auto;
   }
