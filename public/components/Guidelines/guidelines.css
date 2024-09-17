@@ -1,0 +1,88 @@
+.guide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.cu-container {
+    backdrop-filter: blur(25px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 90vw;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid;
+    border-color: var(--primary-c);
+}
+
+.cu-guidelines-header {
+    font-size: 17px;
+    padding-bottom: 20px;
+}
+
+
+
+.cu-team-formation h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.cu-team-formation ol {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.cu-team-formation ol li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+.cu-team-formation p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cu-judgement-btn button {
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 30%;
+    cursor: pointer;
+}
+
+.cu-judgement-btn button:hover {
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 515px) {
+
+    .cu-guidelines-header {
+        font-size: 12px;
+        padding-bottom: 20px;
+    }
+    .cu-judgement-btn{
+        width: auto;
+    }
+    .cu-team-formation h2 {
+        font-size: 25px;
+    }
+    .cu-container {
+        width: auto;
+        height: auto;
+    }
+    .cu-judgement-btn button {
+        width: auto;
+    }
+    
+}
+
