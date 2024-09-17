@@ -4,7 +4,7 @@ import {
   handleMerchButtonClick,
   handleFaqButtonClick,
   handleLogoClick,
-  handleGoBackToHomePageButtonClicked
+  handleGoBackToHomePageButtonClicked,
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
@@ -108,14 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "cu-merchandise"
         ),
         loadComponent("/components/Faq/faq.html", "cu-faq"),
+        loadComponent("/components/Contact Us/contactUs.html", "cu-contact"),
         loadComponent(
           "/components/Footer/footer.html",
           "footer-routing-container"
         ),
-        loadComponent(
-          "/components/NavbarTeam/navbarTeam.html",
-          "navbar-team"
-        ),
+        loadComponent("/components/NavbarTeam/navbarTeam.html", "navbar-team"),
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
