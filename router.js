@@ -79,14 +79,14 @@ function handleFaqButtonClick(event) {
 
 function handleLogoClick(event) {
   event.preventDefault();
-  window.history.pushState({}, "", "/#home");
+  window.history.pushState({}, "", "/");
 }
 
 function showGameCanvas() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    backgroundMusic.pause();
+    // backgroundMusic.pause();
     const canvasContainer = document.querySelector("#app");
     if (canvasContainer) {
       canvasContainer.style.display = "block";
