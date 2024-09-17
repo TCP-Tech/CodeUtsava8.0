@@ -21,7 +21,7 @@
   display: flex;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.5);
-  
+
   /* border-image: initial; */
   border-width: 0px 0px 2px 0px;
   justify-content: space-evenly;
@@ -37,7 +37,6 @@
   max-width: 80rem;
   margin: 0px auto;
   padding: 0;
-  
 }
 
 .codeutsava__navbar-logo {
@@ -47,7 +46,7 @@
   justify-content: center;
 }
 
-.codeutsava__navbar-logo img {
+.codeutsava__navbar-logo a img {
   width: auto;
   height: 50px;
 }
@@ -151,7 +150,7 @@
   justify-content: center;
 }
 
-.codeutsava__navbar-hamburger-logo img {
+.codeutsava__navbar-hamburger-logo a img {
   width: auto;
   height: 50px;
 }
@@ -195,7 +194,6 @@
   color: white !important;
 }
 
-
 .codeutsava__navbar-menu-heading:after {
   margin-top: 4px;
   display: block;
@@ -213,7 +211,7 @@
 }
 
 @media screen and (max-width: 2000px) {
-  .codeutsava__navbar-logo img {
+  .codeutsava__navbar-logo a img {
     max-width: 100%;
     height: auto;
   }
