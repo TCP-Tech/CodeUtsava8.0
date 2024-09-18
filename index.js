@@ -118,6 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent(
           "/components/Guidelines/guidelines.html",
           "cu-guidelines"
+        ),
+        loadComponent(
+          "/components/404/404.html",
+          "codeutsava-404_page"
         )
       ])
         .then(() => {
@@ -212,15 +216,15 @@ document.addEventListener("DOMContentLoaded", () => {
     mainContent.style.display = "block";
   });
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      loadContents();
-      window.history.pushState({}, "", "/");
-    }
-    if (event.key === "M" || event.key === "m") {
-      handlePlayPause();
-    }
-  });
+  // document.addEventListener("keydown", function (event) {
+  //   if (event.key === "Enter") {
+  //     loadContents();
+  //     window.history.pushState({}, "", "/");
+  //   }
+  //   if (event.key === "M" || event.key === "m") {
+  //     handlePlayPause();
+  //   }
+  // });
 
   function handleEnterButtonClick() {
     if (buttonHoverSound.paused) {

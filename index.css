@@ -143,6 +143,17 @@
 	background-attachment: fixed;
 	
 }
+#codeutsava-404_page{
+	background-color: #f4f4f4;
+	color: #333;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
 
 #footer-container {
 	width: 100%;
