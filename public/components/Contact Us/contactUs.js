@@ -2,7 +2,7 @@
   emailjs.init("kE8yPfFnAkGs6aRJk");
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("contentsLoaded", () => {
   emailjs.init("kE8yPfFnAkGs6aRJk");
 
   const form = document.getElementById("contactForm");
