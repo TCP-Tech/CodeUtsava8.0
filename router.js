@@ -9,6 +9,7 @@ const backgroundMusic = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
 const faq = document.getElementById("cu-faq");
 const contact = document.getElementById("cu-contact");
+const errorPage = document.getElementById("codeutsava-404_page");
 const gameCanvas = document.querySelector("#app");
 
 function loadContentIntoContainer(url) {
@@ -39,6 +40,7 @@ function hideOtherContent() {
 }
 
 function showMainContent() {
+  hide404Page();
   if (mainContent) {
     mainContent.style.display = "block";
   }
@@ -90,6 +92,7 @@ function handleLogoClick(event) {
 }
 
 function showGameCanvas() {
+  hide404Page();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -136,10 +139,41 @@ function hideMerch() {
     }
   }, 0);
 }
+function show404Page() {
+  // hideFaq();
+  // hideContact();
+  // hideMerch();
+  
+  setTimeout(() => {
+    mainContent.style.display = "none";
+    introScreen.style.display = "none";
+    // backgroundMusic.pause();
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "none";
+    }
+    errorPage.style.display = "flex";
+  }, 0);
+}
+
+function hide404Page() {
+  setTimeout(() => {
+    errorPage.style.display = "none";
+    // const dynamicContent = document.querySelector(
+    //   ".codeutsava__routing_container"
+    // );
+    // if (dynamicContent) {
+    //   dynamicContent.style.display = "none";
+    // }
+  }, 0);
+}
 
 function showFaq() {
   hideMerch();
   hideContact();
+  hide404Page();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -225,6 +259,10 @@ function handleRouteChange() {
   } else if (currentPath === "/contact") {
     showContact();
     console.log("contact done");
+  }
+  else{
+    show404Page();
+    console.log("404 page")
   }
 }
 document.addEventListener("DOMContentLoaded", () => {

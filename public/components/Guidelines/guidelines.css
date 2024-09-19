@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 
 .span{
@@ -28,8 +29,6 @@
     text-shadow: 2.85px 2.85px 0.532px black;
     
 }
-
-
 
 .cu-team-formation h2 {
     font-size: 2em;
