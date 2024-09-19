@@ -17,7 +17,8 @@
   --color-bg: #000000;
   --primary-c: #FFCE45;
   --secondary-c: #D4AC2B;
-  --highlighter-c: rgb(218, 229, 9);
+  /* --highlighter-c: rgb(218, 229, 9); */
+  --highlighter-c: rgb(229, 156, 9);
   /* --highlighter-c: black; */
 }
 
