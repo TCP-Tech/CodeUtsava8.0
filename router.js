@@ -114,6 +114,7 @@ function hideGameCanvas() {
 function showMerch() {
   hideFaq();
   hideContact();
+  hide404Page();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -202,6 +203,7 @@ function hideFaq() {
 function showContact() {
   hideMerch();
   hideFaq();
+  hide404Page();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
