@@ -18,17 +18,20 @@
     />
     <link
       rel="stylesheet"
-      href="/components/Participation/participation.css?v=1.0"
+      href="/gameCollisionComponents/lift/page.css?v=1.0"
     />
+    <link rel="stylesheet" href="/components/Guidelines/guidelines.css">
     <link
       rel="stylesheet"
-      href="/gameCollisionComponents/lift/page.css?v=1.0"
+      href="/components/Participation/participation.css?v=1.0"
     />
     <link rel="stylesheet" href="/components/Footer/footer.css?v=1.0" />
     <link rel="stylesheet" href="/components/Merchandise/merchandise.css" />
+    <link rel="stylesheet" href="/components/Contact Us/contactUs.css" />
     <link rel="stylesheet" href="/components/About Us/aboutUs.css" />
     <link rel="stylesheet" href="/components/Timeline/timeline.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="/components/404/404.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -91,6 +94,11 @@
 
       gtag("config", "G-YLKKB3Y1L4");
     </script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
   </head>
   <body>
     <audio id="cloudSound" src="/assets/sounds/swoosh-6428.mp3"></audio>
@@ -111,6 +119,14 @@
         <button id="nextButton" style="display: none">Next</button>
       </div>
     </div>
+    <button id="playPauseButton" class="play-button button">
+      <img
+        src="/assets/images/playing.svg"
+        alt="PLAY"
+        class="play-button-image"
+        id="play-button-image"
+      />
+    </button>
     <div class="intro-screen">
       <div class="clouds-container hidden">
         <img
@@ -127,7 +143,7 @@
         />
       </div>
       <div class="image-cont">
-        <img src="/assets/images/intro-bg.webp" alt="Waterfall" />
+        <img src="public/assets/images/bg.gif" alt="Waterfall" />
       </div>
       <div class="intro-button-container">
         <div class="intro-title">
@@ -148,42 +164,39 @@
     </div>
 
     <!-- //Container for dynamic content loading based on route -->
+    <div id="codeutsava-404_page"></div>
     <div class="codeutsava__routing_container" style="display: none">
       <nav id="navbar-team"></nav>
       <div id="codeutsava_dynamic_content"></div>
       <div id="cu-merchandise"></div>
       <div id="cu-faq"></div>
+      <div id="cu-contact"></div>
       <div id="footer-routing-container"></div>
       <!-- <div id="footer-container"></div> -->
     </div>
     <div class="homepage" id="main-content" style="display: none">
-      <button id="playPauseButton" class="play-button button">
-        <img
-          src="/assets/images/playing.svg"
-          alt="PLAY"
-          class="play-button-image"
-          id="play-button-image"
-        />
-      </button>
       <div id="navbar-container"></div>
       <div id="main-container"></div>
       <div id="participation"></div>
       <div id="about-us"></div>
       <div id="codeutsava__timeline"></div>
+      <div id="cu-guidelines"></div>
       <div id="codeutsava__sponsers-carousel-container"></div>
       <div id="footer-container"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script type="module" src="index.js"></script>
     <script src="/components/Cursor/cursor.js"></script>
+    <script src="/components/Navbar/navbar.js"></script>
+    <script src="/components/NavbarTeam/navbarTeam.js"></script>
     <script src="/components/Faq/faq.js"></script>
+    <script src="/components/Footer/footer.js"></script>
+    <script src="/components/Contact Us/contactUs.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="router.js"></script>
     <script type="module" src="/components/About Us/aboutUs.js"></script>
-    <script
-      type="module"
-      src="/public/components/Timeline/timeline.js"
-    ></script>
+    <script type="module" src="/components/Timeline/timeline.js"></script>
+    <script type="module" src="/components/404/404.js"></script>
     <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
   </body>
 </html>

@@ -101,7 +101,7 @@
 .homepage {
 	width: 100%;
 	/* height: 100vh; */
-	background-image: url("/public/assets/images/bg.gif");
+	background-image: url("/assets/images/bg.gif");
 	
 	/* backdrop-filter: opacity(60%); */
 	background-attachment: fixed;
@@ -134,7 +134,7 @@
 }
 
 .codeutsava__routing_container{
-	background-image: url("/public/assets/images/intro-bg.webp");
+	background-image: url("/assets/images/bg.gif");
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
@@ -142,6 +142,17 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	
+}
+#codeutsava-404_page{
+	background-color: #f4f4f4;
+	color: #333;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
 }
 
 #footer-container {

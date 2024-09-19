@@ -174,6 +174,125 @@ export function gameLoop(
     })
   );
 
+  
+  if(currentMap.hasTwoDoors){
+    const doorLeadingToNextMapThroughRightDoorCollisionDetected = currentMap.doorCollisions.leadsToNextFromRight.boundary.some(door => 
+      rectangularCollision({
+        rectangle1: playerRect,
+        rectangle2: {
+          position: {
+            x: door.position.x - mapPositionX - deltaX,
+            y: door.position.y - mapPositionY - deltaY + 8
+          },
+          width: door.width,
+          height: door.height
+        }
+      })
+    );
+    const doorLeadingToNextMapThroughLeftDoorCollisionDetected = currentMap.doorCollisions.leadsToNextFromLeft.boundary.some(door => 
+      rectangularCollision({
+        rectangle1: playerRect,
+        rectangle2: {
+          position: {
+            x: door.position.x - mapPositionX - deltaX,
+            y: door.position.y - mapPositionY - deltaY + 8
+          },
+          width: door.width,
+          height: door.height
+        }
+      })
+    );
+  
+    const doorLeadingToPrevMapThroughRightDoorCollisionDetected = currentMap.doorCollisions.leadsToPrevFromRight.boundary.some(door => 
+      rectangularCollision({
+        rectangle1: playerRect,
+        rectangle2: {
+          position: {
+            x: door.position.x - mapPositionX - deltaX,
+            y: door.position.y - mapPositionY - deltaY + 8
+          },
+          width: door.width,
+          height: door.height
+        }
+      })
+    );
+    const doorLeadingToPrevMapThroughLeftDoorCollisionDetected = currentMap.doorCollisions.leadsToPrevFromLeft.boundary.some(door => 
+      rectangularCollision({
+        rectangle1: playerRect,
+        rectangle2: {
+          position: {
+            x: door.position.x - mapPositionX - deltaX,
+            y: door.position.y - mapPositionY - deltaY + 8
+          },
+          width: door.width,
+          height: door.height
+        }
+      })
+    );
+
+    if (doorLeadingToNextMapThroughRightDoorCollisionDetected && fadeOutProgress === 0) {
+        handleMapTransition(
+          canvas,
+          currentMap.transitioningTo,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnNextMap, 
+          maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontRightPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      
+      return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    }
+    if (doorLeadingToNextMapThroughLeftDoorCollisionDetected && fadeOutProgress === 0) {
+        handleMapTransition(
+          canvas,
+          currentMap.transitioningTo,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnNextMap, 
+          maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontLeftPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      
+      return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    }
+  
+    if (doorLeadingToPrevMapThroughRightDoorCollisionDetected && fadeOutProgress === 0) {
+        handleMapTransition(
+          canvas,
+          currentMap.transitioningFrom,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnPrevMap, 
+          maps[currentMap.transitioningFrom].mapPosition.enterFromFrontRightPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    }
+    if (doorLeadingToPrevMapThroughLeftDoorCollisionDetected && fadeOutProgress === 0) {
+        handleMapTransition(
+          canvas,
+          currentMap.transitioningFrom,
+          currentMap,
+          gameInstance,
+          currentMap.doorCollisions.directionOnPrevMap, 
+          maps[currentMap.transitioningFrom].mapPosition.enterFromFrontLeftPosition,
+          () => {
+            fadeOutProgress = 0;
+          }
+        );
+      return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
+    }
+
+  
+  }
+
   const doorLeadingToNextMapCollisionDetected = currentMap.doorCollisions.leadsToNext.boundary.some(door => 
     rectangularCollision({
       rectangle1: playerRect,
@@ -201,6 +320,7 @@ export function gameLoop(
       }
     })
   );
+
 
   if (obstacleCollisionDetected) {
     const collisionTriggers = currentMap.collisionTextTriggers;

@@ -1,12 +1,13 @@
 <div class="codeutsava__navbar-container">
   <header class="codeutsava__navbar">
     <div class="codeutsava__navbar-body">
-      <div class="codeutsava__navbar-logo codeutsava__navbar-brochure">
-        <img
-          src="../../assets/images/codeutsava pixelated.png"
-          alt="CU Logo"
-          class="link_logo"
-        />
+      <div class="codeutsava__navbar-brochure">
+        <a href="/" class="codeutsava__navbar-logo"
+          ><img
+            src="../../assets/images/codeutsava pixelated.png"
+            alt="CU Logo"
+            class="link_logo"
+        /></a>
         <button
           class="codeutsava__navbar-brochure-button feedback-button button"
         >
@@ -28,17 +29,17 @@
             </a>
           </li>
           <li class="codeutsava__navbar-navitem">
-            <a href="#aboutus" class="button">
+            <a href="#about-us" class="button">
               <h3 class="codeutsava__navbar-menu-heading">About Us</h3>
             </a>
           </li>
           <li class="codeutsava__navbar-navitem merch-cu">
-            <a href="" class="button">
+            <a href="/merch" class="button">
               <h3 class="codeutsava__navbar-menu-heading">Merchandise</h3>
             </a>
           </li>
           <li class="codeutsava__navbar-navitem" id="faq-redirect">
-            <a href="#" class="button">
+            <a href="/faq" class="button">
               <h3 class="codeutsava__navbar-menu-heading">FAQ</h3>
             </a>
           </li>
@@ -67,21 +68,25 @@
               <a href="#faq">
                 <h3 class="codeutsava__navbar-menu-heading">FAQ</h3>
               </a>
-            </li>
-            <li class="codeutsava__navbar-navitem">
-              <a href="#contactus">
-                <h3 class="codeutsava__navbar-menu-heading">Contact Us</h3>
-              </a>
             </li> -->
+          <li class="codeutsava__navbar-navitem" id="contact-us">
+            <a href="/contact" class="button">
+              <h3 class="codeutsava__navbar-menu-heading">Contact Us</h3>
+            </a>
+          </li>
         </ul>
       </nav>
-      <div class="codeutsava__navbar-logo codeutsava__navbar-brochure">
+      <div class="codeutsava__navbar-brochure">
         <button class="codeutsava__navbar-brochure-button button">
           <img src="../../assets/images/downArrow.svg" alt="downArrow" />
           <a href="{brochure}" download="Brochure"> BROCHURE </a>
         </button>
-        <img src="../../assets/images/codeutsava_pixelated_logo.png"
-        alt="TCP-logo" class ="link_logo"/ >
+        <a href="/" class="codeutsava__navbar-logo"
+          ><img
+            src="../../assets/images/codeutsava_pixelated_logo.png"
+            alt="TCP-logo"
+            class="link_logo"
+        /></a>
       </div>
     </div>
   </header>
@@ -103,19 +108,21 @@
           </svg>
         </div>
         <div class="codeutsava__navbar-hamburger-logo">
-          <img
-            src="../../assets/images/codeutsava pixelated.png"
-            alt="CU Logo"
-            class="link_logo"
-          />
+          <a href="/"
+            ><img
+              src="../../assets/images/codeutsava pixelated.png"
+              alt="CU Logo"
+              class="link_logo"
+          /></a>
         </div>
         <div class="codeutsava__navbar-hamburger-logo">
-          <img
-            src="../../assets/images/codeutsava_pixelated_logo.png"
-            alt="TCP
+          <a href="/"
+            ><img
+              src="../../assets/images/codeutsava_pixelated_logo.png"
+              alt="TCP
           logo"
-            class="link_logo"
-          />
+              class="link_logo"
+          /></a>
         </div>
       </nav>
     </div>
@@ -130,9 +137,14 @@
           <h3 class="codeutsava__navbar-hamburger-menu-heading">About Us</h3>
         </a>
       </li>
-      <li class="merch-cu" class="codeutsava__navbar-hamburger-navitem">
-        <a href="">
+      <li class="codeutsava__navbar-hamburger-navitem merch-cu">
+        <a href="/merch">
           <h3 class="codeutsava__navbar-hamburger-menu-heading">Merchandise</h3>
+        </a>
+      </li>
+      <li class="codeutsava__navbar-hamburger-navitem cu-faq" id="faq-redirect">
+        <a href="/faq">
+          <h3 class="codeutsava__navbar-hamburger-menu-heading">FAQ</h3>
         </a>
       </li>
       <!-- <li class="codeutsava__navbar-hamburger-navitem">
@@ -167,14 +179,12 @@
           <a href="#faq" onclick="toggleMenu()">
             <h3 class="codeutsava__navbar-hamburger-menu-heading">FAQ</h3>
           </a>
-        </li>
-        <li class="codeutsava__navbar-hamburger-navitem">
-          <a href="#contactus" onclick="toggleMenu()">
-            <h3 class="codeutsava__navbar-hamburger-menu-heading">
-              Contact Us
-            </h3>
-          </a>
         </li> -->
+      <li class="codeutsava__navbar-hamburger-navitem" id="contact-us">
+        <a href="/contact" onclick="toggleMenu()">
+          <h3 class="codeutsava__navbar-hamburger-menu-heading">Contact Us</h3>
+        </a>
+      </li>
       <div class="codeutsava__navbar-hamburger-brochure_feedback-button">
         <!-- <button class="codeutsava__navbar-hamburger-brochure-button">
             <img src="../../assets/images/downArrow.png" />

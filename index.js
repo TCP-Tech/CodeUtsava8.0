@@ -4,19 +4,21 @@ import {
   handleMerchButtonClick,
   handleFaqButtonClick,
   handleLogoClick,
-  handleGoBackToHomePageButtonClicked
+  handleGoBackToHomePageButtonClicked,
+  handleContactUsButtonClicked,
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContents();
 
-  function toggleMenu() {
-    const hamburger = document.querySelector(".ham");
-    const menu = document.getElementById("hamburgerMenu");
-    hamburger.classList.toggle("active");
-    menu.classList.toggle("activeMenu");
-  }
+  // function toggleMenu() {
+  //   console.log("cl")
+  //   const hamburger = document.querySelector(".ham");
+  //   const menu = document.getElementById("hamburgerMenu");
+  //   hamburger.classList.toggle("active");
+  //   menu.classList.toggle("activeMenu");
+  // }
 
   function changeImage(event) {
     var mainImage = document.getElementById("4");
@@ -107,14 +109,20 @@ document.addEventListener("DOMContentLoaded", () => {
           "cu-merchandise"
         ),
         loadComponent("/components/Faq/faq.html", "cu-faq"),
+        loadComponent("/components/Contact Us/contactUs.html", "cu-contact"),
         loadComponent(
           "/components/Footer/footer.html",
           "footer-routing-container"
         ),
+        loadComponent("/components/NavbarTeam/navbarTeam.html", "navbar-team"),
         loadComponent(
-          "/components/NavbarTeam/navbarTeam.html",
-          "navbar-team"
+          "/components/Guidelines/guidelines.html",
+          "cu-guidelines"
         ),
+        loadComponent(
+          "/components/404/404.html",
+          "codeutsava-404_page"
+        )
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -124,12 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => console.error("Error loading components:", error));
     }, 0);
 
-    setTimeout(() => {
-      const hamburg = document.querySelector(".hamburger");
-      if (hamburg) {
-        hamburg.addEventListener("click", toggleMenu);
-      }
-    }, 3500);
+    // setTimeout(() => {
+    //   const hamburg = document.querySelector(".hamburger");
+    //   if (hamburg) {
+    //     console.log(hamburg);
+    //     hamburg.addEventListener("click", toggleMenu);
+    //   }
+    // },0);
 
     setTimeout(() => {
       const logos = document.querySelectorAll(".link_logo");
@@ -147,6 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
 
+    setTimeout(() => {
+      const contact = document.querySelector("#contact-us");
+      if (contact) {
+        contact.addEventListener("click", handleContactUsButtonClicked);
+      }
+    }, 1000);
     setTimeout(() => {
       const faq = document.querySelector("#faq-redirect");
       if (faq) {
@@ -201,15 +216,15 @@ document.addEventListener("DOMContentLoaded", () => {
     mainContent.style.display = "block";
   });
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      loadContents();
-      window.history.pushState({}, "", "/");
-    }
-    if (event.key === "M" || event.key === "m") {
-      handlePlayPause();
-    }
-  });
+  // document.addEventListener("keydown", function (event) {
+  //   if (event.key === "Enter") {
+  //     loadContents();
+  //     window.history.pushState({}, "", "/");
+  //   }
+  //   if (event.key === "M" || event.key === "m") {
+  //     handlePlayPause();
+  //   }
+  // });
 
   function handleEnterButtonClick() {
     if (buttonHoverSound.paused) {
