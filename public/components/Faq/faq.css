@@ -18,6 +18,14 @@
   align-items: center;
   margin-top: 4rem;
 }
+
+.faq-title img{
+  height: 3.5rem;
+  object-fit: contain;
+  padding-right: 1rem;
+  transform: rotate(10deg);
+}
+
 .faq-question-section {
   height: fit-content;
   color: white;
