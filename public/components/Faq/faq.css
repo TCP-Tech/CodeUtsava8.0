@@ -14,6 +14,7 @@
 }
 .faq-title {
   display: flex;
+  text-shadow: 2.85px 2.85px 0.532px black;
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
