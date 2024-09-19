@@ -102,7 +102,7 @@
 	background-color: #000;
 	width: 100%;
 	/* height: 100vh; */
-	background-image: url("/assets/images/bg-15s-10.gif");
+	background-image: url("/assets/images/bg5.gif");
 	/* backdrop-filter: opacity(60%); */
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -134,7 +134,7 @@
 }
 
 .codeutsava__routing_container{
-	background-image: url("/assets/images/bg.gif");
+	background-image: url("/assets/images/bg5.gif");
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
