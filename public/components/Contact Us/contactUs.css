@@ -138,11 +138,11 @@ textarea {
   }
   .contact-us-container {
     width: 100%;
-    padding: 3rem 1rem;
+    padding: 3rem 0rem;
   }
   .contact-us-section {
     width: 100%;
-    padding: 1rem;
+    padding: 0rem;
   }
   #contactForm {
     width: 100%;
