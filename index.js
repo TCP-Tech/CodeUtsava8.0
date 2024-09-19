@@ -51,12 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 ".codeutsava_main-start-btn"
               );
               console.log("Game start button:", gameStartButton);
-              if (gameStartButton) {
-                gameStartButton.addEventListener(
-                  "click",
-                  handleStartButtonClick
-                );
-              }
+              // if (gameStartButton) {
+              //   gameStartButton.addEventListener(
+              //     "click",
+              //     handleStartButtonClick
+              //   );
+              // }
             }
 
             resolve();

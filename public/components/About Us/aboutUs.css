@@ -88,13 +88,13 @@
 .heading-item {
   text-align: center;
   margin: 0 1rem;
-  flex: 1 1 200px; /* Flex grow, shrink and basis for responsiveness */
+  flex: 1 1 200px; 
 }
 
 .heading-item i {
   font-size: 40px;
   color: orange;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 
 .heading-item h4 {
