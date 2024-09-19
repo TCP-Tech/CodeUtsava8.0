@@ -79,7 +79,7 @@
 .bottom-headings {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: 60px;
   z-index: 2;
   position: relative;
   flex-wrap: wrap;

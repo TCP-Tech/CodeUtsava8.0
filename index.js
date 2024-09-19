@@ -104,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "codeutsava__timeline"
         ),
         loadComponent("/components/Hero Section/main.html", "main-container"),
-        loadComponent(
-          "/components/Merchandise/merchandise.html",
-          "cu-merchandise"
-        ),
+        // loadComponent(
+        //   "/components/Merchandise/merchandise.html",
+        //   "cu-merchandise"
+        // ),
         loadComponent("/components/Faq/faq.html", "cu-faq"),
         loadComponent("/components/Contact Us/contactUs.html", "cu-contact"),
         loadComponent(
