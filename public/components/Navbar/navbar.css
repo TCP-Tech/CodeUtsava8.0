@@ -239,10 +239,10 @@
 }
 
 @media screen and (max-width: 650px) {
-  .codeutsava__navbar-hamburger-logo {
+  /* .codeutsava__navbar-hamburger-logo {
     width: 40px;
     height: 40px;
-  }
+  } */
   .codeutsava__navbar-hamburger-logo img {
     max-width: 100%;
     height: auto;
@@ -263,8 +263,8 @@
 }
 
 .hamburger {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .hamburger-open {
