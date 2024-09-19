@@ -297,7 +297,9 @@ button.codeutsava__section1-intro-audio-btn {
   position: relative;
   top: 0.2em;
 }
-
+.codeutsava_main-welcome-to{
+  width: 55%;
+}
 @keyframes bounce {
   0%,
   20%,
@@ -333,12 +335,14 @@ button.codeutsava__section1-intro-audio-btn {
     display: none !important;
   }
   .codeutsava__section1 {
-    padding-top: 8rem;
+    padding-top: 4rem;
     padding-bottom: 8rem;
   }
   .codeutsava__section1-image img {
     margin-bottom: 1.5rem;
-    height: 75px;
+    /* height: 75px; */
+    height: auto;
+    width: 70vw;
   }
   /* .codeutsava__section1-body {
       max-width: 300px;
@@ -349,16 +353,18 @@ button.codeutsava__section1-intro-audio-btn {
     letter-spacing: 0;
     line-height: 20px;
     margin-bottom: 2rem;
+    padding: 0 1em;
   }
   .codeutsava__section1-para {
     font-size: 18px;
+    padding: 0 1em;
   }
   .codeutsava__section1-menu h1 {
     font-size: 24px;
     margin: 0 2rem;
   }
   .codeutsava__section1-image {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .codeutsava__section1-button-container {
     width: 100%;
@@ -373,7 +379,8 @@ button.codeutsava__section1-intro-audio-btn {
 @media screen and (max-width: 650px) {
   .codeutsava__section1-image img {
     margin-bottom: 1.5rem;
-    height: 38px;
+    height: auto;
+    width: 90vw;
   }
   .codeutsava__section1-apply-discord {
     flex-direction: row;
@@ -397,12 +404,16 @@ button.codeutsava__section1-intro-audio-btn {
   .mobile-message {
     display: block;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     color: white;
-    margin-top: 1rem;
-    padding: 1rem;
+    /* margin-top: 1rem; */
+    padding:  1rem;
   }
   .codeutsava_main-start-btn-section {
     display: none;
+  }
+  .codeutsava_main-welcome-to{
+    width: 60vw;
+    height: auto;
   }
 }
