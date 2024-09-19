@@ -96,6 +96,7 @@ textarea {
   margin-bottom: 10px;
   border: 1px solid rgba(161, 153, 153, 0.5);
   border-radius: 4px;
+  font-size: xx-small;
 }
 
 textarea {
@@ -127,6 +128,12 @@ textarea {
   .map-container {
     width: 90%;
   }
+  .contact-us-container{
+    padding: 4rem 1rem;
+  }
+  #contactForm {
+    font-size: small;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -154,5 +161,8 @@ textarea {
   .map-container {
     width: 100%;
     margin-top: 2rem;
+  }
+  input::placeholder {
+    font-size: 10px;
   }
 }
