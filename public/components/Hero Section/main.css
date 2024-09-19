@@ -25,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 .codeutsava__section1-heading {
   margin: 1rem 0;
@@ -54,7 +54,7 @@
   word-spacing: -20px;
   letter-spacing: 0px;
   /* color: var(--primary-c); */
-  color: #dad5d4;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -72,7 +72,7 @@
   z-index: 1;
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: 6.5rem;
 }
 
 .codeutsava__section1-image img {
@@ -298,7 +298,7 @@ button.codeutsava__section1-intro-audio-btn {
   top: 0.2em;
 }
 .codeutsava_main-welcome-to {
-  width: 55%;
+  width: 50%;
 }
 .apply-button {
   height: 2.8rem;
