@@ -99,10 +99,10 @@
   
 
 .homepage {
+	background-color: #000;
 	width: 100%;
 	/* height: 100vh; */
-	background-image: url("/assets/images/bg.gif");
-	
+	background-image: url("./assets/images/bg-15s-10.gif");
 	/* backdrop-filter: opacity(60%); */
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -162,7 +162,7 @@
 }
 
 #main-container {
-	margin-top: 72px !important;
+	margin-top: 28px !important;
 }
 
 /* Intro Screen Css starts here */
