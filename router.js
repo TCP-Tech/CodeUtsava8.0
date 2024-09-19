@@ -63,7 +63,7 @@ function handleGoBackToHomePageButtonClicked(event) {
   window.history.back();
   showMainContent();
   hideGameCanvas();
-  hideMerch();
+  // hideMerch();
   hideFaq();
   // backgroundMusic.play();
 }
@@ -129,17 +129,17 @@ function showMerch() {
   }, 0);
 }
 
-function hideMerch() {
-  setTimeout(() => {
-    merch.style.display = "none";
-    const dynamicContent = document.querySelector(
-      ".codeutsava__routing_container"
-    );
-    if (dynamicContent) {
-      dynamicContent.style.display = "none";
-    }
-  }, 0);
-}
+// function hideMerch() {
+//   setTimeout(() => {
+//     merch.style.display = "none";
+//     const dynamicContent = document.querySelector(
+//       ".codeutsava__routing_container"
+//     );
+//     if (dynamicContent) {
+//       dynamicContent.style.display = "none";
+//     }
+//   }, 0);
+// }
 function show404Page() {
   // hideFaq();
   // hideContact();
@@ -172,7 +172,7 @@ function hide404Page() {
 }
 
 function showFaq() {
-  hideMerch();
+  // hideMerch();
   hideContact();
   hide404Page();
   setTimeout(() => {
@@ -201,7 +201,7 @@ function hideFaq() {
 }
 
 function showContact() {
-  hideMerch();
+  // hideMerch();
   hideFaq();
   hide404Page();
   setTimeout(() => {
@@ -238,7 +238,7 @@ function handleRouteChange() {
     }
   } else if (currentPath === "/") {
     showMainContent();
-    hideMerch();
+    // hideMerch();
     hideFaq();
     hideGameCanvas();
     hideContact();
