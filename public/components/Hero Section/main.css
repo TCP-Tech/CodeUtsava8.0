@@ -159,13 +159,13 @@
   flex-direction: column;
 }
 
-.codeutsava__section1-side-links li{
+.codeutsava__section1-side-links li {
   height: fit-content;
   width: fit-content;
   display: flex;
 }
 
-.codeutsava__section1-side-links li a{
+.codeutsava__section1-side-links li a {
   display: flex;
   height: fit-content;
   width: fit-content;
@@ -289,7 +289,7 @@ button.codeutsava__section1-intro-audio-btn {
   /* background-color: #ffcd453f; */
   background-color: rgba(255, 235, 132, 0.464);
   border-color: white;
-  content:icon;
+  content: icon;
 }
 
 .codeutsava_main-start-btn:active {
@@ -297,9 +297,14 @@ button.codeutsava__section1-intro-audio-btn {
   position: relative;
   top: 0.2em;
 }
-.codeutsava_main-welcome-to{
+.codeutsava_main-welcome-to {
   width: 55%;
 }
+.apply-button {
+  height: 2.8rem;
+  width: 19.5rem;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -403,16 +408,36 @@ button.codeutsava__section1-intro-audio-btn {
 @media screen and (max-width: 768px) {
   .mobile-message {
     display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .codeutsava_main-start-btn-mobile {
+    cursor: pointer;
+    pointer-events: none;
     text-align: center;
-    font-size: 0.5rem;
-    color: white;
-    /* margin-top: 1rem; */
-    padding:  1rem;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 2rem;
+    background-color: rgba(211, 211, 211, 0);
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: var(--primary-c);
+    border: 2px solid;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    font-size: medium;
+    flex-direction: row;
+    backdrop-filter: blur(3px);
+    /* box-shadow: 0 0.2em gray; */
+    transition: all 0.2s ease-in-out;
   }
   .codeutsava_main-start-btn-section {
     display: none;
   }
-  .codeutsava_main-welcome-to{
+  .codeutsava_main-welcome-to {
     width: 60vw;
     height: auto;
   }
