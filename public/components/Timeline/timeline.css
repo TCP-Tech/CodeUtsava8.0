@@ -5,7 +5,18 @@
   color: var(--primary-c);
   text-shadow: 2.85px 2.85px 0.532px black;
   margin-top: 2em;
+  height: fit-content;
+  align-items: center;
 }
+
+.codeutsava__timeline_heading img{
+  object-fit: contain;
+  height: 4rem;
+  /* margin-top: 0.1rem; */
+  transform: rotate(20deg);
+  padding-right: 1rem;
+}
+
 .codeutsava_timeline_image {
   height: 80px;
   width: auto;
