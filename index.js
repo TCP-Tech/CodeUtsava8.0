@@ -122,6 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent(
           "/components/404/404.html",
           "codeutsava-404_page"
+        ),
+        loadComponent(
+          "/components/Graphs&Analytics/graph.html",
+          "codeutsava__graphs&analtics_section"
         )
       ])
         .then(() => {
