@@ -92,6 +92,7 @@ function handleLogoClick(event) {
 }
 
 function showGameCanvas() {
+  hide404Page();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";

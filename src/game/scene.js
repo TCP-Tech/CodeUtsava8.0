@@ -3,12 +3,18 @@ import { groundFloorCollisions, groundFloorTableBoundary, groundFloorGateBoundar
 import { lift, firstFloorCollisions, interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
 import { firstFloorCorridorCollision,firstFloorCorridorExitCollision, firstFloorLabEntryDoorCollision } from '../gameData/firstFloorCorridorBoundaries/firstFloorCorridorAllBoundaries.js';
 import {  firstFloorLabTable,firstFloorLabCollision, firstFloorLabExit } from '../gameData/firstFloorLabBoundaries/firstFloorLabAllBoundaries.js';
+import { secondFloorBoundaries, secondFloorLift} from "../gameData/secondFloorEntranceBoundaries/secondFloor1AllBoundaries.js";
+import {secondFloor2LeftGate, secondFloor2rightGate, secondFloor2Boundaries} from "../gameData/secondFloorGalleryBoundaries/secondFloor2AllBoundaries.js";
+import {secondFloor3LeftGate, secondFloor3rightGate, secondFloor3Boundaries, pptHallInteraction} from "../gameData/secondFloorPPTHallBoundaries/secondFloor3AllBoundaries.js"
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
 import groundFloor from "../gameAssets/FinalGroundFloor.png";
 import firstFloor from "../gameAssets/FirstFloorFinal.png";
 import firstFloorCorridor from "../gameAssets/firstFloorCorridor.png";
 import firstFloorLab from "../gameAssets/firstFloorLab.png";
+import secondFloorEntrance from "../gameAssets/secondFloorEntrance.png";
+import secondFloorGallery from "../gameAssets/secondFloorGallery.png";
+import secondFloorPPTHall from "../gameAssets/secondFloorPPTHall.png"
 
 async function fetchHTML(filePath) {
   const response = await fetch(filePath);
@@ -92,7 +98,17 @@ const collisionTextTriggers = {
         return "";
       }
     }
-  ]
+  ],
+  map8: [
+    {
+      obstacleType: 'table',
+      message: ["Here are the problem statements for codeutsava's 8th edition...."],
+      hasShown: false,
+      async getElement() {
+        return "";
+      }
+    }
+  ],
 };
 
 // Maps Configuration
@@ -162,7 +178,7 @@ export const maps = {
     transitioningTo: "map3",
     mapPosition: { 
       enterFromFrontPosition : {x:780,y:1050},
-      enterFromLiftPosition : {x:1180 , y:600}
+      enterFromLiftPosition : {x:1180 , y:700}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 780, y: 980 }
     },
@@ -241,7 +257,7 @@ export const maps = {
         hasLift: false,
         boundary:[],
       },
-      directionOnNextMap: FACING_LEFT,
+      directionOnNextMap: FACING_DOWN,
       directionOnPrevMap: FACING_UP,
     },
     mapLoadTextTriggers: [
@@ -257,8 +273,132 @@ export const maps = {
     mapPosition: { 
       enterFromFrontPosition : {x:920,y:390},
       enterFromLiftPosition : {x:1380 , y:1050}
-      // nextMapsPosition: { x: 1380, y: 1050 },
-      // prevMapPosition: { x: 1180, y: 600 }
+    },
+  },
+  map6: {
+    backgroundMap: secondFloorEntrance,
+    boundaries: generateBoundaries(secondFloorBoundaries, 1),
+    obstacleBoundary: [],
+    entryExitSame:false,
+    doorCollisions: {
+      leadsToPrev:{ 
+        hasLift: true,
+        boundary:generateBoundaries(secondFloorLift, 1),
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:generateBoundaries(interaction,9497),
+      },
+      directionOnNextMap: FACING_LEFT,
+      directionOnPrevMap: FACING_DOWN,
+    },
+    mapLoadTextTriggers: [
+      {
+        trigger: false,
+        message: ["You've reached second floor"],
+        hasShown: false,
+      }
+    ],
+    collisionTextTriggers: [],
+    transitioningFrom: "map5",
+    transitioningTo: "map7",
+    mapPosition: { 
+      enterFromFrontPosition : {x:280,y:500},
+      enterFromLiftPosition : {x:1380 , y:1050}
+    },
+  },
+  map7: {
+    backgroundMap: secondFloorGallery,
+    boundaries: generateBoundaries(secondFloor2Boundaries, 10937),
+    obstacleBoundary: [],
+    hasTwoDoors:true,
+    doorCollisions: {
+      leadsToPrev:{ 
+        hasLift: false,
+        boundary:generateBoundaries(firstFloorCorridorExitCollision, 62005),
+      },
+      leadsToPrevFromLeft:{ 
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToPrevFromRight:{ 
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToNextFromRight: {
+        hasLift: false,
+        boundary:generateBoundaries(secondFloor2rightGate,10937),
+      },
+      leadsToNextFromLeft: {
+        hasLift: false,
+        boundary:generateBoundaries(secondFloor2LeftGate,10937),
+      },
+      directionOnNextMap: FACING_DOWN,
+      directionOnPrevMap: FACING_RIGHT,
+    },
+    mapLoadTextTriggers: [],
+    collisionTextTriggers: [],
+    transitioningFrom: "map6",
+    transitioningTo: "map8",
+    mapPosition: { 
+      enterFromFrontPosition : {x:1200,y:520},
+      enterFromFrontRightPosition : {x:1380,y:520},
+      enterFromFrontLeftPosition : {x:200,y:520},
+      enterFromLiftPosition : {x:1380 , y:400}
+    },
+  },
+  map8: {
+    backgroundMap: secondFloorPPTHall,
+    boundaries: generateBoundaries(secondFloor3Boundaries, 16868),
+    obstacleBoundary: generateBoundaries(pptHallInteraction, 16868),
+    entryExitSame:true,
+    hasTwoDoors:true,
+    doorCollisions: {
+      leadsToPrev:{ 
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToPrevFromRight:{ 
+        hasLift: false,
+        boundary:generateBoundaries(secondFloor3rightGate, 16868),
+      },
+      leadsToPrevFromLeft:{ 
+        hasLift: false,
+        boundary:generateBoundaries(secondFloor3LeftGate, 16868),
+      },
+      leadsToNext: {
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToNextFromRight: {
+        hasLift: false,
+        boundary:[],
+      },
+      leadsToNextFromLeft: {
+        hasLift: false,
+        boundary:[],
+      },
+      directionOnNextMap: FACING_LEFT,
+      directionOnPrevMap: FACING_UP,
+    },
+    mapLoadTextTriggers: [
+      {
+        trigger: true,
+        message: ["You've reached PPT Hall"],
+        hasShown: false,
+      }
+    ],
+    collisionTextTriggers: collisionTextTriggers.map8,
+    transitioningFrom: "map7",
+    transitioningTo: "map8",
+    mapPosition: { 
+      enterFromFrontRightPosition : {x:1500,y:500},
+      enterFromFrontLeftPosition : {x:300,y:450},
+      enterFromLiftPosition : {x:1380 , y:1050}
     },
   },
 };
