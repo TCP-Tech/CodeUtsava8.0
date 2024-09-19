@@ -44,7 +44,7 @@
 
 .codeutsava__footer-social-links-container {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   margin-bottom: 0.5rem;
   width: auto;
   justify-content: flex-end;
@@ -117,7 +117,7 @@
 .codeutsava__footer-container2-left-text {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -218,7 +218,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.5rem8
 }
 
 @media screen and (max-width: 650px) {
@@ -248,6 +248,10 @@
     justify-content: center;
   }
 
+  .codeutsava__footer-social-text1{
+    text-align: center;
+    margin-top: 10px;
+  }
   .codeutsava__footer-social-text{
     text-align: center;
   }
@@ -255,13 +259,15 @@
   .codeutsava__footer-container2{
     margin: 2rem 0;
   }
-
+  
   .codeutsava__footer-container2-left-text h4{
     font-size: 16px;
   }
 
   .codeutsava__footer-container2-left-text p{
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 20px;
+    font-weight: 200;
   }
 
   .codeutsava__footer-container2-left-content img{
@@ -276,7 +282,7 @@
     gap: 1rem;
     flex-direction: row;
   }
-
+  
   .codeutsava__footer-social-team{
     font-size: 12px;
   }
@@ -289,6 +295,24 @@
     width: 16px;
     height: 16px;
   }
+  .codeutsava__footer-social-links-container a{
+    padding: 0px;
+  }
+
+  .codeutsava__footer-container3 a{
+     font-size: 8px;
+     
+  }
+  .codeutsava__footer-container3 div{
+    font-size: 8px;
+ }
+ .codeutsava__footer-container3{
+  width: 100%;
+ }
+ .codeutsava__footer-social-team-link{
+  padding: 0rem;
+}
+
 }
 
 .codeutsava__footer-container2-right a:hover{
@@ -296,4 +320,19 @@
 }
 
 
+@media screen and (max-width: 770px){
+  .codeutsava__footer-container2-right p{
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 651px) and (max-width: 1000px) {
+  .codeutsava__footer-container3 a {
+    font-size: 10px;
+  }
+  
+  .codeutsava__footer-container3 div {
+    font-size: 10px;
+  }
+}
 

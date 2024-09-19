@@ -89,8 +89,22 @@
         width: auto;
         height: auto;
     }
+    .cu-team-formation ol li {
+       font-size: 12px;
+    }
+    .cu-team-formation p {
+        font-size: 12px;
+    }
     .cu-judgement-btn button {
         width: auto;
+        font-size: 1em;
+    }
+    .cu-team-formation ol {
+        text-align: left;
+    }
+    .guide{
+        margin-left: 10px;
+        margin-right: 10px;
     }
     
 }
