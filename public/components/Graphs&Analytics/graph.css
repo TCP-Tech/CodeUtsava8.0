@@ -1,13 +1,19 @@
 .heading-container {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+    display: flex;
+  }
+  .heading-container img{
+    object-fit: contain;
+    height: 4rem;
+    padding-right: 1rem;
   }
   
   .heading-title {
     font-size: 36px;
     color: var(--primary-c);
     text-shadow: 2.85px 2.85px 0.532px black;
+    margin-bottom: 0;
   }
 .chart-container {
     width: 100vw;
