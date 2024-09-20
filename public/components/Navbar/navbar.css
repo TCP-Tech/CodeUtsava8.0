@@ -93,7 +93,9 @@
 }
 .codeutsava__navbar-hamburger-brochure_feedback-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .codeutsava__navbar-hamburger-brochure-button {
@@ -122,10 +124,10 @@
   color: black;
 }
 
-.codeutsava__navbar-brochure-button.feedback-button {
+/* .codeutsava__navbar-brochure-button.feedback-button {
   margin-left: 2rem;
   margin-right: 0rem;
-}
+} */
 
 .codeutsava__navbar-brochure-button.feedback-button img {
   width: 16px;

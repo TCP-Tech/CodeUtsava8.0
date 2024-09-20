@@ -13,6 +13,11 @@
   position: absolute;
   z-index: -100;
 } */
+ .codeutsava__section1-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
 
 .scroll-down-section {
   color: #fff;
@@ -405,6 +410,9 @@ button.codeutsava__section1-intro-audio-btn {
 }
 
 @media screen and (max-width: 650px) {
+  .codeutsava__section1-register-link{
+    font-size: 8px;
+  }
   .codeutsava__section1-image img {
     margin-bottom: 1.5rem;
     height: auto;

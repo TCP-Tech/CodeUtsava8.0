@@ -1,3 +1,16 @@
+.participation-heading-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.participation-heading-container img{
+  height: 3.5rem;
+  object-fit: contain;
+  padding-right: 1rem;
+}
+
 .participation_codeutsava__sponsers-carousel-container {
     background-color: rgba(0, 0, 0, 0.363);;
     backdrop-filter: blur(10px);
@@ -23,7 +36,7 @@
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     color: var(--primary-c);
     text-shadow: 2.85px 2.85px 0.532px black;
   }

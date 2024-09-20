@@ -161,17 +161,26 @@
   border-right: 7px solid #ffffff;
 }
 
-@media only screen and (min-width: 768px) {
+
+@media screen and (max-width: 480px) {
+  .codeutsava__timeline_heading{
+    font-size: 2em;
+  }
+  .codeutsava__timeline_heading img{
+    height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   
-  .codeutsava_timeline_heading {
-    font-size: 2.5em;
-    margin-top: 1.5em;
+  .codeutsava__timeline_heading {
+    font-size: 2em;
   }
   .cd-timeline-content h2 {
     font-size: 20px;
   }
 
-  .cd-timeline-content p {
+  .cd-timeline-content p { 
     font-size: 16px;
   }
 
