@@ -13,11 +13,11 @@
   position: absolute;
   z-index: -100;
 } */
- .codeutsava__section1-button-container{
+.codeutsava__section1-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
- }
+}
 
 .scroll-down-section {
   color: #fff;
@@ -52,8 +52,7 @@
   transition: 0.2s ease-in-out;
 }
 
-
-.scroll-down-section a{
+.scroll-down-section a {
   display: inline-block;
   /* font-family: var(--font-family); */
   font-size: 0.9rem;
@@ -67,17 +66,20 @@
 }
 
 @keyframes bounce {
-  0%, 100%, 20%, 50%, 80% {
-      transform: translateY(0);
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    transform: translateY(0);
   }
   40% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   60% {
-      transform: translateY(-15px);
+    transform: translateY(-15px);
   }
 }
-
 
 /* @keyframes bounce {
   0%, 100% {
@@ -87,8 +89,6 @@
     transform: translateY(10px);
   }
 } */
-
-
 
 .codeutsava__section1-body {
   display: flex;
@@ -204,7 +204,7 @@
   align-items: center;
   font-family: var(--font-family);
   background-color: #f3f6fb;
-  padding: 13px 20px;
+  padding: 7px 19px;
   border-radius: 4px;
   cursor: pointer;
   margin-left: 14px;
@@ -344,10 +344,12 @@ button.codeutsava__section1-intro-audio-btn {
 .codeutsava_main-welcome-to {
   width: 50%;
 }
-/* .apply-button {
-  height: 2.8rem;
-  width: 19.5rem;
-} */
+
+.apply-button {
+  height: 44px;
+  width: 280px;
+  border-radius: 4px;
+}
 
 @media screen and (max-width: 1000px) {
   .scroll-down-section,
@@ -409,9 +411,9 @@ button.codeutsava__section1-intro-audio-btn {
   }
 }
 
-@media screen and (max-width: 650px) {
-  .codeutsava__section1-register-link{
-    font-size: 8px;
+@media screen and (max-width: 735px) {
+  .codeutsava__section1-register-link {
+    font-size: 12px;
   }
   .codeutsava__section1-image img {
     margin-bottom: 1.5rem;
@@ -471,5 +473,13 @@ button.codeutsava__section1-intro-audio-btn {
   .codeutsava_main-welcome-to {
     width: 60vw;
     height: auto;
+  }
+}
+@media screen and (max-width: 385px) {
+  .apply-button {
+    width: 80%;
+  }
+  .codeutsava__section1-apply-discord {
+    width: 80%;
   }
 }
