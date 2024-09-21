@@ -321,6 +321,11 @@
       margin-top: 50px; */
   }
 
+.about-us-heading-container img{
+  height: 3rem;
+}
+
+
   .text-container{
     font-size: 0.7rem;
   }
