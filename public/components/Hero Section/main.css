@@ -344,10 +344,10 @@ button.codeutsava__section1-intro-audio-btn {
 .codeutsava_main-welcome-to {
   width: 50%;
 }
-.apply-button {
+/* .apply-button {
   height: 2.8rem;
   width: 19.5rem;
-}
+} */
 
 @media screen and (max-width: 1000px) {
   .scroll-down-section,
