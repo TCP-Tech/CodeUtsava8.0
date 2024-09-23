@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const target = document.getElementById(targetId);
           if (target) {
             target.innerHTML = data;
-            console.log(`Loaded component into ${targetId}`);
+            // console.log(`Loaded component into ${targetId}`);
 
             if (targetId === "participation") {
               const participationBoxes = document.querySelectorAll(
                 ".participation-container_box1"
               );
-              console.log(participationBoxes);
+              // console.log(participationBoxes);
               if (participationBoxes.length > 0) {
                 loadanimation();
               }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const gameStartButton = document.querySelector(
                 ".codeutsava_main-start-btn"
               );
-              console.log("Game start button:", gameStartButton);
+              // console.log("Game start button:", gameStartButton);
               // if (gameStartButton) {
               //   gameStartButton.addEventListener(
               //     "click",
