@@ -277,6 +277,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("popstate", handleRouteChange);
 });
 
+//Game Collision Routes
+
+document.addEventListener("modalDisplayed",()=>{
+  console.log("Faq" , document.getElementById('navigateToFaq'));
+  document.getElementById('navigateToFaq').addEventListener('click', handleFaqButtonClick);
+})
+
+
 export {
   handleRouteChange,
   handleStartButtonClick,
