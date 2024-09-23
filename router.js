@@ -5,6 +5,7 @@ const mainContent = document.getElementById("main-content");
 const dynamicContentContainer = document.getElementById(
   "codeutsava_dynamic_content"
 );
+const routingContainer = document.querySelector(".codeutsava__routing_container")
 const backgroundMusic = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
 const faq = document.getElementById("cu-faq");
@@ -98,6 +99,9 @@ function showGameCanvas() {
     introScreen.style.display = "none";
     // backgroundMusic.pause();
     const canvasContainer = document.querySelector("#app");
+    if(routingContainer){
+      routingContainer.style.display = "none";
+    }
     if (canvasContainer) {
       canvasContainer.style.display = "block";
     }
@@ -173,6 +177,7 @@ function hide404Page() {
 
 function showFaq() {
   // hideMerch();
+  hideGameCanvas();
   hideContact();
   hide404Page();
   setTimeout(() => {
