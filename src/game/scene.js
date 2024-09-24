@@ -3,8 +3,8 @@ import { groundFloorCollisions, groundFloorTableBoundary, groundFloorGateBoundar
 import { lift, firstFloorCollisions, interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
 import { firstFloorCorridorCollision,firstFloorCorridorExitCollision, firstFloorLabEntryDoorCollision } from '../gameData/firstFloorCorridorBoundaries/firstFloorCorridorAllBoundaries.js';
 import {  firstFloorLabTable,firstFloorLabCollision, firstFloorLabExit } from '../gameData/firstFloorLabBoundaries/firstFloorLabAllBoundaries.js';
-import { secondFloorBoundaries, secondFloorLift} from "../gameData/secondFloorEntranceBoundaries/secondFloor1AllBoundaries.js";
-import {secondFloor2LeftGate, secondFloor2rightGate, secondFloor2Boundaries} from "../gameData/secondFloorGalleryBoundaries/secondFloor2AllBoundaries.js";
+import { corridorEntry, secondFloorBoundaries, secondFloorLift} from "../gameData/secondFloorEntranceBoundaries/secondFloor1AllBoundaries.js";
+import {secondFloor2LeftGate, secondFloor2rightGate, secondFloor2Boundaries, teleport} from "../gameData/secondFloorGalleryBoundaries/secondFloor2AllBoundaries.js";
 import {secondFloor3LeftGate, secondFloor3rightGate, secondFloor3Boundaries, pptHallInteraction} from "../gameData/secondFloorPPTHallBoundaries/secondFloor3AllBoundaries.js"
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
@@ -287,7 +287,7 @@ export const maps = {
       },
       leadsToNext: {
         hasLift: false,
-        boundary:generateBoundaries(interaction,9497),
+        boundary:generateBoundaries(corridorEntry,1),
       },
       directionOnNextMap: FACING_LEFT,
       directionOnPrevMap: FACING_DOWN,
@@ -315,7 +315,7 @@ export const maps = {
     doorCollisions: {
       leadsToPrev:{ 
         hasLift: false,
-        boundary:generateBoundaries(firstFloorCorridorExitCollision, 62005),
+        boundary:generateBoundaries(teleport, 10937),
       },
       leadsToPrevFromLeft:{ 
         hasLift: false,
@@ -345,7 +345,7 @@ export const maps = {
     transitioningFrom: "map6",
     transitioningTo: "map8",
     mapPosition: { 
-      enterFromFrontPosition : {x:1200,y:520},
+      enterFromFrontPosition : {x:1450,y:450},
       enterFromFrontRightPosition : {x:1380,y:520},
       enterFromFrontLeftPosition : {x:200,y:520},
       enterFromLiftPosition : {x:1380 , y:400}
