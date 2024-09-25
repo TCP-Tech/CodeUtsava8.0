@@ -11,15 +11,6 @@ import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContents();
-
-  // function toggleMenu() {
-  //   console.log("cl")
-  //   const hamburger = document.querySelector(".ham");
-  //   const menu = document.getElementById("hamburgerMenu");
-  //   hamburger.classList.toggle("active");
-  //   menu.classList.toggle("activeMenu");
-  // }
-
   function changeImage(event) {
     var mainImage = document.getElementById("4");
     var t = event.target.id;
@@ -218,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
     window.history.pushState({}, "", "/");
     mainContent.style.display = "block";
+    const introLoadedEvent = new Event("introAnimationCompleted");
+    document.dispatchEvent(introLoadedEvent);
   });
 
   // document.addEventListener("keydown", function (event) {
