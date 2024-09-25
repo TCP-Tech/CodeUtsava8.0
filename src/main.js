@@ -8,8 +8,8 @@ import { maps } from './game/scene.js';
 export class Game {
   constructor() {
     this.canvas = document.createElement("canvas");
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    this.canvas.width = screen.width;
+    this.canvas.height = screen.height;
     document.querySelector("#app").appendChild(this.canvas);
     this.ctx = this.canvas.getContext("2d");
 
