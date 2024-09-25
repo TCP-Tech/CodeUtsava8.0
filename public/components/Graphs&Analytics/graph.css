@@ -1,7 +1,9 @@
+
 .heading-container {
   justify-content: center;
   align-items: center;
     display: flex;
+    margin: 0 auto;
   }
   .heading-container img{
     object-fit: contain;
@@ -14,9 +16,12 @@
     color: var(--primary-c);
     text-shadow: 2.85px 2.85px 0.532px black;
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 .chart-container {
-    width: 100vw;
+    /* width: 100vw; */
     height: calc(100vh - 40px);
     /* background: rgba(54, 162, 235, 0.2); */
     display: flex;
@@ -75,5 +80,27 @@
 
     .chart-title {
       font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+  .heading-title {
+    font-size: 25px;
+  }
+  .heading-container {
+    width: 90%;
+  }
+    
+  }
+
+  @media screen and (max-width: 536px) {
+    .heading-title {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 449px) {
+    .heading-title {
+      font-size: 15px;
     }
   }
