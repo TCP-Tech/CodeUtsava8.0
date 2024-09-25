@@ -1,4 +1,5 @@
 // Check whetehr the device is mobile or not
+// document.addEventListener
 function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
