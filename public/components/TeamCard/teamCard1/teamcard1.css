@@ -1,0 +1,254 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #b8dae3;
+    background-color:antiquewhite;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
+}
+a{
+    text-decoration: none;
+}
+
+
+.h1-text{
+    font-size: 1.3rem;
+    margin: 40px 0;
+    color: #2c2c2c;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h1-text i{
+    background-color: #509bfc;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    box-shadow: 2px 5px 30px rgba(80, 123, 252, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin: 0 20px;
+}
+
+.container-manager{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;   
+} 
+
+
+.managerCard-TeamTCP,.managerCardBack-TeamTCP{
+
+    position: relative;
+    min-width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 3px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+    border-radius: 10px;
+    border: 1rem hsl(161, 70%, 82%) solid;
+    background-size: contain;
+    clip-path: polygon(
+      0px calc(100% - 28px),
+      4px calc(100% - 28px),
+      4px calc(100% - 20px),
+      8px calc(100% - 20px),
+      8px calc(100% - 12px),
+      12px calc(100% - 12px),
+      12px calc(100% - 8px),
+      20px calc(100% - 8px),
+      20px calc(100% - 4px),
+      28px calc(100% - 4px),
+      28px 100%,
+      calc(100% - 28px) 100%,
+      calc(100% - 28px) calc(100% - 4px),
+      calc(100% - 20px) calc(100% - 4px),
+      calc(100% - 20px) calc(100% - 8px),
+      calc(100% - 12px) calc(100% - 8px),
+      calc(100% - 12px) calc(100% - 12px),
+      calc(100% - 8px) calc(100% - 12px),
+      calc(100% - 8px) calc(100% - 20px),
+      calc(100% - 4px) calc(100% - 20px),
+      calc(100% - 4px) calc(100% - 28px),
+      100% calc(100% - 28px),
+      100% 28px,
+      calc(100% - 4px) 28px,
+      calc(100% - 4px) 20px,
+      calc(100% - 8px) 20px,
+      calc(100% - 8px) 12px,
+      calc(100% - 12px) 12px,
+      calc(100% - 12px) 8px,
+      calc(100% - 20px) 8px,
+      calc(100% - 20px) 4px,
+      calc(100% - 28px) 4px,
+      calc(100% - 28px) 0px,
+      28px 0px,
+      28px 4px,
+      20px 4px,
+      20px 8px,
+      12px 8px,
+      12px 12px,
+      8px 12px,
+      8px 20px,
+      4px 20px,
+      4px 28px,
+      0px 28px
+    );
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    z-index: 2;
+    float: left;
+    perspective: 500px;
+    backface-visibility: hidden;
+
+}
+
+
+.manager-topBar{
+    text-align: center;
+    width: 50%;
+    height: 2em;
+    background: hsl(161, 70%, 82%);
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 10px 10px;
+    font-size: larger;
+}
+
+.topEmoji-managerCard{
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    width: 100%;
+}
+
+.fa-check-circle{
+    color: #17b667;
+}
+
+ .fa-heart{
+    color: rgba(155,155,155);
+}
+.fa-heart:hover{
+    color:#e41934;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+
+.content-managerCard img{
+    width: 180px;
+    height: 180px;
+    border-radius:20%;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: top;
+    border: 2px green solid;
+}
+.content-managerCard{
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    margin-top: 12px;
+}
+.content-managerCard strong{
+    font-weight: 500;
+    color: #141414;
+   
+}
+.contentBox-managerCard p{
+    font-size: 0.9rem;
+    color: #7a7a7a;
+    margin: 4px 0px 10px 0px;
+    cursor: pointer;
+}
+.content-managerCard p:hover{
+    text-decoration: underline;
+}
+
+.btn-socialHandles-mangerCard{
+
+    margin-top: 5px;
+
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    width: 50%;
+}
+.btn-socialHandles-mangerCard a{
+    color: #8b8b8b;
+    font-size: 1.5rem;
+}
+.btn-socialHandles-mangerCard a:hover{
+    color: #fff;
+    box-shadow: 2px 5px 15px rgba(80,123,252,0.05);
+    color: #507bfc;
+    transition: all ease 0.5s;
+}
+.name_manager{
+    padding-top: 10px;
+    color: #36187d;
+   font-size: 1.7rem;
+   font-weight: bold;
+   text-align: center;
+   letter-spacing: 1px;
+}
+.connecting-line{
+
+    height: 20px;
+    padding: 0;
+    width: 200px;
+ }
+ .content-managerCard p
+{
+   color: #6c758f;
+   font-size: 1.2rem;
+   font-weight: bold;
+   text-align: center;
+}
+.managerCardBack-TeamTCP{
+    position: absolute;
+    min-width: 250px;
+    height: 400px;
+    text-align: center;
+    justify-content: center;
+    background: #03446A;
+    color: white;
+    transform: rotateY( 180deg );
+    backface-visibility: hidden;
+  }
+.container-manager:hover .managerCard-TeamTCP  {
+    transform: rotateY( 180deg ) ;
+    transition: transform 0.5s;
+    animation-delay: 1s;
+} */
