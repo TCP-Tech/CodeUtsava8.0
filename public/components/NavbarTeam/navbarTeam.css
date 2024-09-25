@@ -61,6 +61,7 @@
 .codeutsava__navbar-brochure-button {
   font-family: var(--font-family);
   margin-right: 2rem;
+  margin-left: 2rem;
   font-size: 16px;
   display: flex;
   flex-direction: row;
@@ -234,10 +235,10 @@
 }
 
 @media screen and (max-width: 650px) {
-  .codeutsava__navbar-hamburger-logo {
-    width: 40px;
-    height: 40px;
-  }
+  /* .codeutsava__navbar-hamburger-logo {
+     width: 40px;
+    height: 40px; 
+  } */
   .codeutsava__navbar-hamburger-logo a img {
     max-width: 100%;
     height: auto;
@@ -250,33 +251,25 @@
     display: flex;
   }
   .codeutsava__navbar-hamburger-nav {
-    padding: 4px;
+    /* padding: 2px; */
   }
   .codeutsava__navbar-hamburger-brochure-button {
     width: 45%;
   }
+  .codeutsava__navbar-hamburger-logo{
+    padding: 0%;
+  }
 }
 
 .hamburger {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .hamburger-open {
   height: 100vh;
 }
 
-.ham {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: auto;
-  height: 60px;
-}
 .hamRotate.active {
   transform: rotate(45deg);
 }
@@ -311,7 +304,17 @@
 .ham8.active .bottom {
   stroke-dashoffset: -64px;
 }
-
+.ham1 {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: auto;
+  height: 60px;
+}
 .codeutsava__navbar-hamburger-navlist {
   display: none;
   padding: 12px 34px;
@@ -344,4 +347,8 @@
   text-transform: capitalize;
   color: #fff;
   cursor: pointer;
+}
+.codeutsava_dynamci-route-hamburger{
+  height: 50px;
+  width: 50px;
 }
