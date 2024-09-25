@@ -32,10 +32,10 @@
   }
   canvas {
     display: block;
-    position: fixed; /* Keep canvas fixed at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: -1; /* Send the canvas behind the main content */
+    z-index: -1; 
 }
   
 #messageContainer {
