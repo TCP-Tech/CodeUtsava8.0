@@ -68,6 +68,15 @@ document.addEventListener("introAnimationCompleted", () => {
             trigger: ".cu-guidelines-header",
         }
     });
+    //Prizes header
+    gsap.from(".prizes-header", {
+        y: -20,
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: ".prizes-header",
+        }
+    });
 
     // Heading container animation
     gsap.from(".heading-container", {
@@ -96,6 +105,16 @@ document.addEventListener("introAnimationCompleted", () => {
         duration: 0.5,
         scrollTrigger: {
             trigger: ".about-us-section",
+        }
+    });
+
+    //Prizes Container
+    gsap.from(".prizes-container", {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: ".prizes-container",
         }
     });
 

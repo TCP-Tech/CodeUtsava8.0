@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ),
         loadComponent(
           "/components/Prizes/prizes.html",
-          "prizes"
+          "cu-prizes"
         ),
         loadComponent(
           "/components/404/404.html",

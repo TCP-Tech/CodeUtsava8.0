@@ -5,6 +5,8 @@
   align-items: center;
   margin-top: 100px;
   margin-bottom: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .prizes-container {
@@ -14,7 +16,6 @@
   padding: 30px;
   width: 90vw;
   text-align: center;
-  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
   border: 3px solid;
   border-color: var(--primary-c);
 }
@@ -37,8 +38,7 @@
 
 .prizes-title2{
     font-size: 2em;
-    margin-bottom: 20px;
-    color: var(--primary-c);
+    color: white;
     text-shadow: 2.85px 2.85px 0.532px rgb(0, 0, 0);
 }
 .card-container{
@@ -121,20 +121,20 @@
   .prizes-container {
     width: auto;
     height: auto;
-    padding: 5px;
+    padding: 12px;
   }
 
   .prize-card {
     margin: 0px;
-    height: 420px;
-    width: 362px;
+    height: 369px;
+    width: 305px;
     padding: 2rem 5.5rem;
   }
   .prize-card h2 {
-    font-size: 1em;
+    font-size: 0.58em;
   }
   .prize-card-body {
-    font-size: 9px;
+    font-size: 7px;
   }
 
   .prizes {
