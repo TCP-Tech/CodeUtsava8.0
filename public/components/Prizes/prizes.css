@@ -1,0 +1,144 @@
+.prizes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.prizes-container {
+  backdrop-filter: blur(25px);
+  background-color: rgba(0, 0, 0, 0.363);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90vw;
+  text-align: center;
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  border: 3px solid;
+  border-color: var(--primary-c);
+}
+
+.prizes-header {
+  font-size: 17px;
+  padding-bottom: 20px;
+  text-shadow: 2.85px 2.85px 0.532px black;
+  display: flex;
+  align-items: center;
+}
+
+.prizes-header img {
+  height: 3rem;
+  object-fit: contain;
+  padding-right: 0.7rem;
+  /* transform: rotate(20deg); */
+  margin-top: -0.1rem;
+}
+
+.prizes-title2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-c);
+    text-shadow: 2.85px 2.85px 0.532px rgb(0, 0, 0);
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prize-card {
+  min-width: 200px;
+  min-height: auto;
+  background-image: url("../../assets/images/scroll.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  height: 570px;
+  width: 470px;
+  margin: 2rem;
+  /* color: white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 7.5rem;
+}
+.prize-card h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: var(--primary-c);
+  /* color: white; */
+  text-shadow: 1.85px 1.85px 0.532px rgb(0, 0, 0);
+}
+
+.prize-card-body {
+    color: rgb(86, 86, 86); 
+    text-shadow: 1.85px 1.85px 0.532px rgb(205, 205, 205); 
+    font-size: 0.7em;
+}
+
+
+
+.prize-card-body ul {
+  text-align: left;
+  /* margin-bottom: 20px;
+  margin-left: 20px;
+  color: white; */
+}
+
+.prize-card-body ul li {
+  margin-bottom: 10px;
+  /* font-size: 15px; */
+  /* line-height: 1.5em; */
+}
+
+.prizes-description p {
+  font-size: 15px;
+  line-height: 1.5em;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+
+@media (max-width: 515px) {
+  .prizes-header {
+    font-size: 7px;
+    padding-bottom: 20px;
+  }
+
+  .prizes-btn {
+    width: auto;
+  }
+
+  .prizes-body h2 {
+    font-size: 25px;
+  }
+
+  .prizes-title2{
+    font-size: 1.5em;
+  }
+  .prizes-container {
+    width: auto;
+    height: auto;
+    padding: 5px;
+  }
+
+  .prize-card {
+    margin: 0px;
+    height: 420px;
+    width: 362px;
+    padding: 2rem 5.5rem;
+  }
+  .prize-card h2 {
+    font-size: 1em;
+  }
+  .prize-card-body {
+    font-size: 9px;
+  }
+
+  .prizes {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
