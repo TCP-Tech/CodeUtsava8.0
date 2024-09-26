@@ -54,9 +54,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  height: 570px;
-  width: 470px;
-  margin: 2rem;
+  height: 477px;
+  width: 402px;
+  margin: 0 1rem 0 1rem;
   /* color: white; */
   display: flex;
   flex-direction: column;
@@ -65,7 +65,7 @@
   padding: 2rem 7.5rem;
 }
 .prize-card h2 {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-bottom: 10px;
   color: var(--primary-c);
   /* color: white; */
@@ -75,7 +75,7 @@
 .prize-card-body {
     color: rgb(86, 86, 86); 
     text-shadow: 1.85px 1.85px 0.532px rgb(205, 205, 205); 
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 
