@@ -111,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "cu-guidelines"
         ),
         loadComponent(
+          "/components/Prizes/prizes.html",
+          "cu-prizes"
+        ),
+        loadComponent(
           "/components/404/404.html",
           "codeutsava-404_page"
         ),
