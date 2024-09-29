@@ -110,18 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/Guidelines/guidelines.html",
           "cu-guidelines"
         ),
-        loadComponent(
-          "/components/Prizes/prizes.html",
-          "cu-prizes"
-        ),
-        loadComponent(
-          "/components/404/404.html",
-          "codeutsava-404_page"
-        ),
+        loadComponent("/components/Prizes/prizes.html", "cu-prizes"),
+        loadComponent("/components/404/404.html", "codeutsava-404_page"),
         loadComponent(
           "/components/Graphs&Analytics/graph.html",
           "codeutsava__graphs&analtics_section"
-        )
+        ),
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -196,8 +190,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
   }
 
-  introButton.addEventListener("click", () => {
+  introButton.addEventListener("click", function handleIntroButtonClick() {
     // loadContents();
+
+    introButton.removeEventListener("click", handleIntroButtonClick);
     cloudsContainer.classList.add("show");
     setTimeout(() => {
       cloudsContainer.classList.remove("show");
