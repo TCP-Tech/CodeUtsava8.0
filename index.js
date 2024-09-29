@@ -193,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
   introButton.addEventListener("click", function handleIntroButtonClick() {
     // loadContents();
 
-    console.log("clicked");
     introButton.removeEventListener("click", handleIntroButtonClick);
     cloudsContainer.classList.add("show");
     setTimeout(() => {
