@@ -52,6 +52,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  /* overflow: hidden; */
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--color-bg);
@@ -66,6 +67,7 @@ h1 {
 
 #app {
   display: none;
+  overflow: hidden;
 }
 
 .logo {
@@ -111,6 +113,34 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+::-webkit-scrollbar {
+  width: 3px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(97, 97, 178);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(184, 73, 33);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(40, 40, 130);
+}
+::-webkit-scrollbar {
+  border: 1px solid red;
+}
+::-webkit-scrollbar-corner {
+  background: red;
+}
+* {
+  /* scrollbar-width: none; */
+}
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

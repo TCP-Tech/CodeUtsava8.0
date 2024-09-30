@@ -3,8 +3,8 @@ import { groundFloorCollisions, groundFloorTableBoundary, groundFloorGateBoundar
 import { lift, firstFloorCollisions, interaction } from '../gameData/firstFloorBoundaries/firstFloorAllBoundaries.js';
 import { firstFloorCorridorCollision,firstFloorCorridorExitCollision, firstFloorLabEntryDoorCollision } from '../gameData/firstFloorCorridorBoundaries/firstFloorCorridorAllBoundaries.js';
 import {  firstFloorLabTable,firstFloorLabCollision, firstFloorLabExit } from '../gameData/firstFloorLabBoundaries/firstFloorLabAllBoundaries.js';
-import { secondFloorBoundaries, secondFloorLift} from "../gameData/secondFloorEntranceBoundaries/secondFloor1AllBoundaries.js";
-import {secondFloor2LeftGate, secondFloor2rightGate, secondFloor2Boundaries} from "../gameData/secondFloorGalleryBoundaries/secondFloor2AllBoundaries.js";
+import { corridorEntry, secondFloorBoundaries, secondFloorLift} from "../gameData/secondFloorEntranceBoundaries/secondFloor1AllBoundaries.js";
+import {secondFloor2LeftGate, secondFloor2rightGate, secondFloor2Boundaries, teleport} from "../gameData/secondFloorGalleryBoundaries/secondFloor2AllBoundaries.js";
 import {secondFloor3LeftGate, secondFloor3rightGate, secondFloor3Boundaries, pptHallInteraction} from "../gameData/secondFloorPPTHallBoundaries/secondFloor3AllBoundaries.js"
 import { CYCLE_LOOP, FRAME_LIMIT, FACING_UP, FACING_DOWN, FACING_LEFT, FACING_RIGHT, MOVEMENT_SPEED, SCALED_WIDTH, SCALED_HEIGHT, FADE_OUT_SPEED } from './constants.js';
 import cccMap from "../gameAssets/FinalCCC.png";
@@ -144,7 +144,7 @@ export const maps = {
     transitioningFrom: "",
     transitioningTo: "map2",
     mapPosition: {
-      enterFromFrontPosition : {x:820,y:1050},
+      enterFromFrontPosition : {x:820,y:900},
       enterFromLiftPosition : {x:780 , y:980}
       // nextMapsPosition: { x: 780, y: 1050 },
       // prevMapPosition: { x: 780, y: 980 }
@@ -177,8 +177,8 @@ export const maps = {
     transitioningFrom: "map1",
     transitioningTo: "map3",
     mapPosition: { 
-      enterFromFrontPosition : {x:780,y:1050},
-      enterFromLiftPosition : {x:1180 , y:700}
+      enterFromFrontPosition : {x:780,y:1000},
+      enterFromLiftPosition : {x:1180 , y:600}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 780, y: 980 }
     },
@@ -210,8 +210,8 @@ export const maps = {
     transitioningFrom: "map2",
     transitioningTo: "map4",
     mapPosition: { 
-      enterFromFrontPosition : {x:280,y:700},
-      enterFromLiftPosition : {x:1420 , y:1110}
+      enterFromFrontPosition : {x:240,y:600},
+      enterFromLiftPosition : {x:1420 , y:980}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
     },
@@ -237,8 +237,8 @@ export const maps = {
     transitioningFrom: "map3",
     transitioningTo: "map5",
     mapPosition: { 
-      enterFromFrontPosition : {x:1380,y:400},
-      enterFromLiftPosition : {x:950 , y:400}
+      enterFromFrontPosition : {x:1380,y:270},
+      enterFromLiftPosition : {x:950 , y:280}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
     },
@@ -271,8 +271,8 @@ export const maps = {
     transitioningFrom: "map4",
     transitioningTo: "map4",
     mapPosition: { 
-      enterFromFrontPosition : {x:920,y:390},
-      enterFromLiftPosition : {x:1380 , y:1050}
+      enterFromFrontPosition : {x:1080,y:340},
+      enterFromLiftPosition : {x:1380 , y:1150}
     },
   },
   map6: {
@@ -287,7 +287,7 @@ export const maps = {
       },
       leadsToNext: {
         hasLift: false,
-        boundary:generateBoundaries(interaction,9497),
+        boundary:generateBoundaries(corridorEntry,1),
       },
       directionOnNextMap: FACING_LEFT,
       directionOnPrevMap: FACING_DOWN,
@@ -303,8 +303,8 @@ export const maps = {
     transitioningFrom: "map5",
     transitioningTo: "map7",
     mapPosition: { 
-      enterFromFrontPosition : {x:280,y:500},
-      enterFromLiftPosition : {x:1380 , y:1050}
+      enterFromFrontPosition : {x:240,y:350},
+      enterFromLiftPosition : {x:1380 , y:950}
     },
   },
   map7: {
@@ -315,7 +315,7 @@ export const maps = {
     doorCollisions: {
       leadsToPrev:{ 
         hasLift: false,
-        boundary:generateBoundaries(firstFloorCorridorExitCollision, 62005),
+        boundary:generateBoundaries(teleport, 10937),
       },
       leadsToPrevFromLeft:{ 
         hasLift: false,
@@ -345,10 +345,10 @@ export const maps = {
     transitioningFrom: "map6",
     transitioningTo: "map8",
     mapPosition: { 
-      enterFromFrontPosition : {x:1200,y:520},
-      enterFromFrontRightPosition : {x:1380,y:520},
-      enterFromFrontLeftPosition : {x:200,y:520},
-      enterFromLiftPosition : {x:1380 , y:400}
+      enterFromFrontPosition : {x:1450,y:350},
+      enterFromFrontRightPosition : {x:1400,y:420},
+      enterFromFrontLeftPosition : {x:200,y:420},
+      enterFromLiftPosition : {x:1380 , y:300}
     },
   },
   map8: {
@@ -396,9 +396,9 @@ export const maps = {
     transitioningFrom: "map7",
     transitioningTo: "map8",
     mapPosition: { 
-      enterFromFrontRightPosition : {x:1500,y:500},
-      enterFromFrontLeftPosition : {x:300,y:450},
-      enterFromLiftPosition : {x:1380 , y:1050}
+      enterFromFrontRightPosition : {x:1500,y:400},
+      enterFromFrontLeftPosition : {x:300,y:350},
+      enterFromLiftPosition : {x:1380 , y:950}
     },
   },
 };

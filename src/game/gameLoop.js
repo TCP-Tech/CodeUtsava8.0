@@ -327,6 +327,8 @@ export function gameLoop(
     collisionTriggers.forEach(async(trigger) => {
       const elem = await trigger.getElement();
       if(elem.length > 0) gameInstance.showModal(elem);
+      const event = new CustomEvent('modalDisplayed');
+      document.dispatchEvent(event);
       if (!isTyping) { 
         gameInstance.showMessage(trigger.message);
         trigger.hasShown = true; 

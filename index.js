@@ -11,15 +11,6 @@ import loadanimation from "./public/components/Participation/participation";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContents();
-
-  // function toggleMenu() {
-  //   console.log("cl")
-  //   const hamburger = document.querySelector(".ham");
-  //   const menu = document.getElementById("hamburgerMenu");
-  //   hamburger.classList.toggle("active");
-  //   menu.classList.toggle("activeMenu");
-  // }
-
   function changeImage(event) {
     var mainImage = document.getElementById("4");
     var t = event.target.id;
@@ -34,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const target = document.getElementById(targetId);
           if (target) {
             target.innerHTML = data;
-            console.log(`Loaded component into ${targetId}`);
+            // console.log(`Loaded component into ${targetId}`);
 
             if (targetId === "participation") {
               const participationBoxes = document.querySelectorAll(
                 ".participation-container_box1"
               );
-              console.log(participationBoxes);
+              // console.log(participationBoxes);
               if (participationBoxes.length > 0) {
                 loadanimation();
               }
@@ -50,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const gameStartButton = document.querySelector(
                 ".codeutsava_main-start-btn"
               );
-              console.log("Game start button:", gameStartButton);
+              // console.log("Game start button:", gameStartButton);
               // if (gameStartButton) {
               //   gameStartButton.addEventListener(
               //     "click",
@@ -119,14 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/Guidelines/guidelines.html",
           "cu-guidelines"
         ),
-        loadComponent(
-          "/components/404/404.html",
-          "codeutsava-404_page"
-        ),
+        loadComponent("/components/Prizes/prizes.html", "cu-prizes"),
+        loadComponent("/components/404/404.html", "codeutsava-404_page"),
         loadComponent(
           "/components/Graphs&Analytics/graph.html",
           "codeutsava__graphs&analtics_section"
-        )
+        ),
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -201,8 +190,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
   }
 
-  introButton.addEventListener("click", () => {
+  introButton.addEventListener("click", function handleIntroButtonClick() {
     // loadContents();
+
+    introButton.removeEventListener("click", handleIntroButtonClick);
     cloudsContainer.classList.add("show");
     setTimeout(() => {
       cloudsContainer.classList.remove("show");
@@ -218,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
     window.history.pushState({}, "", "/");
     mainContent.style.display = "block";
+    const introLoadedEvent = new Event("introAnimationCompleted");
+    document.dispatchEvent(introLoadedEvent);
   });
 
   // document.addEventListener("keydown", function (event) {
