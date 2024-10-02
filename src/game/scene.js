@@ -92,20 +92,20 @@ const collisionTextTriggers = {
   map5: [
     {
       obstacleType: 'reception',
-      message: ["Are you ready for intense coding challenges??"],
+      message: ["Here are the problem statements for codeutsava's 8th edition.... "],
       hasShown: false,
       async getElement() {
-        return "";
+        return await fetchHTML('../../gameCollisionComponents/firstFloor/ProblemStatements/page.html');
       }
     }
   ],
   map8: [
     {
       obstacleType: 'table',
-      message: ["Here are the problem statements for codeutsava's 8th edition...."],
+      message: ["Here are the shortlisted teams for codeutsava's 8th edition...."],
       hasShown: false,
       async getElement() {
-        return "";
+        return await fetchHTML('../../gameCollisionComponents/secondFloor/ShortListedTeams/page.html');
       }
     }
   ],
@@ -211,7 +211,7 @@ export const maps = {
     transitioningTo: "map4",
     mapPosition: { 
       enterFromFrontPosition : {x:240,y:600},
-      enterFromLiftPosition : {x:1420 , y:980}
+      enterFromLiftPosition : {x:1420 , y:1000}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
     },
@@ -237,8 +237,8 @@ export const maps = {
     transitioningFrom: "map3",
     transitioningTo: "map5",
     mapPosition: { 
-      enterFromFrontPosition : {x:1380,y:270},
-      enterFromLiftPosition : {x:950 , y:280}
+      enterFromFrontPosition : {x:1380,y:290},
+      enterFromLiftPosition : {x:950 , y:290}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
     },
