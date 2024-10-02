@@ -25,6 +25,7 @@
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
+	transition: 0.2s all ease-in;
 }
 
 .homepage::before {
