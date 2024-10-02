@@ -13,7 +13,7 @@ import {
 import { maps } from './scene.js';
 let liftOption = '';
 const characterFootSteps = document.getElementById("characterFootSteps");
-const collision = document.getElementById("collision");
+// const transition = document.getElementById("transition");
 
 async function initializeLiftOptions() {
   for (const trigger of maps.liftCollision) {
@@ -78,6 +78,7 @@ function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directio
   if (maps[nextMap] === currentMap) return;
   if(!maps[nextMap]) return;
 
+  // transition.play();
   gsap.to(canvas, {
     duration: 0.8,
     opacity: 0,
