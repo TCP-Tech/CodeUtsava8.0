@@ -1,5 +1,5 @@
 import '../style.css';
-import character from './gameAssets/character.png';
+import character from './gameAssets/character-sprite.png';
 import { gameLoop } from './game/gameLoop.js';
 import { keyDownListener, keyUpListener } from './game/keyListeners.js';
 import { FACING_DOWN } from './game/constants.js';
@@ -20,7 +20,7 @@ export class Game {
     this.frameCount = 0;
     this.currentMap = maps.map1;
     this.mapPositionX = 820;
-    this.mapPositionY = 1050;
+    this.mapPositionY = 1000;
     this.messageContainer = document.getElementById("messageContainer");
     this.messageTextElement = document.getElementById("messageText");
     this.nextButton = document.getElementById("nextButton");

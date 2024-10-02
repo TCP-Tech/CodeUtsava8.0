@@ -12,6 +12,8 @@ import {
 } from './constants.js';
 import { maps } from './scene.js';
 let liftOption = '';
+const characterFootSteps = document.getElementById("characterFootSteps");
+// const transition = document.getElementById("transition");
 
 async function initializeLiftOptions() {
   for (const trigger of maps.liftCollision) {
@@ -76,6 +78,7 @@ function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directio
   if (maps[nextMap] === currentMap) return;
   if(!maps[nextMap]) return;
 
+  // transition.play();
   gsap.to(canvas, {
     duration: 0.8,
     opacity: 0,
@@ -419,6 +422,7 @@ export function gameLoop(
   }
 
   if (moving) {
+    characterFootSteps.play();
     frameCount++;
     if (frameCount >= FRAME_LIMIT) {
       frameCount = 0;
@@ -426,6 +430,7 @@ export function gameLoop(
     }
   } else {
     currentLoopIndex = 0;
+    // collision.play();
   }
 
   drawFrame(ctx, img, CYCLE_LOOP[currentLoopIndex], currentDirection, canvas.width / 2 - SCALED_WIDTH / 2, canvas.height / 2 - SCALED_HEIGHT / 2 + 100);
