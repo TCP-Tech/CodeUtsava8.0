@@ -7,12 +7,19 @@ const dynamicContentContainer = document.getElementById(
 );
 const routingContainer = document.querySelector(".codeutsava__routing_container")
 const backgroundMusic = document.getElementById("backgroundMusic");
+var audio = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
 const faq = document.getElementById("cu-faq");
 const contact = document.getElementById("cu-contact");
 const errorPage = document.getElementById("codeutsava-404_page");
 const gameCanvas = document.querySelector("#app");
-
+function changeAudioSource() {
+    audio.src = "/assets/sounds/gameSounds/gameMusic.mp3";
+    audio.load();
+    audio.play().catch((error) => {
+       console.error("Error playing audio:", error);
+    });
+ }
 function loadContentIntoContainer(url) {
   return fetch(url)
     .then((response) => response.text())
@@ -42,6 +49,7 @@ function hideOtherContent() {
 
 function showMainContent() {
   hide404Page();
+  // if(backgroundMusic.pause) backgroundMusic.play();
   if (mainContent) {
     mainContent.style.display = "block";
   }
@@ -98,6 +106,8 @@ function showGameCanvas() {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
     // backgroundMusic.pause();
+    // gameMusic.play();
+    changeAudioSource();
     const canvasContainer = document.querySelector("#app");
     if(routingContainer){
       routingContainer.style.display = "none";
@@ -166,17 +176,10 @@ function show404Page() {
 function hide404Page() {
   setTimeout(() => {
     errorPage.style.display = "none";
-    // const dynamicContent = document.querySelector(
-    //   ".codeutsava__routing_container"
-    // );
-    // if (dynamicContent) {
-    //   dynamicContent.style.display = "none";
-    // }
   }, 0);
 }
 
 function showFaq() {
-  // hideMerch();
   hideGameCanvas();
   hideContact();
   hide404Page();
@@ -212,7 +215,7 @@ function showContact() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    backgroundMusic.pause();
+    // backgroundMusic.pause();
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );

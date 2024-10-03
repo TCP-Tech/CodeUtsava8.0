@@ -13,7 +13,14 @@ import {
 import { maps } from './scene.js';
 let liftOption = '';
 const characterFootSteps = document.getElementById("characterFootSteps");
-// const transition = document.getElementById("transition");
+let path = '/assets/sounds/gameSounds/elevator.mp3';
+let path2 = '/assets/sounds/gameSounds/door.wav';
+const transition = new Audio(path);
+transition.load();
+const transition2 = new Audio(path2);
+transition2.load();
+const modal = new Audio('/assets/sounds/gameSounds/modals.mp3');
+modal.load();
 
 async function initializeLiftOptions() {
   for (const trigger of maps.liftCollision) {
@@ -45,6 +52,7 @@ function getMapForFloor(floor) {
 
 export function showLiftModal(gameInstance, callback) {
   gameInstance.showModal(liftOption);
+  modal.play();
 
   function handleClick(event) {
     handleButtonClick(event, callback);
@@ -74,11 +82,13 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directionChange, mapPosition, onComplete) {
+function handleMapTransition(canvas, nextMap, currentMap, gameInstance, directionChange, mapPosition, onComplete,src) {
   if (maps[nextMap] === currentMap) return;
   if(!maps[nextMap]) return;
 
-  // transition.play();
+  if(src === path2) transition2.play();
+  else transition.play();
+
   gsap.to(canvas, {
     duration: 0.8,
     opacity: 0,
@@ -243,7 +253,8 @@ export function gameLoop(
           maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontRightPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path2
         );
       
       return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
@@ -258,7 +269,8 @@ export function gameLoop(
           maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontLeftPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path2
         );
       
       return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
@@ -274,7 +286,8 @@ export function gameLoop(
           maps[currentMap.transitioningFrom].mapPosition.enterFromFrontRightPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path2
         );
       return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
     }
@@ -288,7 +301,8 @@ export function gameLoop(
           maps[currentMap.transitioningFrom].mapPosition.enterFromFrontLeftPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path2
         );
       return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
     }
@@ -352,7 +366,8 @@ export function gameLoop(
           maps[chosenMap].mapPosition.enterFromLiftPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path
         );
       });
     } else {
@@ -365,7 +380,8 @@ export function gameLoop(
         maps[currentMap?.transitioningTo]?.mapPosition?.enterFromFrontPosition,
         () => {
           fadeOutProgress = 0;
-        }
+        },
+        path2
       );
     }
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
@@ -384,7 +400,8 @@ export function gameLoop(
           maps[chosenMap].mapPosition.enterFromLiftPosition,
           () => {
             fadeOutProgress = 0;
-          }
+          },
+          path
         );
       });
     } else if(currentMap.entryExitSame){
@@ -397,7 +414,8 @@ export function gameLoop(
         maps[currentMap.transitioningFrom].mapPosition.enterFromLiftPosition,
         () => {
           fadeOutProgress = 0;
-        }
+        },
+        path2
       );
     }
     else {
@@ -410,7 +428,8 @@ export function gameLoop(
         maps[currentMap.transitioningFrom].mapPosition.enterFromFrontPosition,
         () => {
           fadeOutProgress = 0;
-        }
+        },
+        path2
       );
     }
     return { mapPositionX, mapPositionY, currentDirection, currentLoopIndex, frameCount, fadeOutProgress };
