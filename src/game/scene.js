@@ -134,6 +134,7 @@ export const maps = {
       directionOnNextMap: FACING_UP,
       directionOnPrevMap: FACING_DOWN,
     },
+    transitionAudio:"/assets/sounds/gameSounds/door.wav",
     mapLoadTextTriggers: [
       {
         message: ["You've made it to the entrance of Central Computer Center!!"],
@@ -154,6 +155,7 @@ export const maps = {
     backgroundMap: groundFloor,
     boundaries: generateBoundaries(groundFloorCollisions, 14463),
     obstacleBoundary: generateBoundaries(groundFloorTableBoundary, 14463),
+    transitionAudio:"/assets/sounds/gameSounds/door.wav",
     doorCollisions: {
       leadsToPrev:{ 
         hasLift:false,

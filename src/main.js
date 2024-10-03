@@ -35,6 +35,8 @@ export class Game {
     this.img.src = character;
     this.messageText = "";
     this.currentCharacterIndex = 0;
+    this.obstacle = new Audio('https://us-tuna-sounds-files.voicemod.net/29d44834-15b0-4e05-8ee5-c97f1affe05e.mp3');
+    this.obstacle.load();
 
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
     window.addEventListener("keyup", (event) => keyUpListener(event, this.keyPresses));
@@ -138,6 +140,7 @@ export class Game {
 
   showModal(htmlContent) {
     if (this.modal) {
+      this.obstacle.play();
       this.modalText.innerHTML = htmlContent; 
       this.modal.style.display = "block"; 
     }
