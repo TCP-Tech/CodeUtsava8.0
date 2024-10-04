@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.codeutsava__timeline_heading img{
+.codeutsava__timeline_heading img {
   object-fit: contain;
   height: 4rem;
   /* margin-top: 0.1rem; */
@@ -31,7 +31,7 @@
 }
 
 .cd-container::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -44,7 +44,7 @@
 }
 
 #cd-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 18px;
@@ -73,7 +73,7 @@
 }
 
 .cd-timeline-img {
-  background-image: url("../../assets/images/mario_img.png");
+  background-image: url("../../assets/images/psy.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -82,7 +82,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .cd-timeline-img img {
@@ -100,13 +101,13 @@
   position: relative;
   margin-left: 60px;
   background: transparent;
-  background-color: rgba(0, 0, 0, 0.363);;
+  background-color: rgba(0, 0, 0, 0.363);
   backdrop-filter: blur(20px);
   border-radius: 0.25em;
   padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
 }
-.cd-timeline-content p{
+.cd-timeline-content p {
   color: white;
 }
 
@@ -120,15 +121,17 @@
   color: var(--highlighter-c);
 }
 
-.cd-timeline-content p, .cd-timeline-content .cd-read-more {
+.cd-timeline-content p,
+.cd-timeline-content .cd-read-more {
   font-size: 13px;
 }
-.cd-timeline-content .cd-date{
+.cd-timeline-content .cd-date {
   font-size: 24px;
   font-weight: 500;
 }
 
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content .cd-read-more,
+.cd-timeline-content .cd-date {
   display: inline-block;
 }
 
@@ -139,7 +142,7 @@
 
 .cd-timeline-content .cd-read-more {
   float: right;
-  padding: .8em 1em;
+  padding: 0.8em 1em;
   background: #acb7c0;
   color: #ffffff;
   border-radius: 0.25em;
@@ -147,11 +150,11 @@
 
 .cd-timeline-content .cd-date {
   float: left;
-  padding: .8em 0;
+  padding: 0.8em 0;
 }
 
 .cd-timeline-content::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 16px;
   right: 100%;
@@ -161,18 +164,16 @@
   border-right: 7px solid #ffffff;
 }
 
-
 @media screen and (max-width: 480px) {
-  .codeutsava__timeline_heading{
+  .codeutsava__timeline_heading {
     font-size: 2em;
   }
-  .codeutsava__timeline_heading img{
+  .codeutsava__timeline_heading img {
     height: 3rem;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  
   .codeutsava__timeline_heading {
     font-size: 2em;
   }
@@ -180,11 +181,12 @@
     font-size: 20px;
   }
 
-  .cd-timeline-content p { 
+  .cd-timeline-content p {
     font-size: 16px;
   }
 
-  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  .cd-timeline-content .cd-read-more,
+  .cd-timeline-content .cd-date {
     font-size: 18px;
   }
   .codeutsava_timeline_image {
@@ -193,8 +195,6 @@
 }
 
 @media only screen and (min-width: 1170px) {
- 
-
   #cd-timeline {
     margin-top: 3em;
     margin-bottom: 3em;
@@ -269,50 +269,50 @@
 /* Hide elements */
 .cd-timeline-img.is-hidden,
 .cd-timeline-content.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 /* Bounce-in animation */
 .cd-timeline-img.bounce-in,
 .cd-timeline-content.bounce-in {
-    visibility: visible;
-    opacity: 1;
-    animation: cd-bounce-2 0.6s;
+  visibility: visible;
+  opacity: 1;
+  animation: cd-bounce-2 0.6s;
 }
 
 /* Bounce animation for even items */
 .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
-    animation: cd-bounce-2-inverse 0.6s;
+  animation: cd-bounce-2-inverse 0.6s;
 }
 
 @keyframes cd-bounce-2 {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes cd-bounce-2-inverse {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
