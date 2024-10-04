@@ -49,7 +49,7 @@
 .prize-card {
   min-width: 200px;
   min-height: auto;
-  background-image: url("../../assets/images/scroll.png");
+  background-image: url("../../assets/images/scroll2.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -61,21 +61,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 120px;
+  padding: 2rem 80px;
 }
 .prize-card h2 {
-  font-size: 19px;
+  font-size: 22px;
   margin-bottom: 10px;
-  color: var(--primary-c);
+  color: var(--secondary-c);
+  /* color: gold; */
   /* color: white; */
-  text-shadow: 1.85px 1.85px 0.532px rgb(0, 0, 0);
+  text-shadow: 1.05px 1.05px 0.332px rgb(0, 0, 0);
 }
 
 .prize-card-body {
-    color: rgb(86, 86, 86); 
-    text-shadow: 1.85px 1.85px 0.532px rgb(205, 205, 205); 
-    font-size: 11px;
-    padding: 0 2rem;
+    color: rgb(62, 62, 62); 
+    /* color: rgb(15, 20, 32); */
+    /* text-shadow: 1.85px 1.85px 0.532px rgb(205, 205, 205);  */
+    font-size: 13px;
+    padding: 0.5rem 2rem;
 }
 
 .prize-card-body ul {
@@ -90,7 +92,7 @@
 }
 
 .prizes-description p {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5em;
   margin-bottom: 30px;
   text-align: left;
