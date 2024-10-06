@@ -20,7 +20,7 @@ export class Game {
     this.frameCount = 0;
     this.currentMap = maps.map1;
     this.mapPositionX = 820;
-    this.mapPositionY = 1000;
+    this.mapPositionY = 992;
     this.messageContainer = document.getElementById("messageContainer");
     this.messageTextElement = document.getElementById("messageText");
     this.nextButton = document.getElementById("nextButton");
