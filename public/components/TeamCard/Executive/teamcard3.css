@@ -1,9 +1,14 @@
-.codeutsava__team-card4 {
-    background-repeat: space;
+body{
+  background-image: url("../../../assets/images/bg-15s-10c0.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.codeutsava__executive {
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: rgb(255, 255, 255);
-    border: 2px solid;
+    /* background-color: rgb(255, 255, 255); */
+    border: 0.7em solid;
     border-radius: 8px;
     box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -13,46 +18,86 @@
     justify-content: center;
     align-items: center;
     width: 300px;
-    border-color: rgb(201, 201, 0);
+    border-image: linear-gradient(to bottom, #03720ea9 0%, #2e98009b 100%) 1;
+    background-image: url("../../../assets/images/execs-bg.png");
+    clip-path: polygon(
+    0px calc(100% - 28px),
+    4px calc(100% - 28px),
+    4px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px calc(100% - 12px),
+    12px calc(100% - 12px),
+    12px calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 4px),
+    28px calc(100% - 4px),
+    28px 100%,
+    calc(100% - 28px) 100%,
+    calc(100% - 28px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 28px),
+    100% calc(100% - 28px),
+    100% 28px,
+    calc(100% - 4px) 28px,
+    calc(100% - 4px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) 12px,
+    calc(100% - 12px) 12px,
+    calc(100% - 12px) 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 4px,
+    calc(100% - 28px) 4px,
+    calc(100% - 28px) 0px,
+    28px 0px,
+    28px 4px,
+    20px 4px,
+    20px 8px,
+    12px 8px,
+    12px 12px,
+    8px 12px,
+    8px 20px,
+    4px 20px,
+    4px 28px,
+    0px 28px
+  );
   }
-  
-  .codeutsava__team-card4-content {
+  .connecting-line-executive {
+    height: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  .codeutsava__executive-content {
     color: rgb(0, 0, 0);
     font-size: large;
-    height: 100px;
-    padding: auto;
+    /* height: 100px; */
+    /* padding: auto; */
     position: absolute;
     text-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 300px;
     flex-direction: column;
   }
-  .codeutsava__team-card4-content-domain {
+  .codeutsava__executive-content-domain {
     color: var(--primary-c);
     font-size: 14px;
   }
-  .codeutsava__team-card4-content-line {
-    border: 1px solid var(--primary-c);
-    border-radius: 100%;
-    width: 100%;
-    position:relative;
-    top: 30px;
-    margin: 4px 0;
-  }
-  
-  .codeutsava__team-card4-img-grave {
+  .codeutsava__Executive-img-thug-glasses {
     bottom: 0;
-    height: 30px;
-    width: 50px;
+    height: 20px;
+    /* width: 50px; */
     position: absolute;
     right: 5px;
     bottom: 5px;
     z-index: 3;
   }
-  .codeutsava__team-card4-social {
-    background-color: var(--primary-c);
+  .codeutsava__executive-social {
+    background-color:white;
     display: flex;
     gap: 4px;
     height: 140px;
@@ -63,18 +108,33 @@
     top: 150px;
     transition: all 500ms ease-in;
     width: 300px;
-    background-color: rgb(255, 251, 30);
+
+    /* background-color: rgb(255, 251, 30); */
+    background-image: url("../../../assets/images/execs-bg-shutter.png");
   }
-  .codeutsava__team-card4-social-ln a:hover {
+  .codeutsava__Executive-content-name h2{
+    margin: 4px;
+  }
+  .codeutsava__Executive-content-domain h3{
+    margin: 4px;
+
+  }
+  .codeutsava__executive-social-ln a:hover {
     color: white;
     
   }
-  .codeutsava__team-card4-social-ln a {
-    font-size: 36px;
-    z-index: 1;
-  }
-  .codeutsava__team-card4:hover .codeutsava__team-card4-social {
+  .codeutsava__executive:hover .codeutsava__executive-social {
     top: 0px;
+  }
+  .codeutsava__executive:hover {
+    top: 0px;
+  }
+  .ig-execs{
+    color: rgb(216, 241, 113);
+    font-size: 3em;
+  }
+  .ig-execs:hover{
+    color: white;
   }
   @keyframes fadeIn {
     0% {
