@@ -1,0 +1,250 @@
+
+.teamCard-HC {
+  
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 95vw;
+  height: 95vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f2f3f7;
+  margin: auto;
+  background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
+}
+.topNotch-teamTCP {
+  width: 20vw;
+  height: 5vh;
+  border-radius: 0 0 20px 20px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  left: 40vw;
+  top: 2.9rem;
+  font-weight: bolder;
+  font-size: larger;
+  z-index: 1001;
+}
+.teamCard-HC {
+  width: 99vw;
+  height: 99vh;
+  position: fixed;
+  /* border: 3rem rgb(45, 45, 45) inset; */
+  border: 3rem black inset;
+  top: 0;
+  background-image: url("../../../assets/images/bg-15s-10c0.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* z-index: 1000; */
+}
+.container-teamCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ 
+  /* margin-top: 30vh; */
+  padding: 0 5vw;
+  /* filter: grayscale(100%); */
+}
+
+.card-HC {
+  position: relative;
+  /* background-image: url("../../../assets/images/teamcard2bg.png"); */
+}
+
+.card-HC-front,
+.card-HC-back {
+  width: 300px;
+  height: 416px;
+  padding: 0 30px 30px 30px;
+  background: #ffffff7d;
+  justify-content: center;
+  text-align: center;
+  border: 2px rgb(22, 214, 60) solid;
+  border: 16px rgb(115, 180, 246) solid;
+  border: 16px rgb(66, 1, 1) solid;
+  background-image: url("../../../assets/images/bghct.png");
+  background-size: cover;
+  border-radius: 10px;
+  clip-path: polygon(
+    0px calc(100% - 28px),
+    4px calc(100% - 28px),
+    4px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px calc(100% - 12px),
+    12px calc(100% - 12px),
+    12px calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 4px),
+    28px calc(100% - 4px),
+    28px 100%,
+    calc(100% - 28px) 100%,
+    calc(100% - 28px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 28px),
+    100% calc(100% - 28px),
+    100% 28px,
+    calc(100% - 4px) 28px,
+    calc(100% - 4px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) 12px,
+    calc(100% - 12px) 12px,
+    calc(100% - 12px) 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 4px,
+    calc(100% - 28px) 4px,
+    calc(100% - 28px) 0px,
+    28px 0px,
+    28px 4px,
+    20px 4px,
+    20px 8px,
+    12px 8px,
+    12px 12px,
+    8px 12px,
+    8px 20px,
+    4px 20px,
+    4px 28px,
+    0px 28px
+  );
+  backdrop-filter: blur(10px);
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  z-index: 2;
+  float: left;
+  perspective: 500px;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  border-image: linear-gradient(to bottom, #504812ba 0%, #cfd291ba 100%) 1;
+}
+.card-HC-back{
+  background-color: #504812d5;
+  background-image: none;
+}
+.content-HCcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.imgBoxHC {
+  width: 220px;
+  height: 220px;
+  border-radius: 20%;
+  border: 2px #0196e3 solid;
+  border: 2px white solid;
+  position: relative;
+  /* margin-bottom: 20px; */
+  overflow: hidden;
+  transition: ease-out 1s;
+}
+/* .card-HC:hover .imgBoxHC {
+  width: 180px;
+  height: 180px;
+  border-radius: 40%;
+  transition: ease-out 1s;
+} */
+
+.imgBoxHC img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: hue-rotate(10%);
+}
+
+.contentBox-HCcard h4 {
+  color:#504812;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.contentBox-HCcard h5 {
+  color: #6c758f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+/* .card-HC:hover .HC-SocialHandles {
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+.HC-SocialHandles {
+  margin-top: 3px;
+  transform: translateY(30px);
+} */
+
+.HC-SocialHandles {
+  padding-top: 75%;
+}
+.HC-SocialHandles a {
+  text-decoration: none;
+  color: #fff6a3;
+  font-size: 40px;
+  margin: 10px;
+  transition: color 0.4s;
+}
+.HC-SocialHandles a:hover {
+  color: #ffffff;
+}
+.teamCardTitle {
+  font-size: large;
+  background-color: transparent;
+  padding-bottom: 4px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border: 2px #fff solid;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  width: 70%;
+  height: auto;
+  background-color: #8d83468d ;
+  color: #f2f3f7;
+  font-weight: bold;
+}
+.cardTopSegment {
+  display: flex;
+  flex-direction: row;
+}
+.connecting-line-HC {
+  height: 20px;
+}
+
+.card-HC-front {
+  overflow: hidden;
+}
+
+.card-HC-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-color: rgb(66, 1, 1);
+  overflow: hidden;
+  transform: rotateY(180deg);
+}
+
+.card-HC:hover .card-HC-front {
+  transform: rotateY(180deg);
+}
+
+.card-HC:hover .card-HC-back {
+  transform: rotateY(0deg);
+}
+.rhombus-HCcard{
+  /* margin: auto 1em; */
+}
