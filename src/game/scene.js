@@ -179,7 +179,7 @@ export const maps = {
     transitioningFrom: "map1",
     transitioningTo: "map3",
     mapPosition: { 
-      enterFromFrontPosition : {x:780,y:1000},
+      enterFromFrontPosition : {x:780,y:992},
       enterFromLiftPosition : {x:1180 , y:600}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 780, y: 980 }
@@ -213,7 +213,7 @@ export const maps = {
     transitioningTo: "map4",
     mapPosition: { 
       enterFromFrontPosition : {x:240,y:600},
-      enterFromLiftPosition : {x:1420 , y:1000}
+      enterFromLiftPosition : {x:1420 , y:992}
       // nextMapsPosition: { x: 1380, y: 1050 },
       // prevMapPosition: { x: 1180, y: 600 }
     },

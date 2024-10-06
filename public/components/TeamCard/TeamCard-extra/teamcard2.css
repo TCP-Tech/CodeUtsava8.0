@@ -1,16 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Pixelify Sans", sans-serif;
-}
-* {
-  text-align: center;
-  justify-content: center;
-}
 
 .teamCard-HC {
+  
   display: flex;
   justify-content: center;
   text-align: center;
@@ -28,7 +18,7 @@
   width: 20vw;
   height: 5vh;
   border-radius: 0 0 20px 20px;
-  background-color: rgb(36, 2, 103);
+  background-color: black;
   color: white;
   position: fixed;
   left: 40vw;
@@ -41,8 +31,12 @@
   width: 99vw;
   height: 99vh;
   position: fixed;
-  border: 3rem rgb(32, 2, 94) solid;
+  /* border: 3rem rgb(45, 45, 45) inset; */
+  border: 3rem black inset;
   top: 0;
+  background-image: url("../../../assets/images/intro-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   /* z-index: 1000; */
 }
@@ -51,6 +45,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+ 
   /* margin-top: 30vh; */
   padding: 0 5vw;
   /* filter: grayscale(100%); */
@@ -58,20 +53,22 @@
 
 .card-HC {
   position: relative;
+  /* background-image: url("../../../assets/images/teamcard2bg.png"); */
 }
 
 .card-HC-front,
 .card-HC-back {
-  width: 330px;
-  height: 450px;
+  width: 300px;
+  height: 416px;
   padding: 0 30px 30px 30px;
   background: #d3eff7;
   justify-content: center;
-  text-align: center;
-  border: 2px rgb(22, 214, 60) solid;
-  border: 16px rgb(115, 180, 246) solid;
-  background-image: url("abstract_background_with_blue_mosaic_design_1711.svg");
-  background-size: contain;
+   text-align: center;
+  /*border: 2px rgb(22, 214, 60) solid;
+  border: 16px rgb(115, 180, 246) solid; */
+  border: 16px rgb(219, 209, 209) solid;
+  background-image: url("../../../assets/images/teambggreen.png");
+  background-size: cover;
   border-radius: 10px;
   clip-path: polygon(
     0px calc(100% - 28px),
@@ -126,9 +123,11 @@
   perspective: 500px;
   backface-visibility: hidden;
   box-sizing: border-box;
+  border-image: linear-gradient(to bottom, rgb(0, 87, 4)  0%, rgb(2, 199, 12)  100%) 1;
 }
-.card:hover {
-  filter: grayscale(0);
+.card-HC-back{
+  background-color: rgb(0, 96, 13);
+  background-image: none;
 }
 .content-HCcard {
   display: flex;
@@ -141,6 +140,7 @@
   height: 220px;
   border-radius: 20%;
   border: 2px #0196e3 solid;
+  border: 2px white solid;
   position: relative;
   /* margin-bottom: 20px; */
   overflow: hidden;
@@ -164,7 +164,7 @@
 }
 
 .contentBox-HCcard h4 {
-  color: #36187d;
+  color: rgb(0, 96, 13);
   font-size: 1.7rem;
   font-weight: bold;
   text-align: center;
@@ -176,27 +176,14 @@
   font-weight: bold;
   text-align: center;
 }
-/* .card-HC:hover .HC-SocialHandles {
-  transform: translateY(0px);
-  transition: 0.5s;
-}
+
 .HC-SocialHandles {
-  margin-top: 3px;
-  transform: translateY(30px);
-} */
-
-.card-HC-back .HC-SocialHandles {
-  padding-top: 80%;
-}
-
-.card-HC-front .HC-SocialHandles {
-  padding-top: 10px;
-  display: none;
+  padding-top: 75%;
 }
 .HC-SocialHandles a {
   text-decoration: none;
   color: #6c758f;
-  font-size: 30px;
+  font-size: 40px;
   margin: 10px;
   transition: color 0.4s;
 }
@@ -208,13 +195,13 @@
   background-color: transparent;
   padding-bottom: 4px;
   margin: auto;
-  margin-top: 0;
+  margin-top: 12px;
   margin-bottom: 1rem;
   border-top: none;
-  border-radius: 0 0 20px 20px;
-  width: 60%;
+  border-radius: 30px 30px;
+  width: 70%;
   height: auto;
-  background-color: rgb(115, 180, 246);
+  background-color: rgb(0, 87, 4) ;
   color: #f2f3f7;
   font-weight: bold;
 }
@@ -222,12 +209,7 @@
   display: flex;
   flex-direction: row;
 }
-.card-HC:hover .rhombus {
-  filter: brightness(200%);
-  /* animation: name duration timing-function delay iteration-count direction
-    fill-mode; */
-}
-.connecting-line {
+.connecting-line-HC {
   height: 20px;
 }
 
@@ -241,23 +223,18 @@
   left: 0;
   width: 100%;
   backface-visibility: hidden;
-  border-color: #36187d;
+  border-color: rgb(66, 1, 1);
   overflow: hidden;
   transform: rotateY(180deg);
 }
 
-@media screen and (min-width: 1000px) {
-  .card-HC:hover .card-HC-front {
-    transform: rotateY(180deg);
-  }
-
-  .card-HC:hover .card-HC-back {
-    transform: rotateY(0deg);
-  }
+.card-HC:hover .card-HC-front {
+  transform: rotateY(180deg);
 }
 
-@media screen and (max-width: 1000px) {
-  .card-HC-front .HC-SocialHandles {
-    display: block;
-  }
+.card-HC:hover .card-HC-back {
+  transform: rotateY(0deg);
+}
+.rhombus-HCcard{
+  /* margin: auto 1em; */
 }

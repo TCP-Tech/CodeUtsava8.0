@@ -1,0 +1,252 @@
+
+.teamCard-OC {
+  
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 95vw;
+  height: 95vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f2f3f7;
+  margin: auto;
+  background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
+}
+.topNotch-teamTCP {
+  width: 20vw;
+  height: 5vh;
+  border-radius: 0 0 20px 20px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  left: 40vw;
+  top: 2.9rem;
+  font-weight: bolder;
+  font-size: larger;
+  z-index: 1001;
+}
+.teamCard-OC {
+  width: 99vw;
+  height: 99vh;
+  position: fixed;
+  /* border: 3rem rgb(45, 45, 45) inset; */
+  border: 3rem black inset;
+  top: 0;
+  background-image: url("../../../assets/images/bg-15.gif");
+  background-repeat: no-repeat;
+  background-size: cover;  
+
+  /* z-index: 1000; */
+}
+.container-teamCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ 
+  /* margin-top: 30vh; */
+  padding: 0 5vw;
+  /* filter: grayscale(100%); */
+}
+
+.card-OC {
+  position: relative;
+  /* background-image: url("../../../assets/images/teamcard2bg.png"); */
+}
+.prevPage-TeamPage{
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  padding: 0.5rem;
+}
+
+.card-OC-front,
+.card-OC-back {
+  width: 300px;
+  height: 416px;
+  padding: 0 30px 30px 30px;
+  /* background: #d3eff7; */
+  justify-content: center;
+  text-align: center;
+  border: 2px rgb(22, 214, 60) solid;
+  border: 16px rgb(115, 180, 246) solid;
+  border: 16px rgb(219, 209, 209) solid;
+  background-image: url("../../../assets/images/bgimgt.png");
+  background-size: cover;
+  border-radius: 10px;
+  clip-path: polygon(
+    0px calc(100% - 28px),
+    4px calc(100% - 28px),
+    4px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px calc(100% - 12px),
+    12px calc(100% - 12px),
+    12px calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 4px),
+    28px calc(100% - 4px),
+    28px 100%,
+    calc(100% - 28px) 100%,
+    calc(100% - 28px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 4px) calc(100% - 28px),
+    100% calc(100% - 28px),
+    100% 28px,
+    calc(100% - 4px) 28px,
+    calc(100% - 4px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) 12px,
+    calc(100% - 12px) 12px,
+    calc(100% - 12px) 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 4px,
+    calc(100% - 28px) 4px,
+    calc(100% - 28px) 0px,
+    28px 0px,
+    28px 4px,
+    20px 4px,
+    20px 8px,
+    12px 8px,
+    12px 12px,
+    8px 12px,
+    8px 20px,
+    4px 20px,
+    4px 28px,
+    0px 28px
+  );
+  backdrop-filter: blur(10px);
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  z-index: 2;
+  float: left;
+  perspective: 500px;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  border-image: linear-gradient(to bottom, #f761036b 0%, #ffd2af53 100%) 1;
+}
+.card-OC-back{
+  background-color: #f771038b;
+  background-image: none;
+  backdrop-filter: blur(10px);
+}
+.content-OCcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+.imgBoxOC {
+  width: 220px;
+  height: 220px;
+  border-radius: 20%;
+  border: 2px white solid;
+  position: relative;
+  overflow: hidden;
+  transition: ease-out 1s;
+}
+.imgBoxOC img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: hue-rotate(10%);
+}
+
+.contentBox-OCcard h4 {
+  color: #f77103;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: auto;
+}
+.contentBox-OCcard h5 {
+  color: #6c758f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+/* .card-OC:hover .OC-SocialHandles {
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+.OC-SocialHandles {
+  margin-top: 3px;
+  transform: translateY(30px);
+} */
+
+.OC-SocialHandles {
+  padding-top: 75%;
+}
+.OC-SocialHandles a {
+  text-decoration: none;
+  color: #f6f6ba;
+  font-size: 40px;
+  margin: 10px;
+  transition: color 0.4s;
+}
+.OC-SocialHandles a:hover {
+  color: #ffffff;
+}
+.teamCardTitle {
+  font-size: large;
+  background-color: transparent;
+  padding-bottom: 4px;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 1rem;
+  border-top: none;
+  border-radius: 30px 30px;
+  width: 70%;
+  height: auto;
+  background-color: #f77103b0 ;
+  border: 2px white solid;
+  color: #f2f3f7;
+  font-weight: bold;
+}
+.cardTopSegment {
+  display: flex;
+  flex-direction: row;
+}
+.connecting-line-OC {
+  height: 15px;
+  color:white;
+}
+
+.card-OC-front {
+  overflow: hidden;
+}
+
+.card-OC-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-color: rgb(66, 1, 1);
+  overflow: hidden;
+  transform: rotateY(180deg);
+}
+
+.card-OC:hover .card-OC-front {
+  transform: rotateY(180deg);
+}
+
+.card-OC:hover .card-OC-back {
+  transform: rotateY(0deg);
+}
+.rhombus-OCcard{
+  margin: auto 0;
+}
