@@ -14,13 +14,6 @@ const contact = document.getElementById("cu-contact");
 const errorPage = document.getElementById("codeutsava-404_page");
 const gameCanvas = document.querySelector("#app");
 const team = document.getElementById("cu-team");
-// const manager = document.getElementById("cu-manager");
-// const exe_text = document.getElementById("cu-executive");
-// const hc_text = document.getElementById("cu-hc");
-// const exe = document.getElementById("exe-team")
-// const hc = document.getElementById("hc-team")
-// const oc = document.getElementById("oc-team");
-// const oc_text = document.getElementById("cu-oc")
 const nav = document.getElementById("navbar-team");
 const foot = document.getElementById("footer-routing-container");
 
@@ -79,6 +72,8 @@ function showTeam() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
+    nav.style.display = 'none';
+    foot.style.display='none';
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );
@@ -93,6 +88,8 @@ function showTeam() {
 function hideTeam() {
   setTimeout(() => {
     team.style.display = "none";
+    nav.style.display = 'block';
+    foot.style.display='block';
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );

@@ -3,7 +3,10 @@
 	margin: 0 auto;
 	padding: 20px;
   }
-  p {
+  #codeutsava_overall-coordinatior_heading ,
+  #codeutsava_head-coordinatior_heading ,
+  #codeutsava_manager_heading ,
+  #codeutsava_executive_heading  {
 	font-size: 24px;
 	font-weight: bold;
 	color: var(--primary-c);
