@@ -10,7 +10,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #f2f3f7;
   margin: auto;
   background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
 }
@@ -30,13 +29,12 @@
 .teamCard-HC {
   width: 99vw;
   height: 99vh;
-  position: fixed;
   /* border: 3rem rgb(45, 45, 45) inset; */
   border: 3rem black inset;
   top: 0;
-  background-image: url("../../../assets/images/bg-15s-10c0.gif");
   background-repeat: no-repeat;
   background-size: cover;
+  
 
   /* z-index: 1000; */
 }
@@ -64,6 +62,7 @@
   background: #ffffff7d;
   justify-content: center;
   text-align: center;
+  font-family: "Pixelify Sans", sans-serif;
   border: 2px rgb(22, 214, 60) solid;
   border: 16px rgb(115, 180, 246) solid;
   border: 16px rgb(66, 1, 1) solid;
@@ -166,14 +165,14 @@
 
 .contentBox-HCcard h4 {
   color:#504812;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
 }
 .contentBox-HCcard h5 {
   color: #6c758f;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
 }
