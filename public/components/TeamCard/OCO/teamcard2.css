@@ -260,10 +260,10 @@
   margin: auto 0;
 }
 
-#footer-routing-container{
+#footer-routing-container-team{
   display: none;
 }
-#navbar-team{
+#navbar-teams{
   display: none;
 }
 
@@ -277,10 +277,10 @@
   .prevPage-TeamPage{
     display: none;
   }
-  #footer-routing-container{
+  #footer-routing-container-team{
     display: block;
   }
-  #navbar-team{
+  #navbar-teams{
     display: block;
   }
 }
