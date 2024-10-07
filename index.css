@@ -85,6 +85,58 @@
 	margin-top: 44px !important;
 }
 
+#cu-manager{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	color: var(--primary-c);
+	text-align: center;
+	font-size: 36px;
+
+}
+
+#cu-executive{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	color: var(--primary-c);
+	text-align: center;
+	font-size: 36px;
+
+}
+
+
+#cu-hc{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	color: var(--primary-c);
+	text-align: center;
+	font-size: 36px;
+
+}
+
+#cu-oc{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	color: var(--primary-c);
+	text-align: center;
+	font-size: 36px;
+
+}
+
+.team-text{
+	text-align: center;
+	font-size: 40px;
+}
+
+.team-new{
+	display: flex;
+	justify-content: center;
+	margin: 70px;
+}
+
+.team-button{
+	width: auto;
+}
+
 /* Intro Screen Css starts here */
 
 @font-face {

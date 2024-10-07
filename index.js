@@ -6,6 +6,8 @@ import {
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
   handleContactUsButtonClicked,
+  handleTeamButtonClick,
+  TeamtoHomeButtonClick
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
 
@@ -116,6 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/Graphs&Analytics/graph.html",
           "codeutsava__graphs&analtics_section"
         ),
+        loadComponent('/components/TeamCard/Managers/managerCard.html','team'),
+        loadComponent('/components/TeamCard/Executive/executiveCard.html','exe-team'),
+        loadComponent('/components/TeamCard/HC/hcCard.html','hc-team'),
+        loadComponent('/components/TeamCard/OC/teamcard2.html','oc-team')
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -163,6 +169,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
 
     setTimeout(() => {
+      const team= document.querySelector(".team-button");
+      if(team){
+        team.addEventListener("click", handleTeamButtonClick)
+      }
+      
+    }, 1000);
+
+    setTimeout(() => {
+      const teamtohome= document.querySelector(".prevPage-TeamPage");
+      if(teamtohome){
+        teamtohome.addEventListener("click", TeamtoHomeButtonClick)
+      }
+      
+    }, 1000);
+
+    setTimeout(() => {
       const goBackToHomePageButton = document.querySelector(
         "#goBackToHomePageButton"
       );
@@ -172,6 +194,22 @@ document.addEventListener("DOMContentLoaded", () => {
           handleGoBackToHomePageButtonClicked
         );
       }
+    }, 1000);
+
+    setTimeout(() => {
+      const team= document.querySelector(".team-button");
+      if(team){
+        team.addEventListener("click", handleTeamButtonClick)
+      }
+      
+    }, 1000);
+
+    setTimeout(() => {
+      const teamtohome= document.querySelector(".prevPage-TeamPage");
+      if(teamtohome){
+        teamtohome.addEventListener("click", TeamtoHomeButtonClick)
+      }
+      
     }, 1000);
 
     setTimeout(() => {

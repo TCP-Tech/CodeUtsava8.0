@@ -5,13 +5,14 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: 95vw;
-  height: 95vh;
-  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  background: #f2f3f7;
   margin: auto;
+  z-index: 1001;
+  pointer-events: none;
+  position: fixed;
   background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
 }
 .topNotch-teamTCP {
@@ -25,16 +26,24 @@
   top: 2.9rem;
   font-weight: bolder;
   font-size: larger;
+  text-align: center;
   z-index: 1001;
 }
-.teamCard-OC {
-  width: 99vw;
-  height: 99vh;
+
+.prevPage-TeamPage{
   position: fixed;
+  top: 4rem;
+  left: 4rem;
+  padding: 0.5rem;
+  width: auto;
+}
+
+.teamCard-OC {
+  width: 100vw;
+  height: 100vh;
   /* border: 3rem rgb(45, 45, 45) inset; */
   border: 3rem black inset;
   top: 0;
-  background-image: url("../../../assets/images/bg-15.gif");
   background-repeat: no-repeat;
   background-size: cover;  
 
@@ -70,6 +79,7 @@
   /* background: #d3eff7; */
   justify-content: center;
   text-align: center;
+  font-family: "Pixelify Sans", sans-serif;
   border: 2px rgb(22, 214, 60) solid;
   border: 16px rgb(115, 180, 246) solid;
   border: 16px rgb(219, 209, 209) solid;
@@ -166,7 +176,7 @@
 
 .contentBox-OCcard h4 {
   color: #f77103;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
@@ -174,7 +184,7 @@
 }
 .contentBox-OCcard h5 {
   color: #6c758f;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
 }
@@ -249,4 +259,29 @@
 }
 .rhombus-OCcard{
   margin: auto 0;
+}
+
+#footer-routing-container{
+  display: none;
+}
+#navbar-team{
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+	.topNotch-teamTCP{
+    display: none;
+  }
+  .teamCard-OC{
+    display: none;
+  }
+  .prevPage-TeamPage{
+    display: none;
+  }
+  #footer-routing-container{
+    display: block;
+  }
+  #navbar-team{
+    display: block;
+  }
 }
