@@ -114,14 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ),
         loadComponent("/components/Prizes/prizes.html", "cu-prizes"),
         loadComponent("/components/404/404.html", "codeutsava-404_page"),
-        loadComponent(
-          "/components/Graphs&Analytics/graph.html",
-          "codeutsava__graphs&analtics_section"
-        ),
-        loadComponent('/components/TeamCard/Managers/managerCard.html','team'),
-        loadComponent('/components/TeamCard/Executive/executiveCard.html','exe-team'),
-        loadComponent('/components/TeamCard/HC/hcCard.html','hc-team'),
-        loadComponent('/components/TeamCard/OC/teamcard2.html','oc-team')
+        loadComponent( "/components/Graphs&Analytics/graph.html","codeutsava__graphs&analtics_section"),
+        loadComponent( "/components/Team/Team.html","cu-team"),
+        // loadComponent('/components/TeamCard/Managers/managerCard.html','team'),
+        // loadComponent('/components/TeamCard/Executive/executiveCard.html','exe-team'),
+        // loadComponent('/components/TeamCard/HC/hcCard.html','hc-team'),
+        // loadComponent('/components/TeamCard/OC/teamcard2.html','oc-team')
       ])
         .then(() => {
           const contentLoadedEvent = new Event("contentsLoaded");
@@ -130,14 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((error) => console.error("Error loading components:", error));
     }, 0);
-
-    // setTimeout(() => {
-    //   const hamburg = document.querySelector(".hamburger");
-    //   if (hamburg) {
-    //     console.log(hamburg);
-    //     hamburg.addEventListener("click", toggleMenu);
-    //   }
-    // },0);
 
     setTimeout(() => {
       const logos = document.querySelectorAll(".link_logo");
@@ -301,8 +291,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   playPauseButton.addEventListener("click", handlePlayPause);
-
-  // Initial route check
   handleRouteChange();
 
   window.addEventListener("popstate", handleRouteChange);

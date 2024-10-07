@@ -60,7 +60,6 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	
 }
 #codeutsava-404_page{
 	background-color: #f4f4f4;
@@ -85,42 +84,6 @@
 	margin-top: 44px !important;
 }
 
-#cu-manager{
-	margin-top: 100px;
-	margin-bottom: 20px;
-	color: var(--primary-c);
-	text-align: center;
-	font-size: 36px;
-
-}
-
-#cu-executive{
-	margin-top: 100px;
-	margin-bottom: 20px;
-	color: var(--primary-c);
-	text-align: center;
-	font-size: 36px;
-
-}
-
-
-#cu-hc{
-	margin-top: 100px;
-	margin-bottom: 20px;
-	color: var(--primary-c);
-	text-align: center;
-	font-size: 36px;
-
-}
-
-#cu-oc{
-	margin-top: 100px;
-	margin-bottom: 20px;
-	color: var(--primary-c);
-	text-align: center;
-	font-size: 36px;
-
-}
 
 .team-text{
 	text-align: center;
