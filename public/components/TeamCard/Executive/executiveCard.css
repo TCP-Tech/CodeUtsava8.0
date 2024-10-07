@@ -75,7 +75,7 @@
     margin: 0;
   }
   .codeutsava__Executive-content {
-    color: rgb(0, 0, 0);
+    color: rgb(12, 101, 33);
     font-size: large;
     /* height: 100px; */
     /* padding: auto; */
@@ -86,17 +86,8 @@
     flex-direction: column;
   }
   .codeutsava__Executive-content-domain {
-    color: var(--primary-c);
+    color: rgb(39, 119, 57);
     font-size: 14px;
-  }
-  .codeutsava__Executive-img-thug-glasses {
-    bottom: 0;
-    height: 20px;
-    /* width: 50px; */
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    z-index: 3;
   }
   .codeutsava__Executive-social {
     background-color:white;

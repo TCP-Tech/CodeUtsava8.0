@@ -76,6 +76,8 @@ function showTeam() {
   hideFaq();
   hideContact();
   setTimeout(() => {
+      nav.style.display = 'none';
+      foot.style.display='none';
       oc_text.style.display = 'block';
       oc.style.display = 'block';
       hc.style.display = 'block';
@@ -99,6 +101,8 @@ function showTeam() {
 function hideTeam() {
   
   setTimeout(() => {
+    nav.style.display = 'block';
+    foot.style.display='block';
     oc_text.style.display = 'none';
     oc.style.display = 'none';
     team.style.display = "none";
