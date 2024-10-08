@@ -4,7 +4,7 @@ document.addEventListener("contentsLoaded", () => {
     const startMessage = document.getElementById('codeutsava-404_page-startMessage');
 
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = 400;
 
     const GRAVITY = 0.6;
     const GROUND_Y = canvas.height * 0.75;
@@ -164,6 +164,9 @@ document.addEventListener("contentsLoaded", () => {
     window.addEventListener('touchstart', () => {
         if (!gameStarted) {
             startGame();
+        }
+        else if ( gameOver) {
+            resetGame(); 
         } else {
             jumpPlayer();
         }
