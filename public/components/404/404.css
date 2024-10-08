@@ -42,7 +42,7 @@
     border: 2px solid #333;
     width: 100%; 
     max-width: 800px;
-    height: auto;  
+    height: 400px;  
 }
 #codeutsava-404_page-backButton {
     background-color: #ffcc00;
@@ -75,6 +75,9 @@
     .codeutsava-404_page-gameContainer p {
         font-size: 1rem;
     }
+    /* #codeutsava-404_page-gameCanvas{
+        max-height:400px;
+    } */
     #codeutsava-404_page-startMessage,
     #codeutsava-404_page-errorMessage {
         font-size: 1rem;
