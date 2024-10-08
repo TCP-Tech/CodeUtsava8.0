@@ -15,6 +15,7 @@ const errorPage = document.getElementById("codeutsava-404_page");
 const gameCanvas = document.querySelector("#app");
 const team = document.getElementById("cu-team");
 const nav = document.getElementById("navbar-team");
+const countDown = document.getElementById("cu-countDown");
 const foot = document.getElementById("footer-routing-container");
 
 function changeAudioSource() {
@@ -68,7 +69,7 @@ function showTeam() {
   hideFaq();
   hideContact();
   hide404Page();
-  hideTeam();
+  // hideTeam();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -88,6 +89,38 @@ function showTeam() {
 function hideTeam() {
   setTimeout(() => {
     team.style.display = "none";
+    nav.style.display = 'block';
+    foot.style.display='block';
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "none";
+    }
+  }, 0);
+}
+function showcountDown() {
+  hideFaq();
+  hideContact();
+  hide404Page();
+  hideTeam();
+  setTimeout(() => {
+    mainContent.style.display = "none";
+    introScreen.style.display = "none";
+    nav.style.display = 'none';
+    foot.style.display='none';
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "block";
+    }
+    countDown.style.display = "flex";
+  }, 0);
+}
+function hideCountDown() {
+  setTimeout(() => {
+    countDown.style.display = "none";
     nav.style.display = 'block';
     foot.style.display='block';
     const dynamicContent = document.querySelector(
@@ -181,6 +214,7 @@ function showMerch() {
   hideContact();
   hide404Page();
   hideTeam();
+  hideCountDown()
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -235,6 +269,7 @@ function showFaq() {
   hideContact();
   hide404Page();
   hideTeam();
+  hideCountDown();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -265,6 +300,7 @@ function showContact() {
   hideFaq();
   hide404Page();
   hideTeam();
+  hideCountDown();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -325,7 +361,9 @@ function handleRouteChange() {
     console.log("faq done");
   } else if (currentPath === "/contact") {
     showContact();
-    console.log("contact done");
+  }
+  else if (currentPath === "/countDown") {
+    showcountDown();
   }
   else{
     show404Page();
