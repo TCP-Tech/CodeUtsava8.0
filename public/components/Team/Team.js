@@ -27,7 +27,8 @@ document.addEventListener("contentsLoaded", async () => {
         }
         const imgTag = cardElement.querySelector(".codeutsava_dynamic_domain_wise_member_img");
         if (imgTag) {
-          imgTag.src = member.image;
+          const extractedPart = member?.image.split('/team')[1];
+          imgTag.src = `https://codeutsava.nitrr.ac.in/static/uploads/team/${extractedPart}`;
         }
         return cardElement.innerHTML;
       } catch (error) {
