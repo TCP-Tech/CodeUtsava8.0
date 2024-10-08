@@ -28,7 +28,9 @@
     margin-bottom: 30px;
 }
 
-#codeutsava-404_page-startMessage {
+#codeutsava-404_page-startMessage,
+#codeutsava-404_page-errorMessage {
+    text-align: center;
     font-size: 1.8rem;
     margin-bottom: 30px;
     color: #555;
@@ -42,15 +44,45 @@
     max-width: 800px;
     height: auto;  
 }
+#codeutsava-404_page-backButton {
+    background-color: #ffcc00;
+    color: #000;
+    border: 3px solid #1a1a1a;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 30px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#codeutsava-404_page-backButton:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.05); 
+}
+
+#codeutsava-404_page-backButton:active {
+    background-color: #ff9900;
+    transform: scale(0.98);
+}
+
 @media only screen and (max-width: 600px) {
     .codeutsava-404_page-gameContainer h1 {
         font-size: 4rem;
     }
     .codeutsava-404_page-gameContainer p {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-    #codeutsava-404_page-startMessage {
-        font-size: 1.5rem;
+    #codeutsava-404_page-startMessage,
+    #codeutsava-404_page-errorMessage {
+        font-size: 1rem;
         margin-bottom: 20px;
+    }
+    
+    #codeutsava-404_page-backButton {
+        font-size: 1rem;
+        padding: 10px 20px;
     }
 }

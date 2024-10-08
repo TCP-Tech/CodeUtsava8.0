@@ -35,7 +35,10 @@
 	transform: translateY(-10px);
   }
   @media (max-width: 768px) {
-	p {
+	#codeutsava_overall-coordinatior_heading ,
+	#codeutsava_head-coordinatior_heading ,
+	#codeutsava_manager_heading ,
+	#codeutsava_executive_heading {
 	  font-size: 20px;
 	}
   
@@ -45,7 +48,10 @@
   }
   
   @media (max-width: 480px) {
-	p {
+	#codeutsava_overall-coordinatior_heading ,
+	#codeutsava_head-coordinatior_heading ,
+	#codeutsava_manager_heading ,
+	#codeutsava_executive_heading {
 	  font-size: 18px;
 	}
   

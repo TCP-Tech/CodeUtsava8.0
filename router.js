@@ -51,11 +51,11 @@ function hideOtherContent() {
   }
 }
 
-function handleTeamButtonClick() {
-  window.history.pushState({}, '', '/team');
-  showTeam();
+// function handleTeamButtonClick() {
+//   window.history.pushState({}, '', '/team');
+//   showTeam();
   
-}
+// }
 function TeamtoHomeButtonClick(){
   window.history.pushState({}, '', '/');
   console.log("hi");
@@ -353,6 +353,6 @@ export {
   handleContactUsButtonClicked,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
-  handleTeamButtonClick,
+  // handleTeamButtonClick,
   TeamtoHomeButtonClick
 };

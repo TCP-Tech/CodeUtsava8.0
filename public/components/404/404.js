@@ -1,13 +1,11 @@
-// import player from "../../assets/images/404/player.png";
-// import box from "../../assets/images/404/box.png";
-document.addEventListener("contentsLoaded",()=>{
+document.addEventListener("contentsLoaded", () => {
     const canvas = document.getElementById('codeutsava-404_page-gameCanvas');
     const ctx = canvas.getContext('2d');
     const startMessage = document.getElementById('codeutsava-404_page-startMessage');
-    
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     const GRAVITY = 0.6;
     const GROUND_Y = canvas.height * 0.75;
     const MAX_JUMP_COUNT = 3;
@@ -19,9 +17,10 @@ document.addEventListener("contentsLoaded",()=>{
     let gameStarted = false;
     const boxImage = new Image();
     boxImage.src = "../../assets/images/404/box.png";
-    
+
     const playerImage = new Image();
     playerImage.src = "../../assets/images/404/player.png";
+
     class Player {
         constructor() {
             this.width = 72.8;
@@ -38,7 +37,7 @@ document.addEventListener("contentsLoaded",()=>{
             this.numFrames = 8;
             this.jumping = false; 
         }
-    
+
         draw() {
             ctx.drawImage(
                 playerImage,
@@ -52,7 +51,7 @@ document.addEventListener("contentsLoaded",()=>{
                 this.height
             );
         }
-    
+
         update() {
             this.velY += GRAVITY; 
             this.y += this.velY;
@@ -70,10 +69,10 @@ document.addEventListener("contentsLoaded",()=>{
                     this.frameIndex = 5; 
                 }
             }
-    
+
             this.draw();
         }
-    
+
         jump() {
             if (jumpCount < this.jumpLimit) {
                 this.velY = -JUMP_STRENGTH; 
@@ -82,6 +81,7 @@ document.addEventListener("contentsLoaded",()=>{
             }
         }
     }
+
     class Obstacle {
         constructor() {
             this.width = 50;
@@ -90,21 +90,21 @@ document.addEventListener("contentsLoaded",()=>{
             this.y = GROUND_Y - this.height;
             this.speed = 5;
         }
-    
+
         getRandomHeight() {
             const heights = [50, 100, 150]; 
             return heights[Math.floor(Math.random() * heights.length)];
         }
-    
+
         draw() {
             ctx.drawImage(boxImage, this.x, this.y, this.width, this.height);
         }
-    
+
         update() {
             this.x -= this.speed;
             this.draw();
         }
-    
+
         isCollidingWith(player) {
             return (
                 player.x < this.x + this.width &&
@@ -114,11 +114,10 @@ document.addEventListener("contentsLoaded",()=>{
             );
         }
     }
-    
-    
+
     let player = new Player();
     let obstacles = [];
-    
+
     function resetGame() {
         player = new Player();
         obstacles = [];
@@ -127,6 +126,7 @@ document.addEventListener("contentsLoaded",()=>{
         spawnObstacles(); 
         gameLoop(); 
     }
+
     function spawnObstacles() {
         const interval = Math.random() * 3000 + 1000;
         if (!gameOver) {
@@ -136,34 +136,50 @@ document.addEventListener("contentsLoaded",()=>{
             }, interval);
         }
     }
+
+    function startGame() {
+        gameStarted = true;
+        startMessage.style.display = 'none';
+        canvas.style.display = 'block';
+        spawnObstacles();
+        gameLoop();
+    }
+
+    function jumpPlayer() {
+        if (!gameOver && gameStarted) {
+            player.jump();
+        }
+    }
+
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Enter' && !gameStarted) {
-            gameStarted = true;
-            startMessage.style.display = 'none';
-            canvas.style.display = 'block';
-            spawnObstacles();
-            gameLoop();
-        } else if (e.code === 'Space' && !gameOver && gameStarted) {
-            player.jump(); 
+            startGame();
+        } else if (e.code === 'Space') {
+            jumpPlayer();
             e.preventDefault(); 
         } else if (e.code === 'Enter' && gameOver) {
             resetGame(); 
         }
     });
-    
+    window.addEventListener('touchstart', () => {
+        if (!gameStarted) {
+            startGame();
+        } else {
+            jumpPlayer();
+        }
+    });
+
     function gameLoop() {
         if (gameOver) return; 
-    
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
         ctx.moveTo(0, GROUND_Y);
         ctx.lineTo(canvas.width, GROUND_Y);
         ctx.strokeStyle = '#000';
         ctx.stroke();
-    
+
         player.update();
-    
-        // Update and draw obstacles
         obstacles.forEach((obstacle, index) => {
             obstacle.update();
             if (obstacle.x + obstacle.width < 0) {
@@ -173,14 +189,12 @@ document.addEventListener("contentsLoaded",()=>{
             if (obstacle.isCollidingWith(player)) {
                 gameOver = true;
                 highScore = Math.max(highScore, score); 
-                // Draw game over text
                 ctx.font = "30px Arial";
                 ctx.textAlign = 'center';
-                ctx.fillStyle = '#000'; // Text color
-                ctx.strokeStyle = '#fff'; // Text outline color
-                ctx.lineWidth = 2; // Outline thickness
-    
-                // Draw text with outline for better visibility
+                ctx.fillStyle = '#000';
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+
                 ctx.strokeText("Game Over", canvas.width / 2, canvas.height / 2);
                 ctx.strokeText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
                 ctx.strokeText(`High Score: ${highScore}`, canvas.width / 2, canvas.height / 2 + 80);
@@ -191,11 +205,12 @@ document.addEventListener("contentsLoaded",()=>{
                 ctx.fillText("Press Enter to restart", canvas.width / 2, canvas.height / 2 + 120);
             }
         });
-    
+        
         ctx.font = "20px Arial";
+        ctx.textAlign = 'left';
         ctx.fillText(`Score: ${score}`, 20, 30);
         ctx.fillText(`High Score: ${highScore}`, 20, 60);
-    
+
         requestAnimationFrame(gameLoop); 
     }
-})
+});
