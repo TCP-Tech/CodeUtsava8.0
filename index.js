@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent("/components/404/404.html", "codeutsava-404_page"),
         loadComponent( "/components/Graphs&Analytics/graph.html","codeutsava__graphs&analtics_section"),
         loadComponent( "/components/Team/Team.html","cu-team"),
+        loadComponent( "/components/CountDown/countDown.html","cu-countDown"),
         // loadComponent('/components/TeamCard/Managers/managerCard.html','team'),
         // loadComponent('/components/TeamCard/Executive/executiveCard.html','exe-team'),
         // loadComponent('/components/TeamCard/HC/hcCard.html','hc-team'),

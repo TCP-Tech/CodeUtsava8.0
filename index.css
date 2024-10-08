@@ -72,6 +72,13 @@
 	height: 100vh;
 	width: 100%;
 }
+#cu-countDown{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
 
 #footer-container {
 	width: 100%;
