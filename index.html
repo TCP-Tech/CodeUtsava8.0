@@ -35,6 +35,12 @@
     <link rel="stylesheet" href="/components/Graphs&Analytics/graph.css" />
     <link rel="stylesheet" href="/components/gameCanvas/game.css" />
     <link rel="stylesheet" href="/components/Prizes/prizes.css" />
+    <link rel="stylesheet" href="/components/TeamCard/HCO/hcCard.css">
+    <link rel="stylesheet" href="/components/TeamCard/OCO/teamcard2.css">
+    <link rel="stylesheet" href="/components/TeamCard/MNG/managerCard.css">
+    <link rel="stylesheet" href="/components/TeamCard/EXC/executiveCard.css">
+    <link rel="stylesheet" href="/components/Team/Team.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -177,11 +183,22 @@
     <div id="codeutsava-404_page"></div>
     <div class="codeutsava__routing_container" style="display: none">
       <nav id="navbar-team"></nav>
+      <nav id="navbar-teams"></nav>
       <div id="codeutsava_dynamic_content"></div>
       <!-- <div id="cu-merchandise"></div> -->
       <div id="cu-faq"></div>
       <div id="cu-contact"></div>
+      <div id="cu-team"></div>
+      <!-- <p id="cu-oc" style="display: none">OVERALL CO-ORDINATORS</p>
+      <div id="oc-team"></div>
+      <p id="cu-hc" style="display: none">HEAD CO-ORDINATORS</p>
+      <div id="hc-team"></div>
+      <p id="cu-manager" style="display: none">MANAGERS</p>
+      <div id="team"></div>
+      <p id="cu-executive" style="display: none">EXECUTIVES</p>
+      <div id="exe-team"></div> -->
       <div id="footer-routing-container"></div>
+      <div id="footer-routing-container-team"></div>
       <!-- <div id="footer-container"></div> -->
     </div>
     
@@ -196,6 +213,11 @@
       <div id="cu-prizes"></div>
       <div id="codeutsava__sponsers-carousel-container"></div>
       <div id="codeutsava__graphs&analtics_section"></div>
+      <!-- <h1 class="team-text">Wondering who all make this possible?</h1>
+      <div class="team-new">
+        
+        <button class="team-button button">Meet Our Team</button>
+      </div> -->
       <div id="footer-container"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
@@ -216,6 +238,7 @@
     <script type="module" src="sdk.js"></script>
     <script type="module" src="/components/About Us/aboutUs.js"></script>
     <script type="module" src="/components/Timeline/timeline.js"></script>
+    <script type="module" src="/components/Team/Team.js"></script>
     <script type="module" src="/components/404/404.js"></script>
       </body>
 </html>

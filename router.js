@@ -13,6 +13,10 @@ const faq = document.getElementById("cu-faq");
 const contact = document.getElementById("cu-contact");
 const errorPage = document.getElementById("codeutsava-404_page");
 const gameCanvas = document.querySelector("#app");
+const team = document.getElementById("cu-team");
+const nav = document.getElementById("navbar-team");
+const foot = document.getElementById("footer-routing-container");
+
 function changeAudioSource() {
     audio.src = "/assets/sounds/gameSounds/gameMusic.mp3";
     audio.load();
@@ -47,9 +51,56 @@ function hideOtherContent() {
   }
 }
 
+// function handleTeamButtonClick() {
+//   window.history.pushState({}, '', '/team');
+//   showTeam();
+  
+// }
+function TeamtoHomeButtonClick(){
+  window.history.pushState({}, '', '/');
+  console.log("hi");
+  hideTeam();
+  showMainContent();
+
+}
+
+function showTeam() {
+  hideFaq();
+  hideContact();
+  hide404Page();
+  hideTeam();
+  setTimeout(() => {
+    mainContent.style.display = "none";
+    introScreen.style.display = "none";
+    nav.style.display = 'none';
+    foot.style.display='none';
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "block";
+    }
+    team.style.display = "flex";
+  }, 0);
+ 
+}
+
+function hideTeam() {
+  setTimeout(() => {
+    team.style.display = "none";
+    nav.style.display = 'block';
+    foot.style.display='block';
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "none";
+    }
+  }, 0);
+}
+
 function showMainContent() {
   hide404Page();
-  // if(backgroundMusic.pause) backgroundMusic.play();
   if (mainContent) {
     mainContent.style.display = "block";
   }
@@ -129,10 +180,10 @@ function showMerch() {
   hideFaq();
   hideContact();
   hide404Page();
+  hideTeam();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    // backgroundMusic.pause();
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );
@@ -183,6 +234,7 @@ function showFaq() {
   hideGameCanvas();
   hideContact();
   hide404Page();
+  hideTeam();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -212,6 +264,7 @@ function showContact() {
   // hideMerch();
   hideFaq();
   hide404Page();
+  hideTeam();
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
@@ -250,6 +303,7 @@ function handleRouteChange() {
     hideFaq();
     hideGameCanvas();
     hideContact();
+    hideTeam();
   } else if (currentPath === "/test") {
     setTimeout(() => {
       mainContent.style.display = "none";
@@ -263,7 +317,10 @@ function handleRouteChange() {
   } else if (currentPath === "/merch") {
     showMerch();
     console.log("done");
-  } else if (currentPath === "/faq") {
+  } else if(currentPath === "/team"){
+    showTeam();
+    console.log("done");
+  }  else if (currentPath === "/faq") {
     showFaq();
     console.log("faq done");
   } else if (currentPath === "/contact") {
@@ -296,4 +353,6 @@ export {
   handleContactUsButtonClicked,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
+  // handleTeamButtonClick,
+  TeamtoHomeButtonClick
 };

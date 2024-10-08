@@ -9,7 +9,7 @@ document.addEventListener("introAnimationCompleted", () => {
     gsap.from(".codeutsava__navbar-container, .codeutsava__navbar-logo, .codeutsava__navbar-brochure-button, .codeutsava__navbar-navitem, .codeutsava__section1-side-links, .scroll-down-section", {
         y: -30,
         opacity: 0,
-        delay: 2.3,
+        delay: 0.8,
         stagger: 0.2
     });
 

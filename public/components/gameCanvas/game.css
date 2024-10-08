@@ -30,7 +30,7 @@
 	cursor: pointer;
 	color: #333; 
   }
-  canvas {
+  .codeutsava_game-canvas {
     display: block;
     position: fixed;
     top: 0;

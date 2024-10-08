@@ -10,6 +10,7 @@ export class Game {
     this.canvas = document.createElement("canvas");
     this.canvas.width = screen.width;
     this.canvas.height = screen.height;
+    this.canvas.className = "codeutsava_game-canvas"
     document.querySelector("#app").appendChild(this.canvas);
     this.ctx = this.canvas.getContext("2d");
 
