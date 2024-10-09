@@ -30,6 +30,10 @@ document.addEventListener("contentsLoaded", async () => {
           const extractedPart = member?.image.split('/team')[1];
           imgTag.src = `https://codeutsava.nitrr.ac.in/static/uploads/team/${extractedPart}`;
         }
+        const domainTag = cardElement.querySelector(".codeutsava_dynamic_domain");
+        if (domainTag) {
+          domainTag.textContent = member.domain;
+        }
         return cardElement.innerHTML;
       } catch (error) {
         console.error("Error fetching member card:", error);
