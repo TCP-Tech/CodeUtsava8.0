@@ -58,7 +58,7 @@ document.addEventListener("contentsLoaded", async () => {
     if (teamData) {
       // console.log("Team Data:", teamData);  
       displayMembersByDesignation('OCO', 'codeutsava_overall-coordinatiors');
-      displayMembersByDesignation('HC', 'codeutsava_head-coordinatiors');
+      displayMembersByDesignation('HCO', 'codeutsava_head-coordinatiors');
       displayMembersByDesignation('MNG', 'codeutsava_managers');
       displayMembersByDesignation('EXC', 'codeutsava_executives');
     }
