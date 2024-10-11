@@ -64,7 +64,7 @@ function showTeam() {
   setTimeout(() => {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
-    nav.style.display = 'none';
+    // nav.style.display = 'none';
     // foot.style.display='none';
     // teamFoot.style.display = 'none';
     const dynamicContent = document.querySelector(
