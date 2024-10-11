@@ -1,10 +1,11 @@
 document.addEventListener("contentsLoaded" , ()=>{
-    const hamburg = document.querySelector(".codeutsava_dynamci-route-hamburger");
+    const hamburg = document.querySelectorAll(".codeutsava_dynamci-route-hamburger")[1];
     console.log("ham",hamburg)
     function toggleMenu() {
       console.log("Clicked")
-      const hamburger = document.querySelector(".ham1");
-      const menu = document.getElementById("hamburgerMenu1");
+      const hamburger = document.querySelectorAll(".ham1")[1];
+      const menu = document.querySelectorAll("#hamburgerMenu1")[1];
+      console.log(menu);
       hamburger.classList.toggle("active");
       menu.classList.toggle("activeMenu");
     }
