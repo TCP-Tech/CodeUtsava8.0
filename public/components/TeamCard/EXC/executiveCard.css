@@ -19,7 +19,6 @@
     align-items: center;
     align-content: center;
     width: 300px;
-    font-family: "Pixelify Sans", sans-serif;
     border-image: linear-gradient(to bottom, #03720ea9 0%, #2e98009b 100%) 1;
     background-image: url("../../../assets/images/execs-bg.png");
     clip-path: polygon(
@@ -76,7 +75,7 @@
   }
   .codeutsava__Executive-content {
     color: rgb(12, 101, 33);
-    font-size: large;
+    font-size: 0.9rem;
     /* height: 100px; */
     /* padding: auto; */
     position: absolute;
@@ -87,7 +86,7 @@
   }
   .codeutsava__Executive-content-domain {
     color: rgb(39, 119, 57);
-    font-size: 14px;
+    font-size: 0.7rem;
   }
   .codeutsava__Executive-social {
     background-color:white;
@@ -122,11 +121,11 @@
   .codeutsava__Executive:hover {
     top: 0px;
   }
-  .ig-execs{
+  .ig-execs,.lkdn-execs{
     color: rgb(216, 241, 113);
     font-size: 3em;
   }
-  .ig-execs:hover{
+  .ig-execs,.lkdn-execs:hover{
     color: white;
   }
   @keyframes fadeIn {

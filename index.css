@@ -91,20 +91,63 @@
 	margin-top: 44px !important;
 }
 
-
-.team-text{
-	text-align: center;
-	font-size: 40px;
-}
-
-.team-new{
+.codeutsava_team_home-header {
+	font-size: 17px;
+	text-shadow: 2.85px 2.85px 0.532px black;
 	display: flex;
-	justify-content: center;
-	margin: 70px;
+	align-items: center;
 }
 
-.team-button{
+.codeutsava_team_home-header img {
+	height: 10rem;
+	object-fit: contain;
+	padding-right: 0.7rem;
+	margin-top: -0.1rem;
+}
+
+.team-text {
+	text-align: center;
+	font-size: 30px;
+	text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.team-new {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.team-button {
 	width: auto;
+	padding: 10px 28px;
+}
+
+@media (max-width: 768px) {
+	.codeutsava_team_home-header {
+		/* flex-direction: column; */
+		font-size: 5px;
+	}
+
+	.codeutsava_team_home-header img {
+		height: 9rem;
+		padding-right: 0;
+		margin-top: 0;
+	}
+
+	.team-text {
+		font-size: 20px;
+	}
+
+	.team-new {
+		margin-bottom: 50px;
+	}
+
+	.team-button {
+		padding: 10px;
+		font-size: 10px;
+	}
 }
 
 /* Intro Screen Css starts here */
