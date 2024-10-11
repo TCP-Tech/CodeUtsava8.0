@@ -171,6 +171,7 @@ function handleContactUsButtonClicked(event) {
 }
 function handleTeamButtonClick(event) {
   event.preventDefault();
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   window.history.pushState({}, '', '/team');
   showTeam();
   

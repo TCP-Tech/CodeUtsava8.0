@@ -1,42 +1,4 @@
 
-.teamCard-OC {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  margin: auto;
-  z-index: 1001;
-  pointer-events: none;
-  position: fixed;
-  background-image: url("./pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg");
-}
-.topNotch-teamTCP {
-  width: 20vw;
-  height: 5vh;
-  border-radius: 0 0 20px 20px;
-  background-color: black;
-  color: white;
-  position: fixed;
-  left: 40vw;
-  top: 2.9rem;
-  font-weight: bolder;
-  font-size: larger;
-  text-align: center;
-  z-index: 1001;
-}
-
-.prevPage-TeamPage{
-  position: fixed;
-  top: 4rem;
-  left: 4rem;
-  padding: 0.5rem;
-  width: auto;
-  z-index: 99;
-}
 
 .teamCard-OC {
   width: 100vw;
@@ -64,12 +26,7 @@
   position: relative;
   /* background-image: url("../../../assets/images/teamcard2bg.png"); */
 }
-.prevPage-TeamPage{
-  position: fixed;
-  top: 4rem;
-  left: 4rem;
-  padding: 0.5rem;
-}
+
 
 .card-OC-front,
 .card-OC-back {
