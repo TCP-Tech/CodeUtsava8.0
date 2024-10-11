@@ -1,3 +1,37 @@
+.codeutasava_main-team-head{
+	display: flex;
+	justify-content: center;
+}
+.tcp_team-logo{
+	margin-top: 70px;
+	width: 150px;
+}
+.prevPage-TeamPage{
+	display: flex;
+	justify-content: center;
+	height: 70px;
+	
+}
+.codeutsava_team-back-button{
+	width: auto;
+	background-color: rgba(0, 0, 0, 0.25);
+  	backdrop-filter: blur(10px);
+	border-color: var(--primary-c);
+	border-width: 2px;
+	padding: 20px;
+}
+.codeutsava_team-back-button:hover{
+	background-color: var(--primary-c);
+	color: black;
+}
+#codeutsava_team-heading{
+	display: flex;
+	justify-content: center;
+	font-size: 60px;
+	margin-top: 90px;
+	text-shadow: 2.85px 2.85px 0.532px black;
+}
+
 .codeutsava_team_container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -10,7 +44,7 @@
 	font-size: 24px;
 	font-weight: bold;
 	color: var(--primary-c);
-	margin: 100px 0 20px;
+	margin: 62px 0 20px;
 	text-align: center;
 	text-shadow: 2.85px 2.85px 0.532px black;
   }
@@ -34,6 +68,62 @@
   }
   .card:hover {
 	transform: translateY(-10px);
+  }
+  @media (max-width: 1100px){
+	.codeutasava_main-team-head{
+		display: flex;
+		justify-content: center;
+		margin-top: 70px;
+	}
+  }
+  @media (max-width: 900px){
+	.codeutasava_main-team-head{
+		display: flex;
+		justify-content: center;
+		margin-top: 70px;
+	}
+	#codeutsava_team-heading{
+		font-size: 40px;
+		
+	}
+	.tcp_team-logo{
+		width: 100px;
+	}
+	.codeutsava_team-back-button{
+		width: auto;
+		font-size: auto;
+	}
+
+  }
+  @media (max-width: 648px){
+	.codeutasava_main-team-head{
+		display: flex;
+		justify-content: center;
+		margin-top: 70px;
+	}
+	#codeutsava_team-heading{
+		font-size: 30px;
+		
+	}
+	.tcp_team-logo{
+		width: 80px;
+		height: 80px;
+		align-self: center;
+
+		
+	}
+	.codeutsava_team-back-button{
+		width: auto;
+		font-size: auto;
+	}
+
+  }
+  @media (max-width: 376px){
+	#codeutsava_team-heading{
+		text-align: center;
+		
+	}
+
   }
   @media (max-width: 768px) {
 	#codeutsava_overall-coordinatior_heading ,
