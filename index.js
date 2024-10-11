@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "/components/Footer/footer.html",
           "footer-routing-container"
         ),
-        loadComponent(
-          "/components/Footer/footer.html",
-          "footer-routing-container-team"
-        ),
+        // loadComponent(
+        //   "/components/Footer/footer.html",
+        //   "footer-routing-container-team"
+        // ),
         loadComponent("/components/NavbarTeam/navbarTeam.html", "navbar-team"),
         loadComponent("/components/NavbarTeam/navbarTeam.html", "navbar-teams"),
         loadComponent(
