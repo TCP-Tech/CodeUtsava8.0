@@ -78,7 +78,6 @@
   /* background: #d3eff7; */
   justify-content: center;
   text-align: center;
-  font-family: "Pixelify Sans", sans-serif;
   border: 2px rgb(22, 214, 60) solid;
   border: 16px rgb(115, 180, 246) solid;
   border: 16px rgb(219, 209, 209) solid;
@@ -175,7 +174,7 @@
 
 .contentBox-OCcard h4 {
   color: #f77103;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
@@ -183,7 +182,7 @@
 }
 .contentBox-OCcard h5 {
   color: #6c758f;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   text-align: center;
 }
@@ -210,7 +209,7 @@
   color: #ffffff;
 }
 .teamCardTitle {
-  font-size: large;
+  font-size: 0.8rem;
   background-color: transparent;
   padding-bottom: 4px;
   margin: auto;

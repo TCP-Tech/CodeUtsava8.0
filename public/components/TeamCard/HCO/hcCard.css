@@ -61,7 +61,6 @@
   background: #ffffff7d;
   justify-content: center;
   text-align: center;
-  font-family: "Pixelify Sans", sans-serif;
   border: 2px rgb(22, 214, 60) solid;
   border: 16px rgb(115, 180, 246) solid;
   border: 16px rgb(66, 1, 1) solid;
@@ -164,14 +163,14 @@
 
 .contentBox-HCcard h4 {
   color:#504812;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
 }
 .contentBox-HCcard h5 {
   color: #6c758f;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
 }
