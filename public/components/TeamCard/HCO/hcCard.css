@@ -245,3 +245,7 @@
 .rhombus-HCcard{
   /* margin: auto 1em; */
 }
+.rhombus-HCcard {
+  margin-top: auto;
+  margin-bottom: auto;
+}
