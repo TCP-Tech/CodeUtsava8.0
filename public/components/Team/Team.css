@@ -12,6 +12,7 @@
 	color: var(--primary-c);
 	margin: 100px 0 20px;
 	text-align: center;
+	text-shadow: 2.85px 2.85px 0.532px black;
   }
   #codeutsava_overall-coordinatiors,
   #codeutsava_head-coordinatiors,

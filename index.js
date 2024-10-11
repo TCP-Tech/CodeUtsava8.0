@@ -6,7 +6,7 @@ import {
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
   handleContactUsButtonClicked,
-  // handleTeamButtonClick,
+  handleTeamButtonClick,
   TeamtoHomeButtonClick
 } from "./router";
 import loadanimation from "./public/components/Participation/participation";
@@ -164,13 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
 
-    // setTimeout(() => {
-    //   const team= document.querySelector(".team-button");
-    //   if(team){
-    //     team.addEventListener("click", handleTeamButtonClick)
-    //   }
+    setTimeout(() => {
+      const team= document.querySelector(".team-button");
+      if(team){
+        team.addEventListener("click", handleTeamButtonClick)
+      }
       
-    // }, 1000);
+    }, 1000);
 
     setTimeout(() => {
       const teamtohome= document.querySelector(".prevPage-TeamPage");
@@ -192,13 +192,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
 
-    // setTimeout(() => {
-    //   const team= document.querySelector(".team-button");
-    //   if(team){
-    //     team.addEventListener("click", handleTeamButtonClick)
-    //   }
+    setTimeout(() => {
+      const team= document.querySelector("#team");
+      if(team){
+        team.addEventListener("click", handleTeamButtonClick)
+      }
       
-    // }, 1000);
+    }, 1000);
 
     setTimeout(() => {
       const teamtohome= document.querySelector(".prevPage-TeamPage");

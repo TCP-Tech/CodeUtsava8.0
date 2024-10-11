@@ -1,4 +1,6 @@
-
+.graph-container{
+  margin-bottom: 70px;
+}
 .heading-container {
   justify-content: center;
   align-items: center;
@@ -101,6 +103,6 @@
 
   @media screen and (max-width: 449px) {
     .heading-title {
-      font-size: 15px;
+      font-size: 26px;
     }
   }

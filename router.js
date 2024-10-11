@@ -52,23 +52,13 @@ function hideOtherContent() {
   }
 }
 
-// function handleTeamButtonClick() {
-//   window.history.pushState({}, '', '/team');
-//   showTeam();
-  
-// }
-function TeamtoHomeButtonClick(){
-  window.history.pushState({}, '', '/');
-  console.log("hi");
-  hideTeam();
-  showMainContent();
 
-}
 
 function showTeam() {
   hideFaq();
   hideContact();
   hide404Page();
+  hideCountDown();
   // hideTeam();
   setTimeout(() => {
     mainContent.style.display = "none";
@@ -177,7 +167,18 @@ function handleContactUsButtonClicked(event) {
   window.history.pushState({}, "", "/contact");
   showContact();
 }
+function handleTeamButtonClick(event) {
+  event.preventDefault();
+  window.history.pushState({}, '', '/team');
+  showTeam();
+  
+}
+function TeamtoHomeButtonClick(){
+  window.history.pushState({}, '', '/');
+  hideTeam();
+  showMainContent();
 
+}
 function handleLogoClick(event) {
   // event.preventDefault();
   window.history.pushState({}, "", "/");
@@ -391,6 +392,6 @@ export {
   handleContactUsButtonClicked,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
-  // handleTeamButtonClick,
+  handleTeamButtonClick,
   TeamtoHomeButtonClick
 };

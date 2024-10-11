@@ -121,11 +121,11 @@
   .codeutsava__Executive:hover {
     top: 0px;
   }
-  .ig-execs{
+  .ig-execs,.lkdn-execs{
     color: rgb(216, 241, 113);
     font-size: 3em;
   }
-  .ig-execs:hover{
+  .ig-execs,.lkdn-execs:hover{
     color: white;
   }
   @keyframes fadeIn {
