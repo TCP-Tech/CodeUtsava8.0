@@ -17,7 +17,7 @@ const team = document.getElementById("cu-team");
 const nav = document.getElementById("navbar-team");
 const countDown = document.getElementById("cu-countDown");
 const foot = document.getElementById("footer-routing-container");
-const teamFoot = document.getElementById("footer-routing-container-team");
+// const teamFoot = document.getElementById("footer-routing-container-team");
 
 function changeAudioSource() {
     audio.src = "/assets/sounds/gameSounds/gameMusic.mp3";
@@ -65,8 +65,8 @@ function showTeam() {
     mainContent.style.display = "none";
     introScreen.style.display = "none";
     nav.style.display = 'none';
-    foot.style.display='none';
-    teamFoot.style.display = 'none';
+    // foot.style.display='none';
+    // teamFoot.style.display = 'none';
     const dynamicContent = document.querySelector(
       ".codeutsava__routing_container"
     );
