@@ -223,39 +223,23 @@
   animation-delay: 1s;
 } */
 
-@media screen and (min-width: 1000px) {
-  .managerCard-TeamTCP:hover .managerCardFront-TeamTCP {
-    transform: rotateY(180deg);
-    transition: transform 0.5s;
-    animation-delay: 1s;
-  }
-
-  .managerCard-TeamTCP:hover .managerCard-TeamTCP {
-    transform: rotateY(180deg);
-    transition: transform 0.5s;
-    animation-delay: 1s;
-  }
-
-  .managerCard-TeamTCP:hover .managerCardBack-TeamTCP {
-    transform: rotateY(0deg);
-    transition: transform 0.5s;
-    animation-delay: 1s;
-  }
+.managerCard-TeamTCP:hover .managerCardFront-TeamTCP {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+  animation-delay: 1s;
 }
 
-.managerCardFront-TeamTCP .btn-socialHandles-mangerCard {
-  display: none;
+.managerCard-TeamTCP:hover .managerCard-TeamTCP {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+  animation-delay: 1s;
 }
 
-@media screen and (max-width: 1000px) {
-  .managerCardFront-TeamTCP .btn-socialHandles-mangerCard {
-    display: flex;
-  }
-  .btn-socialHandles-mangerCard a {
-    font-size: 2rem;
-  }
-  .btn-socialHandles-mangerCard {
-    margin-top: 15px;
-    width: 60%;
-  }
+.managerCard-TeamTCP:hover .managerCardBack-TeamTCP {
+  transform: rotateY(0deg);
+  transition: transform 0.5s;
+  animation-delay: 1s;
 }
+
+
+
