@@ -36,7 +36,7 @@ export class Game {
     this.img.src = character;
     this.messageText = "";
     this.currentCharacterIndex = 0;
-    this.obstacle = new Audio('https://us-tuna-sounds-files.voicemod.net/29d44834-15b0-4e05-8ee5-c97f1affe05e.mp3');
+    this.obstacle = new Audio('/assets/sounds/gameSounds/soundwinning.wav');
     this.obstacle.load();
 
     window.addEventListener("keydown", (event) => keyDownListener(event, this.keyPresses));
