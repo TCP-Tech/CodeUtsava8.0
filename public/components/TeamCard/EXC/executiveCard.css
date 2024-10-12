@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 300px;
+    width: 330px;
     border-image: linear-gradient(to bottom, #03720ea9 0%, #2e98009b 100%) 1;
     background-image: url("../../../assets/images/execs-bg.png");
     clip-path: polygon(
