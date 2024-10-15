@@ -45,7 +45,7 @@
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-  width: 225%; 
+  width: 240%; 
   animation: scrollInfinite 40s linear infinite;
 }
 
@@ -85,6 +85,7 @@
   }
 
   .codeutsava__sponsers-carousel {
+    width: 300%; 
     animation-duration: 30s; 
   }
 
@@ -109,7 +110,7 @@
   }
 
   .codeutsava__sponsers-carousel {
-    width: 240%; 
+    width: 300%; 
     animation-duration: 25s; 
   }
 
@@ -123,6 +124,6 @@
   }
 
   .codeutsava_sponsors_image {
-    height: 40px;
+    height: 50px;
   }
 }
