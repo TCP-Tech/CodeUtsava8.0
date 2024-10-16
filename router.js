@@ -9,6 +9,7 @@ const routingContainer = document.querySelector(".codeutsava__routing_container"
 const backgroundMusic = document.getElementById("backgroundMusic");
 var audio = document.getElementById("backgroundMusic");
 const merch = document.getElementById("cu-merchandise");
+const events = document.getElementById("cu-events");
 const faq = document.getElementById("cu-faq");
 const contact = document.getElementById("cu-contact");
 const errorPage = document.getElementById("codeutsava-404_page");
@@ -149,6 +150,7 @@ function handleGoBackToHomePageButtonClicked(event) {
   showMainContent();
   hideGameCanvas();
   // hideMerch();
+  // hideEvents();
   hideFaq();
   // backgroundMusic.play();
 }
@@ -157,6 +159,12 @@ function handleMerchButtonClick(event) {
   event.preventDefault();
   window.history.pushState({}, "", "/merch");
   showMerch();
+}
+
+function handleEventsButtonClick(event) {
+  event.preventDefault();
+  window.history.pushState({}, "", "/events");
+  showEvents();
 }
 
 function handleFaqButtonClick(event) {
@@ -218,6 +226,7 @@ function showMerch() {
   hideContact();
   hide404Page();
   hideTeam();
+  //hideEvents();
   hideCountDown()
   setTimeout(() => {
     mainContent.style.display = "none";
@@ -232,6 +241,26 @@ function showMerch() {
   }, 0);
 }
 
+function showEvents() {
+  hideFaq();
+  hideContact();
+  hide404Page();
+  hideTeam();
+  hideCountDown();
+  //hideMerch();
+  setTimeout(() => {
+    mainContent.style.display = "none";
+    introScreen.style.display = "none";
+    const dynamicContent = document.querySelector(
+      ".codeutsava__routing_container"
+    );
+    if (dynamicContent) {
+      dynamicContent.style.display = "block";
+    }
+    events.style.display = "block";
+  }, 0);
+}
+
 // function hideMerch() {
 //   setTimeout(() => {
 //     merch.style.display = "none";
@@ -243,10 +272,24 @@ function showMerch() {
 //     }
 //   }, 0);
 // }
+
+// function hideEvents() {
+//   setTimeout(() => {
+//     events.style.display = "none";
+//     const dynamicContent = document.querySelector(
+//       ".codeutsava__routing_container"
+//     );
+//     if (dynamicContent) {
+//       dynamicContent.style.display = "none";
+//     }
+//   }, 0);
+// }
+
 function show404Page() {
   // hideFaq();
   // hideContact();
   // hideMerch();
+  // hideEvents();
   
   setTimeout(() => {
     mainContent.style.display = "none";
@@ -301,6 +344,7 @@ function hideFaq() {
 
 function showContact() {
   // hideMerch();
+  // hideEvents();
   hideFaq();
   hide404Page();
   hideTeam();
@@ -340,6 +384,7 @@ function handleRouteChange() {
   } else if (currentPath === "/") {
     showMainContent();
     // hideMerch();
+    // hideEvents();
     hideFaq();
     hideGameCanvas();
     hideContact();
@@ -357,7 +402,10 @@ function handleRouteChange() {
   } else if (currentPath === "/merch") {
     showMerch();
     console.log("done");
-  } else if(currentPath === "/team"){
+  }else if(currentPath === "/events") {
+    showEvents();
+    console.log("done"); 
+  }else if(currentPath === "/team"){
     showTeam();
     console.log("done");
   }  else if (currentPath === "/faq") {
@@ -391,6 +439,7 @@ export {
   handleRouteChange,
   handleStartButtonClick,
   handleMerchButtonClick,
+  handleEventsButtonClick,
   handleFaqButtonClick,
   handleContactUsButtonClicked,
   handleLogoClick,

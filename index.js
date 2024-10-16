@@ -2,6 +2,7 @@ import {
   handleRouteChange,
   handleStartButtonClick,
   handleMerchButtonClick,
+  handleEventsButtonClick,
   handleFaqButtonClick,
   handleLogoClick,
   handleGoBackToHomePageButtonClicked,
@@ -101,6 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
         //   "/components/Merchandise/merchandise.html",
         //   "cu-merchandise"
         // ),
+        // loadComponent(
+        //   "/components/Events/events.html",
+        //   "cu-events"
+        // ),
         loadComponent("/components/Faq/faq.html", "cu-faq"),
         loadComponent("/components/Contact Us/contactUs.html", "cu-contact"),
         loadComponent(
@@ -148,6 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const merch = document.querySelector(".merch-cu");
       if (merch) {
         merch.addEventListener("click", handleMerchButtonClick);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      const events = document.querySelector(".events-cu");
+      if (events) {
+        events.addEventListener("click", handleEventsButtonClick);
       }
     }, 1000);
 
