@@ -1,0 +1,95 @@
+.cu-event-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
+    padding-top: 70px;
+    cursor: url('./assets/images/pointer2.png'), pointer;
+}
+
+.cu-event-container {
+    color: white;
+    height: auto;
+    width: 90vw;
+    padding: 10px;
+    backdrop-filter: blur(25px);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.cu-event-left-section {
+    display: flex;
+    justify-content: start;
+}
+
+.cu-event-poster-image {
+    width: 450px;
+    height: 400px;
+    margin-right: 50px;
+    border-radius: 15px;
+}
+
+.cu-event-right-section {
+    max-width: 800px;
+    text-align: left;
+}
+
+.cu-event-title {
+    font-size: 23px;
+    font-weight: 600;
+    text-shadow: 2.85px 2.85px 0.532px black;
+    color: var(--primary-c);
+}
+
+.cu-event-description {
+    font-size: 21px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 2.85px 2.85px 0.532px black;
+}
+
+.cu-event-deadline p {
+    font-size: 15px;
+    color: white;
+    font-weight: 600;
+}
+
+.cu-register-button {
+    background-color: var(--primary-c);
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cu-register-button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1000px) {
+    .cu-event-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cu-event-poster-image {
+        width: 70vw;
+        margin-right: 0;
+    }
+
+    .cu-event-right-section {
+        text-align: center;
+    }
+
+    .cu-register-button {
+        font-size: 16px;
+    }
+}
