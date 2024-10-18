@@ -85,7 +85,7 @@
   }
 
   .codeutsava__sponsers-carousel {
-    width: 300%; 
+    width: 380%; 
     animation-duration: 30s; 
   }
 
@@ -110,7 +110,37 @@
   }
 
   .codeutsava__sponsers-carousel {
-    width: 300%; 
+    width: 420%; 
+    animation-duration: 25s; 
+  }
+
+  .codeutsava__sponsers-carousel-item {
+    margin: 1rem 1rem; 
+    height: 60px;
+  }
+
+  .codeutsava__sponsers-carousel-item img {
+    width: 80px;
+  }
+
+  .codeutsava_sponsors_image {
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .codeutsava_sponsers_heading {
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  .codeutsava_sponsors_subheading {
+    font-size: 1.2em;
+    margin: 15px 20px;
+  }
+
+  .codeutsava__sponsers-carousel {
+    width: 460%; 
     animation-duration: 25s; 
   }
 
