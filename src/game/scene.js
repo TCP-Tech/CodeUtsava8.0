@@ -92,7 +92,7 @@ const collisionTextTriggers = {
   map5: [
     {
       obstacleType: 'reception',
-      message: ["Here are the problem statements for codeutsava's 8th edition.... "],
+      message: ["Hello there! Looks like you are ready to solve the challenging problems. "],
       hasShown: false,
       async getElement() {
         return await fetchHTML('../../gameCollisionComponents/firstFloor/ProblemStatements/page.html');
