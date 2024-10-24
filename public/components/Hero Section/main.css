@@ -442,6 +442,7 @@ button.codeutsava__section1-intro-audio-btn {
   .mobile-message {
     display: block;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
