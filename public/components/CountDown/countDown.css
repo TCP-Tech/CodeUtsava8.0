@@ -67,8 +67,17 @@
   #countDown-message {
     margin-top: 10px;
     font-weight: bold;
+    animation: blink 0.5s infinite alternate;
     color: red;
   }
+  @keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
   
   .start-countdown {
     width: 45%;

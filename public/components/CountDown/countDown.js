@@ -1,10 +1,11 @@
 document.addEventListener("contentsLoaded", async () => {
-    const messageElement = document.getElementById('message');
+    const messageElement = document.getElementById('countDown-message');
     const startButton = document.getElementById('start-button');
     let clock;  
     let countdownInterval;
     const baseUrl = "https://codeutsava.nitrr.ac.in/server/";
     const countdownDuration = 28 * 60 * 60 * 1000; 
+    // const countdownDuration =  10 * 1000; 
     function initializeFlipClock(remainingTime) {
         const countdownSeconds = Math.floor(remainingTime / 1000);  
         clock = $('#flipclock').FlipClock(countdownSeconds, {
@@ -66,7 +67,8 @@ document.addEventListener("contentsLoaded", async () => {
                 initializeFlipClock(remainingTime); 
                 // startCountdown(remainingTime);  
             } else {
-                messageElement.textContent = "Countdown is over!";
+                messageElement.textContent = "GAME OVER: Hackathon Complete! You’ve Leveled Up!";
+                messageElement.style.fontSize = "1.5rem";
                 startButton.style.display = 'none'; 
             }
         }
