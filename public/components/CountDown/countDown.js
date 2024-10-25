@@ -24,11 +24,13 @@ document.addEventListener("contentsLoaded", async () => {
         }
     }
     async function setCounterData(flag, startTime, endTime) {
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
         try {
             const response = await fetch(`${baseUrl}setcounter/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "X-CSRFToken": csrftoken  
                 },
                 body: JSON.stringify({ flag, startTime, endTime }),
             });
@@ -38,6 +40,7 @@ document.addEventListener("contentsLoaded", async () => {
             return null;
         }
     }
+    
     startButton.addEventListener('click', async () => {
         const counterData = await fetchCounterData();
         if (counterData && !counterData.flag) { 
